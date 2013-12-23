@@ -1,0 +1,99 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+        <noscript>
+            <h2 class="has-error">
+                JavaScript required
+            </h2>
+
+            <p class="has-error">
+                JavaScript has to be enabled to play this game.
+            </p>
+        </noscript>
+
+        {{#unless user}}
+            <h2>Login</h2>
+
+            <p>
+                You will not be able to play without logging in.<br/>
+                Logging in is free and painless - just select a name!
+            </p>
+
+            <form autocomplete="on" method="post" id="login" action="/user/login">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+
+                <input type="hidden" id="redirect" name="redirect" value="{{{loginRedirect}}}">
+
+                <input type="submit" value="Login">
+            </form>
+
+            <p>
+                <strong>Coming soon</strong>: Nick registration, yay!
+            </p>
+        {{/unless}}
+
+        <h2 style="color: red; font-weight: bold">
+            If something seems broken please take a screenshot and <a href="/info/contact">let me know!</a>
+            <small>Thanks. :3</small>
+        </h2>
+        <h3>
+            (Reloading the page should fix it)
+        </h3>
+
+        {{#if user}}
+            <a href="/game/create">
+                <h2 class="button-play">
+                    <i class="glyphicon glyphicon-plus"></i>&nbsp;Host
+                </h2>
+            </a>
+
+            <a href="/games">
+                <h2 class="button-play">
+                    <i class="glyphicon glyphicon-ok"></i>&nbsp;Play
+                </h2>
+            </a>
+        {{/if}}
+
+        <h2>Changes</h2>
+        {{#each changes}}
+            <h3>{{{date}}}</h3>
+            <ul>
+                {{#each this.changes}}
+                    <li>{{{this}}}</li>
+                {{/each}}
+            </ul>
+        {{/each}}
+
+        <a href="/info/changes">Full change log</a>
+
+        <h2>About / Licenses</h2>
+
+        <p>
+            Cards Against Equestria is a <a href="http://cardsagainsthumanity.com/">Cards Against Humanity</a>
+            clone.<br/>
+            Cards Against Humanity is a trademark of Cards Against Humanity LLC. Cards Against Humanity LLC does not
+            endorse or sponsor this clone.
+        </p>
+        <p>
+            <a href="http://cardsagainsthumanity.com/">Cards Against Humanity</a> is available under a
+            <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">Creative Commons BY-NC-SA 2.0 license</a>.
+        </p>
+
+        <p>
+            Cards Against Equestria is licensed under a
+            <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">Creative Commons BY-NC-SA 2.0 license</a>
+            and was written by <a href="/info/about">Rylius</a>.
+            Source code is available on <a href="https://github.com/Rylius/CardsAgainstEquestria">GitHub</a>.
+        </p>
+
+        <p>
+            <a href="/info/about">About</a>
+            -
+            <a href="/info/license">Licenses</a>
+            -
+            <a href="/info/contact">Contact</a>
+        </p>
+    {{/replace}}
+
+{{/extend}}

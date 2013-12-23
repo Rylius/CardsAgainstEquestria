@@ -1,0 +1,210 @@
+{
+    "name": "Second Expansion",
+    "description": "The official Second Expansion.",
+    "watermark": "",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "During his midlife crisis, my dad got really into ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "____ would be woefully incomplete without ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "My new favorite porn star is Joey ____ McGee.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Before I run for president, I must destroy all evidence of my involvement with ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "This is your captain speaking. Fasten your seatbelts and prepare for ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "In his newest and most difficult stunt, David Blaine must escape from ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "The Five Stages of Grief: denial, anger, bargaining, ____, acceptance.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "My mom freaked out when she looked at my browser history and found ____.com/____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "I went from ____ to ____, all thanks to ____.",
+            "draw": 2,
+            "pick": 3
+        },
+        {
+            "text": "Members of New York's social elite are paying thousands of dollars just to experience ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "This month's Cosmo: Spice up your sex life by bringing ____ into the bedroom.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Little Miss Muffet Sat on a tuffet, Eating her curds and ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "If God didn't want us to enjoy ____, he wouldn't have given us ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "My country, 'tis of thee, sweet land of ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "After months of debate, the Occupy Wall Street General Assembly could only agree on More ____!",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "I spent my whole life working toward ____, only to have it ruined by ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Next time on Dr. Phil: How to talk to your child about ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Only two things in life are certain: death and ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Everyone down on the ground! We don't want to hurt anyone. We're just here for ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "The healing process began when I joined a support group for victims of ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "The votes are in, and the new high school mascot is ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Charades was ruined for me forever when my mom had to act out ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Before ____, all we had was ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Tonight on 20/20: What you don't know about ____ could kill you.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "You haven't truly lived until you've experienced ____ and ____ at the same time.",
+            "draw": 0,
+            "pick": 2
+        }
+    ],
+    "whiteCards": [
+        "A soulful rendition of Ol' Man River.",
+        "Intimacy problems.",
+        "A sweaty, panting leather daddy.",
+        "Spring break!",
+        "Being awesome at sex.",
+        "Dining with cardboard cutouts of the cast of Friends.",
+        "Another shot of morphine.",
+        "Bullshit.",
+        "The Google.",
+        "The new Radiohead album.",
+        "An army of skeletons.",
+        "A man in yoga pants with a ponytail and feather earrings.",
+        "Mild autism.",
+        "Nunchuck moves.",
+        "Whipping a disobedient slave.",
+        "An ether-soaked rag.",
+        "A sweet spaceship.",
+        "A 55-gallon drum of lube.",
+        "Special musical guest, Cher.",
+        "The human body.",
+        "Boris the Soviet Love Hammer.",
+        "The grey nutrient broth that sustains Mitt Romney.",
+        "Tiny nipples.",
+        "Power.",
+        "Oncoming traffic.",
+        "A dollop of sour cream.",
+        "A slightly shittier parallel universe.",
+        "My first kill.",
+        "Graphic violence, adult language, and some sexual content.",
+        "Fetal alcohol syndrome.",
+        "The day the birds attacked.",
+        "One Ring to rule them all.",
+        "Grandpa's ashes.",
+        "Basic human decency.",
+        "A Burmese tiger pit.",
+        "Death by Steven Seagal.",
+        "A bigger, blacker dick.",
+        "A sad fat dragon with no friends.",
+        "Catastrophic urethral trauma.",
+        "Hillary Clinton's death stare.",
+        "Existing.",
+        "Mooing.",
+        "Swiftly achieving orgasm.",
+        "Daddy's belt.",
+        "Double penetration.",
+        "Weapons-grade plutonium.",
+        "Some really fucked-up shit.",
+        "Subduing a grizzly bear and making her your wife.",
+        "Rising from the grave.",
+        "The mixing of the races.",
+        "Taking a man's eyes and balls out and putting his eyes where his balls go and then his balls in the eye holes.",
+        "Scrotal frostbite.",
+        "All of this blood.",
+        "Loki, the trickster god.",
+        "Whining like a little bitch.",
+        "Pumping out a baby every nine months.",
+        "Tongue.",
+        "Finding Waldo.",
+        "Upgrading homeless people to mobile hotspots.",
+        "Wearing an octopus for a hat.",
+        "An unhinged ferris wheel rolling toward the sea.",
+        "Living in a trashcan.",
+        "The corporations.",
+        "A magic hippie love cloud.",
+        "Fuck Mountain.",
+        "Survivor's guilt.",
+        "Me.",
+        "Getting hilariously gang-banged by the Blue Man Group.",
+        "Jeff Goldblum.",
+        "Making a friend.",
+        "Beefin' over turf.",
+        "A squadron of moles wearing aviator goggles.",
+        "The mere concept of Applebee's&reg;.",
+        "A pi&ntilde;ata full of scorpions.",
+        "Pretty Pretty Princess Dress-Up Board Game&reg;."
+    ]
+}

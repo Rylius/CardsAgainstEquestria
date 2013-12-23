@@ -1,0 +1,90 @@
+[
+    {
+        "date": "Dec 23, 2013",
+        "version": "0.3.1",
+        "changes": [
+            "Various UI fixes",
+            "Fixed critical issue when all players left a game"
+        ]
+    },
+    {
+        "date": "Dec 23, 2013",
+        "version": "0.3.0",
+        "changes": [
+            "Revamped game list",
+            "Enabled return key on invite page fields"
+        ]
+    },
+    {
+        "date": "Dec 22, 2013",
+        "changes": [
+            "Fixed passworded games",
+            "Various UI improvements"
+        ]
+    },
+    {
+        "date": "Dec 20, 2013",
+        "changes": [
+            "Added GitHub links",
+            "Fixed games not disappearing after they ended"
+        ]
+    },
+    {
+        "date": "Dec 14, 2013",
+        "version": "0.2.0",
+        "changes": [
+            "Added static pages/licensing info",
+            "Fixed user name not displaying in game lobby"
+        ]
+    },
+    {
+        "date": "Dec 13, 2013",
+        "changes": [
+            "Fixed login redirect",
+            "Added proper change log",
+            "Added fancy version number display"
+        ]
+    },
+    {
+        "date": "Dec 8, 2013",
+        "changes": [
+            "Fixed joining games in progress",
+            "Fixed leaving games in progress"
+        ]
+    },
+    {
+        "date": "Dec 2, 2013",
+        "changes": [
+            "Fixed played cards layout",
+            "Fixed more UI issues",
+            "LIST ENTRIES ARE NOW COMMA SEPARATED WOOT",
+            "Fixed logout button while playing",
+            "Added \"Leave game\" button"
+        ]
+    },
+    {
+        "date": "Nov 16/17, 2013",
+        "changes": [
+            "Added invite links",
+            "Kind of fixed joining games in progress",
+            "Fixed various game UI issues",
+            "Added all card sets and expansions"
+        ]
+    },
+    {
+        "date": "Nov 3, 2013",
+        "version": "0.1.0",
+        "changes": [
+            "First semi-public test!",
+            "Stuff broke.</li></ul><ul><li>Fixed user sessions",
+            "Fixed user sessions for real",
+            "Players will now be removed from games on timeout"
+        ]
+    },
+    {
+        "date": "Oct 2, 2013",
+        "changes": [
+            "I started making this! Wooh!"
+        ]
+    }
+]

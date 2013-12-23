@@ -1,0 +1,22 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+        <h2>Changes</h2>
+        {{#each changes}}
+            <h3>
+                {{{date}}}
+                {{#if version}}
+                    <small>
+                        v{{this.version}}
+                    </small>
+                {{/if}}
+            </h3>
+            <ul>
+                {{#each this.changes}}
+                    <li>{{{this}}}</li>
+                {{/each}}
+            </ul>
+        {{/each}}
+    {{/replace}}
+
+{{/extend}}

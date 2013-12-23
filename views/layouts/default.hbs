@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css"/>
+
+    {{#block 'head'}}
+        <title>Cards Against Equestria</title>
+    {{/block}}
+
+    <script src="/js/vendor/jquery-2.0.3.js"></script>
+
+    {{> derp2}}
+</head>
+<body>
+
+<div id="content-wrap">
+
+    <div class="navbar">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                Cards Against Equestria
+                <small>{{version}}</small>
+            </a>
+        </div>
+
+        <div>
+            {{#if user}}
+                <ul class="nav navbar-nav">
+                    {{#block 'navLeft'}}
+                        <li>
+                            <a href="/games">Join</a>
+                        </li>
+
+                        <li>
+                            <a href="/game/create">Create</a>
+                        </li>
+                    {{/block}}
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    {{#block 'navRight'}}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                {{user.name}}
+                                <b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                {{#if user.registered}}
+                                    <li>
+                                        <a href="#">Settings</a>
+                                    </li>
+                                {{/if}}
+                                {{#unless user.registered}}
+                                    <li class="disabled">
+                                        <a href="#">
+                                            Register
+                                            <small>(Coming soon!)</small>
+                                        </a>
+                                    </li>
+                                {{/unless}}
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="/user/logout" onclick="{{#block 'logoutOnclick'}}{{/block}}">
+                                        Log out
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    {{/block}}
+                </ul>
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!--[if lt IE 8]>
+        <div class="alert alert-danger">
+            You are using an <strong>outdated</strong> browser.
+            Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+        </div>
+        <![endif]-->
+
+        {{#if success}}
+            <div class="alert alert-success">
+                {{success}}
+            </div>
+        {{/if}}
+
+        {{#if info}}
+            <div class="alert alert-info">
+                {{info}}
+            </div>
+        {{/if}}
+
+        {{#if warning}}
+            <div class="alert alert-warning">
+                {{warning}}
+            </div>
+        {{/if}}
+
+        {{#if error}}
+            <div class="alert alert-danger">
+                {{error}}
+            </div>
+        {{/if}}
+
+        {{#block 'content'}}
+        {{/block}}
+
+    </div>
+
+</div>
+
+{{#block 'defer'}}
+    <script src="/js/vendor/bootstrap/dropdown.js"></script>
+    <script src="/js/vendor/bootstrap/collapse.js"></script>
+    <script src="/js/vendor/bootstrap/tab.js"></script>
+    <script src="/js/vendor/bootstrap/transition.js"></script>
+
+    <script src="/js/vendor/underscore-1.5.2.js"></script>
+    <script src="/js/vendor/knockout-2.3.0.js"></script>
+{{/block}}
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+@import "bootstrap/bootstrap";
+
+@card-size: 200px;
+@card-small-size: 100px;
+
+.host {
+  font-weight: bold;
+}
+
+.game-list {
+
+  .game {
+    margin-bottom: 20px;
+
+    button {
+      width: 100%;
+    }
+
+    span {
+      width: 100%;
+    }
+  }
+}
+
+form {
+  h2 {
+    cursor: pointer;
+  }
+}
+
+.card {
+  width: @card-size;
+  min-width: @card-size;
+  max-width: @card-size;
+  height: @card-size;
+  min-height: @card-size;
+  max-height: @card-size;
+
+  padding: 20px;
+
+  font-size: 14px;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+
+  overflow: hidden;
+
+  > .watermark {
+    position: absolute;
+    bottom: 20px;
+
+    font-size: 12px;
+  }
+}
+
+.card-small {
+  .make-xs-column(1);
+
+  width: @card-small-size;
+  height: @card-small-size;
+
+  margin: 4px;
+
+  padding: 10px;
+
+  font-size: 10px;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+
+  overflow: hidden;
+
+  > .watermark {
+    position: absolute;
+    bottom: 10px;
+
+    font-size: 8px;
+  }
+}
+
+.card-selected {
+  background-color: @brand-info !important;
+}
+
+.black-card {
+  background-color: black;
+  color: white;
+}
+
+.white-card {
+  background-color: white;
+  color: black;
+
+  border: 1px solid black;
+}
+
+#cards-table {
+  float: left;
+  display: inline-block;
+
+  .black-card {
+    float: left;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .move {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+    .played-card {
+      display: inline-block;
+      float: left;
+      margin-right: 5px;
+    }
+  }
+}
+
+.confirm {
+  margin-bottom: 20px;
+  > button {
+    margin-right: 10px;
+  }
+}
+
+#hand {
+  .make-row();
+
+  margin-bottom: 20px;
+}
+
+#scoreboard {
+  .make-xs-column(3);
+
+  .player {
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+  }
+}
+
+#chats {
+  .make-xs-column(9);
+
+  > #chat {
+    .nav;
+    .nav-tabs;
+  }
+}

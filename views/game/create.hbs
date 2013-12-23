@@ -1,0 +1,40 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+        <form id="create" method="post" class="form-horizontal" data-bind="if: game">
+            <h1>Host a new game</h1>
+
+            <p class="todo">
+                general crap no one reads anyway
+            </p>
+
+            <p class="todo">
+                potential error messages (already hosting a game, maximum games reached, whatever)
+            </p>
+
+            <input type="submit" id="submit" value="Create game">
+        </form>
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script src="/js/constants.js"></script>
+        <script src="/js/view/game.js"></script>
+
+        <script>
+            $(function () {
+                $('#submit').click(function () {
+
+                    $.ajax('/ajax/game/create', {
+                        method: 'post',
+                        success: function (data) {
+                            window.location.href = '/game/lobby/' + data.id;
+                        }
+                    });
+
+                    return false;
+                });
+            });
+        </script>
+    {{/append}}
+
+{{/extend}}

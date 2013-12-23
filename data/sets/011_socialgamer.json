@@ -1,0 +1,41 @@
+{
+    "name": "SocialGamer",
+    "description": "Custom cards from the <a href=\"http://socialgamer.net/\">SocialGamer.net</a> community.",
+    "watermark": "",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "____ is the name of my ____ cover band.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Alcoholic games of Clue&reg; lead to ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "____.tumblr.com",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "____ with ____ in ____.",
+            "draw": 2,
+            "pick": 3
+        }
+    ],
+    "whiteCards": [
+        "The sound a single ThunderStix&reg; makes.",
+        "The Chilled Knife.",
+        "Dr. Phil.",
+        "Paul and Storm.",
+        "Jonathan Coulton.",
+        "MC Frontalot.",
+        "Pretending you're Xyzzy.",
+        "Cleveland (it's not Detroit!).",
+        "The best card in my hand.",
+        "The biggest, blackest dick.",
+        "Suddenly realizing you're retarded."
+    ]
+}

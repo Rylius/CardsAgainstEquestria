@@ -1,0 +1,56 @@
+{
+    "name": "Canadian",
+    "description": "Cards included in Canadian orders.",
+    "watermark": "",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "O Canada, we stand on guard for ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Air Canada guidelines now prohibit ____ on airplanes.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "In an attempt to reach a wider audience, the Royal Ontario Museum has opened an interactive exhibit on ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "CTV presents ____, the story of ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "What's the Canadian government using to inspire rural students to succeed?",
+            "draw": 0,
+            "pick": 1
+        }
+    ],
+    "whiteCards": [
+        "Mr. Dressup.",
+        "Being Canadian.",
+        "The Famous Five.",
+        "Stephen Harper.",
+        "The Royal Canadian Mounted Police.",
+        "An icy handjob from an Edmonton hooker.",
+        "Poutine.",
+        "Newfies.",
+        "The Official Languages Act. La Loi sur les langues officielles.",
+        "Terry Fox's prosthetic leg.",
+        "The FLQ.",
+        "Canada: America's Hat.",
+        "Don Cherry's wardrobe.",
+        "Burning down the White House.",
+        "Heritage minutes.",
+        "Homo milk.",
+        "Naked News.",
+        "Syrupy sex with a maple tree.",
+        "Snotsicles.",
+        "Schmirler the Curler.",
+        "A Molson muscle."
+    ]
+}

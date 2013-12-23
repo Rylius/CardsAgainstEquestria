@@ -1,0 +1,17 @@
+{
+    "port": 8093,
+    "trustProxy": true,
+    "env": "development",
+    "sessionSecret": "as2h34dg13aabtzusgdu2343",
+    "revisionCommand": "hg log -l1 --template '{rev}'",
+    "files": {
+        "sets": "data/sets",
+        "expansions": "data/expansions"
+    },
+    "less": {
+        "once": false,
+        "compress": false,
+        "yuicompress": false,
+        "optimization": 0
+    }
+}

@@ -1,0 +1,106 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+        <div class="row">
+            <div class="col-xs-1">
+                <button data-bind="click: loadGames, disable: loading">
+                    Refresh
+                </button>
+            </div>
+
+            <div class="col-xs-11" data-bind="if: loading">
+                {{ajaxLoader}}
+                Loading list...
+            </div>
+
+            <div class="col-xs-11" data-bind="if: !loading()">
+                <span class="todo">filters/sorting</span>
+            </div>
+        </div>
+
+        <div data-bind="if: games().length == 0 && !loading()">
+            No games found! <a href="/game/create">Start one?</a>
+        </div>
+
+        <div class="col-xs-6 game-list" data-bind="foreach: games">
+            <div class="game">
+                <div class="left">
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 data-bind="text: title"></h4>
+
+                            <p>
+                                <strong>Players:</strong>
+
+                                <span data-bind="html: formatPlayers"></span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <strong>Sets:</strong>
+
+                            <span data-bind="html: formatSets"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <strong>Expansions:</strong>
+
+                            <span data-bind="html: formatExpansions"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <div class="join">
+                        <div class="state">
+                            <h4 data-bind="text: stateText"></h4>
+                        </div>
+
+                        <div class="button">
+                            <button data-bind="enable: !full() && !$root.loading() && (!passworded() || password()), click: function () { $root.join($data); }">
+                                Join
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ko if: passworded -->
+                    <div class="password-form">
+                        <div>
+                            <label>
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </label>
+
+                            <div>
+                                <input type="password" id="password"
+                                       data-bind="value: password, valueUpdate: 'afterkeydown', returnAction: function () { $root.join($data); }, disable: $root.loading">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </div>
+
+            </div>
+        </div>
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script src="/js/knockout.js"></script>
+        <script src="/js/constants.js"></script>
+        <script src="/js/view/game.js"></script>
+
+        <script>
+            $(function () {
+                model = new GameListViewModel({{{sets}}});
+                ko.applyBindings(model);
+
+                model.loadGames();
+            });
+        </script>
+    {{/append}}
+
+{{/extend}}

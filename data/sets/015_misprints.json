@@ -1,0 +1,24 @@
+{
+    "name": "Misprint Replacement Bonus Pack",
+    "description": "Bonus cards included with replacements for misprinted cards.",
+    "watermark": "",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "Daddy, why is Mommy crying?",
+            "draw": 0,
+            "pick": 1
+        }
+    ],
+    "whiteCards": [
+        "A bitch slap.",
+        "One trillion dollars.",
+        "Chunks of dead prostitute.",
+        "The entire Mormon Tabernacle Choir.",
+        "The female orgasm.",
+        "Extremely tight pants.",
+        "Stormtroopers.",
+        "The Boy Scouts of America.",
+        "Throwing a virgin into a volcano."
+    ]
+}

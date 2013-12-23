@@ -1,0 +1,120 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+        <!-- ko with: game -->
+
+        <h1 data-bind="text: name"></h1>
+
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>
+                            <strong>
+                                Players (<span data-bind="text: players().length"></span>/<span
+                                    data-bind="text: playerLimit"></span>):
+                            </strong>
+
+                            <span data-bind="html: formatPlayers"></span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p class="col-xs-12">
+                        <strong>Goal:</strong>
+
+                        <span data-bind="text: scoreLimit"></span>
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <strong>Sets:</strong>
+
+                        <span data-bind="html: model.formatSets"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p class="col-xs-12">
+                        <strong>Expansions:</strong>
+
+                        <span data-bind="html: model.formatExpansions"></span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- /ko -->
+
+        {{#unless user}}
+            <!-- ko if: game().players().length < game().playerLimit() -->
+            <div class="row">
+                <p class="col-xs-12">
+                    <label for="name">Your name:</label>
+                    <input type="text" maxlength="24" id="name"
+                           data-bind="value: name, valueUpdate: 'afterkeydown', returnAction: join, hasFocus: true, disable: loading">
+                </p>
+            </div>
+            <!-- /ko -->
+        {{/unless}}
+
+        <!-- ko if: game().passworded -->
+        <div class="row">
+            <p class="col-xs-12">
+                <label for="password">Game password:</label>
+                <input type="password" id="password"
+                       data-bind="value: password, valueUpdate: 'afterkeydown', returnAction: join, disable: loading">
+            </p>
+        </div>
+        <!-- /ko -->
+
+        <div class="row">
+            <p class="col-xs-12">
+                <button data-bind="enable: name() && game().players().length < game().playerLimit() && !loading(), click: join">
+                    Join game
+                </button>
+
+                <span data-bind="text: message, css: { 'has-error': error }"></span>
+            </p>
+        </div>
+
+        <h2>What is this?</h2>
+
+        <div class="row">
+            <div class="col-xs-12 todo">
+                game explanation and help links
+            </div>
+        </div>
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script src="/js/knockout.js"></script>
+        <script src="/js/constants.js"></script>
+        <script src="/js/view/game.js"></script>
+
+        <script>
+            $(function () {
+                model = {};
+                model = new JoinGameViewModel({{{sets}}});
+                ko.applyBindings(model);
+
+                model.game(new GameViewModel().fromJson({{{gameJson}}}));
+
+                {{#if user}}
+                    model.name('{{{user.name}}}');
+                    model.loggedIn(true);
+                {{/if}}
+
+                if (model.game().players().length >= model.game().playerLimit()) {
+                    model.message('Game is full');
+                    model.error(true);
+                }
+            });
+        </script>
+    {{/append}}
+
+{{/extend}}

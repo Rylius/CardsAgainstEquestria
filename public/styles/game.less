@@ -1,0 +1,55 @@
+@import "bootstrap/bootstrap";
+
+.game {
+  .make-row();
+
+  .left {
+    .make-xs-column(7);
+  }
+
+  .right {
+    .make-xs-column(5);
+
+    .join {
+      .make-row(0);
+
+      > .state {
+        .make-xs-column(6);
+        padding-right: 0;
+      }
+      > .button {
+        .make-xs-column(6);
+      }
+    }
+
+    .password-form {
+      .form-horizontal;
+
+      margin-top: 10px;
+
+      > div {
+        .form-group;
+
+        > label {
+          .make-xs-column(2);
+          .control-label;
+
+          > span {
+            .text-center;
+            .make-xs-column(2);
+
+            padding-left: 10px;
+          }
+        }
+
+        > div {
+          .make-xs-column(10);
+
+          > input {
+            .form-control;
+          }
+        }
+      }
+    }
+  }
+}

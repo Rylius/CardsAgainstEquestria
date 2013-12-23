@@ -1,0 +1,140 @@
+@import "bootstrap/bootstrap";
+@import "variables";
+@import "cards";
+@import "game";
+
+.navbar {
+  background-color: @navbar-default-bg;
+}
+
+.has-error {
+  color: @alert-danger-text;
+}
+
+.button-play {
+  .btn;
+  .btn-success;
+  .btn-lg;
+
+  min-width: 200px;
+}
+
+h2 {
+  > small {
+    > i {
+      .glyphicon;
+    }
+
+    > .open {
+      .glyphicon-chevron-down;
+    }
+    > .closed {
+      .glyphicon-chevron-right;
+    }
+  }
+}
+
+table {
+  .table;
+  .table-striped;
+  .table-hover;
+}
+
+.btn-success {
+  #gradient.vertical(@btn-success-bg, darken(@btn-success-bg, 15%), 20%);
+
+  border: 1px solid @btn-success-border;
+}
+
+button,
+input[type=submit] {
+  .btn;
+
+  #gradient.vertical(@btn-default-bg, darken(@btn-default-bg, 20%), 20%);
+
+  border: 1px solid @btn-default-border;
+}
+
+// Misc
+
+.todo {
+  border: 1px dashed red;
+}
+
+.todo:after {
+  margin-left: 10px;
+  color: red;
+  font-weight: bold;
+  content: "<-- work in progress";
+}
+
+// Disable responsiveness
+
+.container {
+  max-width: none !important;
+  width: 100%;
+}
+
+.navbar-header {
+  float: left;
+}
+
+.navbar-collapse {
+  display: block !important;
+  height: auto !important;
+  padding-bottom: 0;
+  overflow: visible !important;
+}
+
+.navbar-toggle {
+  display: none;
+}
+
+.navbar-nav {
+  float: left;
+  margin: 0;
+}
+
+.navbar-nav > li {
+  float: left;
+}
+
+.navbar-nav > li > a {
+  padding: 15px;
+}
+
+.navbar-nav.navbar-right {
+  float: right;
+}
+
+.navbar .open .dropdown-menu {
+  position: absolute;
+  float: left;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-width: 0 1px 1px;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.navbar .open .dropdown-menu > li > a {
+  color: #333;
+}
+
+.navbar .open .dropdown-menu > li > a:hover,
+.navbar .open .dropdown-menu > li > a:focus,
+.navbar .open .dropdown-menu > .active > a,
+.navbar .open .dropdown-menu > .active > a:hover,
+.navbar .open .dropdown-menu > .active > a:focus {
+  color: #fff !important;
+  background-color: #428bca !important;
+}
+
+.navbar .open .dropdown-menu > .disabled > a,
+.navbar .open .dropdown-menu > .disabled > a:hover,
+.navbar .open .dropdown-menu > .disabled > a:focus {
+  color: #999 !important;
+  background-color: transparent !important;
+}

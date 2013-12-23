@@ -1,0 +1,361 @@
+{{#extend 'layouts/default'}}
+
+    {{#prepend 'navRight'}}
+        <li>
+            <a href="#" onclick="leaveGame()" title="Leave game">
+                Leave game
+            </a>
+        </li>
+    {{/prepend}}
+
+    {{#replace 'logoutOnclick'}}
+        interruptListen()
+    {{/replace}}
+
+    {{#replace 'content'}}
+        <div data-bind="ifnot: game">
+            <h1>Host a new game</h1>
+
+            <p>
+                Loading game information...<br/><br/>
+                {{ajaxLoader}}
+            </p>
+        </div>
+
+        <form id="create" method="post" class="form-horizontal" data-bind="if: game">
+            <!-- ko if: isHost -->
+            <div class="row">
+                <div class="col-xs-8">
+                    <h1>Host a new game</h1>
+                </div>
+
+                <div class="col-xs-4 todo">
+                    Presets
+                </div>
+            </div>
+
+            <div class="row">
+                <p class="col-xs-12">
+                    <input type="submit" value="Start game"
+                           data-bind="enable: game().valid() && game().ready() && !starting(), click: start">
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-11">
+                <ul class="has-error">
+                    <!-- ko ifnot: game().valid -->
+                    <li class="">
+                        Set a name and select at least one card set first
+                    </li>
+                    <!-- /ko -->
+
+                    <!-- ko ifnot: game().ready -->
+                    <li class="" data-bind="">
+                        You need at least <span data-bind="text: neededPlayers"></span>
+                        other player<span data-bind="if: neededPlayers() != 1">s</span>
+                    </li>
+                    <!-- /ko -->
+                </ul>
+                </div>
+            </div>
+            <!-- /ko -->
+
+            <!-- ko ifnot: isHost -->
+            <h1>Lobby</h1>
+
+            <p>
+                Waiting for host to start the game...
+            </p>
+            <!-- /ko -->
+
+            <h2 data-bind="click: toggleArea" data-target="#basics">
+                Basics <small><i class="open"></i></small>
+            </h2>
+
+            <div id="basics" class="collapse in">
+                <div class="row">
+                    <div class="col-md-5" data-bind="css: { 'has-error': game().name().length == 0 }">
+                        {{input:text 'name' 'Name:' 'Click outside to apply' 'data-bind="value: game().name, enable: isHost"'}}
+                    </div>
+
+                    <div class="col-md-5">
+                        {{input:password 'password' 'Password:' 'Leave blank for public games' 'data-bind="value: game().password, enable: isHost"'}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        {{input:dropdown 'scoreLimit' scoreLimits defaultScore 'Score limit:' null 'data-bind="value: game().scoreLimit, enable: isHost"'}}
+                    </div>
+
+                    <div class="col-md-5">
+                        {{input:dropdown 'playerLimit' playerLimits defaultPlayers 'Player limit:' null 'data-bind="value: game().playerLimit, enable: isHost"'}}
+                    </div>
+                </div>
+            </div>
+
+            <h2 data-bind="click: toggleArea" data-target="#sets" data-bind="css: { 'has-error': game().sets().length == 0 }">
+                Card sets <small><i class="open"></i></small>
+            </h2>
+
+            <div id="sets" class="row collapse in">
+
+                <div class="col-md-6" data-bind="css: { 'has-error': game().sets().length == 0 }">
+                    <h3>Base sets</h3>
+
+                    <span class="help-block">
+                        Select one or more
+                    </span>
+
+                    <div data-bind="foreach: sets">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                       data-bind="value: id, checked: $root.game().sets, enable: $root.isHost">
+                                <strong><span data-bind="text: name"></span></strong>
+                            </label>
+                            -
+                            <span data-bind="html: description" style="overflow: hidden"></span>
+                        </div>
+                    </div>
+
+                    <!-- ko if: sets().length == 0 -->
+                    <div class="col-md-12">
+                        {{ajaxLoader}}
+                        Loading sets...
+                    </div>
+                    <!-- /ko -->
+                </div>
+
+                <div class="col-md-6">
+                    <h3>Expansions</h3>
+
+                    <span class="help-block">
+                        Select any number
+                    </span>
+
+                    <div data-bind="foreach: expansions">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                       data-bind="value: id, checked: $root.game().expansions, enable: $root.isHost">
+                                <strong><span data-bind="text: name"></span></strong>
+                            </label>
+                            -
+                            <span data-bind="html: description" style="overflow: hidden"></span>
+                        </div>
+                    </div>
+
+                    <!-- ko if: expansions().length == 0 -->
+                    <div class="col-md-12">
+                        {{ajaxLoader}}
+                        Loading expansions...
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+
+            <h2 data-bind="click: toggleArea" data-target="#rules">
+                House Rules <small><i class="closed"></i></small>
+            </h2>
+
+            <div id="rules" class="collapse">
+                <span class="help-block">
+                    Little teaser of what is to come~ (these are <strong>not</strong> implemented yet!)
+                </span>
+
+                <div class="row todo" data-bind="foreach: rulesRows()">
+                    <div class="col-xs-12">
+
+                        <div class="row" data-bind="foreach: $data">
+                            <div class="col-xs-3" data-bind="">
+                                <h3 data-bind="text: title"></h3>
+
+                                <p data-bind="html: description"></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <h2 data-bind="click: toggleArea" data-target="#players">
+                Players <small><i class="open"></i></small>
+            </h2>
+
+            <div id="players" class="collapse in">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <div class="form-group">
+                            <label for="invite" class="col-md-3 control-label">
+                                Invite link:
+                            </label>
+
+                            <div class="col-md-9">
+                                <input type="text" readonly id="invite" class="form-control"
+                                       data-bind="value: inviteLink" onclick="select()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-7">
+                        <a href="https://twitter.com/share" class="twitter-share-button"
+                           data-text="Play Cards Against Equestria with me!"
+                           data-size="large" data-count="none" data-dnt="true"
+                                data-bind="attr: { 'data-url': inviteLink }">
+                            Tweet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ko foreach: game().players -->
+                <div class="row">
+                    <div class="col-md-offset-1 col-xs-2"
+                         data-bind="text: name, css: { host: id == $root.game().host().id }"></div>
+
+                    <div class="col-xs-6 todo">
+                        <!-- ko if: $root.isHost -->
+                        <button data-bind="click: $root.kick, disable: id == $root.game().host().id">
+                            Kick
+                        </button>
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-xs-12">
+                    <ul class="nav nav-tabs" id="chat">
+                        <li>
+                            <a href="#chat-global" data-toggle="tab">Global Chat</a>
+                        </li>
+
+                        <li class="active">
+                            <a href="#chat-game" data-toggle="tab">Game Chat</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane todo" id="chat-global">
+                            global chat
+                        </div>
+                        <div class="tab-pane active todo" id="chat-game">
+                            game chat
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script src="/js/knockout.js"></script>
+
+        <script src="/js/constants.js"></script>
+        <script src="/js/view/game.js"></script>
+
+        <script>
+            currentListenRequest = null;
+
+            function listen() {
+                currentListenRequest = $.ajax('/ajax/game/{{{game.id}}}/listen', {
+                    success: function (data) {
+                        _.each(data, function (update) {
+                            model.handleUpdate(update);
+                        });
+                        setTimeout(listen, 1000);
+                    },
+                    error: function (xhr, status, error) {
+                        if (error == 'abort') {
+                            return;
+                        }
+
+                        console.log('Reloading page: ' + status + ': ' + error);
+                        window.location.reload();
+                    }
+                });
+            }
+
+            function interruptListen() {
+                if (currentListenRequest) {
+                    currentListenRequest.abort();
+                    console.log('Interrupted update listener');
+                }
+            }
+
+            function leaveGame() {
+                interruptListen();
+
+                $.ajax('/ajax/game/{{{game.id}}}/leave', {
+                    method: 'post',
+                    complete: function () {
+                        window.location = '/';
+                    }
+                });
+            }
+
+            function loadTwitter() {
+                !function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + '://platform.twitter.com/widgets.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, 'script', 'twitter-wjs');
+            }
+
+            $(function () {
+                $('.navbar a[href!=\'#\']').click(function () {
+                    interruptListen();
+                    return true;
+                });
+
+                model = new GameLobbyViewModel({{{userJson}}});
+                ko.applyBindings(model);
+
+                $.ajax('/ajax/game/{{{game.id}}}/info', {
+                    method: 'get',
+                    success: function (data) {
+                        model.game(new GameViewModel().fromJson(data));
+                        model.registerListener();
+
+                        loadTwitter();
+                    }
+                });
+
+                $.ajax('/ajax/game/sets', {
+                    method: 'get',
+                    success: function (data) {
+                        model.sets.removeAll();
+                        _.each(data.sets, function (cardSet) {
+                            model.sets.push(cardSet);
+                        });
+
+                        model.expansions.removeAll();
+                        _.each(data.expansions, function (expansion) {
+                            model.expansions.push(expansion);
+                        });
+                    }
+                });
+
+                $.ajax('/ajax/game/rules', {
+                    method: 'get',
+                    success: function (data) {
+                        model.rules.removeAll();
+                        _.each(data.rules, function (rule) {
+                            model.rules.push(rule);
+                        });
+                    }
+                });
+
+                setTimeout(listen, 100);
+            });
+        </script>
+    {{/append}}
+
+{{/extend}}

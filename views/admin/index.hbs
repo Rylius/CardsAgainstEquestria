@@ -1,0 +1,140 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+        <h1>Fancy admin overview</h1>
+
+        <h2>
+            Statistics
+            <small>
+                on
+                {{os.hostname}}
+                ({{os.type}} {{os.release}} {{os.arch}})
+            </small>
+        </h2>
+
+        <div class="row">
+            <div class="col-xs-4 list-group">
+                <div class="list-group-item">
+                    Node <span data-bind="text: nodeVersion"></span>
+                </div>
+                <div class="list-group-item">
+                    PID: <span data-bind="text: pid"></span> (<a href="#">KILL</a>, <a href="#">exit</a>)
+                </div>
+                <div class="list-group-item">
+                    Uptime: <span data-bind="text: formatUptime"></span>
+                </div>
+            </div>
+
+            <div class="col-xs-4 list-group">
+                <div class="list-group-item">
+                    RSS: <span data-bind="text: formatRss"></span>
+                </div>
+                <div class="list-group-item">
+                    Heap (total): <span data-bind="text: formatHeapTotal"></span>
+                </div>
+                <div class="list-group-item">
+                    Heap (used): <span data-bind="text: formatHeapUsed"></span>
+                </div>
+            </div>
+        </div>
+
+        <h2>Maintenance</h2>
+
+        <div class="todo">
+            <div class="row">
+                <div class="col-xs-12">
+                    <input type="checkbox" id="allowGames" checked>
+                    <label for="allowGames">Allow new games</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <button>Schedule restart</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <input type="text">
+                    <button>Broadcast</button>
+                </div>
+            </div>
+        </div>
+
+        <h2>
+            Users
+            <small><span data-bind="text: users().length"></span> active</small>
+        </h2>
+
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+                </thead>
+
+                <tbody data-bind="foreach: users">
+                <tr>
+                    <td data-bind="text: id"></td>
+                    <td>
+                        <a href="#">
+                            <span data-bind="text: name"></span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>
+            Games
+            <small><span data-bind="text: games().length"></span> running</small>
+        </h2>
+
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Players</th>
+                    <th>State</th>
+                </tr>
+                </thead>
+
+                <tbody data-bind="foreach: games">
+                <tr>
+                    <td data-bind="text: id"></td>
+                    <td data-bind="text: name"></td>
+
+                    <td>
+                        <span data-bind="text: players.length"></span>
+                        (<a href="#">Show</a>)
+                    </td>
+
+                    <td data-bind="text: state"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script src="/js/view/admin.js"></script>
+
+        <script>
+            $(function () {
+                model = new AdminViewModel({{{process}}}, {{{memory}}}, {{{users}}}, {{{games}}});
+                ko.applyBindings(model);
+
+                setInterval(function () {
+                    model.uptime(model.uptime() + 1);
+                }, 1000);
+            });
+        </script>
+    {{/append}}
+
+{{/extend}}

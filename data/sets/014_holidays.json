@@ -1,0 +1,68 @@
+{
+    "name": "2012 Holiday Pack",
+    "description": "The 2012 Holiday Pack.",
+    "watermark": "",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "This holiday season, Tim Allen must overcome his fear of ____ to save Christmas.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Jesus is ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "On the third day of Christmas, my true love gave to me: three French hens, two turtle doves, and ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Wake up, America. Christmas is under attack by secular liberals and their ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Every Christmas, my uncle gets drunk and tells the story about ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "What keeps me warm during the cold, cold winter?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "After blacking out during New Year's Eve, I was awoken by ____.",
+            "draw": 0,
+            "pick": 1
+        }
+    ],
+    "whiteCards": [
+        "Santa's heavy sack.",
+        "Clearing a bloody path through Walmart with a scimitar.",
+        "Another shitty year.",
+        "Whatever Kwanzaa is supposed to be about.",
+        "A Christmas stocking full of coleslaw.",
+        "Elf cum.",
+        "The tiny, calloused hands of the Chinese children that made this card.",
+        "Taking down Santa with a surface-to-air missle.",
+        "Socks. ",
+        "Pretending to be happy.",
+        "Krampus, the Austrian Christmas monster.",
+        "The Star Wars Holiday Special.",
+        "Mall Santa.",
+        "Several intertwining love stories featuring Hugh Grant.",
+        "Gift-wrapping a live hamster.",
+        "Space Jam on VHS.",
+        "Immaculate conception.",
+        "Fucking up Silent Night in front of 300 parents.",
+        "A visually arresting turtleneck.",
+        "A toxic family environment.",
+        "Eating an entire snowman.",
+        "My hot cousin.",
+        "A Hungry-Man&trade; Frozen Christmas Dinner for One."
+    ]
+}

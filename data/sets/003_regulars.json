@@ -1,0 +1,619 @@
+{
+    "name": "Creator's Pack",
+    "description": "A perfectly sane expansion by perfectly sane people.",
+    "watermark": "",
+    "expansion": false,
+    "blackCards": [
+        {
+            "text": "____ requested Princess Twilight to kill ______.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "_____ caused a controversy that upset the fandom for months.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "_____ caused Hennet to ragequit. AGAIN.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "_____ didn't get the rules. After 4 kicks and a ban.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "_____ fangasmed about their fanart of _____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "_____ joined the room to spam _____, then left.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "_____ needs to be about 20% cooler.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "_____ ragequit after _____ posted _____",
+            "draw": 0,
+            "pick": 3
+        },
+        {
+            "text": "_____ was never the same after they were mass hugged in chat.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Killa's secret fetish is _______.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Tavy snuggled with _______.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "_______ wrote a fic featuring ______.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "_______ turned out to be _______ 's secret fetish",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Hourglass was disappointed when he saw _______.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "________ Batman is BEST Batman!",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "________ made a joke about ________ before being banned to the moon.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "________ opened their legs for _________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "________ requested Chaotic Harmony to write about ___________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "________ was broken when they saw ________ .",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "________ was found on top of _________ in Fluttershy's shed.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "________ broke Nerfley with _________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "________ denies the existence of _________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "________ and __________ will be the next guests on Epic Pony Rap Battles of Equestria.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "_________ sang a song about ________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "_________ was confused with ________ when they wore a dress.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "_________ was sleeping on the call while __________ were talking about __________.",
+            "draw": 0,
+            "pick": 3
+        },
+        {
+            "text": "__________ has always wanted to get with __________ .",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "__________ was added to Twilight's collection of __________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "__________ was featured in a movie about ___________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "___________ automatically wins this round.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "__________ is best background pony.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "____________?  I just don't know WHAT went wrong!",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "___________, said no pony ever.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "_______. ALL. OVER. EVERYTHING!",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "______. What did I just walk into?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "And then I said, ______, are you CRAZY?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "A Let's react to the new MLP:FiM season left the regulars with a fit of ______",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "A song about ______ left the chat in tears",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "An extreme vector challenge consisted of _____ being drawn in a _______ style.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Archive was banned from EFR for _____________.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Because FUCK _________, that's why.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Beep Beep. I'm a _____",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "CH made a blogpost about ____, because it was so amazing.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Cobalt does clop with ______.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Cobalt's next PMV will be _____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "CobaltSky's next blind watch will be of _____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "During the 24-hour Skype call, __________ kept linking __________ .",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Ever since ____ and ____ engaged in a steamy RP, the chat has never been the same.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Ever since ____ posted ____ using derpy.me I never trusted their links again.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Hennet paid ________ for a backpack full of ___________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "I really wish I could untype ________.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "It made me mad when I realized nobody recorded ________ doing _________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "It must be nice to have a job where you can do ________ all night.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "JetGrey found his love when he was shipped with ______.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "JetGrey's latest plan to take over Equestria involved using ________",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Killagouge made a drawing of ___________.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Luna enjoys using ________ on _________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Luna was shocked to find _________ eating ________ .",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Lyra discovered the secret behind anthropology when she saw _______",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Needs more _________.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "NEVER click links in a conversation about _________",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Nobody expected Vegeta to read _____",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "OneTrick joined onto the #EFR to find Brotherpunk posting links about ________ .",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Recently Kim has started following a blog about ______",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Seto made a drawing of ___________.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Suddenly, _____ was eaten by Nightmare Moon.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Tavy licks _______.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "That's right, I was banned from #EquestriaDaily. How you ask? _______.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "There are only two reasons to join the IRC: _______ and _______.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "There needs to be Ask _____ Tumblr",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "This porn is terrible!  Why is ____________ doing ___________?",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "What is your favorite type of porn? _",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "When no one was looking, Deft Hoof stole ____________. And that's terrible.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "While playing Banned From Equestria (Daily), Parchment Scroll saw __________ doing __________.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Why is _________ so wide?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Why the fuck do I have two _____",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Your ______ is bad and you should feel bad.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Soundspeed is secretly a_____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Soundspeed secretly loves when his fans _______.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "What is Soundspeed's favorite past-time?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Would the real __________ please ________?",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "We finally started a band called ____________. Our first album will be called __________.",
+            "draw": 0,
+            "pick": 2
+        }
+    ],
+    "whiteCards": [
+        "A poorly written clopfic.",
+        "!hug for everypony",
+        "'Murica!",
+        "Fuck you guys!!",
+        "(I'm clopping to ponies right now)",
+        "*DERP*",
+        "24-hour orgy",
+        "A bigger blacker Rainbow Dash",
+        "A cutiemark of Applebloom getting a cutiemark of Applebloom getting a cutiemark of Applebloom getting...",
+        "A grimdark kick.",
+        "A hornier Pinkie Pie",
+        "A Portal Gun",
+        "A Tavy hug-tackle",
+        "A thick book",
+        "A tipsy Berry Punch",
+        "A trained squad of attack-parasprites",
+        "Alicorn Princess Twilight Sparkle",
+        "Alicorn Tom",
+        "All the Raridick",
+        "An inside joke",
+        "An oddly shaped penis",
+        "Another 24-hour Skype call",
+        "Applejack's sweet candy apple used pussy",
+        "Applejacks Ѽ",
+        "Apples, apples, apples.",
+        "Archive's shit vector of the Mane 6",
+        "ARGLEBARGLE!",
+        "Automatic circumciser",
+        "Ban hammer",
+        "Banned by DerpyBot",
+        "BASS CANNON!",
+        "Batmare",
+        "Because I'm evil.",
+        "Best Princess",
+        "Black and red alicorn Mary Sue OC.",
+        "Botabuse",
+        "BRAAAAIIIINNNNZZZ!!!",
+        "BRITISH!!",
+        "BrotherPunk",
+        "Butt Sluts Vol.5",
+        "By a remote tarantula",
+        "Cadence spear-thrown",
+        "Canternet",
+        "Cards against Equestria",
+        "Changeling hiding in your ass",
+        "CHANGELING!!1!!1",
+        "Chaotic Harmony's latest sadfic",
+        "Chaotic-Harmony",
+        "Chibi-Ponies",
+        "Cobalt's bigger, bluer, raging wingboner.",
+        "Cobalt's raging wingboner",
+        "CobaltSky",
+        "Coding advice from Rylius",
+        "Mike Coltfield's goldfish",
+        "Crackle",
+        "Crotchboobs",
+        "Crouching-Brony hidden clopfics",
+        "Crystal Ponies",
+        "Cursing at Ponyscape",
+        "CUTIE MARK CRUSADERS SEX SLAVES YAY!",
+        "Dan vs. FiM",
+        "DarkAura's 'special' script",
+        "De-railed conversation",
+        "Decapitating",
+        "Dinky using !lullabye immediately upon being woken for school.",
+        "Double-Rainboom",
+        "Double-Raingasm",
+        "DUHR DUHR DUHR DUHR",
+        "Elmer Fudd reading a clopfic",
+        "Epic-Raingasm",
+        "ERROR 404: CARD NOT FOUND",
+        "Falling asleep in a Skype call",
+        "FiM Fiction",
+        "Fluffle Puff foaming at the mouth",
+        "FlutterDashie",
+        "For being a total fucking moron",
+        "GET IN THE DAMN CALL!",
+        "Ginger Sparkle",
+        "GingerBread's mirror friend",
+        "Hennet's backpack o' porn",
+        "Hennet's bike",
+        "Hennet's ME time",
+        "Hhhhrrrrrrrnnggggg!",
+        "Hisha",
+        "Horse cum",
+        "Hyde",
+        "I'll show you tonight",
+        "IMPOSSIBRU!!!!!!",
+        "In Fluffle Puff's mane",
+        "Inflatable Pony",
+        "Inside Twilight's mouth",
+        "Inspector Colgate",
+        "It's good for you.",
+        "Jesus in Equestria",
+        "JetGrey's hidden clop fic",
+        "JetGrey",
+        "JetGrey's latest invention...",
+        "John de Lancie",
+        "Keeping Rarity handy. Just in case.",
+        "Killa's hairy chest",
+        "Killa's watching you clop.",
+        "Kinky.",
+        "Kittuns in bags.",
+        "Lego-Porn room",
+        "Luna's dark power",
+        "Luna's giant strap-on",
+        "Making a Monty Python reference in your fic",
+        "Monty Python's Fish-Slapping dance",
+        "MuffinGrenades",
+        "Muppet",
+        "My godcard",
+        "NERDDDDDSSSS!!!!",
+        "Oatmeal",
+        "Oh gawd! It's everywhere!",
+        "On the MOOOOOON!!!!",
+        "ONII CHAN!",
+        "P0n3-Bot",
+        "Parchie's closet harem",
+        "Parchie's collection of AJ porn",
+        "Parchment",
+        "PARCHY-FLAIL",
+        "Parchys clop-fic couriers, you want it, we ship it",
+        "Pizza with a Pony on it",
+        "Plushie changeling",
+        "Plushie sex",
+        "Pollow wrestling",
+        "Princess Twilight",
+        "Racist barn",
+        "Rarity's massive cock",
+        "Raridick",
+        "Raridick-Licking",
+        "Realizing you were banging a changeling mid-orgasm",
+        "Regular Ordinary Swedish Meal Time",
+        "Right into the Crystal Empire",
+        "Riiiiiiiiiiice crackers!",
+        "Rule #63",
+        "Rustling the jimmies",
+        "Sad Pony",
+        "Saving Private Raridick",
+        "Scoota-Chicken",
+        "Scootiebelle",
+        "Screw the god cards! I have a magical unicorn-poop.",
+        "SEEEEEXXXXXXX!!!!!!",
+        "Seto",
+        "Seto's encrypted clop-pics",
+        "She move the fader back and forth! She move the fader back and forth!",
+        "Skipsy",
+        "SnowDrop",
+        "Soarin'",
+        "Special time with Rainbow Dash",
+        "Spitfire",
+        "Spitfire's raging thermal pussy",
+        "Staying up all night to play Cards Against Humanity. Because we can.",
+        "Stickpony",
+        "Suck my horn!",
+        "Suck my primaries!",
+        "Suprise buttsex!",
+        "Sweetiebelle's Viagra stash",
+        "Talia",
+        "Tara Strong, in another VA role",
+        "Tavy",
+        "Tavy's best ending ever!",
+        "That Lyra vibrator",
+        "The CAC drinking game. VALUE!!!",
+        "The card I'm playing instead of Sweetie Belle's virgin marshmallow pussy",
+        "The internet is for clop.",
+        "The New Lunar Republic",
+        "THE ROYAL MODERATOR VOICE!!!!",
+        "The Sketchy Sounds live songcast drinking game",
+        "The Solar Empire",
+        "These cards all share a theme (it's sex.)",
+        "Tihan",
+        "Tree fiddy",
+        "Trolling",
+        "Twi-Dance",
+        "Twilight Sparkle",
+        "Twilight's evil laboratory",
+        "Twilight's public clopfics",
+        "Twilight's secret basement",
+        "Twilight's special eyes",
+        "Twilight's trout",
+        "Twixie",
+        "UNACCEPTABLE!!!!!!",
+        "Using Rarity to clean all the sticky-bits",
+        "Vampony problems",
+        "Vigilant Watch",
+        "What the fuck I am watchin?!",
+        "Yet another ask-a-pony Tumblr",
+        "Dark Aura, aka, Spitfire, aka, Thunderlane, aka, Flim, aka, Iron Will, aka, Shining Armor, aka...",
+        "Booty booty booty booty rockin everywhere!",
+        "Right inbetween the Eyes",
+        "Cum-Shots",
+        "Soundspeed",
+        "Soundspeed's mediocre fanfiction readings",
+        "Soundspeed's not so secret Applejack shrine ",
+        "Soundspeed and Cobalt's not so subtle bromance",
+        "Idiotic YouTube fan comments",
+        "Twilight_Sparkle[NLR]'s fangasms",
+        "Rarity Vs. Giant Crab"
+    ]
+}

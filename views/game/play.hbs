@@ -1,0 +1,270 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'navLeft'}}
+        <li>
+            <span class="navbar-brand" data-bind="text: game.name">
+                derp
+            </span>
+        </li>
+    {{/replace}}
+
+    {{#prepend 'navRight'}}
+        <li>
+            <a href="#" onclick="leaveGame()" title="Leave game">
+                Leave game
+            </a>
+        </li>
+    {{/prepend}}
+
+    {{#replace 'logoutOnclick'}}
+        interruptListen()
+    {{/replace}}
+
+    {{#replace 'content'}}
+        <!-- ko if: !ended() -->
+        <div id="cards-table">
+            <!-- ko if: blackCard -->
+            <div class="card black-card">
+                <span data-bind="html: blackCard().text"></span>
+
+                <div class="watermark" data-bind="text: blackCard().watermark"></div>
+            </div>
+            <!-- /ko -->
+
+            <!-- ko foreach: playedCards -->
+            <div class="move"
+                 data-bind="foreach: cards, click: function () { if (model.isCzar() && !model.selectedMoveSubmitted() && model.czarCanSelect()) { model.selectedMove($data) } }">
+
+                <div class="card white-card played-card"
+                     data-bind="css: { 'card-selected': model.selectedMove() == $parent }">
+                    <span data-bind="html: text"></span>
+
+                    <div class="watermark" data-bind="text: watermark"></div>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+
+        <div class="clearfix"></div>
+
+        <!-- ko if: isCzar() && blackCard() && czarCanSelect() -->
+        <div class="confirm" data-bind="">
+            <button data-bind="enable: selectedMove() && !selectedMoveSubmitted(), click: submitSelectedMove">
+                Confirm
+            </button>
+
+            <!-- ko if: !selectedMove() -->
+            Select the card<span data-bind="if: blackCard().pick > 1">s</span> you like the most.
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: !isCzar() && blackCard() && move() -->
+        <div class="confirm" data-bind="">
+            <button data-bind="enable: move().cards().length == blackCard().pick && !move().confirmed(), click: move().submit">
+                Confirm
+            </button>
+
+            <!-- ko if: move().cards().length < blackCard().pick -->
+            <!-- ko if: blackCard().pick > 1 -->
+            Select <span data-bind="text: blackCard().pick"></span> cards in the order you would like to play them.
+            <!-- /ko -->
+            <!-- ko if: blackCard().pick <= 1 -->
+            Select a card to play.
+            <!-- /ko -->
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+
+        <div id="hand" data-bind="foreach: hand.cards">
+            <div class="card-small white-card"
+                 data-bind="click: function () { if (model.move()) { model.move().select($data) } }, css: { 'card-selected': model.move() && _.contains(model.move().cards(), $data) }">
+                <span data-bind="html: text"></span>
+
+                <div class="watermark" data-bind="text: watermark"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: ended -->
+        <div class="text-center">
+            <h4>Game ended</h4>
+
+            <p>
+                <strong>Winner:</strong> <span data-bind="text: winner().name"></span>
+            </p>
+
+            <br/>
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: players().length < 3 -->
+        <div class="text-center">
+            <h4>Game ended</h4>
+
+            <p>(Not enough players)</p>
+        </div>
+        <!-- /ko -->
+
+        <div class="row">
+            <div id="scoreboard">
+                <h4>
+                    Scoreboard
+                    <span class="pull-right">
+                        Round <span data-bind="text: round"></span>
+                    </span>
+                </h4>
+
+                <!-- ko foreach: players -->
+                <div class="player">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <strong data-bind="text: name"></strong>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-7">
+                            <span data-bind="text: points"></span> Awesome Point<span
+                                data-bind="if: points() != 1">s</span>
+                        </div>
+                        <div class="col-xs-5 text-right">
+                            <span data-bind="text: state"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+
+            <div id="chats">
+                <ul id="chat">
+                    <li>
+                        <a href="#chat-global" data-toggle="tab">Global Chat</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="#chat-game" data-toggle="tab">Game Chat</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane todo" id="chat-global">
+                        global chat
+                    </div>
+                    <div class="tab-pane active todo" id="chat-game">
+                        game chat
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/html" id="template-black-card">
+            <div class="card black-card">
+                <span data-bind="html: blackCard().text"></span>
+
+                <div class="watermark" data-bind="text: blackCard().watermark"></div>
+            </div>
+        </script>
+
+        <script type="text/html" id="template-white-card">
+            <div class="card white-card">
+                <span data-bind="html: text"></span>
+
+                <div class="watermark" data-bind="text: watermark"></div>
+            </div>
+        </script>
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script src="/js/vendor/jquery.blockUI.js"></script>
+
+        <script src="/js/constants.js"></script>
+
+        <script src="/js/view/game.js"></script>
+        <script src="/js/view/cards.js"></script>
+
+        <script>
+            currentListenRequest = null;
+
+            function listen() {
+                currentListenRequest = $.ajax('/ajax/game/{{{game.id}}}/listen',
+                        {
+                            success: function (data) {
+                                _.each(data, function (update) {
+                                    model.handleUpdate(update);
+                                });
+                                setTimeout(listen, 500);
+                            },
+                            error: function (xhr, status, error) {
+                                if (error == 'abort') {
+                                    return;
+                                }
+
+                                console.log('Reloading page: ' + status + ': ' + error);
+                                window.location.reload(true);
+                            }
+                        }
+                );
+            }
+
+            function interruptListen() {
+                if (currentListenRequest) {
+                    currentListenRequest.abort();
+                    console.log('Interrupted update listener');
+                }
+            }
+
+            function leaveGame() {
+                interruptListen();
+
+                $.ajax('/ajax/game/{{{game.id}}}/leave', {
+                    method: 'post',
+                    complete: function () {
+                        window.location = '/';
+                    }
+                });
+            }
+
+            $(function () {
+                $('.navbar a[href!=\'#\']').click(function () {
+                    interruptListen();
+                    return true;
+                });
+
+                $.blockUI.defaults.message = 'You are the card czar.';
+                $.blockUI.defaults.css.border = 'none';
+                $.blockUI.defaults.css.padding = 10;
+                $.blockUI.defaults.css.cursor = 'default';
+                $.blockUI.defaults.overlayCSS.cursor = 'default';
+
+                $('#chat').find('a').click(function (e) {
+                    e.preventDefault();
+                    $(this).tab('show');
+                });
+
+                model = new PlayViewModel({{{gameJson}}}, {{{userJson}}});
+                ko.applyBindings(model);
+
+                var blockHand = function () {
+                    if (model.isCzar()) {
+                        $('#hand').block();
+                    } else {
+                        $('#hand').unblock();
+                    }
+                };
+                model.hand.cards.subscribe(blockHand);
+                model.isCzar.subscribe(blockHand);
+
+                listen();
+
+                // give the listen call some time, otherwise the server will send the state to the previous and now invalid request
+                setTimeout(function () {
+                    $.ajax('/ajax/game/{{{game.id}}}/state', {method: 'post'});
+                }, 1000);
+
+                // TODO request state again if it wasn't received after some seconds
+            });
+        </script>
+    {{/append}}
+
+{{/extend}}

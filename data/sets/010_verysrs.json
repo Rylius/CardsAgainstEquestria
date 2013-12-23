@@ -1,0 +1,418 @@
+{
+    "name": "Very Serious",
+    "description": "<a href=\"http://forum.verysrs.com/\">forum.verysrs.com</a>",
+    "watermark": "",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "We'll always have ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "____ Jesus is the Jesus of ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "____ ALL THE ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "There were ALOT of ____ doing ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Dogimo would give up ____ to type a six sentence paragraph in a thread.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Simple dog ate and vomited ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "When I was 25, I won an award for ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "I'm more awesome than a T-rex because of ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "____ in my pants.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "We need to talk about your whole gallon of ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Clean ALL the ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "The first rule of Jade Club is ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "The forum nearly broke when ____ posted ____ in The Dead Thread.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "A mod war about ____ occurred during ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "No one likes me after I posted ____ in the TMI thread.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "____ was banned from tinychat because of ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "____ for president!",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "I did ____, like a fucking adult.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Domo travelled across ____ to win the prize of ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Roses and her hammer collection defeated an entire squadron of ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "After Blue posted ____ in chat, I never trusted his links again.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Fuck you, I'm a ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Cunnilingus and psychiatry brought us to ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "I CAN ____ ACROSS THE ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "____ is the only thing that matters.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "I'm an expert on ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "I want ____ in my mouflon RIGHT MEOW.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Don't get mad, get ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Have fun, don't be ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "It's the end of ____ as we know it.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "____ is my worst habit.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Everything's better with ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Yaar's mother is ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "What would you taste like?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "What have you accomplished today?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "What made you happy today?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Why are you frothing with rage?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "What mildy annoyed you today?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "____ uses ____. It is SUPER EFFECTIVE!",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Let's all rock out to the sounds of ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Take ____, it will last longer.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "You have my bow. AND MY ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "VS: Where the ____ happens!",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "____? FRY. EYES.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "A wild ____ appeared! It used ____!",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "I thought being a ____ was the best thing ever, until I became a ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Live long and ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "I'm under the ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "If life gives you ____, make ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "Who needs a bidet when you have ____?",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Kill it with ____!",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "My ____ is too big!",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Best drink ever: One part ____, three parts ____, and a splash of ____.",
+            "draw": 2,
+            "pick": 3
+        },
+        {
+            "text": "____ makes me uncomfortable.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Stop, drop, and ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "Think before you ____.",
+            "draw": 0,
+            "pick": 1
+        },
+        {
+            "text": "The hills are alive with ____ of ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "After I saw ____, I needed ____.",
+            "draw": 0,
+            "pick": 2
+        },
+        {
+            "text": "There's ____ in my soup.",
+            "draw": 0,
+            "pick": 1
+        }
+    ],
+    "whiteCards": [
+        "Show me your tits!",
+        "Thanking your sex slaves.",
+        "Dickcheese.",
+        "Googly eyes on a cock.",
+        "Typing with your genitals.",
+        "Pirate hookers.",
+        "Poopcake.",
+        "Mandatory Sex Party.",
+        "A WHOLE GALLON.",
+        "Games you can play with bricks.",
+        "Lewhora.",
+        "Fancy tampons.",
+        "Very Serious Island.",
+        "COLLIN.",
+        "Ferngully.",
+        "Velociraptor.",
+        "Thundercunting.",
+        "Werewolf.",
+        "Cultist.",
+        "Vejazzled vagina.",
+        "HODOR.",
+        "Simple dog.",
+        "Butt oranges.",
+        "Sweater kittens.",
+        "Baby batter.",
+        "Meat curtains.",
+        "Strawberry Shortcake sexing up a Carebear and giving birth to NyanCat.",
+        "Blowjob Jesus.",
+        "GOATS.",
+        "Welcome Taco.",
+        "Boobs.",
+        "Moobs.",
+        "Tinychat.",
+        "Centaur Therapist Jesus.",
+        "LOUD NOISES.",
+        "THE GODDAMN BATMAN.",
+        "Swinging an axe in the air while cornholing a bear.",
+        "WIIINES.",
+        "A Wende head tilt.",
+        "Chris Gaines.",
+        "Fuck you, I'm a bear.",
+        "Doctor Who.",
+        "EXTERMINATE.",
+        "Landshark.",
+        "Bearshark.",
+        "SCIENCE!!1!",
+        "The Great Dildo, Thor.",
+        "Just the tip!",
+        "Daddy foam.",
+        "PooooooP!",
+        "Thundercunt",
+        "Buttpirate Pokemon.",
+        "A really good booby weight.",
+        "Tubemonster.",
+        "Bevis.",
+        "Trouser snakes.",
+        "A WHOLE GALLON OF BOOBS.",
+        "Barfstab.",
+        "LYNCH LUPUS.",
+        "Drinking on live TV.",
+        "Shooting heroin into my eyeballs.",
+        "Skittering ovaries.",
+        "Ricardo.",
+        "The Power of Greyskull.",
+        "The revolution.",
+        "The establishment.",
+        "Queer Lesbian Jesus.",
+        "Hello Kitty.",
+        "Readying my torch for burnination.",
+        "Tots.",
+        "Getting drunk before noon.",
+        "In a sneaky hate spiral.",
+        "Clown strippers.",
+        "KERMIT FLAIL.",
+        "Certified Breast Maintenance Engineer.",
+        "A test tube baby.",
+        "Dancing naked.",
+        "Moist and Juicy.",
+        "Orgy.",
+        "Premature ejaculation.",
+        "Bounty, the Quicker Picker Upper.",
+        "Lotion.",
+        "Rapey dolphin.",
+        "Werepoo.",
+        "Handbra.",
+        "A moose giving birth in Maggly's yard.",
+        "More bandaids.",
+        "Fuckweasel.",
+        "Curious hands.",
+        "Spagbag.",
+        "Tears of manly pain.",
+        "Cthulu.",
+        "Surprise penis.",
+        "SEX.",
+        "Mr. Tinycheeks.",
+        "A spoon that is too big.",
+        "Bleeding Anuses.",
+        "Not being pregnant.",
+        "An Olive Ewe.",
+        "Hookers and blow.",
+        "Dropbears.",
+        "Standing next to short people to use them as armrests.",
+        "Making a random guess in Werewolf that gets you killed later.",
+        "INTERNET FOREVER!",
+        "The jitters you get before a meetup.",
+        "Shenaniganty.",
+        "I AM HOW BABIES ARE MADE.",
+        "Noble whore.",
+        "Kangaroo stripper.",
+        "Droopums.",
+        "Nonni's mantis.",
+        "Ginger baby.",
+        "Drunk foruming."
+    ]
+}
