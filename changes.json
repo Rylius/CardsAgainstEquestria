@@ -1,18 +1,12 @@
 [
     {
         "date": "Dec 23, 2013",
-        "version": "0.3.1",
-        "changes": [
-            "Various UI fixes",
-            "Fixed critical issue when all players left a game"
-        ]
-    },
-    {
-        "date": "Dec 23, 2013",
-        "version": "0.3.0",
+        "version": "0.3.0 / 0.3.1",
         "changes": [
             "Revamped game list",
-            "Enabled return key on invite page fields"
+            "Enabled return key on invite page fields</li></ul><ul><li>Various UI fixes",
+            "Fixed critical issue when all players left a game",
+            "Moved to GitHub"
         ]
     },
     {

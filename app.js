@@ -34,10 +34,7 @@ hbs.handlebars.registerPartial('derp2', fs.readFileSync(__dirname + '/views/util
 require('./lib/helpers/input')(hbs);
 require('./lib/helpers/util')(hbs);
 
-var versionString = 'v' + require('./package.json').version + ' (';
-require('child_process').exec(config.revisionCommand, function (error, stdout) {
-    versionString += stdout + ')';
-});
+var versionString = 'v' + require('./package.json').version;
 hbs.registerHelper('version', function () {
     return versionString;
 });

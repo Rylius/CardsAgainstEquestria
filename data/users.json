@@ -1,9 +1,0 @@
-{
-    "users": [
-        {
-            "name": "Rylius",
-            "password": "hash goes here",
-            "role": "root"
-        }
-    ]
-}

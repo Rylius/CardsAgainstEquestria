@@ -3,10 +3,8 @@
     "trustProxy": true,
     "env": "development",
     "sessionSecret": "as2h34dg13aabtzusgdu2343",
-    "revisionCommand": "hg log -l1 --template '{rev}'",
     "files": {
-        "sets": "data/sets",
-        "expansions": "data/expansions"
+        "decks": "data/decks",
     },
     "less": {
         "once": false,
