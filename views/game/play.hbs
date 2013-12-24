@@ -187,8 +187,7 @@
             currentListenRequest = null;
 
             function listen() {
-                currentListenRequest = $.ajax('/ajax/game/{{{game.id}}}/listen',
-                        {
+                currentListenRequest = $.ajax('/ajax/game/{{{game.id}}}/listen', {
                             success: function (data) {
                                 _.each(data, function (update) {
                                     model.handleUpdate(update);
