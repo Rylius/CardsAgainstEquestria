@@ -310,9 +310,8 @@
             }
 
             $(function () {
-                $('.navbar a[href!=\'#\']').click(function () {
+                $(window).bind('beforeunload', function () {
                     interruptListen();
-                    return true;
                 });
 
                 model = new GameLobbyViewModel({{{userJson}}});

@@ -32,6 +32,7 @@ var GameListViewModel = function (sets) {
     this.join = function (game) {
         console.log('Joining game ' + game.id());
 
+        game.message('Joining...');
         self.loading(true);
 
         $.ajax('/game/join/' + game.id(), {
@@ -41,23 +42,24 @@ var GameListViewModel = function (sets) {
 
                 if (status == Join.SUCCESS_LOBBY || status == Join.SUCCESS_GAME || status == Join.IS_PLAYER) {
                     console.log('Joining lobby');
+                    game.message('Loading...');
                     window.location.href = '/game/lobby/' + game.id();
 
                 } else if (status == Join.IS_FULL) {
                     console.log('Game is full');
-                    // TODO show message
+                    game.message('Game is full');
 
                 } else if (status == Join.NOT_FOUND) {
                     console.log('Game not found');
-                    // TODO show message
+                    game.message('Game not found');
 
                 } else if (status == Join.PASSWORD_INCORRECT) {
                     console.log('Wrong password');
-                    // TODO show message
+                    game.message('Incorrect password');
 
                 } else if (status == Join.PASSWORD_REQUIRED) {
                     console.log('No password given');
-                    // TODO show message
+                    game.message('Password required');
                 }
             },
             error: function () {
@@ -334,7 +336,7 @@ var GameViewModel = function () {
 
     this.id = ko.observable(-1);
 
-    this.name = ko.observable("");
+    this.name = ko.observable('');
     this.host = ko.observable(null);
 
     this.state = ko.observable(Game.State.LOBBY);
@@ -351,6 +353,8 @@ var GameViewModel = function () {
 
     this.password = ko.observable('');
     this.passworded = ko.observable(false);
+
+    this.message = ko.observable();
 
     this.title = ko.computed(function () {
         return self.name() + ' (' + self.players().length + '/' + self.playerLimit() + '), goal ' + self.scoreLimit();

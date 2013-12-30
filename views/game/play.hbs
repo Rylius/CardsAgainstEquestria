@@ -225,9 +225,8 @@
             }
 
             $(function () {
-                $('.navbar a[href!=\'#\']').click(function () {
+                $(window).bind('beforeunload', function () {
                     interruptListen();
-                    return true;
                 });
 
                 $.blockUI.defaults.message = 'You are the card czar.';

@@ -204,8 +204,9 @@ var PlayViewModel = function (game, player) {
             console.log('Move made: ' + player.name);
             player.state('');
 
+            var pick = self.blackCard() != null ? self.blackCard().pick : 1; // can happen when joining in progress
             move = new MoveViewModel(-1);
-            _.times(self.blackCard().pick, function () {
+            _.times(pick, function () {
                 move.cards.push(new CardViewModel({}));
             });
             this.playedCards.push(move);
