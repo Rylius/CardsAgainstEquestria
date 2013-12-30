@@ -251,7 +251,6 @@ var PlayViewModel = function (game, player) {
         } else if (type == Game.Server.Update.ROUND) {
             console.log('Starting round ' + data.round + ', czar: ' + data.czar);
 
-            this.round(data.round);
             this.czar(_.find(self.players(), function (player) {
                 return player.id == data.czar;
             }));
@@ -266,9 +265,9 @@ var PlayViewModel = function (game, player) {
             });
             this.czar().state('Card Czar');
 
-            if (!this.isCzar()) {
-                this.move(new MoveViewModel(-1));
-            }
+            this.move(new MoveViewModel(-1));
+
+            this.round(data.round);
 
             this.playedCards.removeAll();
 
