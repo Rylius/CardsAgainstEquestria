@@ -3,7 +3,8 @@
         "date": "Dec 30, 2013",
         "changes": [
             "Added a new deck...",
-            "Fixed interrupting listen requests when navigating away from lobby/game"
+            "Fixed interrupting listen requests when navigating away from lobby/game",
+            "Cards now get properly uncovered when a player leaves"
         ]
     },
     {
