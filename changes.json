@@ -4,7 +4,8 @@
         "changes": [
             "Added a new deck...",
             "Fixed interrupting listen requests when navigating away from lobby/game",
-            "Cards now get properly uncovered when a player leaves"
+            "Cards now get properly uncovered when a player leaves",
+            "Fixed leaving games in progress, again"
         ]
     },
     {
