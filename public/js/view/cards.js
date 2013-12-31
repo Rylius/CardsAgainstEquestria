@@ -118,6 +118,9 @@ var PlayViewModel = function (game, player) {
     this.selectedMove = ko.observable();
     this.selectedMoveSubmitted = ko.observable(false);
 
+    this.timeLeft = ko.observable(0);
+    this.timeLeftTimeoutId = null;
+
     this.submitSelectedMove = function () {
         if (this.selectedMoveSubmitted() || !this.selectedMove()) {
             return;
@@ -173,6 +176,8 @@ var PlayViewModel = function (game, player) {
             this.blackCard(new CardViewModel(data));
             this.playedCardsUncovered(false);
 
+            this.updateTimeLimit();
+
         } else if (type == Game.Server.Update.HAND) {
             console.log('Hand: ' + JSON.stringify(data));
             this.hand.set(data.hand);
@@ -215,7 +220,7 @@ var PlayViewModel = function (game, player) {
             console.log('Uncovering cards: ' + JSON.stringify(data));
 
             this.playedCards.removeAll();
-            _.each(data, function (cards, id) {
+            _.each(data.cards, function (cards, id) {
                 var move = new MoveViewModel(id);
 
                 if (cards.length > 0) {
@@ -232,6 +237,9 @@ var PlayViewModel = function (game, player) {
             });
             this.czar().state('Selecting');
 
+            this.timeLeft(data.timeLeft > 0 ? data.timeLeft : game.roundTimeLimit);
+            this.updateTimeLimit();
+
         } else if (type == Game.Server.Update.SELECTED) {
             console.log('Czar selected ' + JSON.stringify(data));
 
@@ -246,6 +254,10 @@ var PlayViewModel = function (game, player) {
             if (player) {
                 player.state('Round winner!');
                 player.points(player.points() + 1);
+            }
+
+            if (this.timeLeftTimeoutId) {
+                clearTimeout(this.timeLeftTimeoutId);
             }
 
         } else if (type == Game.Server.Update.ROUND) {
@@ -270,9 +282,12 @@ var PlayViewModel = function (game, player) {
             this.round(data.round);
 
             this.playedCards.removeAll();
+            this.playedCardsUncovered(false);
 
             this.selectedMove(null);
             this.selectedMoveSubmitted(false);
+
+            this.timeLeft(data.timeLeft);
 
         } else if (type == Game.Server.Update.STATE) {
             console.log('Game state changed to ' + data.state);
@@ -291,6 +306,27 @@ var PlayViewModel = function (game, player) {
 
         } else {
             console.log('Unknown update: ' + type + ': ' + JSON.stringify(data));
+        }
+    };
+
+    this.setTimeLimit = function () {
+        var timeLeft = this.timeLeft();
+        if (timeLeft > 0) {
+            this.timeLeft(timeLeft - 1);
+            this.timeLeftTimeoutId = setTimeout(this.setTimeLimit, 1000);
+        } else {
+            clearTimeout(this.timeLeftTimeoutId);
+            this.timeLeftTimeoutId = null;
+        }
+    }.bind(this);
+
+    this.updateTimeLimit = function () {
+        if (this.timeLeftTimeoutId) {
+            clearTimeout(this.timeLeftTimeoutId);
+        }
+
+        if (game.roundTimeLimit) {
+            this.timeLeftTimeoutId = setTimeout(this.setTimeLimit, 1000);
         }
     };
 };

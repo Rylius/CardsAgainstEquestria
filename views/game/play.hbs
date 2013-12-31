@@ -9,6 +9,15 @@
     {{/replace}}
 
     {{#prepend 'navRight'}}
+        <!-- ko if: game.roundTimeLimit -->
+        <li>
+            <p class="navbar-text">
+                Time left:
+                <span data-bind="text: timeLeft"></span>s
+            </p>
+        </li>
+        <!-- /ko -->
+
         <li>
             <a href="#" onclick="leaveGame()" title="Leave game">
                 Leave game
@@ -78,7 +87,7 @@
 
         <div id="hand" data-bind="foreach: hand.cards">
             <div class="card-small white-card"
-                 data-bind="click: function () { if (model.move() && !playedCardsUncovered()) { model.move().select($data) } }, css: { 'card-selected': model.move() && _.contains(model.move().cards(), $data) }">
+                 data-bind="click: function () { if (model.move() && !$parent.playedCardsUncovered()) { model.move().select($data) } }, css: { 'card-selected': model.move() && _.contains(model.move().cards(), $data) }">
                 <span data-bind="html: text"></span>
 
                 <div class="watermark" data-bind="text: watermark"></div>
