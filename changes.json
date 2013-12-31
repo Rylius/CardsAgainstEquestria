@@ -4,7 +4,9 @@
         "changes": [
             "Implemented round time limits",
             "Added a fancy countdown",
-            "Fixed IE caching ajax requests..."
+            "Fixed IE caching ajax requests...",
+            "Made sure each player has exactly 10 cards for each round",
+            "Rewrote card dealing logic"
         ]
     },
     {
