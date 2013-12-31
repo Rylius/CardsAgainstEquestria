@@ -5,7 +5,10 @@
             "Added a new deck...",
             "Fixed interrupting listen requests when navigating away from lobby/game",
             "Cards now get properly uncovered when a player leaves",
-            "Fixed leaving games in progress, again"
+            "Fixed leaving games in progress, again",
+            "Initial czar is now randomly selected",
+            "Added option to hide game from list",
+            "Added option to limit round time (but didn't implement it yet)"
         ]
     },
     {

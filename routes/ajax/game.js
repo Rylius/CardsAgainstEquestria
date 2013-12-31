@@ -221,7 +221,7 @@ var leave = function (req, res) {
  */
 var list = function (req, res) {
     var games = _.map(_.filter(game.listGames(), function (game) {
-        return game.state != constants.State.ENDED;
+        return !game.hidden && game.state != constants.State.ENDED;
     }), function (game) {
         return game.toJsonFormat();
     });

@@ -60,6 +60,7 @@ var lobby = function (req, res) {
         res.render('game/lobby', {
             scoreLimits: _.range(3, 21), defaultScore: 8,
             playerLimits: _.range(3, 17), defaultPlayers: 6,
+            roundTimeLimits: [0, 60, 120, 180], defaultRoundTimeLimit: 60,
             user: user, userJson: JSON.stringify({id: user.id, name: user.name}),
             game: g
         });
@@ -73,11 +74,16 @@ var play = function (req, res) {
     var user = users.get(req.session.user.id);
     var gameInstance = game.get(req.params.game);
 
-    if (!gameInstance || gameInstance.state != constants.State.PLAYING || !_.find(gameInstance.players, function (player) {
-        return player.user.id == user.id;
-    })) {
+    if (!gameInstance || gameInstance.state != constants.State.PLAYING) {
         req.flash('error', 'That game doesn\'t exist');
         res.redirect('/games');
+        return;
+    }
+
+    if (!_.find(gameInstance.players, function (player) {
+        return player.user.id == user.id;
+    })) {
+        res.redirect('/game/join/' + gameInstance.id);
         return;
     }
 

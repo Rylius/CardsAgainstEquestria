@@ -75,22 +75,58 @@
 
             <div id="basics" class="collapse in">
                 <div class="row">
-                    <div class="col-md-5" data-bind="css: { 'has-error': game().name().length == 0 }">
+                    <div class="col-md-offset-1 col-xs-5" data-bind="css: { 'has-error': game().name().length == 0 }">
                         {{input:text 'name' 'Name:' 'Click outside to apply' 'data-bind="value: game().name, enable: isHost"'}}
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-xs-5">
                         {{input:password 'password' 'Password:' 'Leave blank for public games' 'data-bind="value: game().password, enable: isHost"'}}
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-offset-1 col-xs-5">
                         {{input:dropdown 'scoreLimit' scoreLimits defaultScore 'Score limit:' null 'data-bind="value: game().scoreLimit, enable: isHost"'}}
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-xs-5">
                         {{input:dropdown 'playerLimit' playerLimits defaultPlayers 'Player limit:' null 'data-bind="value: game().playerLimit, enable: isHost"'}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-offset-1 col-xs-5">
+                        <div class="form-group">
+                            <label for="roundTimeLimit" class="col-xs-3 control-label">
+                                Round time:
+                            </label>
+                            <div class="col-xs-9">
+                                <select id="roundTimeLimit" class="form-control"
+                                        data-bind="value: game().roundTimeLimit, enable: isHost">
+                                    <option>0</option>
+                                    <option>60</option>
+                                    <option>120</option>
+                                    <option>180</option>
+                                </select>
+
+                                <span class="help-block">
+                                    In seconds, 0 = no limit
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-5">
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-xs-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" data-bind="checked: game().hidden, enable: isHost">
+                                        Hide from list
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

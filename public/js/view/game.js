@@ -171,6 +171,8 @@ var GameLobbyViewModel = function (user) {
         g.scoreLimit.subscribeChanged(update);
         g.playerLimit.subscribeChanged(update);
         g.password.subscribeChanged(update);
+        g.roundTimeLimit.subscribeChanged(update);
+        g.hidden.subscribeChanged(update);
     };
 
     this.update = function () {
@@ -350,9 +352,12 @@ var GameViewModel = function () {
 
     this.scoreLimit = ko.observable(8);
     this.playerLimit = ko.observable(6);
+    this.roundTimeLimit = ko.observable(60);
 
     this.password = ko.observable('');
     this.passworded = ko.observable(false);
+
+    this.hidden = ko.observable(false);
 
     this.message = ko.observable();
 
@@ -451,6 +456,9 @@ var GameViewModel = function () {
 
         self.password(json.password);
         self.passworded(json.passworded);
+
+        self.roundTimeLimit(json.roundTimeLimit);
+        self.hidden(json.hidden);
 
         return self;
     };
