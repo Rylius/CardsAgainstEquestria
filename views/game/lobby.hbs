@@ -346,6 +346,8 @@
             }
 
             $(function () {
+                $.ajaxSetup({cache: false});
+
                 $(window).bind('beforeunload', function () {
                     interruptListen();
                 });

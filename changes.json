@@ -1,5 +1,13 @@
 [
     {
+        "date": "Dec 31, 2013",
+        "changes": [
+            "Implemented round time limits",
+            "Added a fancy countdown",
+            "Fixed IE caching ajax requests..."
+        ]
+    },
+    {
         "date": "Dec 30, 2013",
         "changes": [
             "Added a new deck...",

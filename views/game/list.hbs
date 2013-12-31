@@ -101,6 +101,8 @@
 
         <script>
             $(function () {
+                $.ajaxSetup({cache: false});
+
                 model = new GameListViewModel({{{sets}}});
                 ko.applyBindings(model);
 

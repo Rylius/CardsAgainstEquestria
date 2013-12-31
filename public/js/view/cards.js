@@ -291,6 +291,7 @@ var PlayViewModel = function (game, player) {
 
         } else if (type == Game.Server.Update.STATE) {
             console.log('Game state changed to ' + data.state);
+
             if (data.state == Game.State.ENDED) {
                 _.each(this.players(), function (p) {
                     if (p.points() >= self.game.scoreLimit) {
