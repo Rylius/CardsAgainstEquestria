@@ -59,7 +59,7 @@
         </div>
         <!-- /ko -->
 
-        <!-- ko if: !isCzar() && blackCard() && move() -->
+        <!-- ko if: !isCzar() && blackCard() && move() && !playedCardsUncovered() -->
         <div class="confirm" data-bind="">
             <button data-bind="enable: move().cards().length == blackCard().pick && !move().confirmed(), click: move().submit">
                 Confirm
@@ -78,7 +78,7 @@
 
         <div id="hand" data-bind="foreach: hand.cards">
             <div class="card-small white-card"
-                 data-bind="click: function () { if (model.move()) { model.move().select($data) } }, css: { 'card-selected': model.move() && _.contains(model.move().cards(), $data) }">
+                 data-bind="click: function () { if (model.move() && !playedCardsUncovered()) { model.move().select($data) } }, css: { 'card-selected': model.move() && _.contains(model.move().cards(), $data) }">
                 <span data-bind="html: text"></span>
 
                 <div class="watermark" data-bind="text: watermark"></div>
