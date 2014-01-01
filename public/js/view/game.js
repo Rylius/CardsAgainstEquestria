@@ -190,7 +190,9 @@ var GameLobbyViewModel = function (user) {
     };
 
     this.kick = function (player) {
-        $.ajax('/ajax/game/' + self.game().id() + '/kick/' + player.id, {method: 'post'});
+        if (confirm('Are you sure?')) {
+            $.ajax('/ajax/game/' + self.game().id() + '/kick/' + player.id, {method: 'post'});
+        }
     };
 
     this.start = function () {
@@ -223,6 +225,13 @@ var GameLobbyViewModel = function (user) {
             this.game().players.remove(_.find(self.game().players(), function (player) {
                 return player.id == data.id;
             }));
+
+            if (data.id == this.user.id) {
+                interruptListen();
+                // TODO make this prettier
+                alert('Kicked by host');
+                window.location.href = '/games';
+            }
 
         } else if (type == Game.Server.Update.STATE) {
             console.log('Game state changed to ' + data.state);

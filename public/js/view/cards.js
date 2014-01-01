@@ -135,6 +135,10 @@ var PlayViewModel = function (game, player) {
         console.log('Submitted selected move ' + JSON.stringify(this.selectedMove()));
     };
 
+    this.isHost = function () {
+        return self.game.host.id == self.player.id;
+    };
+
     this.isCzar = ko.computed(function () {
         return self.czar() && self.czar().id == self.player.id;
     });
@@ -142,6 +146,12 @@ var PlayViewModel = function (game, player) {
     this.czarCanSelect = ko.computed(function () {
         return self.blackCard() != null && self.playedCardsUncovered();
     });
+
+    this.kick = function (player) {
+        if (confirm('Are you sure?')) {
+            $.ajax('/ajax/game/' + self.game.id + '/kick/' + player.id, {method: 'post'});
+        }
+    };
 
     this.handleUpdate = function (update) {
         var player, move;
@@ -158,6 +168,14 @@ var PlayViewModel = function (game, player) {
             player = _.find(self.players(), function (p) {
                 return p.id == data.id;
             });
+
+            if (player == self.player) {
+                interruptListen();
+                // TODO make this prettier
+                alert('Kicked by host');
+                window.location.href = '/games';
+                return;
+            }
 
             // TODO this is kind of ugly
             if (player.state() == '' && !this.czarCanSelect() && this.playedCards().length > 0) {

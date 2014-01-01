@@ -193,8 +193,28 @@ var state = function (req, res) {
     res.send(200);
 };
 
-// TODO
 var kick = function (req, res) {
+    var gameInstance = findGame(req.params.game);
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    }
+
+    var user = users.get(req.session.user.id);
+    if (!user || !isPlayer(user, gameInstance) || gameInstance.host != user) {
+        res.send(403);
+        return;
+    }
+
+    var player = users.get(req.params.player);
+    if (!player || !isPlayer(player, gameInstance)) {
+        res.send(404);
+        return;
+    }
+
+    gameInstance.removePlayer(player, 'Kicked');
+
+    res.send(200);
 };
 
 var leave = function (req, res) {
@@ -327,4 +347,6 @@ module.exports = function (app, gameModule) {
     app.post('/ajax/game/:game/update', update);
 
     app.post('/ajax/game/:game/leave', leave);
+
+    app.post('/ajax/game/:game/kick/:player', kick);
 };

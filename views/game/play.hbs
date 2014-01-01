@@ -129,6 +129,12 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <strong data-bind="text: name"></strong>
+                            <span title="Host" class="glyphicon glyphicon-star" data-bind="visible: $root.game.host.id == id"></span>
+                            <!-- ko if: $root.isHost() && $root.game.host.id != id  -->
+                            <button class="btn btn-sm" data-bind="click: $root.kick">
+                                Kick
+                            </button>
+                            <!-- /ko -->
                         </div>
                     </div>
 
