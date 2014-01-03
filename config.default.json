@@ -1,0 +1,15 @@
+{
+    "port": 1337,
+    "trustProxy": true,
+    "env": "production",
+    "sessionSecret": "changeme",
+    "files": {
+        "decks": "data/decks"
+    },
+    "less": {
+        "once": true,
+        "compress": true,
+        "yuicompress": false,
+        "optimization": 0
+    }
+}

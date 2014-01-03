@@ -1,5 +1,18 @@
 [
     {
+        "date": "Jan 3, 2014",
+        "version": "0.4.0",
+        "changes": [
+            "Game data changes get synced to clients now"
+        ]
+    },
+    {
+        "date": "Jan 1, 2014",
+        "changes": [
+            "Implemented kicking players. Happy New Year!"
+        ]
+    },
+    {
         "date": "Dec 31, 2013",
         "changes": [
             "Implemented round time limits",
