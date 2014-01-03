@@ -88,7 +88,7 @@ var PlayViewModel = function (game, player) {
 
     var self = this;
 
-    this.game = game;
+    this.game = ko.observable(game);
 
     this.player = new PlayerViewModel(player);
     this.hand = new HandViewModel();
@@ -127,7 +127,7 @@ var PlayViewModel = function (game, player) {
         }
         this.selectedMoveSubmitted(true);
 
-        $.ajax('/ajax/game/' + model.game.id + '/select', {
+        $.ajax('/ajax/game/' + model.game().id + '/select', {
             method: 'post', contentType: 'application/json',
             data: JSON.stringify({move: this.selectedMove().id})
         });
@@ -136,7 +136,7 @@ var PlayViewModel = function (game, player) {
     };
 
     this.isHost = function () {
-        return self.game.host.id == self.player.id;
+        return self.game().host.id == self.player.id;
     };
 
     this.isCzar = ko.computed(function () {
@@ -149,7 +149,7 @@ var PlayViewModel = function (game, player) {
 
     this.kick = function (player) {
         if (confirm('Are you sure?')) {
-            $.ajax('/ajax/game/' + self.game.id + '/kick/' + player.id, {method: 'post'});
+            $.ajax('/ajax/game/' + self.game().id + '/kick/' + player.id, {method: 'post'});
         }
     };
 
@@ -312,7 +312,7 @@ var PlayViewModel = function (game, player) {
 
             if (data.state == Game.State.ENDED) {
                 _.each(this.players(), function (p) {
-                    if (p.points() >= self.game.scoreLimit) {
+                    if (p.points() >= self.game().scoreLimit) {
                         p.state('Winner!');
                         self.winner(p);
                     } else {
@@ -322,6 +322,11 @@ var PlayViewModel = function (game, player) {
 
                 this.ended(true);
             }
+
+        } else if (type == Game.Server.Update.GAME_DATA) {
+            console.log('Game data updated: ' + JSON.stringify(data));
+
+            this.game(data);
 
         } else {
             console.log('Unknown update: ' + type + ': ' + JSON.stringify(data));

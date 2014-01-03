@@ -2,14 +2,14 @@
 
     {{#replace 'navLeft'}}
         <li>
-            <span class="navbar-brand" data-bind="text: game.name">
+            <span class="navbar-brand" data-bind="text: game().name">
                 derp
             </span>
         </li>
     {{/replace}}
 
     {{#prepend 'navRight'}}
-        <!-- ko if: game.roundTimeLimit -->
+        <!-- ko if: game().roundTimeLimit -->
         <li>
             <p class="navbar-text">
                 Time left:
@@ -129,8 +129,8 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <strong data-bind="text: name"></strong>
-                            <span title="Host" class="glyphicon glyphicon-star" data-bind="visible: $root.game.host.id == id"></span>
-                            <!-- ko if: $root.isHost() && $root.game.host.id != id  -->
+                            <span title="Host" class="glyphicon glyphicon-star" data-bind="visible: $root.game().host.id == id"></span>
+                            <!-- ko if: $root.isHost() && $root.game().host.id != id  -->
                             <button class="btn btn-sm" data-bind="click: $root.kick">
                                 Kick
                             </button>
