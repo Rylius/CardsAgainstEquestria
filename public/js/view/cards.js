@@ -46,7 +46,7 @@ var MoveViewModel = function (id) {
     this.submit = function () {
         self.confirmed(true);
 
-        $.ajax('/ajax/game/' + model.game.id + '/move', {
+        $.ajax('/ajax/game/' + model.game().id + '/move', {
             method: 'post', contentType: 'application/json',
             data: JSON.stringify(_.map(self.cards(), function (card) {
                 return card.id;
