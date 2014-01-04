@@ -30,7 +30,7 @@ module.exports = function (grunt) {
             vendors: {
                 src: [
                     'public/js/vendor/**/*.js',
-                    '!jquery-*.min.js'
+                    '!**/jquery-*.min.js'
                 ],
                 dest: 'dist/js/vendors.min.js'
             }
@@ -40,7 +40,7 @@ module.exports = function (grunt) {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd hh:MM:ss") %> - unminified source at <%= pkg.homepage %> */\n'
             },
             js: {
-                src: 'public/js/cae.js',
+                src: 'dist/js/cae.js',
                 dest: 'dist/js/cae.min.js'
             }
         },
@@ -60,10 +60,10 @@ module.exports = function (grunt) {
                         cwd: 'public/'
                     },
                     {
-                        src: 'js/vendor/jquery-*.min.js',
-                        dest: 'dist/',
+                        src: 'jquery-*.min.js',
+                        dest: 'dist/js/',
                         expand: true,
-                        cwd: 'public/'
+                        cwd: 'public/js/vendor/'
                     }
                 ]
             }
