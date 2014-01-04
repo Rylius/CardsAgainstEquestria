@@ -30,7 +30,8 @@ var Game = {
             UNCOVER: 6,
             SELECTED: 7,
             ROUND: 8,
-            STATE: 9
+            STATE: 9,
+            CHAT: 10
         }
     },
 
@@ -42,6 +43,13 @@ var Game = {
 
 };
 
+var Chat = {
+    MESSAGE: 0
+};
+
 if (typeof module != 'undefined') {
-    module.exports = {Game: Game};
+    module.exports = {
+        Game: Game,
+        Chat: Chat
+    };
 }

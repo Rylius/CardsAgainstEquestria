@@ -180,8 +180,7 @@ var GameLobbyViewModel = function (user) {
             return;
         }
 
-        $.ajax('/ajax/game/' + self.game().id() + '/update',
-            {
+        $.ajax('/ajax/game/' + self.game().id() + '/update', {
                 method: 'post',
                 contentType: 'application/json',
                 data: ko.toJSON(self.game())
@@ -197,12 +196,11 @@ var GameLobbyViewModel = function (user) {
 
     this.start = function () {
         self.starting(true);
-        $.ajax('/ajax/game/' + self.game().id() + '/start',
-            {
-                method: 'post',
-                contentType: 'application/json',
-                data: JSON.stringify({})
-            });
+        $.ajax('/ajax/game/' + self.game().id() + '/start', {
+            method: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify({})
+        });
     };
 
     this.handleUpdate = function (update) {
@@ -215,6 +213,9 @@ var GameLobbyViewModel = function (user) {
             this.sendUpdates(false);
             this.game().fromJson(data);
             this.sendUpdates(true);
+
+        } else if (type == Game.Server.Update.CHAT) {
+            console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);
 
         } else if (type == Game.Server.Update.PLAYER_JOIN) {
             console.log('Player joined: ' + JSON.stringify(data));

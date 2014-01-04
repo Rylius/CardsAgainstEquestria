@@ -1,7 +1,13 @@
 [
     {
+        "date": "Jan 4, 2014",
+        "changes": [
+            "Added grunt to minimize LESS/JS"
+        ]
+    },
+    {
         "date": "Jan 3, 2014",
-        "version": "0.4.0 / 0.4.1",
+        "version": "0.4.0 / 0.4.1 / 0.4.2",
         "changes": [
             "Game data changes get synced to clients now"
         ]

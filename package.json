@@ -1,6 +1,7 @@
 {
     "name": "cards-against-equestria",
-    "version": "0.4.1",
+    "version": "0.4.3",
+    "homepage": "https://github.com/Rylius/CardsAgainstEquestria",
     "private": true,
     "scripts": {
         "start": "node app.js"
@@ -10,10 +11,16 @@
         "connect-flash": "0.1.x",
         "hbs": "2.4.x",
         "handlebars-layouts": "0.1.x",
-        "less-middleware": "*",
         "underscore": "*",
         "underscore.string": "*",
         "extend": "1.2.x",
         "logule": "2.x.x"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-less": "~0.8.3",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-uglify": "~0.2.7",
+        "grunt-contrib-copy": "~0.5.0"
     }
 }

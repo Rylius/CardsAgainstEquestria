@@ -18,8 +18,6 @@ var config = require('./config');
 
 var users = require('./lib/users');
 
-var less = require('less-middleware');
-
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 
@@ -43,6 +41,14 @@ hbs.registerHelper('ajaxLoader', function () {
     return new hbs.handlebars.SafeString('<img src="/img/ajax-loader.gif" alt="Loading...">');
 });
 
+var minIfProduction = '';
+if (config.env != 'development') {
+    minIfProduction = '.min';
+}
+hbs.registerHelper('minIfDev', function () {
+    return minIfDev;
+});
+
 app.use(express.urlencoded());
 app.use(express.json());
 
@@ -52,10 +58,9 @@ app.use(express.cookieParser());
 app.use(express.session({secret: config.sessionSecret}));
 app.use(flash());
 
-app.use(express.favicon());
+//app.use(express.favicon());
 
-app.use(less(extend({src: path.join(__dirname, 'public')}, config.less)));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 var auth = function (req, res, next) {
     if (!req.session.user

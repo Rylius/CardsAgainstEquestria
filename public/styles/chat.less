@@ -1,0 +1,45 @@
+@import "bootstrap/bootstrap";
+@import "variables";
+
+#chat {
+  .nav;
+  .nav-tabs;
+}
+
+#chat-global, #chat-game {
+  min-height: 200px;
+  max-height: 200px;
+
+  overflow: auto;
+
+  .history {
+    list-style: none;
+    padding-left: 10px;
+
+    .message {
+      .timestamp {
+        float: left;
+        min-width: 80px;
+        padding-right: 10px;
+      }
+
+      .name {
+      }
+      .text {
+      }
+
+      .action {
+      }
+    }
+
+    .message-game {
+      .name, .text, .action {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .input {
+    min-height: 20px;
+  }
+}

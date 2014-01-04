@@ -263,7 +263,7 @@
 
             <div class="row" style="margin-top: 20px;">
                 <div class="col-xs-12">
-                    <ul class="nav nav-tabs" id="chat">
+                    <ul id="chat">
                         <li>
                             <a href="#chat-global" data-toggle="tab">Global Chat</a>
                         </li>
@@ -277,8 +277,56 @@
                         <div class="tab-pane todo" id="chat-global">
                             global chat
                         </div>
+
                         <div class="tab-pane active todo" id="chat-game">
-                            game chat
+                            <ul class="history">
+
+                                <li class="message">
+                                    <span class="timestamp">
+                                        [13:37:00]
+                                    </span>
+                                    <span class="name">
+                                        &lt;Rylius&gt;
+                                    </span>
+                                    <span class="text">
+                                        test
+                                    </span>
+                                </li>
+
+                                <li class="message message-game">
+                                    <span class="timestamp">
+                                        [13:37:36]
+                                    </span>
+                                    <span class="text">
+                                        Herp a derp!
+                                    </span>
+                                </li>
+
+                                <li class="message">
+                                    <span class="timestamp">
+                                        [asdf]
+                                    </span>
+                                    <span class="name">
+                                        &lt;obnoxiously_large_nick&gt;
+                                    </span>
+                                    <span class="text">
+                                        test
+                                    </span>
+                                </li>
+
+                                <li class="message">
+                                    <span class="timestamp">
+                                        &nbsp;
+                                    </span>
+                                    <span class="action">
+                                        * Rylius derps
+                                    </span>
+                                </li>
+
+                            </ul>
+
+                            <div class="input">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -288,11 +336,6 @@
     {{/replace}}
 
     {{#append 'defer'}}
-        <script src="/js/knockout.js"></script>
-
-        <script src="/js/constants.js"></script>
-        <script src="/js/view/game.js"></script>
-
         <script>
             currentListenRequest = null;
 
