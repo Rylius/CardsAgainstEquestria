@@ -260,79 +260,62 @@
                 </div>
                 <!-- /ko -->
             </div>
+        </form>
 
-            <div class="row" style="margin-top: 20px;">
-                <div class="col-xs-12">
-                    <ul id="chat">
-                        <li>
-                            <a href="#chat-global" data-toggle="tab">Global Chat</a>
-                        </li>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-xs-12">
+                <ul id="chat">
+                    <li>
+                        <a href="#chat-global" data-toggle="tab">Global Chat</a>
+                    </li>
 
-                        <li class="active">
-                            <a href="#chat-game" data-toggle="tab">Game Chat</a>
-                        </li>
-                    </ul>
+                    <li class="active">
+                        <a href="#chat-game" data-toggle="tab">Game Chat</a>
+                    </li>
+                </ul>
 
-                    <div class="tab-content">
-                        <div class="tab-pane todo" id="chat-global">
-                            global chat
-                        </div>
+                <div class="tab-content">
+                    <div class="tab-pane todo" id="chat-global">
+                        global chat
+                    </div>
 
-                        <div class="tab-pane active todo" id="chat-game">
-                            <ul class="history">
+                    <div class="tab-pane active" id="chat-game">
+                        <ul class="history" data-bind="foreach: gameChat().history">
 
-                                <li class="message">
+                            <li class="message"
+                                data-bind="css: { 'message-game': type == Chat.MESSAGE_GAME, 'message-error': type() == Chat.ERROR }">
                                     <span class="timestamp">
-                                        [13:37:00]
+                                        [<span data-bind="text: formatTime"></span>]
                                     </span>
+
+                                <!-- ko if: type() != Chat.ACTION -->
+                                <!-- ko if: user() -->
                                     <span class="name">
-                                        &lt;Rylius&gt;
+                                        &lt;<span data-bind="text: user().name"></span>&gt;
                                     </span>
-                                    <span class="text">
-                                        test
-                                    </span>
-                                </li>
+                                <!-- /ko -->
+                                <span class="text" data-bind="text: message">&nbsp;</span>
+                                <!-- /ko -->
 
-                                <li class="message message-game">
-                                    <span class="timestamp">
-                                        [13:37:36]
-                                    </span>
-                                    <span class="text">
-                                        Herp a derp!
-                                    </span>
-                                </li>
-
-                                <li class="message">
-                                    <span class="timestamp">
-                                        [asdf]
-                                    </span>
-                                    <span class="name">
-                                        &lt;obnoxiously_large_nick&gt;
-                                    </span>
-                                    <span class="text">
-                                        test
-                                    </span>
-                                </li>
-
-                                <li class="message">
-                                    <span class="timestamp">
-                                        &nbsp;
-                                    </span>
+                                <!-- ko if: type() == Chat.ACTION -->
                                     <span class="action">
-                                        * Rylius derps
+                                        *
+                                        <span data-bind="text: user().name">&nbsp;</span>
+                                        <span data-bind="text: message">&nbsp;</span>
                                     </span>
-                                </li>
+                                <!-- /ko -->
+                            </li>
 
-                            </ul>
+                        </ul>
 
-                            <div class="input">
-                            </div>
+                        <div class="input">
+                            <input type="text" autocomplete="false"
+                                   data-bind="value: gameChat().message, valueUpdate: 'afterkeydown', returnAction: gameChat().send">
                         </div>
                     </div>
                 </div>
             </div>
-
-        </form>
+        </div>
     {{/replace}}
 
     {{#append 'defer'}}

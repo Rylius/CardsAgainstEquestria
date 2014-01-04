@@ -7,14 +7,18 @@
 }
 
 #chat-global, #chat-game {
-  min-height: 200px;
-  max-height: 200px;
-
-  overflow: auto;
-
   .history {
+    background-color: @gray-lighter;
+
     list-style: none;
     padding-left: 10px;
+
+    font-family: @font-family-monospace;
+
+    min-height: 180px;
+    max-height: 180px;
+
+    overflow: auto;
 
     .message {
       .timestamp {
@@ -37,9 +41,18 @@
         font-weight: bold;
       }
     }
+    .message-error {
+      .name, .text, .action {
+        font-weight: bold;
+        color: @brand-danger;
+      }
+    }
   }
 
   .input {
     min-height: 20px;
+    > input {
+      .form-control;
+    }
   }
 }

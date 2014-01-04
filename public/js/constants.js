@@ -44,7 +44,10 @@ var Game = {
 };
 
 var Chat = {
-    MESSAGE: 0
+    MESSAGE: 0,
+    ACTION: 1,
+    GAME_MESSAGE: 2,
+    ERROR: 3
 };
 
 if (typeof module != 'undefined') {

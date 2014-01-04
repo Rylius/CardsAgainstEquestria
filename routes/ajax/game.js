@@ -6,6 +6,8 @@ var users = require('../../lib/users');
 
 var cards = require('../../lib/cards');
 
+var Chat = require('../../lib/chat');
+
 var constants = require('../../lib/constants').Game;
 
 var game = null;
@@ -272,6 +274,47 @@ var info = function (req, res) {
 };
 
 /**
+ * POST
+ * Send a chat message to a particular game.
+ */
+var chat = function (req, res) {
+    var gameInstance = _.find(game.listGames(), function (g) {
+        return g.id == req.params.game;
+    });
+
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    }
+
+    var user = users.get(req.session.user.id);
+    if (!isPlayer(user, gameInstance)) {
+        res.send(403);
+        return;
+    }
+
+    var type = parseInt(req.body.type);
+    if (type < 0 || type > 3) {
+        res.send(400);
+        return;
+    }
+
+    var text = req.body.message;
+    if (!text || text.length == 0 || text.length > 8192) {
+        res.send(400);
+        return;
+    }
+
+    var message = new Chat.Message(user, type, text);
+
+    log.trace('Game ' + gameInstance.id + ': Received chat message from ' + user.id + '/' + user.name + ': ' + JSON.stringify(message));
+
+    gameInstance.chat.sendMessage(message);
+
+    res.send(200);
+};
+
+/**
  * GET
  * Returns all sets and expansions.
  */
@@ -336,6 +379,8 @@ module.exports = function (app, gameModule) {
     app.get('/ajax/game/rules', rules);
 
     app.get('/ajax/game/:game/info', info);
+
+    app.post('/ajax/game/:game/chat', chat);
 
     app.get('/ajax/game/:game/listen', listen);
     app.post('/ajax/game/:game/state', state);

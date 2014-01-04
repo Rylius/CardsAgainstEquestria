@@ -91,6 +91,11 @@ var GameLobbyViewModel = function (user) {
     this.user = user;
 
     this.game = ko.observable();
+    this.gameChat = ko.observable(new ChatViewModel());
+    this.gameChat().user(user);
+    this.game.subscribeChanged(function (newValue) {
+        self.gameChat().gameId(newValue.id());
+    });
 
     this.sets = ko.observableArray();
     this.expansions = ko.observableArray();
@@ -216,6 +221,7 @@ var GameLobbyViewModel = function (user) {
 
         } else if (type == Game.Server.Update.CHAT) {
             console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);
+            this.gameChat().receive(data);
 
         } else if (type == Game.Server.Update.PLAYER_JOIN) {
             console.log('Player joined: ' + JSON.stringify(data));
