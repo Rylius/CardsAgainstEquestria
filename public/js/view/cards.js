@@ -123,7 +123,7 @@ var PlayViewModel = function (game, player) {
     this.selectedMoveSubmitted = ko.observable(false);
 
     this.timeLeft = ko.observable(0);
-    this.timeLeftTimeoutId = null;
+    this.timeLeftIntervalId = null;
 
     this.submitSelectedMove = function () {
         if (this.selectedMoveSubmitted() || !this.selectedMove()) {
@@ -290,8 +290,8 @@ var PlayViewModel = function (game, player) {
                 player.points(player.points() + 1);
             }
 
-            if (this.timeLeftTimeoutId) {
-                clearTimeout(this.timeLeftTimeoutId);
+            if (this.timeLeftIntervalId) {
+                clearInterval(this.timeLeftIntervalId);
             }
 
         } else if (type == Game.Server.Update.ROUND) {
@@ -366,23 +366,20 @@ var PlayViewModel = function (game, player) {
     };
 
     this.setTimeLimit = function () {
-        var timeLeft = this.timeLeft();
-        if (timeLeft > 0) {
-            this.timeLeft(timeLeft - 1);
-            this.timeLeftTimeoutId = setTimeout(this.setTimeLimit, 1000);
-        } else {
-            clearTimeout(this.timeLeftTimeoutId);
-            this.timeLeftTimeoutId = null;
+        this.timeLeft(this.timeLeft() - 1);
+        if (this.timeLeft() <= 0) {
+            clearInterval(this.timeLeftIntervalId);
+            this.timeLeftIntervalId = null;
         }
     }.bind(this);
 
     this.updateTimeLimit = function () {
-        if (this.timeLeftTimeoutId) {
-            clearTimeout(this.timeLeftTimeoutId);
+        if (this.timeLeftIntervalId) {
+            clearInterval(this.timeLeftIntervalId);
         }
 
         if (game.roundTimeLimit) {
-            this.timeLeftTimeoutId = setTimeout(this.setTimeLimit, 1000);
+            this.timeLeftIntervalId = setInterval(this.setTimeLimit, 1000);
         }
     };
 };

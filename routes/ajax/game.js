@@ -296,7 +296,7 @@ var chat = function (req, res) {
     // TODO clean up validation
 
     var type = parseInt(req.body.type);
-    if (type < 0 || type > 3) {
+    if (type < 0 || type > 1) {
         res.send(400);
         return;
     }

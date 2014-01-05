@@ -1,5 +1,11 @@
 [
     {
+        "date": "Jan 5, 2014",
+        "changes": [
+            "Made chat scroll. Fancy!"
+        ]
+    },
+    {
         "date": "Jan 4, 2014",
         "changes": [
             "Added grunt to minimize LESS/JS",
