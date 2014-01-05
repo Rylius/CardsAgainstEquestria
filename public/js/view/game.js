@@ -226,18 +226,30 @@ var GameLobbyViewModel = function (user) {
         } else if (type == Game.Server.Update.PLAYER_JOIN) {
             console.log('Player joined: ' + JSON.stringify(data));
             this.game().players.push(data);
+            this.gameChat().receive({
+                time: Date.now(),
+                type: Chat.GAME_MESSAGE,
+                message: data.name + ' joined the game'
+            });
 
         } else if (type == Game.Server.Update.PLAYER_LEAVE) {
             console.log('Player left: ' + JSON.stringify(data));
-            this.game().players.remove(_.find(self.game().players(), function (player) {
+            var player = _.find(self.game().players(), function (player) {
                 return player.id == data.id;
-            }));
+            });
+            this.game().players.remove(player);
 
             if (data.id == this.user.id) {
                 interruptListen();
                 // TODO make this prettier
                 alert('Kicked by host');
                 window.location.href = '/games';
+            } else {
+                this.gameChat().receive({
+                    time: Date.now(),
+                    type: Chat.GAME_MESSAGE,
+                    message: player.name + ' left the game (' + data.reason + ')'
+                });
             }
 
         } else if (type == Game.Server.Update.STATE) {

@@ -43,6 +43,8 @@ function ChatViewModel() {
 
     this.message = ko.observable('');
 
+    this.historyElement = ko.observable();
+
     this.send = function () {
         var text = this.message();
         if (!text || text.length == 0) {
@@ -95,6 +97,25 @@ function ChatViewModel() {
     this.receive = function (json) {
         var message = new ChatMessageViewModel().fromJSON(json);
         this.history.push(message);
-    }
+    };
+
+    var scrollHistory = function () {
+        var $el = self.historyElement();
+
+        if (!$el) {
+            return;
+        }
+
+        var el = $el.get(0);
+
+        var atBottom = el.scrollHeight - el.scrollTop === el.clientHeight;
+        if (atBottom) {
+            setTimeout(function () {
+                $el.scrollTop(el.scrollHeight);
+            }, 10);
+        }
+    };
+
+    this.history.subscribeChanged(scrollHistory);
 
 }

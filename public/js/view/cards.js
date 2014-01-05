@@ -167,6 +167,12 @@ var PlayViewModel = function (game, player) {
             console.log('Player joined: ' + data.name + '/' + data.id);
             this.players.push(new PlayerViewModel(data));
 
+            this.chat().receive({
+                time: Date.now(),
+                type: Chat.GAME_MESSAGE,
+                message: data.name + ' joined the game'
+            });
+
         } else if (type == Game.Server.Update.PLAYER_LEAVE) {
             console.log('Player left: ' + data.id);
             player = _.find(self.players(), function (p) {
@@ -180,6 +186,12 @@ var PlayViewModel = function (game, player) {
                 window.location.href = '/games';
                 return;
             }
+
+            this.chat().receive({
+                time: Date.now(),
+                type: Chat.GAME_MESSAGE,
+                message: player.name + ' left the game (' + data.reason + ')'
+            });
 
             // TODO this is kind of ugly
             if (player.state() == '' && !this.czarCanSelect() && this.playedCards().length > 0) {
@@ -311,6 +323,12 @@ var PlayViewModel = function (game, player) {
 
             this.timeLeft(data.timeLeft);
 
+            this.chat().receive({
+                time: Date.now(),
+                type: Chat.GAME_MESSAGE,
+                message: 'Starting round ' + this.round()
+            });
+
         } else if (type == Game.Server.Update.CHAT) {
             console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);
             this.chat().receive(data);
@@ -326,6 +344,12 @@ var PlayViewModel = function (game, player) {
                     } else {
                         p.state('');
                     }
+                });
+
+                this.chat().receive({
+                    time: Date.now(),
+                    type: Chat.GAME_MESSAGE,
+                    message: self.winner().name + ' won!'
                 });
 
                 this.ended(true);

@@ -261,6 +261,8 @@
                 model = new PlayViewModel({{{gameJson}}}, {{{userJson}}});
                 ko.applyBindings(model);
 
+                model.chat().historyElement($('#chat-game').find('> ul'));
+
                 var blockHand = function () {
                     if (model.isCzar()) {
                         $('#hand').block();

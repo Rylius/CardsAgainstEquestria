@@ -357,6 +357,8 @@
                 model = new GameLobbyViewModel({{{userJson}}});
                 ko.applyBindings(model);
 
+                model.gameChat().historyElement($('#chat-game').find('> ul'));
+
                 $.ajax('/ajax/game/{{{game.id}}}/info', {
                     method: 'get',
                     success: function (data) {
