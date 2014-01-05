@@ -28,6 +28,7 @@ hbs.handlebars.registerPartial('layouts/default', fs.readFileSync(__dirname + '/
 hbs.handlebars.registerPartial('util/analytics', fs.readFileSync(__dirname + '/views/util/analytics.hbs', 'utf8'));
 hbs.handlebars.registerPartial('derp1', fs.readFileSync(__dirname + '/views/util/derp.hbs', 'utf8'));
 hbs.handlebars.registerPartial('derp2', fs.readFileSync(__dirname + '/views/util/derp2.hbs', 'utf8'));
+hbs.handlebars.registerPartial('chatMessage', fs.readFileSync(__dirname + '/views/chat/message.hbs', 'utf8'));
 
 require('./lib/helpers/input')(hbs);
 require('./lib/helpers/util')(hbs);

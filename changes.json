@@ -2,7 +2,8 @@
     {
         "date": "Jan 4, 2014",
         "changes": [
-            "Added grunt to minimize LESS/JS"
+            "Added grunt to minimize LESS/JS",
+            "Implemented game chats (global is still missing)"
         ]
     },
     {

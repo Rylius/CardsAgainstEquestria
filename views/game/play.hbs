@@ -166,8 +166,16 @@
                     <div class="tab-pane todo" id="chat-global">
                         global chat
                     </div>
-                    <div class="tab-pane active todo" id="chat-game">
-                        game chat
+
+                    <div class="tab-pane active" id="chat-game">
+                        <ul class="history" data-bind="foreach: chat().history">
+                            {{>chatMessage}}
+                        </ul>
+
+                        <div class="input">
+                            <input type="text" autocomplete="false"
+                                   data-bind="value: chat().message, valueUpdate: 'afterkeydown', returnAction: chat().send">
+                        </div>
                     </div>
                 </div>
             </div>

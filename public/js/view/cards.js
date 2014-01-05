@@ -90,6 +90,10 @@ var PlayViewModel = function (game, player) {
 
     this.game = ko.observable(game);
 
+    this.chat = ko.observable(new ChatViewModel());
+    this.chat().user(player);
+    this.chat().gameId(game.id);
+
     this.player = new PlayerViewModel(player);
     this.hand = new HandViewModel();
     this.move = ko.observable();
@@ -306,6 +310,10 @@ var PlayViewModel = function (game, player) {
             this.selectedMoveSubmitted(false);
 
             this.timeLeft(data.timeLeft);
+
+        } else if (type == Game.Server.Update.CHAT) {
+            console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);
+            this.chat().receive(data);
 
         } else if (type == Game.Server.Update.STATE) {
             console.log('Game state changed to ' + data.state);
