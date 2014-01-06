@@ -1,5 +1,7 @@
 @import "bootstrap/bootstrap";
 
+// list
+
 .game {
   .make-row();
 
@@ -59,4 +61,100 @@
       }
     }
   }
+}
+
+#lobby {
+
+  .head {
+    .make-row();
+
+    .info {
+      .make-xs-column(4);
+
+      > div {
+        .make-row();
+
+        > div {
+          .make-xs-column(12);
+
+          margin-bottom: 10px;
+
+          > ul {
+            .has-error;
+          }
+        }
+      }
+    }
+
+    .invite {
+      .make-xs-column(8);
+      .make-row(0);
+      .form-horizontal;
+
+      .link {
+        .make-xs-column(8);
+
+        > div {
+          .form-group;
+
+          > label {
+            .make-xs-column(3);
+          }
+
+          > div {
+            .make-xs-column(9);
+
+            > input {
+              .form-control;
+            }
+          }
+        }
+      }
+
+      .twitter {
+        .make-xs-column(1);
+      }
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    cursor: pointer;
+  }
+
+  #basics {
+    .form-horizontal;
+
+    > div {
+      .make-row(0);
+    }
+  }
+
+  #sets {
+    .make-row();
+    .form-horizontal;
+  }
+
+  .player {
+    margin-bottom: 5px;
+
+    border-bottom: 1px solid @gray-light;
+
+    padding-bottom: 5px;
+
+    > div {
+      .make-row(0);
+
+      .name {
+        .make-xs-column(7);
+
+        padding-top: 5px;
+      }
+    }
+  }
+
 }

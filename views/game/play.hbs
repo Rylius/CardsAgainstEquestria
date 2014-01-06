@@ -217,6 +217,12 @@
                                 }
 
                                 console.warn('listen request failed: ' + status + ': ' + error);
+
+                                if (error == 'Forbidden') {
+                                    window.location.reload(true);
+                                    return;
+                                }
+
                                 model.chat().showError('Failed to fetch game updates! Trying again in 5 seconds.');
                                 setTimeout(listen, 5000);
                             }

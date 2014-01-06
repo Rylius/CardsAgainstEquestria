@@ -63,6 +63,15 @@ app.use(flash());
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
+var ajaxAuth = function (req, res, next) {
+    if (req.path != '/ajax/user/login' && req.path.indexOf('/ajax/') == 0 && !req.session.user) {
+        res.send(403);
+        return;
+    }
+
+    next();
+};
+
 var auth = function (req, res, next) {
     if (!req.session.user
         && !_.contains(['/', '/user/login', '/ajax/user/login'], req.path)
@@ -99,6 +108,7 @@ var auth = function (req, res, next) {
     next();
 };
 
+app.use(ajaxAuth);
 app.use(auth);
 app.use(app.router);
 

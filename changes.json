@@ -3,7 +3,8 @@
         "date": "Jan 6, 2014",
         "changes": [
             "Improved client-side error handling",
-            "Hopefully fixed an issue with round time limits"
+            "Hopefully fixed an issue with round time limits",
+            "Cleaned up lobby"
         ]
     },
     {
