@@ -311,8 +311,9 @@
                             return;
                         }
 
-                        console.log('Reloading page: ' + status + ': ' + error);
-                        window.location.reload();
+                        console.warn('listen request failed: ' + status + ': ' + error);
+                        model.gameChat().showError('Failed to fetch game updates! Trying again in 5 seconds.');
+                        setTimeout(listen, 5000);
                     }
                 });
             }
@@ -366,6 +367,10 @@
                         model.registerListener();
 
                         loadTwitter();
+                    },
+                    error: function (request, error, status) {
+                        console.warn('Failed to request game info: ' + error + ': ' + status);
+                        window.location.reload(true);
                     }
                 });
 
@@ -381,6 +386,10 @@
                         _.each(data.expansions, function (expansion) {
                             model.expansions.push(expansion);
                         });
+                    },
+                    error: function (request, error, status) {
+                        console.warn('Failed to request card decks: ' + error + ': ' + status);
+                        window.location.reload(true);
                     }
                 });
 
@@ -391,10 +400,14 @@
                         _.each(data.rules, function (rule) {
                             model.rules.push(rule);
                         });
+                    },
+                    error: function (request, error, status) {
+                        console.warn('Failed to request game rules: ' + error + ': ' + status);
+                        window.location.reload(true);
                     }
                 });
 
-                setTimeout(listen, 100);
+                setTimeout(listen, 500);
             });
         </script>
     {{/append}}

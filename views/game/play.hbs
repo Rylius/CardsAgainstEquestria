@@ -129,7 +129,8 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <strong data-bind="text: name"></strong>
-                            <span title="Host" class="glyphicon glyphicon-star" data-bind="visible: $root.game().host.id == id"></span>
+                            <span title="Host" class="glyphicon glyphicon-star"
+                                  data-bind="visible: $root.game().host.id == id"></span>
                             <!-- ko if: $root.isHost() && $root.game().host.id != id  -->
                             <button class="btn btn-sm" data-bind="click: $root.kick">
                                 Kick
@@ -215,8 +216,9 @@
                                     return;
                                 }
 
-                                console.log('Reloading page: ' + status + ': ' + error);
-                                window.location.reload(true);
+                                console.warn('listen request failed: ' + status + ': ' + error);
+                                model.chat().showError('Failed to fetch game updates! Trying again in 5 seconds.');
+                                setTimeout(listen, 5000);
                             }
                         }
                 );
@@ -275,12 +277,19 @@
 
                 listen();
 
-                // give the listen call some time, otherwise the server will send the state to the previous and now invalid request
-                setTimeout(function () {
-                    $.ajax('/ajax/game/{{{game.id}}}/state', {method: 'post'});
-                }, 1000);
+                var getState = function () {
+                    $.ajax('/ajax/game/{{{game.id}}}/state', {
+                        method: 'post',
+                        error: function (request, error, status) {
+                            console.warn('Failed to request state: ' + error + ': ' + status);
+                            model.chat().showError('Failed to request game state! Trying again in 5 seconds.');
+                            setTimeout(getState, 5000);
+                        }
+                    });
+                };
 
-                // TODO request state again if it wasn't received after some seconds
+                // give the listen call some time, otherwise the server will send the state to the previous and now invalid request
+                setTimeout(getState, 1000);
             });
         </script>
     {{/append}}
