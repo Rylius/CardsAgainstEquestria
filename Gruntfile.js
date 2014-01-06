@@ -3,14 +3,24 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         less: {
+            options: {
+                compress: true,
+                cleancss: true,
+                ieCompat: true
+            },
             styles: {
-                options: {
-                    compress: true,
-                    cleancss: true,
-                    ieCompat: true
-                },
                 files: {
                     "dist/styles/style.css": "public/styles/style.less"
+                }
+            },
+            derpy: {
+                files: {
+                    "dist/styles/derpy.css": "public/styles/themes/derpy/derpy.less"
+                }
+            },
+            luna: {
+                files: {
+                    "dist/styles/luna.css": "public/styles/themes/luna/luna.less"
                 }
             }
         },
@@ -21,8 +31,7 @@ module.exports = function (grunt) {
             },
             cae: {
                 src: [
-                    'public/js/constants.js',
-                    'public/js/knockout.js',
+                    'public/js/*.js',
                     'public/js/view/**/*.js'
                 ],
                 dest: 'dist/js/cae.js'

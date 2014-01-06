@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/{{theme}}.css"/>
 
     {{#block 'head'}}
         <title>Cards Against Equestria</title>
@@ -51,6 +51,7 @@
                                         <a href="#">Settings</a>
                                     </li>
                                 {{/if}}
+
                                 {{#unless user.registered}}
                                     <li class="disabled">
                                         <a href="#">
@@ -59,7 +60,19 @@
                                         </a>
                                     </li>
                                 {{/unless}}
+
                                 <li class="divider"></li>
+
+                                {{#each themes}}
+                                    <li{{#ifCond id '==' ../theme}} class="active"{{/ifCond}}>
+                                        <a href="#" onclick="switchTheme('{{id}}')">
+                                            Theme: {{name}}
+                                        </a>
+                                    </li>
+                                {{/each}}
+
+                                <li class="divider"></li>
+
                                 <li>
                                     <a href="/user/logout" onclick="{{#block 'logoutOnclick'}}{{/block}}">
                                         Log out

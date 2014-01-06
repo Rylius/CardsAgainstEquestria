@@ -42,6 +42,29 @@ hbs.registerHelper('ajaxLoader', function () {
     return new hbs.handlebars.SafeString('<img src="/img/ajax-loader.gif" alt="Loading...">');
 });
 
+hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
+    switch (operator) {
+        case '==':
+            return (v1 == v2) ? options.fn(this) : options.inverse(this);
+        case '===':
+            return (v1 === v2) ? options.fn(this) : options.inverse(this);
+        case '<':
+            return (v1 < v2) ? options.fn(this) : options.inverse(this);
+        case '<=':
+            return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+        case '>':
+            return (v1 > v2) ? options.fn(this) : options.inverse(this);
+        case '>=':
+            return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+        case '||':
+            return (v1 || v2) ? options.fn(this) : options.inverse(this);
+        case '&&':
+            return (v1 && v2) ? options.fn(this) : options.inverse(this);
+        default:
+            return options.inverse(this);
+    }
+});
+
 var minIfProduction = '';
 if (config.env != 'development') {
     minIfProduction = '.min';
@@ -110,6 +133,23 @@ var auth = function (req, res, next) {
 
 app.use(ajaxAuth);
 app.use(auth);
+
+app.locals.themes = config.themes;
+
+var themeIds = _.pluck(config.themes, 'id');
+app.use(function (req, res, next) {
+    var themeId = req.cookies.theme;
+    if (!themeId || !_.contains(themeIds, themeId)) {
+        themeId = config.defaultTheme;
+    }
+
+    res.locals.theme = _.find(config.themes, function (theme) {
+        return theme.id == themeId;
+    }).file;
+
+    next();
+});
+
 app.use(app.router);
 
 if (config.env == 'development') {

@@ -5,5 +5,18 @@
     "sessionSecret": "changeme",
     "files": {
         "decks": "data/decks"
-    }
+    },
+    "themes": [
+        {
+            "name": "Derpy",
+            "id": "derpy",
+            "file": "derpy"
+        },
+        {
+            "name": "Luna",
+            "id": "luna",
+            "file": "luna"
+        }
+    ],
+    "defaultTheme": "derpy"
 }

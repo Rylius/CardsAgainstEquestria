@@ -115,9 +115,9 @@ input[type=submit] {
 .navbar .open .dropdown-menu {
   position: absolute;
   float: left;
-  background-color: #fff;
-  border: 1px solid #cccccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: @dropdown-bg;
+  border: 1px solid @dropdown-fallback-border;
+  border: 1px solid @dropdown-border;
   border-width: 0 1px 1px;
   border-radius: 0 0 4px 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -125,7 +125,7 @@ input[type=submit] {
 }
 
 .navbar .open .dropdown-menu > li > a {
-  color: #333;
+  color: @dropdown-link-color;
 }
 
 .navbar .open .dropdown-menu > li > a:hover,
@@ -133,13 +133,13 @@ input[type=submit] {
 .navbar .open .dropdown-menu > .active > a,
 .navbar .open .dropdown-menu > .active > a:hover,
 .navbar .open .dropdown-menu > .active > a:focus {
-  color: #fff !important;
-  background-color: #428bca !important;
+  color: @dropdown-link-hover-color !important;
+  background-color: @brand-primary !important;
 }
 
 .navbar .open .dropdown-menu > .disabled > a,
 .navbar .open .dropdown-menu > .disabled > a:hover,
 .navbar .open .dropdown-menu > .disabled > a:focus {
-  color: #999 !important;
+  color: @dropdown-link-disabled-color !important;
   background-color: transparent !important;
 }
