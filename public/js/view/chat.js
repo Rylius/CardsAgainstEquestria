@@ -3,7 +3,7 @@ function ChatMessageViewModel() {
 
     var self = this;
 
-    this.time = ko.observable(Date.now());
+    this.time = ko.observable();
     this.user = ko.observable();
     this.type = ko.observable(Chat.MESSAGE);
     this.message = ko.observable();
@@ -62,12 +62,7 @@ function ChatViewModel() {
                 message.type(Chat.ACTION);
             } else {
                 console.log('Unknown chat command: ' + text);
-
-                var error = new ChatMessageViewModel();
-                error.type(Chat.ERROR);
-                error.message('Unknown command: ' + text);
-
-                this.history.push(error);
+                this.showError('Unknown command: ' + text);
 
                 this.message('');
 
@@ -83,11 +78,17 @@ function ChatViewModel() {
 
         if (this.gameId() >= 0) {
             $.ajax('/ajax/game/' + this.gameId() + '/chat', {
-                method: 'post', data: message.toJSON()
+                method: 'post', data: message.toJSON(),
+                error: function () {
+                    self.showError('Your message somehow got lost! 6_9 send it again maybe?');
+                }
             });
         } else {
             $.ajax('/ajax/chat', {
-                method: 'post', data: message.toJSON()
+                method: 'post', data: message.toJSON(),
+                error: function () {
+                    self.showError('Your message somehow got lost! 6_9 send it again maybe?');
+                }
             });
         }
 
@@ -97,6 +98,15 @@ function ChatViewModel() {
     this.receive = function (json) {
         var message = new ChatMessageViewModel().fromJSON(json);
         this.history.push(message);
+    };
+
+    this.showError = function (message) {
+        var error = new ChatMessageViewModel();
+        error.type(Date.now());
+        error.type(Chat.ERROR);
+        error.message(message);
+
+        this.history.push(error);
     };
 
     var scrollHistory = function () {

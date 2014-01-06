@@ -1,6 +1,14 @@
 [
     {
+        "date": "Jan 6, 2014",
+        "changes": [
+            "Improved client-side error handling",
+            "Hopefully fixed an issue with round time limits"
+        ]
+    },
+    {
         "date": "Jan 5, 2014",
+        "version": "0.4.3",
         "changes": [
             "Made chat scroll. Fancy!"
         ]

@@ -50,7 +50,16 @@ var MoveViewModel = function (id) {
             method: 'post', contentType: 'application/json',
             data: JSON.stringify(_.map(self.cards(), function (card) {
                 return card.id;
-            }))
+            })),
+            error: function () {
+                self.confirmed(false);
+
+                model.chat().receive({
+                    time: Date.now(),
+                    type: Chat.ERROR,
+                    message: 'Something went wrong, please try again!'
+                });
+            }
         });
 
         console.log('Submitted move ' + JSON.stringify(self.cards()));
@@ -133,7 +142,16 @@ var PlayViewModel = function (game, player) {
 
         $.ajax('/ajax/game/' + model.game().id + '/select', {
             method: 'post', contentType: 'application/json',
-            data: JSON.stringify({move: this.selectedMove().id})
+            data: JSON.stringify({move: this.selectedMove().id}),
+            error: function () {
+                self.selectedMoveSubmitted(false);
+
+                self.chat().receive({
+                    time: Date.now(),
+                    type: Chat.ERROR,
+                    message: 'Something went wrong, please try again!'
+                });
+            }
         });
 
         console.log('Submitted selected move ' + JSON.stringify(this.selectedMove()));
