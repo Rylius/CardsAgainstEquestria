@@ -49,8 +49,7 @@ var lobby = function (req, res) {
     if (!_.find(g.players, function (player) {
         return user.id == player.user.id;
     })) {
-        req.flash('error', 'You\'re not a player in that game');
-        res.redirect('/games');
+        res.redirect('/game/join/' + g.id);
         return;
     }
 
