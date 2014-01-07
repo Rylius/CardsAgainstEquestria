@@ -221,6 +221,9 @@
                                 if (error == 'Forbidden') {
                                     window.location.reload(true);
                                     return;
+                                } else if (error == 'Not Found') {
+                                    window.location.href = '/games';
+                                    return;
                                 }
 
                                 model.chat().showError('Failed to fetch game updates! Trying again in 5 seconds.');
