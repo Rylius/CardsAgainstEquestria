@@ -1,10 +1,17 @@
 [
     {
+        "date": "Jan 7, 2014",
+        "changes": [
+            "Added Derpy theme"
+        ]
+    },
+    {
         "date": "Jan 6, 2014",
         "changes": [
             "Improved client-side error handling",
             "Hopefully fixed an issue with round time limits",
-            "Cleaned up lobby"
+            "Cleaned up lobby",
+            "Added theme switching"
         ]
     },
     {

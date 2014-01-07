@@ -1,26 +1,91 @@
 @import "../../style";
 
-@body-bg: #C2C7D6;
+@derpy-body-fill: lighten(#C2C7D6, 5%);
+@derpy-shadow-fill: #AEB2C0;
+@derpy-body-stroke: lighten(#838AA8, 5%);
 
-@navbar-default-bg: #838AA8;
-@navbar-default-link-color: #E7DD68;
+@derpy-hair-fill: #FAF9AF;
+@derpy-hair-stroke: #E7DD6B;
 
-@nav-link-hover-bg: lighten(@navbar-default-bg, 10%);
+// misc
+
+@body-bg: @derpy-body-fill;
+
+@link-color: darken(@brand-primary, 5%);
+
+@text-color: darken(@navbar-default-bg, 25%);
+
+@headings-small-color: lighten(@text-color, 15%);
+
+.help-block {
+  color: @headings-small-color;
+}
+
+// navigation
+
+@navbar-border-radius: 0;
+
+@navbar-default-bg: @derpy-body-stroke;
+@navbar-default-link-color: @derpy-hair-stroke;
+
+@navbar-default-link-active-color: lighten(@derpy-hair-stroke, 15%);
+@navbar-default-link-active-bg: @derpy-shadow-fill;
+
+@navbar-default-link-hover-color: @navbar-default-link-active-color;
+@navbar-default-link-hover-bg: @navbar-default-link-active-bg;
 
 @dropdown-bg: @navbar-default-bg;
 @dropdown-divider-bg: @text-color;
+
 @dropdown-link-color: @navbar-default-link-color;
-@dropdown-link-hover-color: @navbar-default-bg;
+
+@dropdown-link-hover-color: @navbar-default-link-hover-color;
+@dropdown-link-hover-bg: @navbar-default-link-hover-bg;
+
 @dropdown-link-disabled-color: @text-color;
 
-@brand-primary: #E7DD68;
-@brand-danger: #b44;
+// tabs
 
-@btn-success-bg: #60ba4b;
+// active tab
+@nav-tabs-active-link-hover-bg: @derpy-shadow-fill;
+@nav-tabs-active-link-hover-color: @gray;
+@nav-tabs-active-link-hover-border-color: @navbar-default-bg;
+
+// other tabs
+@nav-link-hover-bg: @navbar-default-link-hover-bg;
+@nav-tabs-link-hover-border-color: @navbar-default-bg;
+
+@nav-tabs-border-color: @navbar-default-bg;
+
+// buttons
+
+@btn-link-disabled-color: @gray-darker;
+
+@btn-default-bg: @derpy-body-fill;
+@btn-default-border: @derpy-body-stroke;
+
+// misc colors
+
+//@brand-primary: @derpy-hair-stroke;
+@brand-danger: #b44;
+@brand-success: lighten(desaturate(#60ba4b, 5%), 10%);
 
 @alert-danger-text: @brand-danger;
 @state-danger-text: @brand-danger;
 
-//@link-color: #428bca;
+// forms
 
-@text-color: darken(@navbar-default-bg, 25%);
+@input-bg: lighten(@derpy-body-fill, 10%);
+@input-bg-disabled: lighten(@derpy-body-stroke, 15%);
+
+@input-border: lighten(@derpy-body-stroke, 5%);
+@input-border-focus: darken(@derpy-hair-stroke, 15%);
+
+
+// stuff
+
+#chat-global, #chat-game {
+  .history {
+    background-color: @derpy-shadow-fill;
+  }
+}

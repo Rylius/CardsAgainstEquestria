@@ -5,9 +5,8 @@
 @import "chat";
 @import "icons";
 
-.navbar {
-  background-color: @navbar-default-bg;
-}
+@dropdown-bg: @navbar-default-bg;
+@dropdown-link-color: @navbar-default-link-color;
 
 .has-error {
   color: @alert-danger-text;
@@ -58,6 +57,14 @@ input[type=submit] {
   #gradient.vertical(@btn-default-bg, darken(@btn-default-bg, 20%), 20%);
 
   border: 1px solid @btn-default-border;
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+    background-color: darken(@btn-default-bg, 5%);
+    .box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
+  }
 }
 
 // Misc
@@ -134,7 +141,7 @@ input[type=submit] {
 .navbar .open .dropdown-menu > .active > a:hover,
 .navbar .open .dropdown-menu > .active > a:focus {
   color: @dropdown-link-hover-color !important;
-  background-color: @brand-primary !important;
+  background-color: @dropdown-link-hover-bg !important;
 }
 
 .navbar .open .dropdown-menu > .disabled > a,
