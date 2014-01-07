@@ -1,2 +1,113 @@
-@import "../../bootstrap/bootstrap";
 @import "../../style";
+
+@luna-body-fill: #656CB9;
+@luna-body-stroke: #393A93;
+@luna-shadow-fill: #515EAD;
+
+@luna-hair-fill: #7CA7FA;
+@luna-hair-stroke: #5D6FC1;
+
+// misc
+
+@body-bg: @luna-body-fill;
+
+@link-color: @luna-hair-fill;
+@link-hover-color: lighten(@luna-hair-fill, 5%);
+
+@text-color: darken(@navbar-default-bg, 15%);
+
+@headings-small-color: lighten(@text-color, 15%);
+
+.help-block {
+  color: @headings-small-color;
+}
+
+// navigation
+
+@navbar-border-radius: 0;
+
+@navbar-default-bg: @luna-body-stroke;
+@navbar-default-link-color: @luna-hair-fill;
+
+@navbar-default-link-active-color: lighten(@luna-hair-fill, 15%);
+@navbar-default-link-active-bg: @luna-shadow-fill;
+
+@navbar-default-link-hover-color: @navbar-default-link-active-color;
+@navbar-default-link-hover-bg: @navbar-default-link-active-bg;
+
+@dropdown-bg: @navbar-default-bg;
+@dropdown-divider-bg: @text-color;
+
+@dropdown-link-color: @navbar-default-link-color;
+
+@dropdown-link-hover-color: @navbar-default-link-hover-color;
+@dropdown-link-hover-bg: @navbar-default-link-hover-bg;
+
+@dropdown-link-disabled-color: @text-color;
+
+// tabs
+
+// active tab
+@nav-tabs-active-link-hover-bg: mix(@luna-body-fill, @luna-body-stroke, 80%);
+@nav-tabs-active-link-hover-color: @luna-hair-fill;
+@nav-tabs-active-link-hover-border-color: @navbar-default-bg;
+
+// other tabs
+@nav-link-hover-bg: @navbar-default-link-hover-bg;
+@nav-tabs-link-hover-border-color: @navbar-default-bg;
+
+@nav-tabs-border-color: @navbar-default-bg;
+
+// buttons
+
+@btn-link-disabled-color: @gray-darker;
+
+@btn-default-color: @luna-hair-fill;
+@btn-default-bg: @luna-body-fill;
+@btn-default-border: @luna-body-stroke;
+
+.btn {
+  color: lighten(@luna-hair-fill, 5%);
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    color: @gray-light;
+  }
+}
+
+// misc colors
+
+@brand-danger: #640500;
+@brand-success: darken(desaturate(#60ba4b, 10%), 10%);
+
+@alert-danger-text: @brand-danger;
+@state-danger-text: @brand-danger;
+
+// forms
+
+@input-color: @luna-body-stroke;
+
+@input-bg: lighten(@luna-body-fill, 10%);
+@input-bg-disabled: desaturate(@luna-body-stroke, 20%);
+
+@input-border: lighten(@luna-body-stroke, 5%);
+@input-border-focus: @luna-hair-fill;
+
+.form-control {
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    color: @gray-light;
+    cursor: not-allowed;
+    background-color: @input-bg-disabled;
+  }
+}
+
+// stuff
+
+#chat-global, #chat-game {
+  .history {
+    background-color: @nav-tabs-active-link-hover-bg;
+  }
+}
