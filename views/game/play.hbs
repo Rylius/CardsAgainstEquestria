@@ -2,7 +2,7 @@
 
     {{#replace 'navLeft'}}
         <li>
-            <span class="navbar-brand" data-bind="text: game().name">
+            <span class="navbar-title" data-bind="text: game().name">
                 derp
             </span>
         </li>
@@ -58,7 +58,7 @@
 
         <!-- ko if: isCzar() && blackCard() && czarCanSelect() -->
         <div class="confirm" data-bind="">
-            <button data-bind="enable: selectedMove() && !selectedMoveSubmitted(), click: submitSelectedMove">
+            <button class="btn-default" data-bind="enable: selectedMove() && !selectedMoveSubmitted(), click: submitSelectedMove">
                 Confirm
             </button>
 
@@ -70,7 +70,7 @@
 
         <!-- ko if: !isCzar() && blackCard() && move() && !playedCardsUncovered() -->
         <div class="confirm" data-bind="">
-            <button data-bind="enable: move().cards().length == blackCard().pick && !move().confirmed(), click: move().submit">
+            <button class="btn-default" data-bind="enable: move().cards().length == blackCard().pick && !move().confirmed(), click: move().submit">
                 Confirm
             </button>
 
@@ -118,7 +118,7 @@
         <div class="row">
             <div id="scoreboard">
                 <h4>
-                    Scoreboard
+                    Scoreboard (to <span data-bind="text: game().scoreLimit"></span>)
                     <span class="pull-right">
                         Round <span data-bind="text: round"></span>
                     </span>
@@ -132,7 +132,7 @@
                             <span title="Host" class="glyphicon glyphicon-star"
                                   data-bind="visible: $root.game().host.id == id"></span>
                             <!-- ko if: $root.isHost() && $root.game().host.id != id  -->
-                            <button class="btn btn-sm" data-bind="click: $root.kick">
+                            <button class="btn btn-sm btn-default" data-bind="click: $root.kick">
                                 Kick
                             </button>
                             <!-- /ko -->

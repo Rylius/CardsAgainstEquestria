@@ -34,6 +34,8 @@
 @navbar-default-link-hover-color: @navbar-default-link-active-color;
 @navbar-default-link-hover-bg: @navbar-default-link-active-bg;
 
+@navbar-default-color: darken(@text-color, 10%);
+
 @dropdown-bg: @navbar-default-bg;
 @dropdown-divider-bg: @text-color;
 
@@ -42,12 +44,12 @@
 @dropdown-link-hover-color: @navbar-default-link-hover-color;
 @dropdown-link-hover-bg: @navbar-default-link-hover-bg;
 
-@dropdown-link-disabled-color: @text-color;
+@dropdown-link-disabled-color: @navbar-default-color;
 
 // tabs
 
 // active tab
-@nav-tabs-active-link-hover-bg: @derpy-shadow-fill;
+@nav-tabs-active-link-hover-bg: mix(@derpy-shadow-fill, @derpy-body-fill, 40%);
 @nav-tabs-active-link-hover-color: @gray;
 @nav-tabs-active-link-hover-border-color: @navbar-default-bg;
 

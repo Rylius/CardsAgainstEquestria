@@ -67,6 +67,28 @@ input[type=submit] {
   }
 }
 
+.navbar-title {
+  float: left;
+  padding: @navbar-padding-vertical @navbar-padding-horizontal;
+  font-size: @font-size-large;
+  line-height: @line-height-computed;
+  color: @navbar-default-color;
+}
+
+// card blocking
+
+.blockUI {
+  &.blockMsg.blockElement {
+    color: @navbar-default-color !important;
+    font-size: @font-size-large;
+    background-color: @navbar-default-bg !important;
+  }
+
+  &.blockOverlay {
+    background-color: @navbar-default-bg !important;
+  }
+}
+
 // Misc
 
 .todo {
