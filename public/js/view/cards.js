@@ -287,7 +287,9 @@ var PlayViewModel = function (game, player) {
             _.each(this.players(), function (player) {
                 player.state('');
             });
-            this.czar().state('Selecting');
+            if (this.czar()) {
+                this.czar().state('Selecting');
+            }
 
             this.timeLeft(data.timeLeft > 0 ? data.timeLeft : game.roundTimeLimit);
             this.updateTimeLimit();
@@ -298,7 +300,9 @@ var PlayViewModel = function (game, player) {
             this.selectedMove(_.find(this.playedCards(), function (move) {
                 return move.id == data.move;
             }));
-            this.czar().state('Card Czar');
+            if (this.czar()) {
+                this.czar().state('Card Czar');
+            }
 
             player = _.find(this.players(), function (p) {
                 return p.id == data.player;
@@ -327,7 +331,9 @@ var PlayViewModel = function (game, player) {
                 player.state('Playing');
                 player.points(data.points[player.id]);
             });
-            this.czar().state('Card Czar');
+            if (this.czar()) {
+                this.czar().state('Card Czar');
+            }
 
             this.move(new MoveViewModel(-1));
 

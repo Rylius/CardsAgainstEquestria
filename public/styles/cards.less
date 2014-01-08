@@ -3,6 +3,18 @@
 @card-size: 200px;
 @card-small-size: 100px;
 
+@card-border-radius: 6px;
+
+@card-black-color: white;
+@card-black-bg: @gray-darker;
+
+@card-white-color: @gray-darker;
+@card-white-bg: white;
+@card-white-border-color: @gray-darker;
+
+@card-white-selected-color: @card-white-color;
+@card-white-selected-bg: @brand-info;
+
 .host {
   font-weight: bold;
 }
@@ -77,19 +89,23 @@ form {
 }
 
 .card-selected {
-  background-color: @brand-info !important;
+  color: @card-white-selected-color !important;
+  background-color: @card-white-selected-bg !important;
 }
 
 .black-card {
-  background-color: black;
-  color: white;
+  background-color: @card-black-bg;
+  color: @card-black-color;
+
+  border-radius: @card-border-radius;
 }
 
 .white-card {
-  background-color: white;
-  color: black;
+  background-color: @card-white-bg;
+  color: @card-white-color;
 
-  border: 1px solid black;
+  border: 1px solid @card-white-border-color;
+  border-radius: @card-border-radius;
 }
 
 #cards-table {
