@@ -97,11 +97,39 @@
         <div id="basics" class="collapse in">
             <div>
                 <div class="col-md-offset-1 col-xs-5" data-bind="css: { 'has-error': game().name().length == 0 }">
-                    {{input:text 'name' 'Name:' 'Click outside to apply' 'data-bind="value: game().name, enable: isHost"'}}
+
+                    <div class="form-group">
+                        <label for="name" class="col-xs-3 control-label">Name:</label>
+
+                        <div class="col-xs-9 input-group">
+                            <input type="text" id="name" class="form-control" data-bind="value: game().name, enable: isHost">
+
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"
+                                        data-bind="click: update, disable: $root.busy">
+                                    Set
+                                </button>
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-xs-5">
-                    {{input:password 'password' 'Password:' 'Leave blank for public games' 'data-bind="value: game().password, enable: isHost"'}}
+                    <div class="form-group">
+                        <label for="name" class="col-xs-3 control-label">Password:</label>
+
+                        <div class="col-xs-9 input-group">
+                            <input type="password" id="name" class="form-control"
+                                   data-bind="value: game().password, enable: isHost">
+
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"
+                                        data-bind="click: update, disable: $root.busy">
+                                    Set
+                                </button>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
