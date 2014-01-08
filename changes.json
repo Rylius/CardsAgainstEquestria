@@ -1,9 +1,17 @@
 [
     {
+        "date": "Jan 8, 2014",
+        "changes": [
+            "Made chat links clickable"
+        ]
+    },
+    {
         "date": "Jan 7, 2014",
+        "version": "0.4.6",
         "changes": [
             "Added Derpy theme",
-            "Added Luna theme"
+            "Added Luna theme",
+            "Various theme improvements"
         ]
     },
     {

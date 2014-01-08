@@ -11,14 +11,14 @@
         &lt;<span data-bind="text: user().name"></span>&gt;
     </span>
     <!-- /ko -->
-    <span class="text" data-bind="text: message">&nbsp;</span>
+    <span class="text" data-bind="html: formatMessage">&nbsp;</span>
     <!-- /ko -->
 
     <!-- ko if: type() == Chat.ACTION -->
     <span class="action">
         *
         <span data-bind="text: user().name">&nbsp;</span>
-        <span data-bind="text: message">&nbsp;</span>
+        <span data-bind="html: formatMessage">&nbsp;</span>
     </span>
     <!-- /ko -->
 </li>

@@ -1,4 +1,3 @@
-
 function ChatMessageViewModel() {
 
     var self = this;
@@ -10,6 +9,23 @@ function ChatMessageViewModel() {
 
     this.formatTime = ko.computed(function () {
         return moment(self.time()).format('HH:mm:ss')
+    });
+
+    this.formatMessage = ko.computed(function () {
+        var text = self.message();
+        if (!text || text.length == 0) {
+            return '';
+        }
+
+        text = text.replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+
+        text = text.replace(/\(?(\bhttps?:\/\/[-A-Za-z0-9+&@#\/%?=~_()|!:,.;]*[-A-Za-z0-9+&@#\/%=~_()|])/ig, '<a href="$1">$1</a>');
+
+        return text;
     });
 
     this.fromJSON = function (json) {
