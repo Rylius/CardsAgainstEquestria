@@ -19,9 +19,11 @@
                 Logging in is free and painless - just select a name!
             </p>
 
-            <form autocomplete="on" method="post" id="login" action="/user/login">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
+            <form autocomplete="on" method="post" id="login" action="/user/login" class="form-inline" role="form">
+                <div class="form-group">
+                    <label class="sr-only" for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                </div>
 
                 <input type="hidden" id="redirect" name="redirect" value="{{{loginRedirect}}}">
 
@@ -29,6 +31,7 @@
             </form>
 
             <p>
+                <br/>
                 <strong>Coming soon</strong>: Nick registration, yay!
             </p>
         {{/unless}}
