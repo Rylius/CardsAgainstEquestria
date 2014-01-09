@@ -1,7 +1,7 @@
 {
     "name": "Cards Against Humanity",
     "description": "The updated version of the Cards Against Humanity base game.",
-    "watermark": "",
+    "watermark": "Cards Against Humanity",
     "expansion": false,
     "blackCards": [
         {
