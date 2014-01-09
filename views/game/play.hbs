@@ -174,8 +174,16 @@
                         </ul>
 
                         <div class="input">
-                            <input type="text" autocomplete="false"
-                                   data-bind="value: chat().message, valueUpdate: 'afterkeydown', returnAction: chat().send">
+                            <div class="input-group">
+                                <input type="text" autocomplete="false" class="form-control"
+                                       data-bind="value: gameChat().message, valueUpdate: 'afterkeydown', returnAction: gameChat().send">
+
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" data-bind="click: gameChat().send">
+                                        Send
+                                    </button>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

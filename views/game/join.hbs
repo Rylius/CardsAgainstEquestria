@@ -53,9 +53,9 @@
         {{#unless user}}
             <!-- ko if: game().players().length < game().playerLimit() -->
             <div class="row">
-                <p class="col-xs-12">
+                <p class="col-xs-4">
                     <label for="name">Your name:</label>
-                    <input type="text" maxlength="24" id="name"
+                    <input type="text" maxlength="24" id="name" class="form-control"
                            data-bind="value: name, valueUpdate: 'afterkeydown', returnAction: join, hasFocus: true, disable: loading">
                 </p>
             </div>
@@ -64,16 +64,16 @@
 
         <!-- ko if: game().passworded -->
         <div class="row">
-            <p class="col-xs-12">
+            <p class="col-xs-4">
                 <label for="password">Game password:</label>
-                <input type="password" id="password"
+                <input type="password" id="password" class="form-control"
                        data-bind="value: password, valueUpdate: 'afterkeydown', returnAction: join, disable: loading">
             </p>
         </div>
         <!-- /ko -->
 
         <div class="row">
-            <p class="col-xs-12">
+            <p class="col-xs-4">
                 <button data-bind="enable: name() && game().players().length < game().playerLimit() && !loading(), click: join">
                     Join game
                 </button>
