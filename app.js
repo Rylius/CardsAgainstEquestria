@@ -99,7 +99,9 @@ var auth = function (req, res, next) {
     if (!req.session.user
         && !_.contains(['/', '/user/login', '/ajax/user/login'], req.path)
         && !(/^\/info\/.+/.test(req.path) && req.method == 'GET')
-        && !(/^\/game\/join\/\d+/.test(req.path) && req.method == 'GET')) {
+        && !(/^\/game\/join\/\d+/.test(req.path) && req.method == 'GET')
+        && !(/^\/game\/lobby\/\d+/.test(req.path) && req.method == 'GET')
+        && !(/^\/game\/play\/\d+/.test(req.path) && req.method == 'GET')) {
 
         req.flash('error', 'You need to log in to do that');
         req.flash('loginRedirect', req.path);

@@ -1,5 +1,11 @@
 [
     {
+        "date": "Jan 9, 2014",
+        "changes": [
+            "Not logged in people can now use the URL of running/lobby games"
+        ]
+    },
+    {
         "date": "Jan 8, 2014",
         "changes": [
             "Made chat links clickable",

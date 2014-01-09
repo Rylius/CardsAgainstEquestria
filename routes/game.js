@@ -44,9 +44,9 @@ var lobby = function (req, res) {
         return;
     }
 
-    var user = users.get(req.session.user.id);
+    var user = req.session.user ? users.get(req.session.user.id) : null;
 
-    if (!_.find(g.players, function (player) {
+    if (!user || !_.find(g.players, function (player) {
         return user.id == player.user.id;
     })) {
         res.redirect('/game/join/' + g.id);
@@ -70,7 +70,7 @@ var lobby = function (req, res) {
 };
 
 var play = function (req, res) {
-    var user = users.get(req.session.user.id);
+    var user = req.session.user ? users.get(req.session.user.id) : null;
     var gameInstance = game.get(req.params.game);
 
     if (!gameInstance || gameInstance.state != constants.State.PLAYING) {
@@ -79,7 +79,7 @@ var play = function (req, res) {
         return;
     }
 
-    if (!_.find(gameInstance.players, function (player) {
+    if (!user || !_.find(gameInstance.players, function (player) {
         return player.user.id == user.id;
     })) {
         res.redirect('/game/join/' + gameInstance.id);
