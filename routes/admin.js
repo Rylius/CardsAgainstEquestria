@@ -14,8 +14,6 @@ var index = function (req, res) {
     });
 
     res.render('admin/index', {
-        user: req.session.user,
-        error: req.flash('error'), success: req.flash('success'),
         users: JSON.stringify(usersJson), games: JSON.stringify(gamesJson),
         process: JSON.stringify({
             version: process.version,

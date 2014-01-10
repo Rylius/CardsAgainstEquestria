@@ -1,19 +1,19 @@
 var changesData = require('../changes.json');
 
 var license = function (req, res) {
-    res.render('info/license', {user: req.session.user});
+    res.render('info/license');
 };
 
 var about = function (req, res) {
-    res.render('info/about', {user: req.session.user});
+    res.render('info/about');
 };
 
 var changes = function (req, res) {
-    res.render('info/changes', {user: req.session.user, changes: changesData});
+    res.render('info/changes', {changes: changesData});
 };
 
 var contact = function (req, res) {
-    res.render('info/contact', {user: req.session.user});
+    res.render('info/contact');
 };
 
 module.exports = function (app) {

@@ -13,10 +13,10 @@ var login = function (req, res) {
     var result = users.login(req.session, req.body.name);
 
     if (result.success) {
+        req.flash('success', result.success);
         if (req.body.redirect) {
             res.redirect(req.body.redirect);
         } else {
-            req.flash('success', result.success);
             res.redirect('/');
         }
     } else {

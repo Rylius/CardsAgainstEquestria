@@ -95,29 +95,29 @@
         </div>
         <![endif]-->
 
-        {{#if success}}
+        {{#each success}}
             <div class="alert alert-success">
-                {{success}}
+                {{this}}
             </div>
-        {{/if}}
+        {{/each}}
 
-        {{#if info}}
+        {{#each info}}
             <div class="alert alert-info">
-                {{info}}
+                {{this}}
             </div>
-        {{/if}}
+        {{/each}}
 
-        {{#if warning}}
+        {{#each warning}}
             <div class="alert alert-warning">
-                {{warning}}
+                {{this}}
             </div>
-        {{/if}}
+        {{/each}}
 
-        {{#if error}}
+        {{#each error}}
             <div class="alert alert-danger">
-                {{error}}
+                {{this}}
             </div>
-        {{/if}}
+        {{/each}}
 
         {{#block 'content'}}
         {{/block}}

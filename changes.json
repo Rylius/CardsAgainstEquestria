@@ -1,5 +1,12 @@
 [
     {
+        "date": "Jan 10, 2014",
+        "changes": [
+            "Various internal fixes",
+            "Fixed error messages looking weird in some cases"
+        ]
+    },
+    {
         "date": "Jan 9, 2014",
         "changes": [
             "Not logged in people can now use the URL of running/lobby games"

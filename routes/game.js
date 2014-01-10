@@ -20,11 +20,7 @@ var reply = function (res, status, data) {
 };
 
 var list = function (req, res) {
-    res.render('game/list', {
-        user: req.session.user,
-        error: req.flash('error'),
-        sets: cards.setsJson
-    });
+    res.render('game/list', {sets: cards.setsJson});
 };
 
 /**
@@ -32,7 +28,7 @@ var list = function (req, res) {
  * Renders the game setup view.
  */
 var create = function (req, res) {
-    res.render('game/create', {user: req.session.user});
+    res.render('game/create');
 };
 
 var lobby = function (req, res) {
@@ -60,7 +56,6 @@ var lobby = function (req, res) {
             scoreLimits: _.range(3, 21), defaultScore: 8,
             playerLimits: _.range(3, 17), defaultPlayers: 6,
             roundTimeLimits: [0, 60, 120, 180], defaultRoundTimeLimit: 60,
-            user: user, userJson: JSON.stringify({id: user.id, name: user.name}),
             game: g
         });
     } else {
@@ -163,7 +158,6 @@ var joinLobby = function (req, res) {
     }
 
     res.render('game/join', {
-        user: user,
         gameJson: JSON.stringify(gameInstance.toJsonFormat()), game: gameInstance,
         sets: cards.setsJson
     });

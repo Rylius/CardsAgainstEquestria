@@ -86,6 +86,22 @@ app.use(flash());
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
+app.locals.themes = config.themes;
+
+var themeIds = _.pluck(config.themes, 'id');
+app.use(function (req, res, next) {
+    var themeId = req.cookies.theme;
+    if (!themeId || !_.contains(themeIds, themeId)) {
+        themeId = config.defaultTheme;
+    }
+
+    res.locals.theme = _.find(config.themes,function (theme) {
+        return theme.id == themeId;
+    }).file;
+
+    next();
+});
+
 var ajaxAuth = function (req, res, next) {
     if (req.path != '/ajax/user/login' && req.path.indexOf('/ajax/') == 0 && !req.session.user) {
         res.send(403);
@@ -130,24 +146,16 @@ var auth = function (req, res, next) {
         }
     }
 
+    res.locals.user = req.session.user;
+
     next();
 };
 
 app.use(ajaxAuth);
 app.use(auth);
 
-app.locals.themes = config.themes;
-
-var themeIds = _.pluck(config.themes, 'id');
 app.use(function (req, res, next) {
-    var themeId = req.cookies.theme;
-    if (!themeId || !_.contains(themeIds, themeId)) {
-        themeId = config.defaultTheme;
-    }
-
-    res.locals.theme = _.find(config.themes, function (theme) {
-        return theme.id == themeId;
-    }).file;
+    res.locals(req.flash());
 
     next();
 });
