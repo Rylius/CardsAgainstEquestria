@@ -3,7 +3,8 @@
         "date": "Jan 10, 2014",
         "changes": [
             "Various internal fixes",
-            "Fixed error messages looking weird in some cases"
+            "Fixed error messages looking weird in some cases",
+            "Added page to view cards in decks"
         ]
     },
     {
