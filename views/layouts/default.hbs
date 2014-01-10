@@ -2,7 +2,11 @@
 <html>
 <head>
     {{#block 'head'}}
-        <title>Cards Against Equestria</title>
+        {{#if title}}
+            <title>{{title}} - Cards Against Equestria</title>
+        {{else}}
+            <title>Cards Against Equestria</title>
+        {{/if}}
     {{/block}}
 
     {{> derp2}}

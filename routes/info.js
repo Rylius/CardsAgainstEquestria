@@ -2,19 +2,19 @@ var changesData = require('../changes.json');
 var Cards = require('../lib/cards');
 
 var license = function (req, res) {
-    res.render('info/license');
+    res.render('info/license', {title: 'Licenses'});
 };
 
 var about = function (req, res) {
-    res.render('info/about');
+    res.render('info/about', {title: 'About'});
 };
 
 var changes = function (req, res) {
-    res.render('info/changes', {changes: changesData});
+    res.render('info/changes', {changes: changesData, title: 'Changes'});
 };
 
 var contact = function (req, res) {
-    res.render('info/contact');
+    res.render('info/contact', {title: 'Contact'});
 };
 
 var cards = function (req, res) {
@@ -31,7 +31,7 @@ var cards = function (req, res) {
 
     res.render('info/cards', {
         sets: Cards.sets, expansions: Cards.expansions,
-        deck: deck, type: type
+        deck: deck, type: type, title: deck ? deck.name : 'Cards'
     });
 };
 

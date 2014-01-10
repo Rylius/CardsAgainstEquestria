@@ -1,16 +1,17 @@
 {{#extend 'layouts/default'}}
 
     {{#replace 'content'}}
-        <h1>Cards</h1>
-
         {{#if deck}}
-            <p>
-                <a href="/info/cards">
-                    Reset filter
-                </a>
-            </p>
+            <h1>
+                Cards of {{deck.name}}
+                <small>
+                    <a href="/info/cards">
+                        Reset filter
+                    </a>
+                </small>
+            </h1>
 
-            <p>
+            <p class="lead">
                 {{deck.description}}
             </p>
 
@@ -82,7 +83,7 @@
             </p>
 
         {{else}}
-
+            <h1>Cards</h1>
             <p>
                 Select a deck to view its cards.
             </p>
