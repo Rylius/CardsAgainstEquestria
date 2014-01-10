@@ -128,7 +128,8 @@
                                    data-bind="value: game().password, enable: isHost">
                             <!-- /ko -->
 
-                            <span class="input-group-addon" title="Hide/show password">
+                            <span class="input-group-addon" title="Hide/show password"
+                                  data-bind="visible: isHost() || game().passworded()">
                                 <input type="checkbox" data-bind="checked: passwordVisible">
                             </span>
 

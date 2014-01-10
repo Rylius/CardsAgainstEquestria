@@ -1,14 +1,11 @@
 var CardViewModel = function (json) {
 
-    var self = this;
-
     this.id = json.id;
 
     this.text = json.text;
     this.watermark = json.watermark;
 
     this.pick = json.pick;
-    this.draw = json.draw;
 
     this.selected = ko.observable(false);
 };
@@ -83,8 +80,6 @@ var HandViewModel = function () {
 };
 
 var PlayerViewModel = function (json) {
-
-    var self = this;
 
     this.id = json.id;
     this.name = json.name;
@@ -181,211 +176,238 @@ var PlayViewModel = function (game, player) {
         var type = update.type;
         var data = update.data;
 
-        if (type == Game.Server.Update.PLAYER_JOIN) {
-            console.log('Player joined: ' + data.name + '/' + data.id);
-            this.players.push(new PlayerViewModel(data));
-
-            this.chat().receive({
-                time: Date.now(),
-                type: Chat.GAME_MESSAGE,
-                message: data.name + ' joined the game'
-            });
-
-        } else if (type == Game.Server.Update.PLAYER_LEAVE) {
-            console.log('Player left: ' + data.id);
-            player = _.find(self.players(), function (p) {
-                return p.id == data.id;
-            });
-
-            if (player == self.player) {
-                interruptListen();
-                // TODO make this prettier
-                alert('Kicked by host');
-                window.location.href = '/games';
-                return;
-            }
-
-            this.chat().receive({
-                time: Date.now(),
-                type: Chat.GAME_MESSAGE,
-                message: player.name + ' left the game (' + data.reason + ')'
-            });
-
-            // TODO this is kind of ugly
-            if (player.state() == '' && !this.czarCanSelect() && this.playedCards().length > 0) {
-                this.playedCards.remove(this.playedCards()[0]);
-            }
-
-            this.players.remove(player);
-
-            if (this.players().length < 3 && player.id != this.player.id) {
-                // TODO definitely improve this
-                alert('Game closing because there are less than 3 players. Sorry :(');
-            }
-
-        } else if (type == Game.Server.Update.BLACK_CARD) {
-            console.log('Black card: ' + data.id + '/' + data.text);
-            this.blackCard(new CardViewModel(data));
-            this.playedCardsUncovered(false);
-
-            this.updateTimeLimit();
-
-        } else if (type == Game.Server.Update.HAND) {
-            console.log('Hand: ' + JSON.stringify(data));
-            this.hand.set(data.hand);
-
-            var playedCards = [];
-            _.each(data.played, function (json) {
-                var card = new CardViewModel(json);
-                self.hand.cards.push(card);
-
-                playedCards.push(card);
-            });
-
-            if (playedCards.length > 0) {
-                move = new MoveViewModel(-1);
-                _.each(playedCards, function (card) {
-                    move.cards.push(card);
-                });
-
-                move.confirmed(true);
-                this.move(move);
-
-                this.player.state('');
-            }
-
-        } else if (type == Game.Server.Update.MOVE) {
-            player = _.find(this.players(), function (p) {
-                return p.id == data.player;
-            });
-            console.log('Move made: ' + player.name);
-            player.state('');
-
-            var pick = self.blackCard() != null ? self.blackCard().pick : 1; // can happen when joining in progress
-            move = new MoveViewModel(-1);
-            _.times(pick, function () {
-                move.cards.push(new CardViewModel({}));
-            });
-            this.playedCards.push(move);
-
-        } else if (type == Game.Server.Update.UNCOVER) {
-            console.log('Uncovering cards: ' + JSON.stringify(data));
-
-            this.playedCards.removeAll();
-            _.each(data.cards, function (cards, id) {
-                var move = new MoveViewModel(id);
-
-                if (cards.length > 0) {
-                    _.each(cards, function (card) {
-                        move.cards.push(new CardViewModel(card));
-                    });
-                    self.playedCards.push(move);
-                }
-            });
-            this.playedCardsUncovered(true);
-
-            _.each(this.players(), function (player) {
-                player.state('');
-            });
-            if (this.czar()) {
-                this.czar().state('Selecting');
-            }
-
-            this.timeLeft(data.timeLeft > 0 ? data.timeLeft : game.roundTimeLimit);
-            this.updateTimeLimit();
-
-        } else if (type == Game.Server.Update.SELECTED) {
-            console.log('Czar selected ' + JSON.stringify(data));
-
-            this.selectedMove(_.find(this.playedCards(), function (move) {
-                return move.id == data.move;
-            }));
-            if (this.czar()) {
-                this.czar().state('Card Czar');
-            }
-
-            player = _.find(this.players(), function (p) {
-                return p.id == data.player;
-            });
-            if (player) {
-                player.state('Round winner!');
-                player.points(player.points() + 1);
-            }
-
-            if (this.timeLeftIntervalId) {
-                clearInterval(this.timeLeftIntervalId);
-            }
-
-        } else if (type == Game.Server.Update.ROUND) {
-            console.log('Starting round ' + data.round + ', czar: ' + data.czar);
-
-            this.czar(_.find(self.players(), function (player) {
-                return player.id == data.czar;
-            }));
-
-            if (this.czar().state() == '' && !this.czarCanSelect()) {
-                this.playedCards.remove(this.playedCards()[0]);
-            }
-
-            _.each(this.players(), function (player) {
-                player.state('Playing');
-                player.points(data.points[player.id]);
-            });
-            if (this.czar()) {
-                this.czar().state('Card Czar');
-            }
-
-            this.move(new MoveViewModel(-1));
-
-            this.round(data.round);
-
-            this.playedCards.removeAll();
-            this.playedCardsUncovered(false);
-
-            this.selectedMove(null);
-            this.selectedMoveSubmitted(false);
-
-            this.timeLeft(data.timeLeft);
-
-            this.chat().receive({
-                time: Date.now(),
-                type: Chat.GAME_MESSAGE,
-                message: 'Starting round ' + this.round()
-            });
-
-        } else if (type == Game.Server.Update.CHAT) {
-            console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);
-            this.chat().receive(data);
-
-        } else if (type == Game.Server.Update.STATE) {
-            console.log('Game state changed to ' + data.state);
-
-            if (data.state == Game.State.ENDED) {
-                _.each(this.players(), function (p) {
-                    if (p.points() >= self.game().scoreLimit) {
-                        p.state('Winner!');
-                        self.winner(p);
-                    } else {
-                        p.state('');
-                    }
-                });
+        switch (type) {
+            case Game.Server.Update.PLAYER_JOIN:
+                console.log('Player joined: ' + data.name + '/' + data.id);
+                this.players.push(new PlayerViewModel(data));
 
                 this.chat().receive({
                     time: Date.now(),
                     type: Chat.GAME_MESSAGE,
-                    message: self.winner().name + ' won!'
+                    message: data.name + ' joined the game'
+                });
+                break;
+
+            case Game.Server.Update.PLAYER_LEAVE:
+                console.log('Player left: ' + data.id);
+                player = _.find(self.players(), function (p) {
+                    return p.id == data.id;
                 });
 
-                this.ended(true);
-            }
+                if (player == self.player) {
+                    interruptListen();
+                    // TODO make this prettier
+                    alert('Kicked by host');
+                    window.location.href = '/games';
+                    return;
+                }
 
-        } else if (type == Game.Server.Update.GAME_DATA) {
-            console.log('Game data updated: ' + JSON.stringify(data));
+                this.chat().receive({
+                    time: Date.now(),
+                    type: Chat.GAME_MESSAGE,
+                    message: player.name + ' left the game (' + data.reason + ')'
+                });
 
-            this.game(data);
+                // TODO this is kind of ugly
+                if (player.state() == '' && !this.czarCanSelect() && this.playedCards().length > 0) {
+                    this.playedCards.remove(this.playedCards()[0]);
+                }
 
-        } else {
-            console.log('Unknown update: ' + type + ': ' + JSON.stringify(data));
+                this.players.remove(player);
+
+                if (this.players().length < 3 && player.id != this.player.id) {
+                    // TODO definitely improve this
+                    alert('Game closing because there are less than 3 players. Sorry :(');
+                }
+                break;
+
+            case Game.Server.Update.BLACK_CARD:
+                console.log('Black card: ' + data.id + '/' + data.text);
+                this.blackCard(new CardViewModel(data));
+                this.playedCardsUncovered(false);
+
+                this.updateTimeLimit();
+
+                break;
+
+            case Game.Server.Update.HAND:
+                console.log('Hand: ' + JSON.stringify(data));
+                this.hand.set(data.hand);
+
+                var playedCards = [];
+                _.each(data.played, function (json) {
+                    var card = new CardViewModel(json);
+                    self.hand.cards.push(card);
+
+                    playedCards.push(card);
+                });
+
+                if (playedCards.length > 0) {
+                    move = new MoveViewModel(-1);
+                    _.each(playedCards, function (card) {
+                        move.cards.push(card);
+                    });
+
+                    move.confirmed(true);
+                    this.move(move);
+
+                    this.player.state('');
+                }
+
+                break;
+
+            case Game.Server.Update.MOVE:
+                player = _.find(this.players(), function (p) {
+                    return p.id == data.player;
+                });
+                console.log('Move made: ' + player.name);
+                player.state('');
+
+                if (player == this.player) {
+                    this.playedCards.push(this.move());
+                } else {
+                    var pick = self.blackCard() != null ? self.blackCard().pick : 1; // can happen when joining in progress
+                    move = new MoveViewModel(-1);
+                    _.times(pick, function () {
+                        move.cards.push(new CardViewModel({}));
+                    });
+                    this.playedCards.push(move);
+                }
+
+
+                break;
+
+            case Game.Server.Update.UNCOVER:
+                console.log('Uncovering cards: ' + JSON.stringify(data));
+
+                this.playedCards.removeAll();
+                _.each(data.cards, function (cards, id) {
+                    var move = new MoveViewModel(id);
+
+                    if (cards.length > 0) {
+                        _.each(cards, function (card) {
+                            move.cards.push(new CardViewModel(card));
+                        });
+                        self.playedCards.push(move);
+                    }
+                });
+                this.playedCardsUncovered(true);
+
+                _.each(this.players(), function (player) {
+                    player.state('');
+                });
+                if (this.czar()) {
+                    this.czar().state('Selecting');
+                }
+
+                this.timeLeft(data.timeLeft > 0 ? data.timeLeft : game.roundTimeLimit);
+                this.updateTimeLimit();
+
+                break;
+
+            case Game.Server.Update.SELECTED:
+                console.log('Czar selected ' + JSON.stringify(data));
+
+                this.selectedMove(_.find(this.playedCards(), function (move) {
+                    return move.id == data.move;
+                }));
+                if (this.czar()) {
+                    this.czar().state('Card Czar');
+                }
+
+                player = _.find(this.players(), function (p) {
+                    return p.id == data.player;
+                });
+                if (player) {
+                    player.state('Round winner!');
+                    player.points(player.points() + 1);
+                }
+
+                if (this.timeLeftIntervalId) {
+                    clearInterval(this.timeLeftIntervalId);
+                }
+
+                break;
+
+            case Game.Server.Update.ROUND:
+                console.log('Starting round ' + data.round + ', czar: ' + data.czar);
+
+                this.czar(_.find(self.players(), function (player) {
+                    return player.id == data.czar;
+                }));
+
+                if (this.czar().state() == '' && !this.czarCanSelect()) {
+                    this.playedCards.remove(this.playedCards()[0]);
+                }
+
+                _.each(this.players(), function (player) {
+                    player.state('Playing');
+                    player.points(data.points[player.id]);
+                });
+                if (this.czar()) {
+                    this.czar().state('Card Czar');
+                }
+
+                this.move(new MoveViewModel(-1));
+
+                this.round(data.round);
+
+                this.playedCards.removeAll();
+                this.playedCardsUncovered(false);
+
+                this.selectedMove(null);
+                this.selectedMoveSubmitted(false);
+
+                this.timeLeft(data.timeLeft);
+
+                this.chat().receive({
+                    time: Date.now(),
+                    type: Chat.GAME_MESSAGE,
+                    message: 'Starting round ' + this.round()
+                });
+
+                break;
+
+            case Game.Server.Update.STATE:
+                console.log('Game state changed to ' + data.state);
+
+                if (data.state == Game.State.ENDED) {
+                    _.each(this.players(), function (p) {
+                        if (p.points() >= self.game().scoreLimit) {
+                            p.state('Winner!');
+                            self.winner(p);
+                        } else {
+                            p.state('');
+                        }
+                    });
+
+                    this.chat().receive({
+                        time: Date.now(),
+                        type: Chat.GAME_MESSAGE,
+                        message: self.winner().name + ' won!'
+                    });
+
+                    this.ended(true);
+                }
+
+                break;
+
+            case Game.Server.Update.CHAT:
+                console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);
+                this.chat().receive(data);
+
+                break;
+
+            case Game.Server.Update.GAME_DATA:
+                console.log('Game data updated: ' + JSON.stringify(data));
+
+                this.game(data);
+
+                break;
+
+            default:
+                console.log('Unknown update: ' + type + ': ' + JSON.stringify(data));
+                break;
         }
     };
 
