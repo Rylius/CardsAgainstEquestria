@@ -1,5 +1,7 @@
 var log = require('logule').init(module);
 
+var _ = require('underscore');
+
 var Chat = require('../../lib/chat');
 var Users = require('../../lib/users');
 
@@ -51,23 +53,26 @@ var listen = function (req, res) {
         return;
     }
 
-    var request = Chat.global.requests[user.id];
-    if (request) {
-        clearTimeout(request.timeoutId);
-        log.trace('Removed previous listen request for ' + user.id + '/' + user.name);
-    }
+    var max = Date.now() - 90000;
+    _.each(Chat.global.requests[user.id], function (request) {
+        if (request.created > max) {
+            return;
+        }
 
-    Chat.global.requests[user.id] = {
+        clearTimeout(request.timeoutId);
+        log.trace('Removed outdated listen request for ' + user.id + '/' + user.name);
+    });
+
+    Chat.global.requests[user.id].push({
         timeoutId: setTimeout(function () {
             res.send(JSON.stringify([]));
 
-            delete Chat.global.requests[user.id];
-
             log.trace('Chat listen request by ' + user.id + '/' + user.name + ' returned empty');
         }, 90000),
+        created: Date.now(),
         userId: user.id,
         response: res
-    };
+    });
 
     log.trace('Holding back messages response for ' + user.id + '/' + user.name);
 };
