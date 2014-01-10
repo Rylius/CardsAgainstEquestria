@@ -24,8 +24,12 @@ app.set('view engine', 'hbs');
 var hbs = require('hbs');
 require('handlebars-layouts')(hbs.handlebars);
 
+if (config.analytics) {
+    hbs.handlebars.registerPartial('util/analytics', fs.readFileSync(__dirname + '/views/util/analytics.hbs', 'utf8'));
+    app.locals.useAnalytics = true;
+}
+
 hbs.handlebars.registerPartial('layouts/default', fs.readFileSync(__dirname + '/views/layouts/default.hbs', 'utf8'));
-hbs.handlebars.registerPartial('util/analytics', fs.readFileSync(__dirname + '/views/util/analytics.hbs', 'utf8'));
 hbs.handlebars.registerPartial('derp1', fs.readFileSync(__dirname + '/views/util/derp.hbs', 'utf8'));
 hbs.handlebars.registerPartial('derp2', fs.readFileSync(__dirname + '/views/util/derp2.hbs', 'utf8'));
 

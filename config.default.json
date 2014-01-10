@@ -18,5 +18,6 @@
             "file": "luna"
         }
     ],
-    "defaultTheme": "derpy"
+    "defaultTheme": "derpy",
+    "analytics": false
 }
