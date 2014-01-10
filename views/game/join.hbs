@@ -82,19 +82,31 @@
             </p>
         </div>
 
-        <h2>What is this?</h2>
+        {{#unless user}}
+            <h2>What is this?</h2>
 
-        <div class="row">
-            <div class="col-xs-12 todo">
-                game explanation and help links
+            <div class="row">
+                <div class="col-xs-12 todo">
+                    game explanation and help links
+                </div>
             </div>
-        </div>
+
+            <br/>
+        {{/unless}}
     {{/replace}}
 
     {{#append 'defer'}}
         <script>
             $(function () {
                 $.ajaxSetup({cache: false});
+
+                {{#if user}}
+                    $(window).bind('beforeunload', function () {
+                        interruptChatListen();
+                    });
+
+                    initChat({id: {{user.id}}, name: '{{user.name}}'}, $('#chat-global').find('> ul'));
+                {{/if}}
 
                 model = {};
                 model = new JoinGameViewModel({{{sets}}});
@@ -114,5 +126,7 @@
             });
         </script>
     {{/append}}
+
+    {{#replace 'initGlobalChat'}}{{/replace}}
 
 {{/extend}}

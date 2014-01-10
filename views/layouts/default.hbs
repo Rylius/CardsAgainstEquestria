@@ -130,6 +130,14 @@
         {{#block 'content'}}
         {{/block}}
 
+        {{#block 'globalChat'}}
+            {{#if user}}
+                <div id="chat-global">
+                    {{>globalChat}}
+                </div>
+            {{/if}}
+        {{/block}}
+
     </div>
 
 </div>
@@ -139,6 +147,23 @@
     <script src="/js/vendors.min.js"></script>
 
     <script src="/js/cae{{minIfProduction}}.js"></script>
+{{/block}}
+
+{{#block 'initGlobalChat'}}
+    {{#if user}}
+        <script>
+            $(function () {
+                $.ajaxSetup({cache: false});
+
+                $(window).bind('beforeunload', function () {
+                    interruptChatListen();
+                });
+
+                var chat = initChat({id: {{user.id}}, name: '{{user.name}}'}, $('#chat-global').find('> ul'));
+                ko.applyBindings(chat);
+            });
+        </script>
+    {{/if}}
 {{/block}}
 
 </body>

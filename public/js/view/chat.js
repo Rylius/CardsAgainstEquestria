@@ -100,7 +100,7 @@ function ChatViewModel() {
                 }
             });
         } else {
-            $.ajax('/ajax/chat', {
+            $.ajax('/ajax/chat/post', {
                 method: 'post', data: message.toJSON(),
                 error: function () {
                     self.showError('Your message somehow got lost! 6_9 send it again maybe?');
