@@ -119,8 +119,18 @@
                         <label for="name" class="col-xs-3 control-label">Password:</label>
 
                         <div class="col-xs-9 input-group">
-                            <input type="password" id="name" class="form-control"
+                            <!-- ko ifnot: passwordVisible -->
+                            <input type="password" id="password" class="form-control"
                                    data-bind="value: game().password, enable: isHost">
+                            <!-- /ko -->
+                            <!-- ko if: passwordVisible -->
+                            <input type="text" id="password-text" class="form-control"
+                                   data-bind="value: game().password, enable: isHost">
+                            <!-- /ko -->
+
+                            <span class="input-group-addon" title="Hide/show password">
+                                <input type="checkbox" data-bind="checked: passwordVisible">
+                            </span>
 
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default"
