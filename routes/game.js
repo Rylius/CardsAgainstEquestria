@@ -56,7 +56,7 @@ var lobby = function (req, res) {
             scoreLimits: _.range(3, 21), defaultScore: 8,
             playerLimits: _.range(3, 17), defaultPlayers: 6,
             roundTimeLimits: [0, 60, 120, 180], defaultRoundTimeLimit: 60,
-            game: g
+            userJson: JSON.stringify({id: user.id, name: user.name}), game: g
         });
     } else {
         req.flash('error', 'That game has ended');

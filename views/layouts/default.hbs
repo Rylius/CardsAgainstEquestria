@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/styles/{{theme}}.css"/>
-
     {{#block 'head'}}
         <title>Cards Against Equestria</title>
     {{/block}}
 
-    <script src="/js/jquery-1.10.2.min.js"></script>
-
     {{> derp2}}
+
+    <link rel="stylesheet" type="text/css" href="/styles/{{theme}}.css"/>
 </head>
 <body>
 
@@ -127,6 +125,7 @@
 </div>
 
 {{#block 'defer'}}
+    <script src="/js/jquery-1.10.2.min.js"></script>
     <script src="/js/vendors.min.js"></script>
 
     <script src="/js/cae{{minIfProduction}}.js"></script>
