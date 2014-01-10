@@ -1,0 +1,16 @@
+<ul class="history" data-bind="foreach: globalChat.history">
+    {{>chatMessage}}
+</ul>
+
+<div class="input">
+    <div class="input-group">
+        <input type="text" autocomplete="false" class="form-control"
+               data-bind="value: globalChat.message, valueUpdate: 'afterkeydown', returnAction: globalChat.send">
+
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" data-bind="click: globalChat.send">
+                Send
+            </button>
+        </span>
+    </div>
+</div>
