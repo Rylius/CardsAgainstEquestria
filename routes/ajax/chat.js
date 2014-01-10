@@ -44,15 +44,6 @@ var listen = function (req, res) {
 
     res.type('application/json');
 
-    var messages = Chat.global.messages[user.id];
-    if (messages && messages.length > 0) {
-        var data = JSON.stringify(messages);
-        res.send(data);
-
-        log.trace('Sent buffered messages to ' + user.id + '/' + user.name + ': ' + data);
-        return;
-    }
-
     var max = Date.now() - 90000;
     _.each(Chat.global.requests[user.id], function (request) {
         if (request.created > max) {
@@ -74,10 +65,33 @@ var listen = function (req, res) {
         response: res
     });
 
-    log.trace('Holding back messages response for ' + user.id + '/' + user.name);
+    var messages = Chat.global.messages[user.id];
+    if (messages && messages.length > 0) {
+        log.trace('Sending buffered messages because of ' + user.id + '/' + user.name);
+        Chat.global.send();
+    } else {
+        log.trace('Holding back messages response for ' + user.id + '/' + user.name);
+    }
+};
+
+var history = function (req, res) {
+    var user = req.session.user ? Users.get(req.session.user.id) : null;
+    if (!user) {
+        res.send(403);
+        return;
+    }
+
+    var messages = [];
+    _.each(Chat.global.history, function (message) {
+        messages.push(message);
+    });
+
+    res.type('application/json');
+    res.send(JSON.stringify(messages));
 };
 
 module.exports = function (app) {
     app.post('/ajax/chat/post', post);
     app.get('/ajax/chat/listen', listen);
+    app.post('/ajax/chat/history', history);
 };

@@ -19,6 +19,18 @@ function initChat(user, $historyElement) {
 
     chatListen();
 
+    $.ajax('/ajax/chat/history', {
+        method: 'post',
+        success: function (data) {
+            _.each(data, function (message) {
+                globalChat.receive(message);
+            });
+        },
+        error: function () {
+            globalChat.showError('Failed to fetch chat history!')
+        }
+    });
+
     return chat;
 }
 
