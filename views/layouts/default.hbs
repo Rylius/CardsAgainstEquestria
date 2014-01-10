@@ -34,10 +34,12 @@
                         </li>
                     {{/block}}
                 </ul>
+            {{/if}}
 
-                <ul class="nav navbar-nav navbar-right">
-                    {{#block 'navRight'}}
-                        <li class="dropdown">
+            <ul class="nav navbar-nav navbar-right">
+                {{#block 'navRight'}}
+                    <li class="dropdown">
+                        {{#if user}}
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 {{user.name}}
                                 <b class="caret"></b>
@@ -77,10 +79,14 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                    {{/block}}
-                </ul>
-            {{/if}}
+                        {{else}}
+                            <a href="/">
+                                Log in
+                            </a>
+                        {{/if}}
+                    </li>
+                {{/block}}
+            </ul>
         </div>
     </div>
 

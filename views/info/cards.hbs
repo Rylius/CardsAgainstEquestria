@@ -1,0 +1,141 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+        <h1>Cards</h1>
+
+        {{#if deck}}
+            <p>
+                <a href="/info/cards">
+                    Reset filter
+                </a>
+            </p>
+
+            <p>
+                {{deck.description}}
+            </p>
+
+            <p>
+                <a href="#white">White cards</a>
+            </p>
+
+            <h2 id="black">Black cards</h2>
+            <table class="table table-condensed table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        <span class="glyphicon glyphicon-paperclip">&nbsp;</span>
+                    </th>
+                    <th>Text</th>
+                    <th>Pick</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each deck.blackCards}}
+                    <tr id="black-{{id}}">
+                        <td>
+                            <a href="/info/cards?{{../type}}={{../deck.id}}#black-{{id}}">
+                                Link
+                            </a>
+                        </td>
+                        <td>{{{text}}}</td>
+                        <td>{{pick}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+
+            <h2 id="white">
+                White cards
+                <small>
+                    <a href="#">Back to top</a>
+                </small>
+            </h2>
+            <table class="table table-condensed table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        <span class="glyphicon glyphicon-paperclip">&nbsp;</span>
+                    </th>
+                    <th>Text</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each deck.whiteCards}}
+                    <tr id="white-{{id}}">
+                        <td>
+                            <a href="/info/cards?{{../type}}={{../deck.id}}#white-{{id}}">
+                                Link
+                            </a>
+                        </td>
+                        <td>{{{text}}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+
+            <p>
+                <a href="#">Back to top</a>
+                -
+                <a href="#white">
+                    White cards
+                </a>
+            </p>
+
+        {{else}}
+
+            <p>
+                Select a deck to view its cards.
+            </p>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    <h2>Sets</h2>
+                    {{#each sets}}
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <a href="/info/cards?set={{id}}">
+                                    <strong>{{{name}}}</strong>
+                                </a>
+                                -
+                                <span>{{{description}}}</span>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+
+                <div class="col-xs-6">
+                    <h2>Expansions</h2>
+                    {{#each expansions}}
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <a href="/info/cards?expansion={{id}}">
+                                    <strong>{{{name}}}</strong>
+                                </a>
+                                -
+                                <span>{{{description}}}</span>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/if}}
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script>
+            $(function () {
+                $(window.location.hash).addClass('success');
+
+                $(window).on('hashchange', function (ev) {
+                    var $prev = $('#' + ev.originalEvent.oldURL.split('#')[1]);
+                    if ($prev) {
+                        $prev.removeClass('success');
+                    }
+
+                    $(window.location.hash).addClass('success');
+                });
+            });
+        </script>
+    {{/append}}
+
+{{/extend}}
