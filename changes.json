@@ -6,7 +6,8 @@
             "Fixed error messages looking weird in some cases",
             "Added page to view cards in decks",
             "Added checkbox to show/hide password in lobby",
-            "Own played cards are now uncovered on the table"
+            "Own played cards are now uncovered on the table",
+            "Added global chat"
         ]
     },
     {

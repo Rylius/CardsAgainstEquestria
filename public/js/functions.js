@@ -44,7 +44,7 @@ function chatListen() {
             }
 
             globalChat.showError('Failed to fetch chat messages! Trying again in 5 seconds.');
-            setTimeout(listen, 5000);
+            setTimeout(chatListen, 5000);
         }
     });
 }

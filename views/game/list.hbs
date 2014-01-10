@@ -19,77 +19,81 @@
         </div>
 
         <div data-bind="if: games().length == 0 && !loading()">
-            No games found! <a href="/game/create">Start one?</a>
+            <p>
+                No games found! <a href="/game/create">Start one?</a>
+            </p>
         </div>
 
-        <div class="col-xs-6 game-list" data-bind="foreach: games">
-            <div class="game">
-                <div class="left">
+        <div class="row">
+            <div class="col-xs-6 game-list" data-bind="foreach: games">
+                <div class="game">
+                    <div class="left">
 
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h4 data-bind="text: title"></h4>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h4 data-bind="text: title"></h4>
 
-                            <p>
-                                <strong>Players:</strong>
+                                <p>
+                                    <strong>Players:</strong>
 
-                                <span data-bind="html: formatPlayers"></span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <strong>Sets:</strong>
-
-                            <span data-bind="html: formatSets"></span>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <strong>Expansions:</strong>
-
-                            <span data-bind="html: formatExpansions"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="right">
-                    <div class="join">
-                        <div class="state">
-                            <h4 data-bind="text: stateText"></h4>
+                                    <span data-bind="html: formatPlayers"></span>
+                                </p>
+                            </div>
                         </div>
 
-                        <div class="button">
-                            <button data-bind="enable: !full() && !$root.loading() && (!passworded() || password()), click: function () { $root.join($data); }">
-                                Join
-                            </button>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <strong>Sets:</strong>
+
+                                <span data-bind="html: formatSets"></span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- ko if: passworded -->
-                    <div class="password-form">
-                        <div>
-                            <label>
-                                <span class="glyphicon glyphicon-lock"></span>
-                            </label>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <strong>Expansions:</strong>
 
-                            <div>
-                                <input type="password" id="password"
-                                       data-bind="value: password, valueUpdate: 'afterkeydown', returnAction: function () { $root.join($data); }, disable: $root.loading">
+                                <span data-bind="html: formatExpansions"></span>
                             </div>
                         </div>
                     </div>
-                    <!-- /ko -->
 
-                    <!-- ko if: message -->
-                    <div class="game-message">
-                        <div data-bind="text: message"></div>
+                    <div class="right">
+                        <div class="join">
+                            <div class="state">
+                                <h4 data-bind="text: stateText"></h4>
+                            </div>
+
+                            <div class="button">
+                                <button data-bind="enable: !full() && !$root.loading() && (!passworded() || password()), click: function () { $root.join($data); }">
+                                    Join
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ko if: passworded -->
+                        <div class="password-form">
+                            <div>
+                                <label>
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </label>
+
+                                <div>
+                                    <input type="password" id="password"
+                                           data-bind="value: password, valueUpdate: 'afterkeydown', returnAction: function () { $root.join($data); }, disable: $root.loading">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+
+                        <!-- ko if: message -->
+                        <div class="game-message">
+                            <div data-bind="text: message"></div>
+                        </div>
+                        <!-- /ko -->
                     </div>
-                    <!-- /ko -->
-                </div>
 
+                </div>
             </div>
         </div>
     {{/replace}}
@@ -99,6 +103,12 @@
             $(function () {
                 $.ajaxSetup({cache: false});
 
+                $(window).bind('beforeunload', function () {
+                    interruptChatListen();
+                });
+
+                initChat({id: {{user.id}}, name: '{{user.name}}'}, $('#chat-global').find('> ul'));
+
                 model = new GameListViewModel({{{sets}}});
                 ko.applyBindings(model);
 
@@ -106,5 +116,7 @@
             });
         </script>
     {{/append}}
+
+    {{#replace 'initGlobalChat'}}{{/replace}}
 
 {{/extend}}
