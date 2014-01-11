@@ -156,8 +156,8 @@ CREATE TABLE "user" (
     id integer DEFAULT nextval('object_id_seq'::regclass) NOT NULL,
     name character varying(32) NOT NULL,
     email character varying(256) NOT NULL,
-    password character varying(256) NOT NULL,
-    password_salt character varying(256) NOT NULL,
+    password character varying(512) NOT NULL,
+    password_salt character varying(512) NOT NULL,
     allow_emails boolean DEFAULT true NOT NULL,
     date_registered timestamp without time zone DEFAULT now() NOT NULL,
     last_login timestamp without time zone
