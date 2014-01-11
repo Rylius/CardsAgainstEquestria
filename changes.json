@@ -1,7 +1,13 @@
 [
     {
+        "date": "Jan 11, 2014",
+        "changes": [
+            "Added database backend"
+        ]
+    },
+    {
         "date": "Jan 10, 2014",
-        "version": "0.5.0",
+        "version": "0.5.1",
         "changes": [
             "Various internal fixes",
             "Fixed error messages looking weird in some cases",

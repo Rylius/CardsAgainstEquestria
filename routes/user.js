@@ -10,20 +10,21 @@ var login = function (req, res) {
         return;
     }
 
-    var result = users.login(req.session, req.body.name);
-
-    if (result.success) {
-        req.flash('success', result.success);
-        if (req.body.redirect) {
-            res.redirect(req.body.redirect);
+    users.login(req.session, req.body.name, req.body.password, null, function (result) {
+        if (result.success) {
+            res.locals.user = req.session.user;
+            req.flash('success', result.success);
+            if (req.body.redirect) {
+                res.redirect(req.body.redirect);
+            } else {
+                res.redirect('/');
+            }
         } else {
+            req.flash('loginRedirect', req.body.redirect);
+            req.flash('error', result.error);
             res.redirect('/');
         }
-    } else {
-        req.flash('loginRedirect', req.body.redirect);
-        req.flash('error', result.error);
-        res.redirect('/');
-    }
+    });
 };
 
 var logout = function (req, res) {
