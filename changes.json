@@ -1,5 +1,11 @@
 [
     {
+        "date": "Jan 12, 2014",
+        "changes": [
+            "Added proper footer"
+        ]
+    },
+    {
         "date": "Jan 11, 2014",
         "changes": [
             "Added database backend"
