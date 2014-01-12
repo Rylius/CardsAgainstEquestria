@@ -146,7 +146,11 @@ var auth = function (req, res, next) {
             if (!user) {
                 user = users.get(id);
                 if (!user) {
-                    users.login(req.session, name, id);
+                    users.login(req.session, name, null, id, function () {
+                        res.locals.user = req.session.user;
+                        next();
+                    });
+                    return;
                 }
             }
         }
@@ -175,6 +179,10 @@ if (config.env == 'development') {
 if (config.trustProxy) {
     app.enable('trust proxy');
 }
+
+// database
+
+require('./lib/db/database')(config.database);
 
 // game
 

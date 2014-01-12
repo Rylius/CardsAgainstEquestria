@@ -9,7 +9,12 @@ var login = function (req, res) {
         return;
     }
 
-    res.send(200, users.login(req.session, req.body.name));
+    users.login(req.session, req.body.name, req.body.name, null, function (result) {
+        if (result.success) {
+            res.locals.user = req.session.user;
+        }
+        res.send(200, JSON.stringify(result));
+    });
 };
 
 module.exports = function (app) {

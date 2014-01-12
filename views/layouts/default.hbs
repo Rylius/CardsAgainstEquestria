@@ -55,16 +55,18 @@
 
                             <ul class="dropdown-menu">
                                 {{#if user.registered}}
-                                    <li>
-                                        <a href="#">Settings</a>
+                                    <li class="disabled">
+                                        <a href="#">
+                                            Settings
+                                            <small>(Coming soon!)</small>
+                                        </a>
                                     </li>
                                 {{/if}}
 
                                 {{#unless user.registered}}
-                                    <li class="disabled">
-                                        <a href="#">
+                                    <li>
+                                        <a href="/user/register">
                                             Register
-                                            <small>(Coming soon!)</small>
                                         </a>
                                     </li>
                                 {{/unless}}

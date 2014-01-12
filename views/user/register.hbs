@@ -1,0 +1,105 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+        <h1>Register</h1>
+        <p>
+            Registering allows you to protect your name with a password.
+        </p>
+        <p>
+            You can decide if you want to receive occasional (once a year?) emails regarding site updates.
+            <br/>
+            Your email will not be given to third parties and is only used for password recovery.
+        </p>
+
+        <div class="alert alert-warning">
+            <strong>Careful:</strong>
+            You will not be able to change your name after registering (at least for now).<br/>
+            If you want to change it, do it now by logging out and picking a different one.
+        </div>
+
+        <div class="alert alert-info">
+            <strong>Please note:</strong>
+            Password recovery is currently not implemented. Don't screw up. :)
+        </div>
+
+        <div class="alert alert-info">
+            <strong>Please note:</strong>
+            Changing settings is currently not implemented.
+        </div>
+
+        <form autocomplete="on" method="post" action="/user/register" id="register" class="form-horizontal">
+            <div class="form-group" data-bind="css: { 'has-error': emailError() }">
+                <label for="email" class="col-xs-2 control-label">
+                    Email
+                </label>
+
+                <div class="col-xs-4">
+                    <input type="text" id="email" name="email" class="form-control"
+                           data-bind="value: email, valueUpdate: 'afterkeyup'">
+
+                    <span class="help-block" data-bind="html: emailError"></span>
+                </div>
+
+                <div class="col-md-offset-2 col-xs-4">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" checked id="allowEmails" name="allowEmails"
+                                   data-bind="checked: allowEmails"> Allow emails
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" data-bind="css: { 'has-error': passwordError() || passwordConfirmError() }">
+                <label for="password" class="col-xs-2 control-label">
+                    Password
+                </label>
+
+                <div class="col-xs-4">
+                    <input type="password" id="password" name="password" class="form-control"
+                           data-bind="value: password, valueUpdate: 'afterkeyup'">
+
+                    <span class="help-block" data-bind="html: passwordError"></span>
+                </div>
+
+                <label for="password-confirm" class="col-xs-2 control-label">
+                    Confirm
+                </label>
+
+                <div class="col-xs-4">
+                    <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control"
+                           data-bind="value: passwordConfirm, valueUpdate: 'afterkeyup'">
+
+                    <span class="help-block" data-bind="html: passwordConfirmError"></span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-xs-4">
+                    <input type="submit" class="btn btn-default" value="Register" data-bind="enable: valid">
+                </div>
+            </div>
+        </form>
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script>
+            $(function () {
+                $.ajaxSetup({cache: false});
+
+                $(window).bind('beforeunload', function () {
+                    interruptChatListen();
+                });
+
+                initChat({id: {{user.id}}, name: '{{user.name}}'}, $('#chat-global').find('> ul'));
+
+                model = new RegisterViewModel();
+                ko.applyBindings(model);
+            });
+        </script>
+    {{/append}}
+
+    {{#replace 'initGlobalChat'}}{{/replace}}
+
+{{/extend}}

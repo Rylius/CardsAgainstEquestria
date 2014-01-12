@@ -1,11 +1,23 @@
 {
-    "port": 1337,
-    "trustProxy": true,
     "env": "production",
+
+    "port": 1337,
+
     "sessionSecret": "changeme",
+    "trustProxy": true,
+
+    "database": {
+        "url": "driver://user:pass@hostname/database",
+        "pool": {
+            "min": 1,
+            "max": 10
+        }
+    },
+
     "files": {
         "decks": "data/decks"
     },
+
     "themes": [
         {
             "name": "Derpy",
@@ -19,5 +31,6 @@
         }
     ],
     "defaultTheme": "derpy",
+
     "analytics": false
 }
