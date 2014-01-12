@@ -5,6 +5,39 @@
 @import "chat";
 @import "icons";
 
+@footer-height: 40px;
+
+html, body {
+  height: 100%;
+}
+
+#content-wrap {
+  min-height: 100%;
+  height: auto;
+  margin-bottom: -@footer-height;
+  padding-bottom: @footer-height;
+}
+
+#footer {
+  .text-center;
+
+  height: @footer-height;
+
+  padding-top: 10px;
+
+  color: @navbar-default-brand-color;
+  background-color: @navbar-default-bg;
+
+  a {
+    color: @navbar-default-link-color;
+
+    &:hover,
+    &:focus {
+      color: @navbar-default-link-hover-color;
+    }
+  }
+}
+
 @dropdown-bg: @navbar-default-bg;
 @dropdown-link-color: @navbar-default-link-color;
 
