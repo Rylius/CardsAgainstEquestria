@@ -88,6 +88,38 @@ form {
 
     font-size: 6px;
   }
+
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.card-small:hover {
+  z-index: 10000;
+
+  -webkit-transform: scale(1.75);
+  -moz-transform: scale(1.75);
+  -ms-transform: scale(1.75);
+  -o-transform: scale(1.75);
+  transform: scale(1.75);
+}
+
+.card-small:first-child:hover {
+  -webkit-transform: scale(1.75) translate(20px);
+  -moz-transform: scale(1.75) translate(20px);
+  -ms-transform: scale(1.75) translate(20px);
+  -o-transform: scale(1.75) translate(20px);
+  transform: scale(1.75) translate(20px);
+}
+
+.card-small:last-child:hover {
+  -webkit-transform: scale(1.75) translate(-20px);
+  -moz-transform: scale(1.75) translate(-20px);
+  -ms-transform: scale(1.75) translate(-20px);
+  -o-transform: scale(1.75) translate(-20px);
+  transform: scale(1.75) translate(-20px);
 }
 
 .card-selected {

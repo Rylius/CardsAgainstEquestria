@@ -2,7 +2,8 @@
     {
         "date": "Jan 12, 2014",
         "changes": [
-            "Added proper footer"
+            "Added proper footer",
+            "Added zoom for white cards in hand"
         ]
     },
     {
