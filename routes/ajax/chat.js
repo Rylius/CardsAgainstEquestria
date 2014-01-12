@@ -44,26 +44,17 @@ var listen = function (req, res) {
 
     res.type('application/json');
 
-    var max = Date.now() - 90000;
-    _.each(Chat.global.requests[user.id], function (request) {
-        if (request.created > max) {
-            return;
-        }
-
-        clearTimeout(request.timeoutId);
-        log.trace('Removed outdated listen request for ' + user.id + '/' + user.name);
-    });
-
-    Chat.global.requests[user.id].push({
+    var request = {
         timeoutId: setTimeout(function () {
             res.send(JSON.stringify([]));
+            clearTimeout(request.timeoutId);
 
             log.trace('Chat listen request by ' + user.id + '/' + user.name + ' returned empty');
         }, 90000),
-        created: Date.now(),
         userId: user.id,
         response: res
-    });
+    };
+    Chat.global.requests[user.id].push(request);
 
     var messages = Chat.global.messages[user.id];
     if (messages && messages.length > 0) {
