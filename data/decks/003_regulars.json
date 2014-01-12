@@ -491,7 +491,6 @@
         {
             "text": "_______ pls.",
             "pick": 1
-
         },
         {
             "text": "Put Godcard Here.",
@@ -571,6 +570,10 @@
         },
         {
             "text": "_______ does not exist.",
+            "pick": 1
+        },
+        {
+            "text": "Rainbow Dash Presents: _________"
             "pick": 1
         }
     ],
@@ -971,6 +974,8 @@
         "Me love you long time.",
         "A bigger blacker Cards Against Equestria.",
         "Vig Rickman.",
-        "Reload the page."
+        "Reload the page.",
+        "Rarity's hidden underwear",
+        "My Salsa"
     ]
 }
