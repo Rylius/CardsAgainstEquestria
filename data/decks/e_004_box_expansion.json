@@ -1,0 +1,34 @@
+{
+    "name": "Box Expansion",
+    "description": "The Expansion Box Box Expansion.",
+    "watermark": "BOX",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "Why can't I sleep at night?",
+            "pick": 1
+        }
+    ],
+    "whiteCards": [
+        "An outbreak of smallbox.",
+        "The Boxcar Children.",
+        "A world without boxes.",
+        "Boxing up my feelings.",
+        "Something that looks like a box but turns out to be a crate.",
+        "The J15 Patriot Assault Box.",
+        "A box without hinges, key, or lid, yet golden treasure inside is hid.",
+        "Former President George W. Box.",
+        "Pandora's vagina.",
+        "A box.",
+        "A box within a box.",
+        "A boxing match with a giant box.",
+        "A box that is conscious and wishes it weren't a box.",
+        "A box of biscuits, a box of mixed biscuits, and a biscuit mixer.",
+        "A box-shaped man.",
+        "A man-shaped box.",
+        "An alternate universe in which boxes store things inside of people.",
+        "Two midgets shitting into a box.",
+        "A falcon with a box on its head.",
+        "Being a motherfucking box."
+    ]
+}

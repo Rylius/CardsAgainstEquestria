@@ -1,0 +1,584 @@
+{
+    "name": "Game Grumps",
+    "description": "",
+    "watermark": "GG",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "Welcome back to ____.",
+            "pick": 1
+        },
+        {
+            "text": "Welcome to Sonic Team! We make ____, I think!",
+            "pick": 1
+        },
+        {
+            "text": "What am I willing to put up with today?",
+            "pick": 1
+        },
+        {
+            "text": "What can be found in Arin's chins?",
+            "pick": 1
+        },
+        {
+            "text": "What do Mumbo's magic words mean?",
+            "pick": 1
+        },
+        {
+            "text": "What is the boopinest shit?",
+            "pick": 1
+        },
+        {
+            "text": "WHAT THE FUCK IS A ____?!",
+            "pick": 1
+        },
+        {
+            "text": "What's better than Skyward Sword?",
+            "pick": 1
+        },
+        {
+            "text": "What's the real reason Jon left?",
+            "pick": 1
+        },
+        {
+            "text": "When I look in the mirror I see ____.",
+            "pick": 1
+        },
+        {
+            "text": "Who replaced Jon when he left GameGrumps?",
+            "pick": 1
+        },
+        {
+            "text": "Who's an asshole?",
+            "pick": 1
+        },
+        {
+            "text": "Why is Steam Train so controversial?",
+            "pick": 1
+        },
+        {
+            "text": "WOOP WOOP WOOP I'M A ____!",
+            "pick": 1
+        },
+        {
+            "text": "You know what fan mail makes me the happiest every time I see it? It's the ones where people are like, \"____.\" ",
+            "pick": 1
+        },
+        {
+            "text": "You're ruining my integrity! ____ won't hire me now!",
+            "pick": 1
+        },
+        {
+            "text": "I've been ____ again!",
+            "pick": 1
+        },
+        {
+            "text": "Rolling around at the speed of ____!",
+            "pick": 1
+        },
+        {
+            "text": "This time on Guest Grumps, we have ____.",
+            "pick": 1
+        },
+        {
+            "text": "Top five games, go! 1? Mega Man X. 2-5? ____.",
+            "pick": 1
+        },
+        {
+            "text": "Use your ____!",
+            "pick": 1
+        },
+        {
+            "text": "Look at this guy, he's like ____.",
+            "pick": 1
+        },
+        {
+            "text": "Look, it's ____!",
+            "pick": 1
+        },
+        {
+            "text": "Next time on Game Grumps, ____!",
+            "pick": 1
+        },
+        {
+            "text": "Nightshade: The Claws of ____.",
+            "pick": 1
+        },
+        {
+            "text": "Number one! With a bullet! Zoom in on the ____!",
+            "pick": 1
+        },
+        {
+            "text": "Oh, it's ____!",
+            "pick": 1
+        },
+        {
+            "text": "One slice of ____ please.",
+            "pick": 1
+        },
+        {
+            "text": "Pikachu, use your ____ attack!",
+            "pick": 1
+        },
+        {
+            "text": "Put a hole in that ____!",
+            "pick": 1
+        },
+        {
+            "text": "Real talk? ____.",
+            "pick": 1
+        },
+        {
+            "text": "Jon's mom called him to tell him about ____.",
+            "pick": 1
+        },
+        {
+            "text": "Kirby has two iconic abilities: suck and ____.",
+            "pick": 1
+        },
+        {
+            "text": "Listen to the ____ on this shit.",
+            "pick": 1
+        },
+        {
+            "text": "Jon believes that the most important part of any video game is ____.",
+            "pick": 1
+        },
+        {
+            "text": "Jon can't get enough of ____.",
+            "pick": 1
+        },
+        {
+            "text": "Jon can't survive air travel without ____.",
+            "pick": 1
+        },
+        {
+            "text": "Jon just wants to touch ____.",
+            "pick": 1
+        },
+        {
+            "text": "Is there anything to gain from this?",
+            "pick": 1
+        },
+        {
+            "text": "It's no use! Take ____!",
+            "pick": 1
+        },
+        {
+            "text": "Jon and Arin suck at ____.",
+            "pick": 1
+        },
+        {
+            "text": "Jon and Arin win! They realize ____ is more important.",
+            "pick": 1
+        },
+        {
+            "text": "If the ____ wasn't there, I would do. But it's there, so it's not.",
+            "pick": 1
+        },
+        {
+            "text": "How many ____ does Mega Man get?",
+            "pick": 1
+        },
+        {
+            "text": "How many nose hairs does ____ have?",
+            "pick": 1
+        },
+        {
+            "text": "I certainly can't do it without you, and I know you can't do it without ____!",
+            "pick": 1
+        },
+        {
+            "text": "I tell you once, I tell you twice! ____ is good for economy!",
+            "pick": 1
+        },
+        {
+            "text": "I wanna put my ____ in her!",
+            "pick": 1
+        },
+        {
+            "text": "I'm not even SELLING ____!",
+            "pick": 1
+        },
+        {
+            "text": "Do you remember the episode where Ash caught a ____?",
+            "pick": 1
+        },
+        {
+            "text": "Don't throw ____! It's expensive to somebody!",
+            "pick": 1
+        },
+        {
+            "text": "Dude, real talk? ____.",
+            "pick": 1
+        },
+        {
+            "text": "Eat your ____, son.",
+            "pick": 1
+        },
+        {
+            "text": "Egoraptor's fiancee is actually a ____.",
+            "pick": 1
+        },
+        {
+            "text": "Everybody wants to know about me, but they don't know about my ____.",
+            "pick": 1
+        },
+        {
+            "text": "Fool me once, I'm mad. Fool me twice? How could you. Fool me three times, you're officially ____.",
+            "pick": 1
+        },
+        {
+            "text": "For my first attack, I will juggle ____ to impress you.",
+            "pick": 1
+        },
+        {
+            "text": "Fuck, I found a ____.",
+            "pick": 1
+        },
+        {
+            "text": "Game Grumps: sponsored by ____.",
+            "pick": 1
+        },
+        {
+            "text": "Give ____ a chance! He'll grow on you!",
+            "pick": 1
+        },
+        {
+            "text": "____? Ten-outta-ten!",
+            "pick": 1
+        },
+        {
+            "text": "____. I AAAAAAIN’T HAVIN’ THAT SHIT!",
+            "pick": 1
+        },
+        {
+            "text": "____. It's no use!",
+            "pick": 1
+        },
+        {
+            "text": "____. MILLIONS ARE DEAD!!!",
+            "pick": 1
+        },
+        {
+            "text": "____. Put that in, Barry.",
+            "pick": 1
+        },
+        {
+            "text": "____. This is like one of my Japanese animes!",
+            "pick": 1
+        },
+        {
+            "text": "...What the bloody hell are you two talking about?!",
+            "pick": 1
+        },
+        {
+            "text": "\"These new ____ t-shirts are gonna change some lives, Arin.\"",
+            "pick": 1
+        },
+        {
+            "text": "\"You want cheese pizza?\" \"No. ____.\"",
+            "pick": 1
+        },
+        {
+            "text": "And then, as a fuckin' goof, I'd put a hole in ____.",
+            "pick": 1
+        },
+        {
+            "text": "And there it was...Kirby had finally met the ____ of the lost city.",
+            "pick": 1
+        },
+        {
+            "text": "Arin believes that the most important part of any video game is ____.",
+            "pick": 1
+        },
+        {
+            "text": "Arin has an adverse reaction to ____.",
+            "pick": 1
+        },
+        {
+            "text": "Barry entertains himself by watching old episodes of ____.",
+            "pick": 1
+        },
+        {
+            "text": "Barry, add ____ into the video!",
+            "pick": 1
+        },
+        {
+            "text": "Barry, we need a replay on ____.",
+            "pick": 1
+        },
+        {
+            "text": "BARRY! SHOW ____ AGAIN!",
+            "pick": 1
+        },
+        {
+            "text": "Barry's sheer skill at ____ is unmatched.",
+            "pick": 1
+        },
+        {
+            "text": "I don't like the ____ flavor.",
+            "pick": 1
+        },
+        {
+            "text": "____ don't even cost this less!",
+            "pick": 1
+        },
+        {
+            "text": "____ Grumps!",
+            "pick": 1
+        },
+        {
+            "text": "____ has aged really well.",
+            "pick": 1
+        },
+        {
+            "text": "____ is GREAT GREAT GREAT!",
+            "pick": 1
+        },
+        {
+            "text": "____ is Jon's favorite video game of all time.",
+            "pick": 1
+        },
+        {
+            "text": "____ is not Jon's strong suit.",
+            "pick": 1
+        },
+        {
+            "text": "____ Train!",
+            "pick": 1
+        },
+        {
+            "text": "____ WINS!",
+            "pick": 1
+        },
+        {
+            "text": "____: Better than deer shit!",
+            "pick": 1
+        },
+        {
+            "text": "Welcome back to ____ ____!",
+            "pick": 2
+        },
+        {
+            "text": "Real talk? Is that ____ ____?",
+            "pick": 2
+        },
+        {
+            "text": "Look at that ____-ass ____!",
+            "pick": 2
+        },
+        {
+            "text": "JON'S ____, SHOW US YOUR ____.",
+            "pick": 2
+        },
+        {
+            "text": "The Grumps' latest silly player names are ____ and ____.",
+            "pick": 2
+        },
+        {
+            "text": "If you don't know what ____ is, you can't go to ____.",
+            "pick": 2
+        },
+        {
+            "text": "In this corner, ____; in the other corner, ____; it's Game Grumps VS!",
+            "pick": 2
+        },
+        {
+            "text": "IF I CAN'T BE ____, I SURE AS HELL CAN BE ____!!",
+            "pick": 2
+        },
+        {
+            "text": "COME ON AND ____, AND WELCOME TO THE ____!",
+            "pick": 2
+        },
+        {
+            "text": "If ____ evolved from ____, why the fuck is there still ____, dude?!",
+            "pick": 3
+        },
+        {
+            "text": "____? Pretty smart. ____? Pretty fuckin' smart. ____? FUCKING GENIUS!!!!",
+            "pick": 3
+        }
+    ],
+    "whiteCards": [
+        "Sonic the Hedgehog.",
+        "...Metal Gear?!",
+        "A beautiful little moment.",
+        "A couch stinking of naked people.",
+        "A humanlike bat with tits.",
+        "A little dingle-dang.",
+        "A pretty epic poo.",
+        "A replay from Barry.",
+        "A Scottish bloke that talks too fast.",
+        "A smaller, whiter dick.",
+        "A Sonic.",
+        "A testicle examination.",
+        "A whale making a seal noise.",
+        "Accidentally resetting a video game.",
+        "An expensive rental costume.",
+        "Anne Frank doing a striptease.",
+        "Arin actually winning a Game Grumps VS.",
+        "Arin Hanson / Egoraptor.",
+        "Arin's big floppy penis.",
+        "Arin's dicksaber.",
+        "Arin's voice acting.",
+        "Barry Kramer.",
+        "Barry's censorship noises.",
+        "Becoming a vegetarian, then becoming clinically depressed.",
+        "Being forced to replay the same section of the game over and over.",
+        "Birdemic.",
+        "Borderline narcissism.",
+        "Breaking a basketball net's back board.",
+        "Breaking into song.",
+        "Brian / Frank / Steve / Willard / Jonathan / Michael IV / Michael III / Michael Jordan / Scott.",
+        "Bumping butts.",
+        "Buying chicken fingers for homeless people.",
+        "Carefully escorting Anna.",
+        "Catharsis.",
+        "Cheese pizza.",
+        "Chu Chu Rocket.",
+        "Chulip.",
+        "Comparing someone to a trainwreck.",
+        "Completely missing the tutorials and instructions.",
+        "Cumfaggots.",
+        "Dan getting some action with one of Egoraptor's action figures.",
+        "Danny Sexbang.",
+        "Danny's crippling Skittles addiction.",
+        "Dipping your balls in the sand.",
+        "Dixon.",
+        "Donkey-ass Kong.",
+        "Drakkhen's realistic fight sequences.",
+        "Drawing the line in the fucking sand.",
+        "Eating the Holocaust.",
+        "Eating your peas.",
+        "Egofaptor.",
+        "Ending an episode on \"Heil Hitler!\"",
+        "The eyeless girl demographic.",
+        "Fart science.",
+        "Fast-forwarding.",
+        "Fighting Iblis for the hundredth time.",
+        "Fooling me three times.",
+        "Fuckin' Larry.",
+        "FUCKING LEGO CARS!!?!",
+        "Game feel.",
+        "Game Grumps remixes.",
+        "Game Grumps VS.",
+        "Game Grumps.",
+        "Garshstostoles.",
+        "GeorgLopez.",
+        "Getting censored by a stampede of elephants.",
+        "Getting diddled again.",
+        "Getting fucking ganked.",
+        "Getting horribly diarrhea'd on by an owl.",
+        "Getting killed by a motherfucking paralyzed Taillow.",
+        "Getting stuck on the ceiling for no explicable reason.",
+        "Getting violently sick at MAGfest.",
+        "Goof Troop.",
+        "Goofy masturbating in the fields.",
+        "Grade A meat.",
+        "Grant Kirkhope.",
+        "Grant Kirkhope’s knackers.",
+        "GREAT! GREAT! GREAT!",
+        "Grep.",
+        "Grumping it.",
+        "Güf Troop.",
+        "Half the deal for twice the price!",
+        "Having a cough that lasts forever.",
+        "Helicopter tits.",
+        "Hepatitis Sea.",
+        "Hitting a Nightshade cartridge with Thor’s Hammer only to break the hammer.",
+        "Homoerotic subtext between two grown men playing video games.",
+        "Ice hair.",
+        "Incriminating footage of Jon.",
+        "Insta-killing your partner with the Select button.",
+        "It being no use.",
+        "Jacques.",
+        "JonTron.",
+        "Jon winning. AS USUAL.",
+        "Jon's soulful singing.",
+        "Jon/Arin slash fiction.",
+        "JonTron’s musical theater voice.",
+        "Js'keep goin'.",
+        "Killing zombies by typing on a keyboard-gun.",
+        "Kirby.",
+        "Kitty Cat Dance Party.",
+        "Learning that your son is dead, but not caring because you didn't want him anyway.",
+        "Lemon and Bill.",
+        "Lightsaber Fightsaber.",
+        "Literally going to Hell.",
+        "Mediocrity, as a power.",
+        "Mega Man.",
+        "Mike Tyson.",
+        "Mispronouncing Duran Duran.",
+        "Mister Mosquito.",
+        "MomTron.",
+        "Moundo.",
+        "Naughty Bear.",
+        "Nazi von Killyou.",
+        "Ninja Sex Party.",
+        "Nixon.",
+        "NO JON NO.",
+        "NOT FUCKING THIS!",
+        "Not knowing the controls to Nickelodeon GUTS.",
+        "Not reading the game's instructions.",
+        "Obeying Protoman and burning down a forest.",
+        "Pacific Rim.",
+        "Pause balls.",
+        "Pelistorm.",
+        "Playing a terrible game for more than a hundred episodes.",
+        "Playing slaps to break a tie.",
+        "PONY.MOV.",
+        "Poopy butt.",
+        "Poppy Bros.",
+        "Princess Elise's octopus face.",
+        "Punching a hole in a gingerbread house.",
+        "Queefing bombs out of your vagina.",
+        "Racial slurs.",
+        "Reading the manual.",
+        "RIDIN’ ON CARS!!!",
+        "Robots ordering cheese pizza.",
+        "Rocket. To the moon.",
+        "Rolling around at the speed of sound.",
+        "RubberRoss.",
+        "Rouge's gross bat face.",
+        "Screaming out Whitney Houston’s “I Will Always Love You” in primal agony.",
+        "Sequelitis.",
+        "Seven asses.",
+        "Signing and destroying a copy of Sonic '06.",
+        "Silver the Hedgehog.",
+        "Sneaking dirty British humour into an unassuming video game about a bear and a bird.",
+        "Snow white shit.",
+        "Snowboarding uphill",
+        "Solid Snake.",
+        "Sonic '06.",
+        "Spice World.",
+        "Spraying compressed air with a bittering agent in your face, and subsequently vomiting.",
+        "Stairfax Temperatures.",
+        "Staring at a menu while Ross stuffs his disgusting face with candy.",
+        "Stasis-ing the drill.",
+        "Steam Train.",
+        "Sticky sap.",
+        "Stretch Panic.",
+        "STRGG.",
+        "Struggling to fight Silver the Hedgehog.",
+        "Sucking blood from a Japanese girl's tits.",
+        "Suzy the Goose.",
+        "TENOUTTATEN.",
+        "That guy.",
+        "The Awesome Series.",
+        "The band Egoraptor.",
+        "The Chinless Wonder.",
+        "The Goshdangodon.",
+        "The Higgs Boson.",
+        "The Knuckles wall glitch.",
+        "The rarest form of Arin having fun.",
+        "The realization that friendship is more important.",
+        "Three big feet of pleasure.",
+        "Tonguing up.",
+        "Typing \"C D PLAYER\" and getting \"MODEL CAR.\"",
+        "WAAAAAAAVE LAAAAZEEEEEEER.",
+        "Walking around in my banana shoes.",
+        "World Dick Barf Syndrome."
+    ]
+}

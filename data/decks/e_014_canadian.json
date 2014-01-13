@@ -1,32 +1,27 @@
 {
     "name": "Canadian",
     "description": "Cards included in Canadian orders.",
-    "watermark": "",
+    "watermark": "CAN",
     "expansion": true,
     "blackCards": [
         {
             "text": "O Canada, we stand on guard for ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Air Canada guidelines now prohibit ____ on airplanes.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "In an attempt to reach a wider audience, the Royal Ontario Museum has opened an interactive exhibit on ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "CTV presents ____, the story of ____.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "What's the Canadian government using to inspire rural students to succeed?",
-            "draw": 0,
             "pick": 1
         }
     ],

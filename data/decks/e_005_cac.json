@@ -6,107 +6,86 @@
     "blackCards": [
         {
             "text": "Hey guys, not to spoil this, but ___.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "___'s life was complete when they were shipped with ___.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "Guys, I have an important question. ___?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "I joined the Skype call while everyone was talking about ___.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "___ rustled ___'s jimmies with ___.",
-            "draw": 0,
             "pick": 3
         },
         {
             "text": "___ set off the Landmine.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Roll a D20 for a ___ check.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What does the fox say?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Posting NSFW pictures of ___ and ___.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "Everyone laughed when the White Card ___ was submitted.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "I couldn't go to bed because ___ was happening in the Skype call.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Everyone went silent when ___ did ___ in the RP.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "___ swore a blood oath because they did ___.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "___ ate breadsticks infront of ___ because it was funny.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "___ should totally be the voice of ___.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "Enjoy the ___, Fuckers!",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "I hate it when people keep posting ___.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Someone called Eillah ___.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "___ was a Changeling the whole time.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Meti ended the campaign on a dark note when ___ killed ___.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "All hell broke loose on deviantart when ___ change their name to ___.",
-            "draw": 0,
             "pick": 2
         }
     ],

@@ -6,17 +6,14 @@
     "blackCards": [
         {
             "text": "What is your favorite penis?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "______ penis.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "______ is best penis.",
-            "draw": 0,
             "pick": 1
         }
     ],

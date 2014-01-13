@@ -1,0 +1,608 @@
+{
+    "name": "Sodomy Dog's Furry Pack",
+    "description": "",
+    "watermark": "Furry",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "Personals ad: Seeking a female who doesn't mind ____, might also be willing to try a male if they're ____.",
+            "pick": 2
+        },
+        {
+            "text": "I tell everyone I'm not a furry, but I've drawn a lot of ____.",
+            "pick": 1
+        },
+        {
+            "text": "My original species combines ____ and ____. It's called ____.",
+            "pick": 3
+        },
+        {
+            "text": "____. And now I'm bleeding.",
+            "pick": 1
+        },
+        {
+            "text": "Suck my ____.",
+            "pick": 1
+        },
+        {
+            "text": "I also take ____ as payment for commissions.",
+            "pick": 1
+        },
+        {
+            "text": "____ looks pretty in all the art, but have you seen one in real life?",
+            "pick": 1
+        },
+        {
+            "text": "At first I couldn't understand ____, but now it's my biggest kink.",
+            "pick": 1
+        },
+        {
+            "text": "Long story short, I ended up with ____ in my ass.",
+            "pick": 1
+        },
+        {
+            "text": "Don't knock ____ until you've tried it.",
+            "pick": 1
+        },
+        {
+            "text": "Who knew I'd be able to make a living off of ____?",
+            "pick": 1
+        },
+        {
+            "text": "It's difficult to explain to friends and family why I know so much about ____.",
+            "pick": 1
+        },
+        {
+            "text": "Once I started roleplaying ____, it was all downhill from there.",
+            "pick": 1
+        },
+        {
+            "text": "____ are so goddamn cool.",
+            "pick": 1
+        },
+        {
+            "text": "____, by Bad Dragon™.",
+            "pick": 1
+        },
+        {
+            "text": "No, look, you don't understand. I REALLY like ____.",
+            "pick": 1
+        },
+        {
+            "text": "I don't think my parents will ever accept that the real me is ____.",
+            "pick": 1
+        },
+        {
+            "text": "I can't believe I spent most of my paycheck on ____.",
+            "pick": 1
+        },
+        {
+            "text": "You can try to justify ____ all you want, but you don't have to be ____ to realize it's just plain wrong.",
+            "pick": 2
+        },
+        {
+            "text": "I've been waiting all year for ____.",
+            "pick": 1
+        },
+        {
+            "text": "I can't wait to meet up with my internet friends for ____.",
+            "pick": 1
+        },
+        {
+            "text": "Most cats are ____.",
+            "pick": 1
+        },
+        {
+            "text": "Taking pride in one's collection of ____.",
+            "pick": 1
+        },
+        {
+            "text": "Did you hear about the guy that smuggled ____ into the hotel?",
+            "pick": 1
+        },
+        {
+            "text": "The panel I'm looking forward to most at AC this year is...",
+            "pick": 1
+        },
+        {
+            "text": "My Original Character's name is ____.",
+            "pick": 1
+        },
+        {
+            "text": "My secret tumblr account where I post nothing but ____.",
+            "pick": 1
+        },
+        {
+            "text": "Only my internet friends know that I fantasize about ____.",
+            "pick": 1
+        },
+        {
+            "text": "Everyone really just goes to the cons for ____.",
+            "pick": 1
+        },
+        {
+            "text": "It all started with ____.",
+            "pick": 1
+        },
+        {
+            "text": "I'll roleplay ____, you can be ____.",
+            "pick": 2
+        },
+        {
+            "text": "I'm no longer allowed near ____ after the incident with ____.",
+            "pick": 2
+        },
+        {
+            "text": "I've been into ____ since before I hit puberty, I just didn't know what it meant.",
+            "pick": 1
+        },
+        {
+            "text": "Realizing, too late, the implications of your interest in ____ as a child.",
+            "pick": 1
+        },
+        {
+            "text": "Whoa, I might fantasize about ____, but I'd never actually go that far in real life.",
+            "pick": 1
+        },
+        {
+            "text": "I realized they were a furry when they mentioned ____.",
+            "pick": 1
+        },
+        {
+            "text": "Everyone on this site has such strong opinions about ____.",
+            "pick": 1
+        },
+        {
+            "text": "My landlord had a lot of uncomfortable questions for me when when he found ____ in my bedroom while I was at work.",
+            "pick": 1
+        },
+        {
+            "text": "I'm not even aroused by normal porn anymore, I can only get off to ____ or ____.",
+            "pick": 2
+        },
+        {
+            "text": "____? Oh, yeah, I could get my mouth around that.",
+            "pick": 1
+        },
+        {
+            "text": "What wouldn't I fuck?",
+            "pick": 1
+        },
+        {
+            "text": "When I thought I couldn't go any lower, I realized I would probably fuck ____.",
+            "pick": 1
+        },
+        {
+            "text": "I knew my boyfriend was a keeper when he said he'd try ____, just for me.",
+            "pick": 1
+        },
+        {
+            "text": "Fuck ____, get ____.",
+            "pick": 2
+        },
+        {
+            "text": "I would bend over for ____.",
+            "pick": 1
+        },
+        {
+            "text": "I think having horns would make ____ complicated.",
+            "pick": 1
+        },
+        {
+            "text": "In my past life, I was ____.",
+            "pick": 1
+        },
+        {
+            "text": "____ is my spirit animal.",
+            "pick": 1
+        },
+        {
+            "text": "____. This is what my life has come to.",
+            "pick": 1
+        },
+        {
+            "text": "I'm not even sad that I devote at least six hours of each day to ____.",
+            "pick": 1
+        },
+        {
+            "text": "I never felt more accomplished than when I realized I could fit ____ into my ass.",
+            "pick": 1
+        },
+        {
+            "text": "Yeah, I know I have a lot of ____ in my favorites, but I'm just here for the art.",
+            "pick": 1
+        },
+        {
+            "text": "I'm not a \"furry,\" I prefer to be called ____.",
+            "pick": 1
+        },
+        {
+            "text": "Okay, ____? Pretty much the cutest thing ever.",
+            "pick": 1
+        },
+        {
+            "text": "____. Yeah, that's a pretty interesting way to die.",
+            "pick": 1
+        },
+        {
+            "text": "I didn't believe the rumors about ____, until I saw the videos.",
+            "pick": 1
+        },
+        {
+            "text": "I knew I needed to leave the fandom when I realized I was ____.",
+            "pick": 1
+        },
+        {
+            "text": "After being a furry for so long, I can never see ____ without getting a little aroused.",
+            "pick": 1
+        },
+        {
+            "text": "It's really hard not to laugh at ____.",
+            "pick": 1
+        },
+        {
+            "text": "If my parents ever found ____, I'd probably be disowned.",
+            "pick": 1
+        },
+        {
+            "text": "____ ruined the fandom.",
+            "pick": 1
+        },
+        {
+            "text": "The most recent item in my search history.",
+            "pick": 1
+        },
+        {
+            "text": "Is it weird that I want to rub my face on ____?",
+            "pick": 1
+        },
+        {
+            "text": "____? Oh murr.",
+            "pick": 1
+        },
+        {
+            "text": "I never thought I'd be comfortable with ____, but now it's pretty much the only thing I masturbate to.",
+            "pick": 1
+        },
+        {
+            "text": "My next fursuit will have ____.",
+            "pick": 1
+        },
+        {
+            "text": "I'm writing a porn comic about ____ and ____. ",
+            "pick": 2
+        },
+        {
+            "text": "I tell everyone that I make my money off \"illustration,\" when really, I just draw ____.",
+            "pick": 1
+        },
+        {
+            "text": "Oh, you're an artist? Could you draw ____ for me?",
+            "pick": 1
+        },
+        {
+            "text": "Everyone thinks they're so great, but the only thing they're good at drawing is ____.",
+            "pick": 1
+        },
+        {
+            "text": "They're just going to spend all that money on ____.",
+            "pick": 1
+        },
+        {
+            "text": "While everyone else seems to have a deep, instinctual fear of ____, it just turns me on.",
+            "pick": 1
+        },
+        {
+            "text": "Lying about having ____ to get donations, which you spend on ____.",
+            "pick": 2
+        },
+        {
+            "text": "It's not bestiality, it's ____.",
+            "pick": 1
+        },
+        {
+            "text": "Everyone thinks that because I'm a furry, I'm into ____. Unfortunately, they're right.",
+            "pick": 1
+        },
+        {
+            "text": "I'm only gay for ____.",
+            "pick": 1
+        },
+        {
+            "text": "Excuse you, I'm a were-____.",
+            "pick": 1
+        },
+        {
+            "text": "If you like it, then you should put ____ on it.",
+            "pick": 1
+        },
+        {
+            "text": "My girlfriend won't let me do ____.",
+            "pick": 1
+        },
+        {
+            "text": "The most pleasant surprise I've had this year.",
+            "pick": 1
+        },
+        {
+            "text": "I knew I had a problem when I had to sell ____ to pay for ____.",
+            "pick": 2
+        },
+        {
+            "text": "I'm about 50% ____.",
+            "pick": 1
+        },
+        {
+            "text": "____: Horrible tragedy, or sexual opportunity?",
+            "pick": 1
+        },
+        {
+            "text": "It's a little worrying that I have to compare the size of ____ to beverage containers.",
+            "pick": 1
+        },
+        {
+            "text": "Hey, you guys wanna come back to my place? I've got ____ and ____.",
+            "pick": 2
+        },
+        {
+            "text": "Jizzing all over ____.",
+            "pick": 1
+        },
+        {
+            "text": "It's just that much creepier when 40-year-old men are into ____.",
+            "pick": 1
+        },
+        {
+            "text": "____ is no substitute for social skills, but it's a start.",
+            "pick": 1
+        },
+        {
+            "text": "The real reason I got into the fandom? ____.",
+            "pick": 1
+        },
+        {
+            "text": "____ are definitely the new huskies.",
+            "pick": 1
+        },
+        {
+            "text": "I remember when ____ was just getting started.",
+            "pick": 1
+        },
+        {
+            "text": "When no one else is around, sometimes I consider doing things with ____.",
+            "pick": 1
+        },
+        {
+            "text": "Actually coming inside ____.",
+            "pick": 1
+        },
+        {
+            "text": "I don't know how we got on the subject of dragon cocks, but it probably started with ____.",
+            "pick": 1
+        },
+        {
+            "text": "____ is a shining example of what those with autism can really do.",
+            "pick": 1
+        },
+        {
+            "text": "It is my dream to be covered with ____.",
+            "pick": 1
+        },
+        {
+            "text": "____ fucking ____. Now that's hot.",
+            "pick": 2
+        },
+        {
+            "text": "Would you rather suck ____, or get dicked by ____?",
+            "pick": 2
+        },
+        {
+            "text": "It never fails to liven up the workplace when you ask your coworkers if they'd rather have sex with ____ or ____.",
+            "pick": 2
+        },
+        {
+            "text": "HELLO FURRIEND, HOWL ARE YOU DOING?",
+            "pick": 1
+        },
+        {
+            "text": "What are the two worst cards in your hand right now?",
+            "pick": 2
+        },
+        {
+            "text": "Nobody believes me when I tell that one story about walking in on ____.",
+            "pick": 1
+        },
+        {
+            "text": "You don't know who ____ is? They're the one that draws ____.",
+            "pick": 2
+        },
+        {
+            "text": "You sometimes wish you'd encounter ____ while all alone, in the woods. With a bottle of lube.",
+            "pick": 1
+        },
+        {
+            "text": "I used to avoid talking about ____, but now it's just a part of normal conversation with my friends.",
+            "pick": 1
+        }
+    ],
+    "whiteCards": [
+        "Dragon dildos.",
+        "Adam Wan.",
+        "Non-consensual sex with Zaush.",
+        "My tailhole.",
+        "Adoptables with visible genitalia.",
+        "An embarrassingly long F-List profile.",
+        "Catching STDs at conventions.",
+        "Fursuit adventures.",
+        "A semen-stained fursuit.",
+        "Fake furry girls.",
+        "That one straight guy at the party.",
+        "An apartment full of internet-obsessed losers.",
+        "A tub of Vaseline.",
+        "Sex with strangers.",
+        "People who cosplay at furry conventions.",
+        "Fursuiters at anime conventions.",
+        "Embarrassing craigslist ads.",
+        "Pounced.org.",
+        "A large, flared Chance.",
+        "Stretching your anus in preparation for horse cock.",
+        "A hermaphrodite foxtaur.",
+        "Babyfurs.",
+        "Uncomfortably attractive animals.",
+        "Confusing feelings about cartoon characters.",
+        "PetSmart.",
+        "Krystal, the fox.",
+        "StarFox.",
+        "Sonic the Hedgehog.",
+        "Bowser's sweaty balls.",
+        "A furpile.",
+        "The stench of half a dozen unwashed bronies.",
+        "Intimacy with the family dog.",
+        "Horses.",
+        "Fursecution.",
+        "Chakats.",
+        "DeviantArt.",
+        "Otherkin.",
+        "Heated debates about human genitalia versus animal genitalia.",
+        "Taking the knot.",
+        "Really, really liking Disney's Robin Hood.",
+        "Applying your obscure, unrealistic fetishes to 90's cartoon characters.",
+        "The texture and color of raw meat.",
+        "An oversized clitoris that acts as a functional penis.",
+        "A hermaphrodite snow leopard.",
+        "Drawing furry porn.",
+        "Lovingly rendered dragon anus.",
+        "Cloaca.",
+        "Animal genitalia.",
+        "Motherfucking wolves.",
+        "Christian furries.",
+        "Barbed penises.",
+        "Two knots.",
+        "A really attractive wolf.",
+        "A slutty gay fox.",
+        "A surprisingly attractive anteater.",
+        "FUCK YOU, I'M A DRAGON.",
+        "Tumbles, the Stair Dragon.",
+        "Furry Weekend Atlanta.",
+        "Further Confusion.",
+        "AnthroCon.",
+        "Literally a bucket of semen.",
+        "Sexual interest in pretty much anything with a hole.",
+        "Attraction to pretty much anything with a penis.",
+        "Transformation porn.",
+        "Anatomically incorrect genitalia.",
+        "When you catch yourself glancing at the crotches of animated characters.",
+        "Belly rubs leading to awkward boners.",
+        "Scritches.",
+        "Lifting your tail.",
+        "Experimenting with fisting.",
+        "Bad decisions.",
+        "A little bitch.",
+        "A lime Citra.",
+        "Sergals.",
+        "An autistic knife fight.",
+        "The noises red pandas make during sex.",
+        "About 16 ounces of horse semen.",
+        "Dog cum.",
+        "Oral knotting.",
+        "Leaving your orifices bloody and sore.",
+        "Rubbing peanut butter on your genitals.",
+        "Bad Dragon&trade; cumlube.",
+        "Piss.",
+        "Smells.",
+        "When \"blowing ten bucks\" makes you think of a long night with a bunch of deer.",
+        "Forgetting which set of fursuit paws you use for handjobs.",
+        "A strategically placed hole.",
+        "Shitting on my face.",
+        "Barking at strangers.",
+        "Sitting on your face.",
+        "Spending more money on commissions than food in a given week.",
+        "A dick so big you have to give it a hugjob.",
+        "The fine line between feral and outright bestiality.",
+        "Anal training.",
+        "Discovering monster porn.",
+        "Realizing that rimming is pretty cool.",
+        "Endearing social ineptitude.",
+        "All this lube.",
+        "That thing that gives your dick a knot IRL.",
+        "Gay.",
+        "Really, truly heterosexual.",
+        "Drenching your fursuit in Febreeze.",
+        "That time you let your dog go a little further than just sniffing your crotch.",
+        "Poodles with afros.",
+        "Offensively stereotyped African animals.",
+        "A sassy lioness.",
+        "Surprise hermaphrodites.",
+        "Taking special interest in nature documentaries.",
+        "Becoming a veterinarian for all the wrong reasons.",
+        "The premise of every furry comic ever.",
+        "Anal sex you didn't know you wanted.",
+        "The incredibly satisfying sound it makes when you pull it out.",
+        "Bear tits.",
+        "Big cute paws.",
+        "Paws.",
+        "Furry porn, shamelessly taped to the walls.",
+        "Grabby-paws.",
+        "Masturbating, with claws.",
+        "Pawing-off.",
+        "Tail-sex.",
+        "Mary, the anthro mare.",
+        "Natascha, the anthro husky.",
+        "Nipple buffet.",
+        "Crotch-tits.",
+        "The tailstar tango.",
+        "Furries in heat.",
+        "Fantasizing about sex with just about every monster you encounter in your video game.",
+        "Impure thoughts about Kobolds.",
+        "Erotic roleplay.",
+        "Monsters with bedroom eyes.",
+        "Accurate avian anatomy.",
+        "Getting fur stuck in your teeth.",
+        "Getting feathers stuck in your teeth.",
+        "Ignoring a person's faults because their character is hot.",
+        "Discovering that it's never just a big vagina.",
+        "Dragoneer.",
+        "A horny dragon.",
+        "A sexually frustrated griffon.",
+        "Species stereotypes.",
+        "HELLO FURRIEND, HOWL ARE YOU DOING.",
+        "Convention sluts.",
+        "Horns and hooves.",
+        "Being \"prison gay.\"",
+        "Microwaving diapers.",
+        "Adorable dog people.",
+        "Sexy the Cat.",
+        "That one episode of CSI.",
+        "SecondLife.",
+        "The Gay Yiffy Club.",
+        "Hyper-endowed squirrels.",
+        "A spider furry who isn't even into bondage.",
+        "Being really, really into monsters.",
+        "Sexual arousal from children's cartoons.",
+        "No males, no herms, no cuntboys, no shemales, no trannys, no furries, no aliens, no vampires, and no werewolves. ONLY STRAIGHT OR BI HUMAN FEMALES.",
+        "Overcompensating with a huge horse penis.",
+        "A fedora enthusiast.",
+        "A tongue-beast.",
+        "Frisky tentacles.",
+        "A very steampunk rat.",
+        "Canine superiority.",
+        "Oviposition.",
+        "Flares.",
+        "Dogs wearing panties.",
+        "Monster boys in lingerie.",
+        "Power bottoms.",
+        "Sheath licking.",
+        "Sex with Pok&eacute;mon.",
+        "Making out with dogs.",
+        "YouTube videos of horse breeding.",
+        "Pissing on your significant other to show ownership.",
+        "Being able to recognize your friends by the scent of their asses.",
+        "A notebook full of embarrassing niche porn sketches.",
+        "Cockvore.",
+        "A prehensile penis.",
+        "Puns involving the word \"knot.\"",
+        "Jerking off on an unconscious friend's feet.",
+        "CrusaderCat.",
+        "Your Character Here."
+    ]
+}

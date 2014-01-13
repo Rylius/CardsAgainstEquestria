@@ -1,42 +1,35 @@
 {
     "name": "2012 Holiday Pack",
     "description": "The 2012 Holiday Pack.",
-    "watermark": "",
+    "watermark": "❄",
     "expansion": true,
     "blackCards": [
         {
             "text": "This holiday season, Tim Allen must overcome his fear of ____ to save Christmas.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Jesus is ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "On the third day of Christmas, my true love gave to me: three French hens, two turtle doves, and ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Wake up, America. Christmas is under attack by secular liberals and their ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Every Christmas, my uncle gets drunk and tells the story about ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What keeps me warm during the cold, cold winter?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "After blacking out during New Year's Eve, I was awoken by ____.",
-            "draw": 0,
             "pick": 1
         }
     ],
@@ -58,7 +51,7 @@
         "Gift-wrapping a live hamster.",
         "Space Jam on VHS.",
         "Immaculate conception.",
-        "Fucking up Silent Night in front of 300 parents.",
+        "Fucking up \"Silent Night\" in front of 300 parents.",
         "A visually arresting turtleneck.",
         "A toxic family environment.",
         "Eating an entire snowman.",
