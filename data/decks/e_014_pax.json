@@ -1,0 +1,123 @@
+{
+    "name": "PAX 2013 Packs",
+    "description": "PAX East 2013 Packs A, B and C and the Pax Prime 2013 pack.",
+    "watermark": "PAX",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "I have an idea even better than Kickstarter, and it's called ____starter.",
+            "pick": 1
+        },
+        {
+            "text": "You have been waylaid by ____ and must defend yourself.",
+            "pick": 1
+        },
+        {
+            "text": "Action stations! Action stations! Set condition one throughout the fleet and brace for ____!",
+            "pick": 1
+        },
+        {
+            "text": "In the final round of this year's Omegathon, Omeganauts must face off in a game of ____.",
+            "pick": 1
+        },
+        {
+            "text": "Press &darr;&darr;&larr;&rarr;B to unleash ____.",
+            "pick": 1
+        },
+        {
+            "text": "I don't know exactly how I got the PAX plague, but I suspect it had something to do with ____.",
+            "pick": 1
+        },
+        {
+            "text": "The most controversial game at PAX this year is an 8-bit indie platformer about ____.",
+            "pick": 1
+        },
+        {
+            "text": "What made Spock cry?",
+            "pick": 1
+        },
+        {
+            "text": "In the new DLC for Mass Effect, Shepard must save the galaxy from ____.",
+            "pick": 1
+        },
+        {
+            "text": "No Enforcer wants to manage the panel on ____.",
+            "pick": 1
+        },
+        {
+            "text": "____: Achievement unlocked.",
+            "pick": 1
+        },
+        {
+            "text": "There was a riot at the Gearbox panel when they gave the attendees ____.",
+            "pick": 1
+        },
+        {
+            "text": "What's the latest bullshit that's troubling this quaint fantasy town?",
+            "pick": 1
+        }
+    ],
+    "whiteCards": [
+        "An immediately regrettable $9 hot dog from the Boston Convention Center.",
+        "Running out of stamina.",
+        "Casting Magic Missile at a bully.",
+        "Getting bitch slapped by Dhalsim.",
+        "Firefly: Season 2.",
+        "Rotating shapes in mid-air so that they fit into other shapes when they fall.",
+        "Jiggle physics.",
+        "Paying the iron price.",
+        "Loading from a previous save.",
+        "Sharpening a foam broadsword on a foam whetstone.",
+        "The rocket launcher.",
+        "The depression that ensues after catching 'em all.",
+        "Violating the First Law of Robotics.",
+        "Getting inside the Horadric Cube with a hot babe and pressing the transmute button.",
+        "Punching a tree to gather wood.",
+        "Spending the year's insulin budget on Warhammer 40k figurines.",
+        "Achieving 500 actions per minute.",
+        "Forgetting to eat, and consequently dying.",
+        "Wil Wheaton crashing an actual spaceship.",
+        "The Klobb.",
+        "Charging up all the way.",
+        "Vespene gas.",
+        "Judging elves by the color of their skin and not by the content of their character.",
+        "Smashing all the pottery in a Pottery Barn in search of rupees.",
+        "Reading the comments.",
+        "The collective wail of every Magic player suddenly realizing that they've spent hundreds of dollars on pieces of cardboard.",
+        "Being an attractive elf trapped in an unattractive human's body.",
+        "Temporary invincibility.",
+        "Mario Kart rage.",
+        "A homemade, cum-stained Star Trek uniform.",
+        "Never watching, discussing, or thinking about My Little Pony.",
+        "Turn-of-the-century sky racists.",
+        "A fully-dressed female videogame character.",
+        "Buying virtual clothes for a Sim family instead of real clothes for a real family.",
+        "Google Glass + e-cigarette: Ultimate Combo!",
+        "Full HD.",
+        "Allowing nacho cheese to curdle in your beard while you creep in League of Legends.",
+        "The Sarlacc.",
+        "Nude-modding Super Mario World.",
+        "An angry stone head that stomps on the floor every three seconds.",
+        "Yoshi's huge egg-laying cloaca.",
+        "The Cock Ring of Alacrity.",
+        "Offering sexual favors for an ore and a sheep.",
+        "Unlocking a new sex position.",
+        "The boner hatch in the Iron Man suit.",
+        "The decade of legal inquests following a single hour of Grand Theft Auto.",
+        "Legendary Creature &ndash; Robert Khoo.",
+        "Winning the approval of Cooking Mama that you never got from actual mama.",
+        "Tapping Sara Angel.",
+        "Charles Barkley Shut Up and Jam!",
+        "Getting into a situation with an owlbear.",
+        "Grand Theft Auto: Fort Lauderdale.",
+        "A madman who lives in a policebox and kidnaps women.",
+        "SNES cartridge cleaning fluid.",
+        "Eating a pizza that's lying on the street to gain health.",
+        "The gravity gun.",
+        "Achieving the manual dexterity and tactical brilliance of a 12-year-old Korean boy.",
+        "Rolling a D20 to save a failing marriage.",
+        "Bowser's aching heart.",
+        "Filling every pouch of a UtiliKilt&trade; with pizza.",
+        "70,000 gamers sweating and farting inside an airtight steel dome."
+    ]
+}

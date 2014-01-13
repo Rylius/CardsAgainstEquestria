@@ -1,453 +1,364 @@
 {
     "name": "Cards Against Humanity",
     "description": "The updated version of the Cards Against Humanity base game.",
-    "watermark": "Cards Against Humanity",
+    "watermark": "",
     "expansion": false,
     "blackCards": [
         {
             "text": "Why can't I sleep at night?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What's that smell?",
-            "draw": 0,
             "pick": 1
-        },
-        {
-            "text": "Anthropologists have recently discovered a primitive tribe that worships _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "It's a pity that kids these days are all getting involved with _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "Alternative medicine is now embracing the curative powers of _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "And the Academy Award for _____ goes to _____.",
-            "draw": 0,
-            "pick": 2
         },
         {
             "text": "What's that sound?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What ended my last relationship?",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "I drink to forget _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "I'm sorry, Professor, but I couldn't complete my homework because of _____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What is Batman's guilty pleasure?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What's a girl's best friend?",
-            "draw": 0,
             "pick": 1
-        },
-        {
-            "text": "TSA guidelines now prohibit _____ on airplanes.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "_____. That's how I want to die.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "For my next trick, I will pull _____ out of _____.",
-            "draw": 0,
-            "pick": 2
-        },
-        {
-            "text": "In the new Disney Channel Original Movie, Hannah Montana struggles with _____ for the first time.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "_____ is a slippery slope that leads to _____.",
-            "draw": 0,
-            "pick": 2
         },
         {
             "text": "What does Dick Cheney prefer?",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "Instead of coal, Santa now gives the bad children _____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What's the most emo?",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "In 1,000 years, when paper money is but a distant memory, _____ will be our currency.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "In M. Night Shyamalan's new movie, Bruce Willis discovers that _____ had really been _____ all along.",
-            "draw": 0,
-            "pick": 2
-        },
-        {
-            "text": "A romantic, candlelit dinner would be incomplete without _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "_____. Betcha can't have just one!",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "In a world ravaged by _____, our only solace is _____.",
-            "draw": 0,
-            "pick": 2
-        },
-        {
-            "text": "War! What is it good for?",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "During sex, I like to think about _____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What are my parents hiding from me?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What will always get you laid?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What did I bring back from Mexico?",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "What don't you want to find in your Chinese food?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What will I bring back in time to convince people that I am a powerful wizard?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "How am I maintaining my relationship status?",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "_____. It's a trap!",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "Coming to Broadway this season, _____: The Musical.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "Rumor has it that Vladimir Putin's favorite dish is _____ stuffed with _____.",
-            "draw": 0,
-            "pick": 2
-        },
-        {
-            "text": "But before I kill you, Mr. Bond, I must show you _____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What gives me uncontrollable gas?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What do old people smell like? ",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "The class field trip was completely ruined by _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "When Pharaoh remained unmoved, Moses called down a plague of _____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What's my secret power?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What's there a ton of in heaven?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What would grandma find disturbing, yet oddly charming?",
-            "draw": 0,
             "pick": 1
         },
         {
-            "text": "I never truly understood _____ until I encountered _____.",
-            "draw": 0,
-            "pick": 2
-        },
-        {
             "text": "What did the U.S. airdrop to the children of Afghanistan?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What helps Obama unwind?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What did Vin Diesel eat for dinner?",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "_____: Good to the last drop.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Why am I sticky?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What gets better with age?",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "_____: kid-tested, mother-approved.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "What's the crustiest?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What's Teach for America using to inspire inner city students to succeed?",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "Studies show that lab rats navigate mazes 50% faster after being exposed to _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "I do not know with which weapons World War III will be fought, but World War IV will be fought with _____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Why do I hurt all over?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What am I giving up for Lent?",
-            "draw": 0,
             "pick": 1
-        },
-        {
-            "text": "In Michael Jackson's final moments, he thought about _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "In an attempt to reach a wider audience, the Smithsonian Museum of Natural History has opened an interactive exhibit on _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "When I am the President of the United States, I will create the Department of _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "When I am a billionare, I shall erect a 50-foot statue to commemorate _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "When I was tripping on acid, _____ turned into _____.",
-            "draw": 0,
-            "pick": 2
-        },
-        {
-            "text": "That's right, I killed _____. How, you ask? _____.",
-            "draw": 0,
-            "pick": 2
         },
         {
             "text": "What's my anti-drug?",
-            "draw": 0,
             "pick": 1
         },
         {
-            "text": "_____ + _____ = _____.",
-            "draw": 2,
-            "pick": 3
-        },
-        {
             "text": "What never fails to liven up the party?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What's the new fad diet?",
-            "draw": 0,
             "pick": 1
         },
         {
-            "text": "Major League Baseball has banned _____ for giving players an unfair advantage.",
-            "draw": 0,
+            "text": "I got 99 problems but ____ ain't one.",
             "pick": 1
         },
         {
-            "text": "White people like _____.",
-            "draw": 0,
+            "text": "TSA guidelines now prohibit ____ on airplanes.",
             "pick": 1
         },
         {
-            "text": "_____. High five, bro.",
-            "draw": 0,
+            "text": "MTV's new reality show features eight washed-up celebrities living with ____.",
             "pick": 1
         },
         {
-            "text": "Next from J.K. Rowling: Harry Potter and the Chamber of _____.",
-            "draw": 0,
+            "text": "I drink to forget ____.",
             "pick": 1
         },
         {
-            "text": "BILLY MAYS HERE FOR _____.",
-            "draw": 0,
+            "text": "I'm sorry, Professor, but I couldn't complete my homework because of ____.",
             "pick": 1
         },
         {
-            "text": "MTV's new reality show features eight washed-up celebrities living with _____.",
-            "draw": 0,
+            "text": "Alternative medicine is now embracing the curative powers of ____.",
             "pick": 1
         },
         {
-            "text": "During Picasso's often-overlooked Brown Period, he produced hundreds of paintings of _____.",
-            "draw": 0,
+            "text": "It's a pity that kids these days are all getting involved with ____.",
             "pick": 1
         },
         {
-            "text": "I got 99 problems but _____ ain't one.",
-            "draw": 0,
+            "text": "____. That's how I want to die.",
             "pick": 1
         },
         {
-            "text": "This is the way the world ends / This is the way the world ends / This is the way the world ends / Not with a bang but with _____.",
-            "draw": 0,
+            "text": "In the new Disney Channel Original Movie, Hannah Montana struggles with ____ for the first time.",
             "pick": 1
         },
         {
-            "text": "While the United States raced the Soviet Union to the moon, the Mexican government funneled millions of pesos into research on _____.",
-            "draw": 0,
+            "text": "Instead of coal, Santa now gives the bad children ____.",
             "pick": 1
         },
         {
-            "text": "Maybe she's born with it. Maybe it's _____.",
-            "draw": 0,
+            "text": "A romantic, candlelit dinner would be incomplete without ____.",
             "pick": 1
+        },
+        {
+            "text": "Next from J.K. Rowling: Harry Potter and the Chamber of ____.",
+            "pick": 1
+        },
+        {
+            "text": "____. Betcha can't have just one!",
+            "pick": 1
+        },
+        {
+            "text": "White people like ____.",
+            "pick": 1
+        },
+        {
+            "text": "____. High five, bro.",
+            "pick": 1
+        },
+        {
+            "text": "During sex, I like to think about ____.",
+            "pick": 1
+        },
+        {
+            "text": "BILLY MAYS HERE FOR ____.",
+            "pick": 1
+        },
+        {
+            "text": "When I am the President of the United States, I will create the Department of ____.",
+            "pick": 1
+        },
+        {
+            "text": "Major League Baseball has banned ____ for giving players an unfair advantage.",
+            "pick": 1
+        },
+        {
+            "text": "When I am a billionare, I shall erect a 50-foot statue to commemorate ____.",
+            "pick": 1
+        },
+        {
+            "text": "____. It's a trap!",
+            "pick": 1
+        },
+        {
+            "text": "Coming to Broadway this season, ____: The Musical.",
+            "pick": 1
+        },
+        {
+            "text": "But before I kill you, Mr. Bond, I must show you ____.",
+            "pick": 1
+        },
+        {
+            "text": "When Pharaoh remained unmoved, Moses called down a plague of ____.",
+            "pick": 1
+        },
+        {
+            "text": "The class field trip was completely ruined by ____.",
+            "pick": 1
+        },
+        {
+            "text": "In Michael Jackson's final moments, he thought about ____.",
+            "pick": 1
+        },
+        {
+            "text": "Studies show that lab rats navigate mazes 50% faster after being exposed to ____.",
+            "pick": 1
+        },
+        {
+            "text": "I do not know with which weapons World War III will be fought, but World War IV will be fought with ____.",
+            "pick": 1
+        },
+        {
+            "text": "____: Good to the last drop.",
+            "pick": 1
+        },
+        {
+            "text": "____: kid-tested, mother-approved.",
+            "pick": 1
+        },
+        {
+            "text": "And the Academy Award for ____ goes to ____.",
+            "pick": 2
+        },
+        {
+            "text": "For my next trick, I will pull ____ out of ____.",
+            "pick": 2
+        },
+        {
+            "text": "____ is a slippery slope that leads to ____.",
+            "pick": 2
+        },
+        {
+            "text": "In M. Night Shyamalan's new movie, Bruce Willis discovers that ____ had really been ____ all along.",
+            "pick": 2
+        },
+        {
+            "text": "In a world ravaged by ____, our only solace is ____.",
+            "pick": 2
+        },
+        {
+            "text": "I never truly understood ____ until I encountered ____.",
+            "pick": 2
+        },
+        {
+            "text": "When I was tripping on acid, ____ turned into ____.",
+            "pick": 2
+        },
+        {
+            "text": "That's right, I killed ____. How, you ask? ____.",
+            "pick": 2
+        },
+        {
+            "text": "____ + ____ = ____.",
+            "pick": 3
         },
         {
             "text": "What's the next superhero/sidekick duo?",
-            "draw": 0,
             "pick": 2
         },
         {
-            "text": "In L.A. County Jail, word is you can trade 200 cigarettes for _____.",
-            "draw": 0,
+            "text": "Daddy, why is Mommy crying?",
             "pick": 1
         },
         {
-            "text": "After the earthquake, Sean Penn brought _____ to the people of Haiti.",
-            "draw": 0,
+            "text": "Maybe she's born with it. Maybe it's ____.",
             "pick": 1
         },
         {
-            "text": "Next on ESPN2, the World Series of _____.",
-            "draw": 0,
+            "text": "In L.A. County Jail, word is you can trade 200 cigarettes for ____.",
             "pick": 1
         },
         {
-            "text": "Step 1: _____. Step 2: _____. Step 3: Profit.",
-            "draw": 0,
+            "text": "After the earthquake, Sean Penn brought ____ to the people of Haiti.",
+            "pick": 1
+        },
+        {
+            "text": "Next on ESPN2, the World Series of ____.",
+            "pick": 1
+        },
+        {
+            "text": "Step 1: ____. Step 2: ____. Step 3: Profit.",
             "pick": 2
         },
         {
-            "text": "Life for American Indians was forever changed when the White Man introduced them to _____.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "_____? There's an app for that.",
-            "draw": 0,
-            "pick": 1
-        },
-        {
-            "text": "Dear Abby,<br><br>I'm having some trouble with _____ and would like your advice.",
-            "draw": 0,
+            "text": "Life for American Indians was forever changed when the White Man introduced them to ____.",
             "pick": 1
         },
         {
             "text": "What's the next Happy Meal&reg; toy?",
-            "draw": 0,
             "pick": 1
         },
         {
-            "text": "Lifetime&reg; presents _____, the story of _____.",
-            "draw": 0,
+            "text": "Lifetime&reg; presents ____, the story of ____.",
             "pick": 2
+        },
+        {
+            "text": "Dear Abby,<br><br>I'm having some trouble with ____ and would like your advice.",
+            "pick": 1
+        },
+        {
+            "text": "While the United States raced the Soviet Union to the moon, the Mexican government funneled millions of pesos into research on ____.",
+            "pick": 1
+        },
+        {
+            "text": "How did I lose my virginity?",
+            "pick": 1
+        },
+        {
+            "text": "Here is the church<br>Here is the steeple<br>Open the doors<br>And there is ____.",
+            "pick": 1
+        },
+        {
+            "text": "During his childhood, Salvador Dal&iacute; produced hundreds of paintings of ____.",
+            "pick": 1
+        },
+        {
+            "text": "This is the way the world ends / This is the way the world ends / Not with a bang but with ____.",
+            "pick": 1
+        },
+        {
+            "text": "In 1,000 years, when paper money is a distant memory, how will we pay for goods and services?",
+            "pick": 1
+        },
+        {
+            "text": "War!<br><br>What is it good for?",
+            "pick": 1
+        },
+        {
+            "text": "What don't you want to find in your Kung Pao chicken?",
+            "pick": 1
+        },
+        {
+            "text": "Rumor has it that Vladimir Putin's favorite delicacy is ____ stuffed with ____.",
+            "pick": 2
+        },
+        {
+            "text": "The Smithsonian Museum of Natural History has just opened an exhibit on ____.",
+            "pick": 1
         }
     ],
     "whiteCards": [
@@ -455,18 +366,15 @@
         "White people.",
         "An erection that lasts longer than four hours.",
         "Panda sex.",
-        "Stifling a giggle at the mention of Hutus and Tutsis.",
         "A middle-aged man on roller skates.",
         "Coat hanger abortions.",
         "Scrubbing under the folds.",
         "Wearing underwear inside-out to avoid doing laundry.",
         "MechaHitler.",
         "Getting naked and watching Nickelodeon.",
-        "Charisma.",
         "Morgan Freeman's voice.",
         "Breaking out into song and dance.",
         "Soup that is too hot.",
-        "Chutzpah.",
         "Unfathomable stupidity.",
         "Horrifying laser hair removal accidents.",
         "Boogers.",
@@ -479,7 +387,6 @@
         "The Care Bear Stare.",
         "Erectile dysfunction.",
         "The chronic.",
-        "Tweeting.",
         "Firing a rifle into the air while balls deep in a squealing hog.",
         "Nicolas Cage.",
         "Dropping a chandelier on your enemies and riding the rope up.",
@@ -490,7 +397,6 @@
         "A gentle caress of the inner thigh.",
         "Poor life choices.",
         "Embryonic stem cells.",
-        "Customer service representatives.",
         "The Little Engine That Could.",
         "Lady Gaga.",
         "A death ray.",
@@ -501,7 +407,6 @@
         "Inappropriate yodeling.",
         "A homoerotic volleyball montage.",
         "Actually taking candy from a baby.",
-        "Jibber-jabber.",
         "Crystal meth.",
         "My inner demons.",
         "Pac-Man uncontrollably guzzling cum.",
@@ -524,10 +429,8 @@
         "Hormone injections.",
         "Tom Cruise.",
         "Object permanence.",
-        "Consultants.",
         "Being marginalized.",
         "The profoundly handicapped.",
-        "Party poopers.",
         "Nickelback.",
         "Doing the right thing.",
         "The invisible hand.",
@@ -544,7 +447,6 @@
         "Sexting.",
         "Horse meat.",
         "Sunshine and rainbows.",
-        "Flash flooding.",
         "Goblins.",
         "Spectacular abs.",
         "The Three-Fifths compromise.",
@@ -566,10 +468,8 @@
         "The placenta.",
         "Flightless birds.",
         "Stranger danger.",
-        "Chivalry.",
         "Sean Penn.",
         "A sad handjob.",
-        "Jew-fros.",
         "Self-loathing.",
         "A falcon with a cap on its head.",
         "Historically black colleges.",
@@ -582,12 +482,10 @@
         "The South.",
         "Pretending to care.",
         "Arnold Schwarzenegger.",
-        "Glenn Beck convulsively vomiting as a brood of crab spiders hatches in his brain and erupts from his tear ducts.",
         "A sausage festival.",
         "Foreskin.",
         "Being a dick to children.",
         "Chainsaws for hands.",
-        "A Gypsy curse.",
         "The Pope.",
         "A balanced breakfast.",
         "Elderly Japanese men.",
@@ -597,29 +495,31 @@
         "Autocannibalism.",
         "William Shatner.",
         "A micropenis.",
-        "Waterboarding.",
         "Bingeing and purging.",
-        "A clandestine butt scratch.",
         "Man meat.",
         "Laying an egg.",
-        "An honest cop with nothing left to lose.",
         "The terrorists.",
-        "Friends who eat all the snacks.",
+        "A bitch slap.",
+        "One trillion dollars.",
+        "Chunks of dead prostitute.",
+        "The entire Mormon Tabernacle Choir.",
+        "The female orgasm.",
+        "Extremely tight pants.",
+        "Stormtroopers.",
+        "The Boy Scouts of America.",
+        "Throwing a virgin into a volcano.",
+        "Passive-agression.",
         "Guys who don't call.",
         "AIDS.",
         "The Rapture.",
         "Eugenics.",
         "Taking off your shirt.",
-        "A drive-by shooting.",
         "Ronald Reagan.",
         "Jewish fraternities.",
         "All-you-can-eat shrimp for $4.99.",
         "Scalping.",
         "Edible underpants.",
         "Figgy pudding.",
-        "Intelligent design.",
-        "Nocturnal emissions.",
-        "Uppercuts.",
         "The American Dream.",
         "Testicular torsion.",
         "The folly of man.",
@@ -627,7 +527,6 @@
         "The taint; the grundle; the fleshy fun-bridge.",
         "Saxophone solos.",
         "That thing that electrocutes your abs.",
-        "Oversized lollipops.",
         "Friends with benefits.",
         "Teaching a robot to love.",
         "Me time.",
@@ -647,7 +546,6 @@
         "Leaving an awkward voicemail.",
         "Assless chaps.",
         "Sweet, sweet vengeance.",
-        "Keg stands.",
         "Darth Vader.",
         "Necrophilia.",
         "Toni Morrison's vagina.",
@@ -655,7 +553,6 @@
         "A cooler full of organs.",
         "Keanu Reeves.",
         "A thermonuclear detonation.",
-        "A moment of silence.",
         "Catapults.",
         "Emotions.",
         "Balls.",
@@ -674,23 +571,18 @@
         "Pixelated bukkake.",
         "Waiting 'til marriage.",
         "The World of Warcraft.",
-        "Global warming.",
         "World peace.",
         "A can of whoop-ass.",
         "A zesty breakfast burrito.",
         "Picking up girls at the abortion clinic.",
         "Land mines.",
-        "College.",
         "A time travel paradox.",
         "Seppuku.",
         "Waking up half-naked in a Denny's parking lot.",
         "Christopher Walken.",
         "Gloryholes.",
         "A tiny horse.",
-        "Child abuse.",
-        "Menstruation.",
         "A sassy black woman.",
-        "Re-gifting.",
         "Penis envy.",
         "Drinking alone.",
         "Hulk Hogan.",
@@ -713,24 +605,19 @@
         "The milk man.",
         "The Chinese gymnastics team.",
         "Eating the last known bison.",
-        "Soiling oneself.",
         "Giving 110%.",
         "Friendly fire.",
         "Count Chocula.",
         "Feeding Rosie O'Donnell.",
-        "Seduction.",
         "Being a motherfucking sorcerer.",
+        "African children.",
+        "Crippling debt.",
         "A disappointing birthday party.",
         "Puppies!",
         "A windmill full of corpses.",
         "Being on fire.",
         "A lifetime of sadness.",
-        "Pterodactyl eggs.",
-        "Crumpets with the Queen.",
-        "Exchanging pleasantries.",
         "Republicans.",
-        "Kim Jong-il.",
-        "Glenn Beck being harried by a swarm of buzzards.",
         "A salty surprise.",
         "The Jews.",
         "Incest.",
@@ -740,7 +627,6 @@
         "Passable transvestites.",
         "Puberty.",
         "Swooping.",
-        "A look-see.",
         "Lactation.",
         "Pabst Blue Ribbon.",
         "The gays.",
@@ -751,7 +637,6 @@
         "Getting drunk on mouthwash.",
         "The glass ceiling.",
         "Sarah Palin.",
-        "Team-building exercises.",
         "Frolicking.",
         "Not giving a shit about the Third World.",
         "My relationship status.",
@@ -784,13 +669,11 @@
         "A mating display.",
         "The Kool-Aid Man.",
         "Not reciprocating oral sex.",
-        "Date rape.",
         "Italians.",
         "My soul.",
         "A stray pube.",
         "Jerking off into a pool of children's tears.",
         "Getting really high.",
-        "Too much hair gel.",
         "Overcompensation.",
         "Free samples.",
         "Shaquille O'Neal's acting career.",
@@ -810,34 +693,25 @@
         "Golden showers.",
         "Racism.",
         "Auschwitz.",
-        "Raping and pillaging.",
         "Kids with ass cancer.",
         "Hurricane Katrina.",
         "Lumberjack fantasies.",
-        "American Gladiators.",
         "An asymmetric boob job.",
         "Asians who aren't good at math.",
-        "Loose lips.",
         "The Blood of Christ.",
         "A brain tumor.",
         "Prancing.",
         "The Hamburglar.",
         "Police brutality.",
-        "Forgetting the Alamo.",
-        "Booby-trapping the house to foil burglars.",
         "Estrogen.",
         "A robust mongoloid.",
-        "Her Royal Highness, Queen Elizabeth II.",
         "Pooping back and forth. Forever.",
-        "Cockfights.",
         "Bitches.",
         "Stephen Hawking talking dirty.",
         "Getting so angry that you pop a boner.",
         "Tasteful sideboob.",
         "Two midgets shitting into a bucket.",
         "Racially-biased SAT questions.",
-        "Glenn Beck catching his scrotum on a curtain hook.",
-        "The forbidden fruit.",
         "Anal beads.",
         "Surprise sex!",
         "Dead babies.",
@@ -845,10 +719,8 @@
         "The Hustle.",
         "Obesity.",
         "Child beauty pageants.",
-        "Goats eating coins.",
         "Kamikaze pilots.",
         "Powerful thighs.",
-        "A big hoopla about nothing.",
         "Women's suffrage.",
         "John Wilkes Booth.",
         "Parting the Red Sea.",
@@ -856,7 +728,6 @@
         "Grandma.",
         "Porn stars.",
         "A monkey smoking a cigar.",
-        "Mathletes.",
         "Lance Armstrong's missing testicle.",
         "Children on leashes.",
         "Multiple stab wounds.",
@@ -881,7 +752,6 @@
         "Cybernetic enhancements.",
         "Mr. Clean, right behind you.",
         "Third base.",
-        "Dwarf tossing.",
         "A fetus.",
         "Women in yogurt commercials.",
         "Copping a feel.",
@@ -898,7 +768,7 @@
         "The Tempur-Pedic&reg; Swedish Sleep System&trade;.",
         "Fancy Feast&reg;.",
         "Hot Pockets&reg;.",
-        "Domino's&trade; Oreo&trade; Dessert Pizza.",
+        "Domino's&trade; Oreo&trade; Dessert Pizza.",
         "The &Uuml;bermensch.",
         "Adderall&trade;.",
         "GoGurt&reg;.",
@@ -907,8 +777,51 @@
         "The Make-A-Wish&reg; Foundation.",
         "A Bop It&trade;.",
         "Home video of Oprah sobbing into a Lean Cuisine&reg;.",
-        "Euphoria&trade; by Calvin Klein.",
         "Switching to Geico&reg;.",
-        "The Donald Trump Seal of Approval&trade;."
+        "Advice from a wise, old black man.",
+        "The Devil himself.",
+        "The art of seduction.",
+        "Funky fresh rhymes.",
+        "The light of a billion suns.",
+        "Destroying the evidence.",
+        "Silence.",
+        "Growing a pair.",
+        "Synergistic management solutions.",
+        "Wet dreams.",
+        "A live studio audience.",
+        "The Great Depression.",
+        "An M16 assault rifle.",
+        "Poopy diapers.",
+        "Tickling Sean Hannity, even after he tells you to stop.",
+        "Stalin.",
+        "A spastic nerd.",
+        "Rush Limbaugh's soft, shitty body.",
+        "Capturing Newt Gingrich and forcing him to dance in a monkey suit.",
+        "Battlefield amputations.",
+        "Brown people.",
+        "Rehab.",
+        "An ugly face.",
+        "Menstrual rage.",
+        "An uppercut.",
+        "Shiny objects.",
+        "50,000 volts straight to the nipples.",
+        "A bucket of fish heads.",
+        "Hospice care.",
+        "Being fat and stupid.",
+        "Getting married, having a few kids, buying some stuff, retiring to Florida, and dying.",
+        "A pyramid of severed heads.",
+        "Crucifixion.",
+        "A subscription to Men's Fitness.",
+        "Some god-damn peace and quiet.",
+        "A micropig wearing a tiny raincoat and booties.",
+        "Used panties.",
+        "The penny whistle solo from \"My Heart Will Go On.\"",
+        "A tribe of warrior women.",
+        "An oversized lollipop.",
+        "Helplessly giggling at the mention of Hutus and Tutsis.",
+        "Not wearing pants.",
+        "Consensual sex.",
+        "Her Majesty, Queen Elizabeth II."
     ]
 }
+

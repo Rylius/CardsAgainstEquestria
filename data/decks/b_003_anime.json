@@ -1,0 +1,1138 @@
+{
+    "name": "Anime",
+    "description": "<a href=\"http://www.desudesbrigade.com/\">desudesbrigade.com</a>",
+    "watermark": "AN",
+    "expansion": false,
+    "blackCards": [
+        {
+            "text": "Vegeta, what does the scouter say?",
+            "pick": 1
+        },
+        {
+            "text": "____. BELIEVE IT!",
+            "pick": 1
+        },
+        {
+            "text": "Make a contract with me, and become ____!",
+            "pick": 1
+        },
+        {
+            "text": "You guys are so wrong. Obviously, ____ is best waifu.",
+            "pick": 1
+        },
+        {
+            "text": "In the latest chapter of Toriko, our hero hunts down, kills, and eats a creature made entirely of ____.",
+            "pick": 1
+        },
+        {
+            "text": "THIS ____ HAS BEEN PASSED DOWN THE ARMSTRONG FAMILY LINE FOR GENERATIONS!!!",
+            "pick": 1
+        },
+        {
+            "text": "My favorite episode of ____ is the one with ____.",
+            "pick": 2
+        },
+        {
+            "text": "Make a yaoi shipping.",
+            "pick": 2
+        },
+        {
+            "text": "This doujinshi I just bought has ____ and ____ getting it on, hardcore.",
+            "pick": 2
+        },
+        {
+            "text": "On the next episode of Dragon Ball Z, ____ is forced to do the fusion dance with ____.",
+            "pick": 2
+        },
+        {
+            "text": "You are already ____.",
+            "pick": 1
+        },
+        {
+            "text": "Who the hell do you think I am?!",
+            "pick": 1
+        },
+        {
+            "text": "On the next episode of Dragon Ball Z, Goku has a fierce battle with ____.",
+            "pick": 1
+        },
+        {
+            "text": "____. YOU SHOULD BE WATCHING.",
+            "pick": 1
+        },
+        {
+            "text": "Fresh from Japan: The new smash hit single by ____ titled ____.",
+            "pick": 2
+        },
+        {
+            "text": "____ vs. ____. BEST. FIGHT. EVER.",
+            "pick": 2
+        },
+        {
+            "text": "So wait, ____ was actually ____? Wow, I didn't see that one coming!",
+            "pick": 2
+        },
+        {
+            "text": "Real men watch ____.",
+            "pick": 1
+        },
+        {
+            "text": "When it comes to hentai, nothing gets me hotter than ____.",
+            "pick": 1
+        },
+        {
+            "text": "Whenever I'm splashed with cold water, I turn into ____.",
+            "pick": 1
+        },
+        {
+            "text": "No matter how you look at it, ultimately ____ is responsible for ____.",
+            "pick": 2
+        },
+        {
+            "text": "S-Shut up!! I-It's not like I'm ____ or anything.",
+            "pick": 1
+        },
+        {
+            "text": "The English dub of ____ sucks worse than ____.",
+            "pick": 2
+        },
+        {
+            "text": "What is mo&eacute;?",
+            "pick": 1
+        },
+        {
+            "text": "Hayao Miyazaki's latest family film is about a young boy befriending ____.",
+            "pick": 1
+        },
+        {
+            "text": "Congratulations, ____.",
+            "pick": 1
+        },
+        {
+            "text": "By far the best panel at any anime convention is the one for ____.",
+            "pick": 1
+        },
+        {
+            "text": "One thing you almost never see in anime is ____.",
+            "pick": 1
+        },
+        {
+            "text": "The rarest Pok&eacute;mon in my collection is ____.",
+            "pick": 1
+        },
+        {
+            "text": "What do I hate most about anime?",
+            "pick": 1
+        },
+        {
+            "text": "Mamoru Oshii's latest film is a slow-paced, two hour-long cerebral piece about the horrors of ____.",
+            "pick": 1
+        },
+        {
+            "text": "What do I love most about anime?",
+            "pick": 1
+        },
+        {
+            "text": "This morning, hundreds of Japanese otaku lined up outside their favorite store to buy the limited collector's edition of ____.",
+            "pick": 1
+        },
+        {
+            "text": "Every now and then, I like to participate in the time-honored Japanese tradition of ____.",
+            "pick": 1
+        },
+        {
+            "text": "There are guilty pleasures. And then there's ____.",
+            "pick": 1
+        },
+        {
+            "text": "Watch it! Or I'll take your ____.",
+            "pick": 1
+        },
+        {
+            "text": "New from Studio GAINAX: ____ the Animation.",
+            "pick": 1
+        },
+        {
+            "text": "Using my power of Geass, I command you to do... THIS!",
+            "pick": 1
+        },
+        {
+            "text": "Chicks. Dig. ____. <i>Nice.</i>",
+            "pick": 1
+        },
+        {
+            "text": "When it comes to Japanese cuisine, there's simply nothing better than ____.",
+            "pick": 1
+        },
+        {
+            "text": "The next big Tokusatsu show: \"Super Sentai ____ Ranger!\"",
+            "pick": 1
+        },
+        {
+            "text": "In the name of the moon, I will punish ____!",
+            "pick": 1
+        },
+        {
+            "text": "Just announced: The brand new anime adaptation of ____, starring ____ as the voice of ____.",
+            "pick": 3
+        },
+        {
+            "text": "Don't worry, he's okay! He survived thanks to ____.",
+            "pick": 1
+        },
+        {
+            "text": "____. Goddammit, Japan.",
+            "pick": 1
+        },
+        {
+            "text": "In the latest chapter of Golgo 13, he kills his target with ____.",
+            "pick": 1
+        },
+        {
+            "text": "Welcome home, Master! Is there anything your servant girl can bring you today?",
+            "pick": 1
+        },
+        {
+            "text": "In the latest episode of Case Closed, Conan deduces that it was ____ who killed ____ because of ____.",
+            "pick": 3
+        },
+        {
+            "text": "I have never in my life laughed harder than the first time I watched ____.",
+            "pick": 1
+        },
+        {
+            "text": "Take this! My love, my anger, and all of my ____!",
+            "pick": 1
+        },
+        {
+            "text": "Karaoke night! I'm totally gonna sing my favorite song, ____.",
+            "pick": 1
+        },
+        {
+            "text": "Digimon! Digivolve to: ____-mon!",
+            "pick": 1
+        },
+        {
+            "text": "Now! Face my ultimate attack!",
+            "pick": 1
+        },
+        {
+            "text": "Behold the name of my Zanpakuto, ____!",
+            "pick": 1
+        },
+        {
+            "text": "From the twisted mind of Nabeshin: An anime about ____, ____, and ____.",
+            "pick": 3
+        },
+        {
+            "text": "____. Only on Toonami",
+            "pick": 1
+        },
+        {
+            "text": "I am in despair! ____ has left me in despair!",
+            "pick": 1
+        },
+        {
+            "text": "The new manga from ____ is about a highschool girl discovering ____.",
+            "pick": 2
+        },
+        {
+            "text": "To save the world, you must collect all 7 ____.",
+            "pick": 1
+        },
+        {
+            "text": "Sasuke has ____ implants.",
+            "pick": 1
+        },
+        {
+            "text": "In truth, the EVA units are actually powered by the souls of ____.",
+            "pick": 1
+        },
+        {
+            "text": "Dreaming! Don't give it up ____! Dreaming! Don't give it up ____! Dreaming! Don't give it up ____!",
+            "pick": 3
+        },
+        {
+            "text": "Lupin the III's latest caper involves him trying to steal ____.",
+            "pick": 1
+        },
+        {
+            "text": "The new Gurren Lagann blurays from Aniplex will literally cost you ____.",
+            "pick": 1
+        },
+        {
+            "text": "The most overused anime cliche is ____.",
+            "pick": 1
+        },
+        {
+            "text": "The inspiration behind the latest hit show is ____.",
+            "pick": 1
+        },
+        {
+            "text": "While writing Dragon Ball, Akira Toriyama would occasionally take a break from working to enjoy ____.",
+            "pick": 1
+        },
+        {
+            "text": "The show was great, until ____ showed up.",
+            "pick": 1
+        },
+        {
+            "text": "Nothing ruins a good anime faster than ____.",
+            "pick": 1
+        },
+        {
+            "text": "People die when they are ____.",
+            "pick": 1
+        },
+        {
+            "text": "I want to be the very best, like no one ever was! ____ is my real test, ____ is my cause!",
+            "pick": 2
+        },
+        {
+            "text": "Okay, I'll admit it. I would totally go gay for ____.",
+            "pick": 1
+        },
+        {
+            "text": "Who are you callin' ____ so short he can't see over his own ____?!?!",
+            "pick": 2
+        },
+        {
+            "text": "If you ask me, there need to be more shows about ____.",
+            "pick": 1
+        },
+        {
+            "text": "____. That is the kind of man I was.",
+            "pick": 1
+        },
+        {
+            "text": "I'm sorry! I'm sorry! I didn't mean to accidentally walk in on you while you were ____!",
+            "pick": 1
+        },
+        {
+            "text": "After a long, arduous battle, ____ finally met their end by ____.",
+            "pick": 2
+        },
+        {
+            "text": "This is our final battle. Mark my words, I will defeat you, ____!",
+            "pick": 1
+        },
+        {
+            "text": "You used ____. It's super effective!",
+            "pick": 1
+        },
+        {
+            "text": "The best English dub I've ever heard is the one for ____.",
+            "pick": 1
+        },
+        {
+            "text": "I know of opinions and all that, but I just don't understand how anyone could actually enjoy ____.",
+            "pick": 1
+        },
+        {
+            "text": "____. HE DEDD.",
+            "pick": 1
+        },
+        {
+            "text": "She'll thaw out if you try ____.",
+            "pick": 1
+        },
+        {
+            "text": "You see, I'm simply ____.",
+            "pick": 1
+        },
+        {
+            "text": "Yoko Kanno's latest musical score features a song sung entirely by ____.",
+            "pick": 1
+        },
+        {
+            "text": "Truly and without question, ____ is the manliest of all men.",
+            "pick": 1
+        },
+        {
+            "text": "WANTED: $50,000,000,000 reward for the apprehension of____.",
+            "pick": 1
+        },
+        {
+            "text": "This year, I totally lucked out and found ____ in the dealer's room.",
+            "pick": 1
+        },
+        {
+            "text": "How did I avoid your attack? Simple. By ____.",
+            "pick": 1
+        },
+        {
+            "text": "If I was a magical girl, my cute mascot sidekick would be ____.",
+            "pick": 1
+        },
+        {
+            "text": "From the creators of Tiger &amp; Bunny: ____ &amp; ____!!",
+            "pick": 2
+        },
+        {
+            "text": "In the future of 199X, the barrier between our world and the demon world is broken, and thousands of monsters invade our realm to feed upon ____.",
+            "pick": 1
+        },
+        {
+            "text": "Animation studio ____ is perhaps best known for ____.",
+            "pick": 2
+        },
+        {
+            "text": "____. So kawaii!! &lt;3 &lt;3",
+            "pick": 1
+        },
+        {
+            "text": "The most annoying kind of anime fans are ____.",
+            "pick": 1
+        },
+        {
+            "text": "Cooking is so fun! Cooking is so fun! Now it's time to take a break and see what we have done! ____. YAY! IT'S READY!!",
+            "pick": 1
+        },
+        {
+            "text": "My favorite hentai is the one where ____ is held down and violated by ____.",
+            "pick": 2
+        },
+        {
+            "text": "The government of Japan recently passed a law that effectively forbids all forms of ____.",
+            "pick": 1
+        },
+        {
+            "text": "This year, I'm totally gonna cosplay as ____.",
+            "pick": 1
+        },
+        {
+            "text": "Coming to Neon Alley: ____, completely UNCUT &amp; UNCENSORED.",
+            "pick": 1
+        },
+        {
+            "text": "No matter how many times I see it, ____ always brings a tear to my eye.",
+            "pick": 1
+        },
+        {
+            "text": "Of my entire collection, my most prized possession is ____.",
+            "pick": 1
+        },
+        {
+            "text": "Who placed first in the most recent Shonen Jump popularity poll?",
+            "pick": 1
+        },
+        {
+            "text": "Someday when I have kids, I want to share with them the joys of ____.",
+            "pick": 1
+        },
+        {
+            "text": "So, what have you learned from all of this?",
+            "pick": 1
+        },
+        {
+            "text": "In this episode of Master Keaton, Keaton builds ____ out of ____ and ____.",
+            "pick": 3
+        },
+        {
+            "text": "The World Line was changed when I sent a D-mail to myself about ____.",
+            "pick": 1
+        },
+        {
+            "text": "My ____ is the ____ that will pierce the heavens!!  <i>*same white card used for both blanks*</i>",
+            "pick": 1
+        },
+        {
+            "text": "After years of searching, the crew of the Thousand Sunny finally found out that the One Piece is actually ____.",
+            "pick": 1
+        },
+        {
+            "text": "When I found all 7 Dragon Balls, Shenron granted me my wish for ____.",
+            "pick": 1
+        },
+        {
+            "text": "The best part of my ____ costume is ____.",
+            "pick": 2
+        },
+        {
+            "text": "Cards Against Anime: It's more fun than ____!",
+            "pick": 1
+        },
+        {
+            "text": "On the mean streets of Tokyo, everyone knows that ____ is the leader of the ________ Gang.",
+            "pick": 2
+        },
+        {
+            "text": "He might just save the universe, if he only had some ____!",
+            "pick": 1
+        },
+        {
+            "text": "Make a harem.",
+            "pick": 5
+        },
+        {
+            "text": "Make a dub cast. ____ as ____, ____ as ____, &amp; ____ as ____.",
+            "pick": 6
+        },
+        {
+            "text": "So just who is this Henry Goto fellow, anyway?",
+            "pick": 1
+        },
+        {
+            "text": "When Henry Goto is alone and thinks that no one's looking, he secretly enjoys ____.",
+            "pick": 1
+        },
+        {
+            "text": "Dr. Black Jack, please hurry! The patient is suffering from a terminal case of ____!",
+            "pick": 1
+        },
+        {
+            "text": "I'M-A FIRIN' MAH ____!",
+            "pick": 1
+        },
+        {
+            "text": "Make a love triangle.",
+            "pick": 3
+        },
+        {
+            "text": "This ____ of mine glows with an awesome power! Its ____ tells me to defeat you!",
+            "pick": 2
+        },
+        {
+            "text": "Yo-Ho-Ho! He took a bite of ____.",
+            "pick": 1
+        },
+        {
+            "text": "Mom, I swear! Despite its name, ____ is NOT a porno!",
+            "pick": 1
+        },
+        {
+            "text": "What does Alucard have nightmares about?",
+            "pick": 1
+        },
+        {
+            "text": "I've always wanted to become a voice actor, so I could play the role of ____.",
+            "pick": 1
+        },
+        {
+            "text": "If the anime industry is dying, what will be the final nail in it's coffin?",
+            "pick": 1
+        },
+        {
+            "text": "Ladies and gentlemen, I give you ____... COVERED IN BEES!!!",
+            "pick": 1
+        },
+        {
+            "text": "Don't stand behind him, if you value your ____.",
+            "pick": 1
+        },
+        {
+            "text": "What the hell is \"Juvijuvibro\"?!",
+            "pick": 1
+        },
+        {
+            "text": "As part of a recent promotion, Japanese KFCs are now dressing their Colonel Sanders statues up as ____.",
+            "pick": 1
+        },
+        {
+            "text": "Fighting ____ by moonlight! Winning ____ by daylight! Never running from a real fight! She is the one named ____!",
+            "pick": 3
+        },
+        {
+            "text": "It's no secret.  Deep down, everybody wants to fuck ____.",
+            "pick": 1
+        },
+        {
+            "text": "Behold! My trap card, ____!",
+            "pick": 1
+        },
+        {
+            "text": "After eating a Devil Fruit, I now have the power of ____.",
+            "pick": 1
+        },
+        {
+            "text": "By far, the most mind-bogglingly awesome thing I've ever seen in anime is ____.",
+            "pick": 1
+        },
+        {
+            "text": "My Little Sister Can't Be ____!",
+            "pick": 1
+        },
+        {
+            "text": "No matter how I look at it, it's your fault I'm not ____!",
+            "pick": 1
+        },
+        {
+            "text": "They are the prey, and we are the ____.",
+            "pick": 1
+        },
+        {
+            "text": "My love for you is like ____.  BERSERKER!",
+            "pick": 1
+        },
+        {
+            "text": "IT'S ____ TIME!",
+            "pick": 1
+        },
+        {
+            "text": "It has been said... That there are entire forests of ____, made from the sweetest ____.",
+            "pick": 2
+        },
+        {
+            "text": "Attention, duelists: My hair is ____.",
+            "pick": 1
+        },
+        {
+            "text": "What do otaku smell like?",
+            "pick": 1
+        },
+        {
+            "text": "Madoka Kyouno's nickname for Muginami's older brother is ____.",
+            "pick": 1
+        },
+        {
+            "text": "\"____.\"<br>\"What the hell, man?!\"<br>\"____.\"<br>\"Oh, okay.\"",
+            "pick": 2
+        },
+        {
+            "text": "And from Kyoto Animation, a show about cute girls doing ____.",
+            "pick": 1
+        },
+        {
+            "text": "Anime has taught me that classic literature can always be improved by adding ____.",
+            "pick": 1
+        },
+        {
+            "text": "The mo&eacute; debate was surprisingly civil until someone mentioned ____.",
+            "pick": 1
+        },
+        {
+            "text": "That's not a squid!  It's ____!",
+            "pick": 1
+        },
+        {
+            "text": "The Chocolate Underground stopped the Good For You Party by capturing their ____ and exposing their leader as ____.",
+            "pick": 2
+        },
+        {
+            "text": "Who cares about the printing press, did that medieval peasant girl just invent ____?!",
+            "pick": 1
+        }
+    ],
+    "whiteCards": [
+        "Kyubey.",
+        "Weeaboos.",
+        "Narutards.",
+        "Dead catgirls.",
+        "Aniplex of America.",
+        "Steve Motherfuckin' Blum.",
+        "Norio Wakamoto.",
+        "Tentacle rape.",
+        "Eating an entire box of Pocky in a single bite.",
+        "Lolis.",
+        "Hot-blooded shonen protagonists.",
+        "Crispin Freeman.",
+        "A fuck-mothering vampire.",
+        "A big-breasted 14-year-old wearing a bikini and sucking on a popsicle.",
+        "Henry Goto being savagely raped by a bear.",
+        "Yet another goddamn Goku vs. Superman argument.",
+        "FANSERVICE!!!",
+        "Gen Fukunaga counting his money.",
+        "FUNimation.",
+        "Hatsune Miku.",
+        "Strangling hardcore otaku nerds with razor wire.",
+        "Aya Hirano being gang-banged by her entire band.",
+        "Bukkake.",
+        "OVER 9000!!",
+        "Little Kuriboh.",
+        "Bulma's panties.",
+        "Mami getting her head bitten off.",
+        "A Captain Harlock body pillow.",
+        "Onii-chan.",
+        "MAWNING LESCUE!!!",
+        "Idiots who don't seem to realize that Avatar: The Last Airbender isn't really an anime.",
+        "Christopher R. Sabat.",
+        "PASTAAAAA!!!!",
+        "Johnny Yong Bosch.",
+        "Yu-Gi-Oh! The Abridged Series.",
+        "A fat middle-aged man in a Sailor Moon costume.",
+        "$300 anime bluray boxsets.",
+        "Man-Faye.",
+        "DAN GREEN.",
+        "\"WE UNDERSTAND ANIME FAN WANTS!!\"",
+        "Dio Brando.",
+        "Hokuto! Hyakurestu-ken!",
+        "Vic Micderpaderp.",
+        "Goku.",
+        "Soldier A.",
+        "Red-headed tsunderes.",
+        "That sound effect in every hentai when the guy ejaculates.",
+        "Sarah Fuckin' Palin.",
+        "Edward Wong Hau Pepelu Tivruski IV.",
+        "\"Bang.\"",
+        "Prof's legs.",
+        "Naruto.",
+        "Wendee Lee.",
+        "Rice balls.",
+        "Monkey D. Luffy.",
+        "JesuOtaku's ginormous lips.",
+        "Princess Tutu.",
+        "Fujiko's boobs.",
+        "Vash the Stampede.",
+        "Shinji being a whiny little bitch.",
+        "Third Impact.",
+        "Kenshiro.",
+        "Puella Magi Madoka Magica.",
+        "Cowboy Bebop.",
+        "Fullmetal Alchemist.",
+        "Futanari.",
+        "Taking a potato chip... and EATING IT.",
+        "Unreasonably long transformation sequences.",
+        "Ass dance!! Ass dance!!",
+        "Stupid fucking Kululu.",
+        "CENTURY SOOOOUUUP!!!!!",
+        "The Gripper.",
+        "Thinking Misty from Pok&eacute;mon is... kinda sexy.",
+        "Garzey's Wing.",
+        "Reverse harems.",
+        "Mewtwo.",
+        "Tengen Toppa Gurren Lagann.",
+        "Sir Integra Fairbrook Wingates Hellsing.",
+        "Wearing panties on the head.",
+        "Brina Palencia as an angsty teenage boy, Monica Rial as his bratty little sister, and Shelley Calene-Black as their hot mom.",
+        "CARD GAMES ON MOTORCYCLES.",
+        "Nice boat.",
+        "Boku no Pico.",
+        "The One Piece rap.",
+        "A Bleach hentai doujin where Rukia rapes Ichigo.",
+        "Walpurgisnacht.",
+        "Bludgeoning Haruhi Suzumiya to death with a tire iron.",
+        "Girls with glasses.",
+        "Eating the wrong end of a chocolate cornet.",
+        "Being eaten by a titan.",
+        "Casca's hairy unshaven vag.",
+        "Tits on your hand.",
+        "That little fat kid from Accel World.",
+        "The Death Note.",
+        "A \"read the manga\" style ending.",
+        "Giant robots.",
+        "Osamu Tezuka.",
+        "Studio Ghibli.",
+        "Masa! <3",
+        "THE MAN-POLE OF <i>DOOOOOOOOOM!!!</i>",
+        "Ladd Russo.",
+        "Home For Infinite Losers (HFIL).",
+        "Moe Moe Kyun!",
+        "El Psy Congroo.",
+        "Sailor Moon and the 7 Ballz.",
+        "Gratuitous panty shots.",
+        "Sucking Kyle Hebert's dick for hamburgers.",
+        "Cartoon buttholes.",
+        "Muscle-bound shirtless MEN.",
+        "Recap episodes.",
+        "An overly defensive fanbase.",
+        "Fuckin' Bronies.",
+        "Groping strangers on a train.",
+        "My Cresta.",
+        "Nerdy kids in Speedos.",
+        "Bad K-on! fanart.",
+        "That stupid opening song from Steel Angel Kurumi getting stuck in your head.",
+        "Mamoru Miyano.",
+        "A Hello Kitty! vibrator.",
+        "TETSUOOOOOO!!!",
+        "Wibble.",
+        "Black cosplayers.",
+        "Fake Nendoroids.",
+        "Eating ramen noodles for a month because you HAD to have that out of print Macross boxset.",
+        "Showing Serial Experiments Lain to toddlers.",
+        "A mindfuck.",
+        "A puppy being beaten to death with a flower pot.",
+        "Gantz. Just.... Gantz.",
+        "Snapping the nipple off of a prostitute's breast and eating it.",
+        "Panty &amp; Stocking with Garterbelt.",
+        "Punching a man so hard his clothes fly off.",
+        "Banana sushi.",
+        "Oro?",
+        "Creamy Mami.",
+        "Whatever the hell the Utena movie was about.",
+        "Carl Macek.",
+        "The ungodly abomination that is Robotech.",
+        "Kira worshippers.",
+        "The thousands upon thousands of women that Golgo 13 has slept with.",
+        "Uguu...",
+        "Old man dragon dick.",
+        "Apocalypse Zero.",
+        "Ikki Tousen.",
+        "\". . . .\"",
+        "The inevitable beach episode.",
+        "A Japanese schoolgirl covered head-to-toe in semen.",
+        "Satoshi Kon.",
+        "Kigurumi.",
+        "Good ol' fashioned Japanese sexism.",
+        "Guro.",
+        "Dr. Who fans showing up at anime cons despite not being invited.",
+        "Plot armor.",
+        "Nekomimi.",
+        "Pure grade-A opium.",
+        "Banging 1,000 dudes.",
+        "A drunken Japanese businessman.",
+        "Maid cafes.",
+        "Host clubs.",
+        "Shooting out nearly an entire liter of cum.",
+        "The Hare Hare Yukai dance.",
+        "Shining Finger!",
+        "The inkvasion.",
+        "School swimsuits.",
+        "Underpants. Underpants. Underpants. Underpants. Under-",
+        "Acidic breast milk.",
+        "Kamen Rider.",
+        "The Major's hips and bust.",
+        "Captain Bravo.",
+        "Kirino's ass.",
+        "Crystal Boy's creepy smile.",
+        "Gackt.",
+        "Used panty vending machines.",
+        "Butt sniffing.",
+        "Vegeta's sweet goatee.",
+        "Sub-only releases.",
+        "Getting drunk on sake.",
+        "Flying Vortex of Fear.",
+        "Fishcake.",
+        "Go Nagai sideburns.",
+        "<i>CHIIIIIIIIN.</i>",
+        "Getting the bad ending of a visual novel.",
+        "The Tsukihime anime.",
+        "Jacuzzi Splot.",
+        "Juvijuvibro.",
+        "Bear punching, tiger chopping, shark suplexing, &amp; helicopter bodyslamming.",
+        "Getting your penis cut in half.",
+        "Stupid sexy Johan.",
+        "Naoki Urasawa.",
+        "Tachikoma-kun.",
+        "Dancin' on the Planet Dance.",
+        "Super Milk-chan.",
+        "You dumbass!",
+        "Being the uke.",
+        "The power of friendship.",
+        "An arm and a leg.",
+        "The entire cast of School Days.",
+        "Giant naked Rei.",
+        "Masturbating over Asuka's comatose body.",
+        "Let's Fighting Love!",
+        "Cousin marriage.",
+        "4Kids.",
+        "Making someone's head explode.",
+        "Michelle Ru-<br>er, I mean... \"Sophie Roberts.\"",
+        "Calling out the name of your attack.",
+        "Multi-episode fights.",
+        "M.D. Geist.",
+        "Blue Water Studios.",
+        "Darrel Guilbeau trying to act.",
+        "Highschool of the Dead.",
+        "Girls with guns.",
+        "The goddamn Maho.",
+        "Fat, sweaty otaku.",
+        "Ganguro girls.",
+        "Magical girls.",
+        "Hot female bass players.",
+        "Goku, Luffy, Toriko, and Lina Inverse in an eating contest.",
+        "BlackStar",
+        "KING!!! KING!!! KING GAINER!!!<br><i>*does the Monkey*</i>",
+        "You cactus bastard!",
+        "Underwater Ray Romano.",
+        "Sexy schoolteacher types.",
+        "Tig ol' bitties.",
+        "Lesbian subtext.",
+        "Watching FLCL while tripping on acid.",
+        "Inspector Zenigata.",
+        "Pure fighting spirit.",
+        "The GARtender.",
+        "Mad Bull 34.",
+        "Sticking your finger up her ass.",
+        "Freddie riding to school on a wild black stallion.",
+        "Whatever turns you on, big guy.",
+        "Standing outside the gates of the White House completely naked with a revolver in your hand.",
+        "I'LL ANSWER THE PHONE FROM NOW ON, LILY!!",
+        "KITTEH. :3",
+        "Manly tears of manliness.",
+        "Zetman.",
+        "Giant mutant cockroaches.",
+        "Bible Black.",
+        "Rape fantasies.",
+        "Keith David's voice.",
+        "Scott McNeil.",
+        "The eternal pervert, Eric Vale.",
+        "The Irresponsible Captain Tylor.",
+        "Birdy the Mighty.",
+        "Prying SpacemanHardy's Master Keaton boxset from his cold, dead hands.",
+        "Satan worshipping Christians.",
+        "Hunting down every single copy of Ninja Resurrection and setting them on fire.",
+        "R-R-R-R-R-REDLINE!!!",
+        "Catholic priests who drink, smoke, and carry guns.",
+        "Badass 15-year-olds.",
+        "Losing 20 gallons of blood... and surviving.",
+        "One HELL of a butler.",
+        "Being beaten to a bloody pulp by a middle school student.",
+        "Anime News Network.",
+        "Having blackmail sex with your teacher.",
+        "A large paper fan.",
+        "The Shikon Jewel.",
+        "\"INUYASHA!!\"<br>\"KAGOME!!\"",
+        "Sneaking a peek at the girls' open bath.",
+        "Revy Two-Hands.",
+        "A Claymore swimsuit issue.",
+        "A samurai terminator.",
+        "Physics.",
+        "Gangnam Style.",
+        "MUNGLE!!<br><i>*shakes fist*</i>",
+        "A talking motorcycle.",
+        "Rie Kugimiya.",
+        "The Animatrix.",
+        "Your virgin soul.",
+        "Franky's awesome Speedo dance.",
+        "Soul traveling.",
+        "Production I.G.",
+        "GONZO.",
+        "Really shitty CGI effects.",
+        "The hot buttered sex voice of Patrick Seitz.",
+        "Sticking a chopstick in your pee-hole.",
+        "A copy of Trigun signed by Micah Solusod.",
+        "Gilgamesh.",
+        "That one guy who always dresses up as the Red Ranger.",
+        "Engrish.",
+        "A dead meme.",
+        "Madhouse.",
+        "ARMS.",
+        "Mr. Tadakichi.",
+        "Showing episodes of Toriko to starving children.",
+        "Governor Ishihara.",
+        "Shrine maidens.",
+        "Taking a shit in the shrine's donation box.",
+        "Farting... tadpoles?",
+        "Heavily-tattooed yakuza henchmen.",
+        "The life-sized Gundam statue.",
+        "Forcing someone to watch every episode of Dragon Ball GT.",
+        "ZA WARUDO.",
+        "Eating a banana all sexy-like.",
+        "Awesome Prussia.",
+        "Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora! Ora!",
+        "A shitload of yen.",
+        "Johannes Krauser II.",
+        "Raccoon testicles.",
+        "Beautiful bishonen boys.",
+        "Rule 63'd Death the Kid.",
+        "Hetalia porn.",
+        "1,000 years of pain.",
+        "Rally Vincent firing a gun in her underwear.",
+        "A Maka Chop.",
+        "Twincest.",
+        "Broken-ass Aizen.",
+        "The Garden of Sinners.",
+        "Romi Paku.",
+        "My Johnny!",
+        "Petite Princess Yucie.",
+        "Ice cold water<br>(and it's only a dollar).",
+        "Me wearing a penguin suit.",
+        "Farting on your cat.",
+        "Combat afros.",
+        "A brand new, mint condition copy of JoJo's Bizarre Adventure vol. 4, still in shrinkwrap.",
+        "Grave of the Fireflies.",
+        "Strapping hand grenades to your pubes.",
+        "Toilet worship.",
+        "My badass numchucks.",
+        "Trying to get your die-cast Gundam model through airport security.",
+        "Black&#x2605;Star",
+        "Octopus balls.",
+        "Getting in a fistfight with an earthquake.",
+        "WcDonald's.",
+        "Undead body-swapping space vampire teens.",
+        "The alpha bitch.",
+        "Eating someone else's drool.",
+        "My hot zombie girlfriend..",
+        "Puppets made from the skin of children.",
+        "Swallowing an entire carton of cigarettes before barfing them back up.",
+        "Giving a girl an orgasm using only your shoulderpads.",
+        "Being accidentally turned into a girl by aliens.",
+        "Ghosts that come out of your asscrack.",
+        "#DesuDes4Life.",
+        "Fucking a nun.",
+        "Raping Tokyo Tower.",
+        "A succubus living inside your testes.",
+        "Saber Starblast.",
+        "An argument lasting over an hour about what mo&eacute; really is.",
+        "Kotetsu T. Kaburagi, aka. \"The D.I.L.F.\"",
+        "Japanese Spider-Man.",
+        "A bass guitar straight to the face.",
+        "Sonny Strait's manly parts.",
+        "Asian cock.",
+        "Guts.",
+        "Holy dildos.",
+        "Finger nigiri.",
+        "Dragon Balls.",
+        "Drills for hands.",
+        "Suplexing your teacher.",
+        "A leopard print fundoshi.",
+        "Breast envy.",
+        "The entire last episode of Blood-C.",
+        "Origami sex toys.",
+        "ALL OF THE HOMO!",
+        "Japanese rope bondage.",
+        "Griffith's mysterious disappearing penis.",
+        "Naughty geishas.",
+        "Ninjas!",
+        "Pubic hair needle attack.",
+        "Sexy jutsu.",
+        "Getting your fingernails ripped out.",
+        "Shinichiro Watanabe single-handedly curing cancer, ending world hunger, and bringing peace to the Middle East.",
+        "Love Machine.",
+        "Rapping samurai.",
+        "Putting all the condiments on your steak. ALL OF THEM.",
+        "Naga's extremely annoying laugh.",
+        "A dolphin in a mech suit.",
+        "Flying Nimbus.",
+        "Strikeman and his \"Balls of Justice\".",
+        "A busty, blonde, blue-eyed, dumb-as-rocks American.",
+        "Running during the credits.",
+        "Red bean paste.",
+        "Gender-swapped Oda Nobunaga.",
+        "Cutting off a finger to restore your honor.",
+        "Robots with tits.",
+        "Henry Goto.",
+        "Henry Goto having an accident in his pants during the live Aniplex of America panel.",
+        "Henry Goto's massive peyote &amp; wine cooler addiction.",
+        "Henry Goto, John Sirabella, and Stu Levy in a three man fight to the death.",
+        "Henry Goto fapping to a photograph of himself.",
+        "Henry Goto being eaten by a group of backwoods hillbilly cannibals.",
+        "Henry Goto ending up homeless on the streets and sucking dick for coke.",
+        "Two gallons of elephant shit being dropped on Henry Goto's desk.",
+        "Henry Goto falling down the stairs, receiving a massive head injury, and believing he's really Sailor Moon.",
+        "A Henry Goto joke that no one will laugh at other than SpacemanHardy.",
+        "Henry Goto bleeding profusely from his groin after having his penis bitten off by a 15-year-old Vietnamese prostitute.",
+        "A 30-year-old man who's obsessed with K-on!",
+        "LAZAR!",
+        "I AM AWESOME!!",
+        "Getting kicked in the nuts by a mermaid.",
+        "Rock-hard, glistening abs.",
+        "A diet consisting almost entirely of potatoes.",
+        "Mamoru Oshii's dog love.",
+        "An 8 million yen debt to a club of rich pretty boys.",
+        "Hideaki Anno's poor, tortured therapist.",
+        "Fucking postcards as a cheap-ass pack-in gift.",
+        "Wild Tiger's Hundred Power.",
+        "Totoro.",
+        "Traps.",
+        "Korean Jesus.",
+        "Astro Boy.",
+        "Jacking off into a bottle of formaldehyde and calling it our firstborn.",
+        "Valvrape the Dominator.",
+        "Piles of dead children.",
+        "An unending, unquenchable thirst for orange Fanta.",
+        "Breaking the fourth wall to kill the mangaka.",
+        "Hentai voice acting.",
+        "A vampire ninja.",
+        "A potato committing seppuku.",
+        "A giant robot German suplex.",
+        "A Godzilla attack.",
+        "Eating KFC on Christmas day.",
+        "Hello Kitty! pregnancy doujins.",
+        "Waving it around all willy-nilly.",
+        "Hot anime moms.",
+        "Pissing yourself.",
+        "GAO! GAI! GAR!!!",
+        "Vocaloid death metal.",
+        "The Dark Lord Shawne Kleckner.",
+        "Yaoi paddles.",
+        "Bad Steven Foster dubs.",
+        "Mr. Satan.",
+        "An actual, honest-to-God black guy.",
+        "4,000 tacos, and one Diet Coke.",
+        "Sick with the cancer.",
+        "Black and white samurai movies.",
+        "A promotional crossover with Pizza Hut.",
+        "Transvestite police officers.",
+        "Con funk.",
+        "Star-shaped nipples.",
+        "A laser horse.",
+        "Girls with guns AND glasses.",
+        "Teenaged miniskirt-wearing space pirates.",
+        "Gas station sushi.",
+        "Jerry Jewell's serial killer face.",
+        "A FUCKING DRAGONITE, MOTHERFUCKER!!",
+        "A school bus orgy.",
+        "Super Aryan Hitler.",
+        "Having sex with a dragon.",
+        "Manga Jesus.",
+        "Manly pink sparkles.",
+        "7 ft. tall red-headed Alexander the Great.",
+        "Training a dinosaur to ride a ball.",
+        "Samba-dancing dinosaurs.",
+        "An armored truck full of shit.",
+        "A Togepi omelet.",
+        "The Puchuu.",
+        "Dying over and over again.",
+        "Fuckingham Palace.",
+        "Epic old bald dudes.",
+        "A smashed-in face.",
+        "A Dragon Slave.",
+        "Zelgadis' flame-proof bikini briefs.",
+        "Morphin'.",
+        "A naughty nurse outfit.",
+        "A sweaty shirtless man holding a large, writhing fish against his chest.",
+        "Millionaire Beaver.",
+        "Dick Saucer.",
+        "A couple that spends over 30 manga volumes trying to get to first base.",
+        "Alice in Sexland.",
+        "Succubus-on-futanari action.",
+        "High-stakes mahjong.",
+        "Garbage collectors... IN SPACE!!",
+        "Magical friendship lasers.",
+        "The War on Pants.",
+        "An ending where everyone dies.",
+        "A cyborg assassin dressed as a magical girl fighting a talking lion and a floating psychic electric jellyfish.",
+        "J-pop idols.",
+        "Chest-hair afros.",
+        "Cowboy Andy.",
+        "A chainsaw-wielding male magical girl zombie.",
+        "Inoue Kikoku, 17-years old.",
+        "Fujoshi.",
+        "Matrix boobs.",
+        "Completely losing your shit over Endless Eight.",
+        "Violently beating your friends to death with a baseball bat.",
+        "Clothing-dissolving slime.",
+        "Involuntary crossdressing.",
+        "Getting sucked into a fantasy world.",
+        "Hentai artists who don't change their pen name when they go legit.",
+        "A Masamune Shirou artbook.",
+        "Loli in a box.",
+        "Romance of the Three Kingdoms, but everyone is gender-swapped.",
+        "Mo&eacute; schoolgirl Hitler.",
+        "Franken Fran.",
+        "A washpan falling onto someone's head from out of nowhere.",
+        "SHAFT being SHAFT.",
+        "A third-grader seducing her 23-year-old teacher.",
+        "Shotas.",
+        "One a them bamboo things that goes \"doonk\".",
+        "Banging your adopted daughter.",
+        "Tripping, falling, and landing with your face in a girl's breasts.",
+        "A bunny girl having a lightsaber duel with Darth Vader.",
+        "A 10-year old with boobs twice the size of her head.",
+        "An ancient vampire who looks like she's 10.",
+        "Literally ripping your own heart out.",
+        "Japanese-style elf ears.",
+        "Flamboyantly gay William Shakespeare.",
+        "Gen \"The Uro-Butcher\".",
+        "Mikuru Beam!",
+        "Tons and tons of close-up underaged schoolgirl ass-shots.",
+        "Starfish Hitler.",
+        "Pok&eacute;mon tears.",
+        "Pok&eacute;sexuality.",
+        "Chopstick-based martial arts.",
+        "All the gayness in GetBackers.",
+        "Naming yourself after the method of your suicide.",
+        "The Chupacabra.",
+        "Blowing a child's head off with a rocket launcher.",
+        "Erotic incestuous toothbrushing.",
+        "An artbox that feels like human skin.",
+        "Polygamy jokes in a kid's show.",
+        "Urd, Kana, and Misato in a drinking contest.",
+        "Cute stuff.",
+        "A robot having an orgasm.",
+        "Villagulio.",
+        "Dangling Pok&eacute;balls.",
+        "Having a giant drill for a dick."
+    ]
+}

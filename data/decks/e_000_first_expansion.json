@@ -1,107 +1,87 @@
 {
     "name": "First Expansion",
     "description": "The official First Expansion.",
-    "watermark": "Cards Against Humanity",
+    "watermark": "X1",
     "expansion": true,
     "blackCards": [
         {
             "text": "He who controls ____ controls the world.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "The CIA now interrogates enemy agents by repeatedly subjecting them to ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Dear Sir or Madam, We regret to inform you that the Office of ____ has denied your request for ____.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "In Rome, there are whisperings that the Vatican has a secret room devoted to ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Science will never explain the origin of ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "When all else fails, I can always masturbate to ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "I learned the hard way that you can't cheer up a grieving friend with ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "In its new tourism campaign, Detroit proudly proclaims that it has finally eliminated ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "An international tribunal has found ____ guilty of ____.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "The socialist governments of Scandinavia have declared that access to ____ is a basic human right.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "In his new self-produced album, Kanye West raps over the sounds of ____.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What's the gift that keeps on giving?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "This season on Man vs. Wild, Bear Grylls must survive in the depths of the Amazon with only ____ and his wits.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "When I pooped, what came out of my butt?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "In the distant future, historians will agree that ____ marked the beginning of America's decline.",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "In a pinch, ____ can be a suitable substitute for ____.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "What has been making life difficult at the nudist colony?",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "Michael Bay's new three-hour action epic pits ____ against ____.",
-            "draw": 0,
             "pick": 2
         },
         {
             "text": "And I would have gotten away with it, too, if it hadn't been for ____!",
-            "draw": 0,
             "pick": 1
         },
         {
             "text": "What brought the orgy to a grinding halt?",
-            "draw": 0,
             "pick": 1
         }
     ],
