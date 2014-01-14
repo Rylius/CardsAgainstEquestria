@@ -1,5 +1,18 @@
 [
     {
+        "date": "Jan 14, 2014",
+        "changes": [
+            "Chat links now open in a new tab"
+        ]
+    },
+    {
+        "date": "Jan 13, 2014",
+        "version": "0.5.3",
+        "changes": [
+            "Added a ton of new cards"
+        ]
+    },
+    {
         "date": "Jan 12, 2014",
         "changes": [
             "Added proper footer",
@@ -9,7 +22,8 @@
     {
         "date": "Jan 11, 2014",
         "changes": [
-            "Added database backend"
+            "Added database backend",
+            "Added name registration"
         ]
     },
     {

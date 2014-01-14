@@ -23,7 +23,7 @@ function ChatMessageViewModel() {
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
 
-        text = text.replace(/\(?(\bhttps?:\/\/[-A-Za-z0-9+&@#\/%?=~_()|!:,.;]*[-A-Za-z0-9+&@#\/%=~_()|])/ig, '<a href="$1">$1</a>');
+        text = text.replace(/\(?(\bhttps?:\/\/[-A-Za-z0-9+&@#\/%?=~_()|!:,.;]*[-A-Za-z0-9+&@#\/%=~_()|])/ig, '<a href="$1" target="_blank">$1</a>');
 
         return text;
     });
