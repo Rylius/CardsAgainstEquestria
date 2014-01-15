@@ -635,6 +635,10 @@
         {
             "text": "Whats in my butt?",
             "pick": 1
+        },
+        {
+            "text": "The Pony of the Day is ______.",
+            "pick": 1
         }
     ],
     "whiteCards": [
@@ -713,7 +717,6 @@
         "Falling asleep in a Skype call",
         "FiM Fiction",
         "Fluffle Puff foaming at the mouth",
-        "FlutterDashie",
         "For being a total fucking moron",
         "GET IN THE DAMN CALL!",
         "Ginger Sparkle",
@@ -941,6 +944,7 @@
         "Seto[NLR].",
         "Talia.",
         "ISky.",
+        "PvtChaos[NLR].",
         "Gims.",
         "One-Trick.",
         "Lycan.",
