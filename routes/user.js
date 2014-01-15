@@ -98,7 +98,7 @@ var doRegister = function (req, res) {
             email: req.body.email,
             password: hash,
             password_salt: salt,
-            allow_emails: req.body.allowEmails
+            allow_emails: !!req.body.allowEmails
         }).toQuery();
 
         database.pool.query(query.text, query.values, function (err, result) {
