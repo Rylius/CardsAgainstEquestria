@@ -111,7 +111,7 @@ var JoinGameViewModel = function (sets) {
             console.log('Logging in');
             self.message('Logging...');
 
-            $.cookie('name', self.name());
+            saveName(self.name());
 
             $.ajax('/ajax/user/login', {
                 method: 'post', data: {name: self.name(), password: self.userPassword()},

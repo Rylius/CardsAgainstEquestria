@@ -6,6 +6,10 @@ function switchTheme(themeId) {
     return false;
 }
 
+function saveName(name) {
+    $.cookie('name', name, {expires: 3650, path: '/'});
+}
+
 window.currentChatListenRequest = null;
 
 function initChat(user, $historyElement) {

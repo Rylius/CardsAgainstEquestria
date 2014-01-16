@@ -101,7 +101,7 @@
             var $name = $('#name');
             $name.val($.cookie('name'));
             $('#login').on('submit', function () {
-                $.cookie('name', $name.val());
+                saveName($name.val());
             });
         </script>
     {{/append}}
