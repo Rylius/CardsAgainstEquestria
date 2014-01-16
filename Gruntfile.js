@@ -8,11 +8,6 @@ module.exports = function (grunt) {
                 cleancss: true,
                 ieCompat: true
             },
-            styles: {
-                files: {
-                    "dist/styles/style.css": "public/styles/style.less"
-                }
-            },
             derpy: {
                 files: {
                     "dist/styles/derpy.css": "public/styles/themes/derpy/derpy.less"

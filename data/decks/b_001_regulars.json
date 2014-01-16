@@ -529,10 +529,6 @@
             "pick": 1
         },
         {
-            "text": "Ich bin ________.",
-            "pick": 1
-        },
-        {
             "text": "This Card Czar likes ________.",
             "pick": 1
         },
@@ -638,6 +634,66 @@
         },
         {
             "text": "The Pony of the Day is ______.",
+            "pick": 1
+        },
+        {
+            "text": "Tonight on Sketchy's Live Songcast - Sketchy has trouble with giant ____________.",
+            "pick": 1
+        },
+        {
+            "text": "You want to stick what inside Rarity?!?",
+            "pick": 1
+        },
+        {
+            "text": "When Luna gets sad, she often finds pleasure in __________.",
+            "pick": 1
+        },
+        {
+            "text": "DarkAura was shocked to find Hennet traded his _______ for _______.",
+            "pick": 2
+        },
+        {
+            "text": "Only time will tell if _______ should be used on _______.",
+            "pick": 2
+        },
+        {
+            "text": "Celestia's bedchamber name for _______ is _______.",
+            "pick": 2
+        },
+        {
+            "text": "Pinkie Pie enjoys going on a murderous rampage while singing _______.",
+            "pick": 1
+        },
+        {
+            "text": "When BrotherPunk isn't busy being Polish, he enjoys _______.",
+            "pick": 1
+        },
+        {
+            "text": "Granny Smith's most cherished memory during her long life was experiencing _______.",
+            "pick": 1
+        },
+        {
+            "text": "Pink Fluffy Unicorns Dancing on ________.",
+            "pick": 1
+        },
+        {
+            "text": "What does the regulars' chatroom smell like?",
+            "pick": 1
+        },
+        {
+            "text": "What does the fox say?",
+            "pick": 1
+        },
+        {
+            "text": "My Little ________.",
+            "pick": 1
+        },
+        {
+            "text": "Tonight on Brony Breakdown, Saberspark interviews _____ about ______.",
+            "pick": 2
+        },
+        {
+            "text": "Why is Princess Twilight drunk again?",
             "pick": 1
         }
     ],
@@ -1071,6 +1127,56 @@
         "IM NIGHTMAREMOON! NIGHTMAREMOON!",
         "Moving the furniture around in a blind man's house.",
         "Bill Cosby seductively rubbing his nipples with puddin pops.",
-        "A T-Rex trying to masturbate."
+        "A T-Rex trying to masturbate.",
+        "Sketchy's Drinking Game.",
+        "Sketchy Sounds.",
+        "EightTrack.",
+        "Final Draft.",
+        "Nash.",
+        "One-Trick.",
+        "Sketchy's Cup.",
+        "A bottle of vodka.",
+        "Heat Wave.",
+        "Putting kittuns in bags.",
+        "Dev Nights.",
+        "One-Trick's beer fueled truck.",
+        "One-Trick Nation.",
+        "The Changeling Hive.",
+        "Grab my swallow! No time to explain!",
+        "DerpyBot.",
+        "DinkyBot.",
+        "Heat_Wave's meateating birds.",
+        "Puttin it in the mouth.",
+        "Watching ponies with no pants on.",
+        "Singing on Skype.",
+        "Waking up in Mexico next to a donkey and a clown with a hurting ass.",
+        "Coding while picking your nose with your toe.",
+        "Ikea Pony.",
+        "It's got lettuce on it, bitch!",
+        "Sexual Frustration.",
+        "A Potato.",
+        "A New Skype Group.",
+        "That sticky thing from the Everfree.",
+        "Luna's moon-shaped butt.",
+        "Celestia's favorite pastime.",
+        "Twilight[NLR]'s Trout.",
+        "Twilight[NLR]'s \"Trout\".",
+        "Sketchy's mandolin.",
+        "FUN!",
+        "Star Flower.",
+        "The penis expansion.",
+        "The entire works of Beethoven.",
+        "The Konami Code.",
+        "A Soft leather whip.",
+        "Big Booty Bitches.",
+        "A grue.",
+        "Killagouge's profanity-laden rants.",
+        "Pokeymans.",
+        "Bethiebo's expert flufflegasping.",
+        "EFN Regulars: The Movie.",
+        "Abandoned warehouses.",
+        "James Corck's cork collection.",
+        "Seto's Livestream.",
+        "Sketchy's enormous instrument."
     ]
 }
