@@ -2,7 +2,8 @@
     {
         "date": "Jan 16, 2014",
         "changes": [
-            "Added user password field to invite page"
+            "Added user password field to invite page",
+            "Added fancy watermark icon"
         ]
     },
     {

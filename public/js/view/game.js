@@ -94,7 +94,7 @@ var JoinGameViewModel = function (sets) {
     this.game = ko.observable(new GameViewModel());
     this.password = ko.observable();
 
-    this.name = ko.observable();
+    this.name = ko.observable($.cookie('name'));
     this.userPassword = ko.observable();
     this.loggedIn = ko.observable(false);
 
@@ -110,6 +110,8 @@ var JoinGameViewModel = function (sets) {
         if (!self.loggedIn()) {
             console.log('Logging in');
             self.message('Logging...');
+
+            $.cookie('name', self.name());
 
             $.ajax('/ajax/user/login', {
                 method: 'post', data: {name: self.name(), password: self.userPassword()},
