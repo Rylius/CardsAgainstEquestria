@@ -1,4 +1,4 @@
-@import "bootstrap/bootstrap";
+@import "style";
 
 @card-size: 200px;
 @card-small-size: 110px;
@@ -58,9 +58,43 @@ form {
 
   position: relative;
 
+  > .watermark-icon {
+    position: absolute;
+    bottom: 34px;
+
+    .card {
+      position: absolute;
+
+      min-height: 12px;
+      min-width: 12px;
+
+      border-radius: 2px;
+    }
+
+    > .card-1 {
+      .card;
+      background-color: @card-black-bg;
+      border: 1px solid @card-black-color;
+      .transform(translate(0px, -1px) rotate(-10deg));
+    }
+    > .card-2 {
+      .card;
+      background-color: @card-white-bg;
+      border: 1px solid @card-white-color;
+      .transform(translate(6px, -2px) rotate(5deg));
+    }
+    > .card-3 {
+      .card;
+      background-color: @card-white-bg;
+      border: 1px solid @card-white-color;
+      .transform(translate(14px, 0px) rotate(25deg));
+    }
+  }
+
   > .watermark {
     position: absolute;
     bottom: 20px;
+    left: 50px;
 
     font-size: 10px;
   }
@@ -82,44 +116,62 @@ form {
 
   overflow: hidden;
 
+  > .watermark-icon {
+    position: absolute;
+    bottom: 15px;
+
+    .card {
+      position: absolute;
+
+      min-height: 6px;
+      min-width: 6px;
+
+      border-radius: 1px;
+    }
+
+    > .card-1 {
+      .card;
+      background-color: @card-black-bg;
+      border: 1px solid @card-black-color;
+      .transform(translate(0px, -1px) rotate(-10deg));
+    }
+    > .card-2 {
+      .card;
+      background-color: @card-white-bg;
+      border: 1px solid @card-white-color;
+      .transform(translate(3px, -2px) rotate(5deg));
+    }
+    > .card-3 {
+      .card;
+      background-color: @card-white-bg;
+      border: 1px solid @card-white-color;
+      .transform(translate(7px, 0px) rotate(25deg));
+    }
+  }
+
   > .watermark {
     position: absolute;
     bottom: 10px;
+    left: 25px;
 
     font-size: 6px;
   }
 
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  .transition(all 0.2s ease);
 }
 
 .card-small:hover {
   z-index: 10000;
 
-  -webkit-transform: scale(1.75);
-  -moz-transform: scale(1.75);
-  -ms-transform: scale(1.75);
-  -o-transform: scale(1.75);
-  transform: scale(1.75);
+  .transform(scale(1.75));
 }
 
 .card-small:first-child:hover {
-  -webkit-transform: scale(1.75) translate(20px);
-  -moz-transform: scale(1.75) translate(20px);
-  -ms-transform: scale(1.75) translate(20px);
-  -o-transform: scale(1.75) translate(20px);
-  transform: scale(1.75) translate(20px);
+  .transform(scale(1.75) translate(20px));
 }
 
 .card-small:last-child:hover {
-  -webkit-transform: scale(1.75) translate(-20px);
-  -moz-transform: scale(1.75) translate(-20px);
-  -ms-transform: scale(1.75) translate(-20px);
-  -o-transform: scale(1.75) translate(-20px);
-  transform: scale(1.75) translate(-20px);
+  .transform(scale(1.75) translate(-20px));
 }
 
 .card-selected {

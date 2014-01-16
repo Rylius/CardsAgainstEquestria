@@ -36,6 +36,8 @@ hbs.handlebars.registerPartial('derp2', fs.readFileSync(__dirname + '/views/util
 hbs.handlebars.registerPartial('globalChat', fs.readFileSync(__dirname + '/views/chat/chat.hbs', 'utf8'));
 hbs.handlebars.registerPartial('chatMessage', fs.readFileSync(__dirname + '/views/chat/message.hbs', 'utf8'));
 
+hbs.handlebars.registerPartial('watermarkIcon', fs.readFileSync(__dirname + '/views/util/watermark_icon.hbs', 'utf8'));
+
 require('./lib/helpers/input')(hbs);
 require('./lib/helpers/util')(hbs);
 

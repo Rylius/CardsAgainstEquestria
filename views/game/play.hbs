@@ -36,6 +36,7 @@
             <div class="card black-card">
                 <span data-bind="html: blackCard().text"></span>
 
+                {{> watermarkIcon}}
                 <div class="watermark" data-bind="text: blackCard().watermark"></div>
             </div>
             <!-- /ko -->
@@ -48,6 +49,7 @@
                      data-bind="css: { 'card-selected': model.selectedMove() == $parent }">
                     <span data-bind="html: text"></span>
 
+                    {{> watermarkIcon}}
                     <div class="watermark" data-bind="text: watermark"></div>
                 </div>
             </div>
@@ -90,6 +92,7 @@
                  data-bind="click: function () { if (model.move() && !$parent.playedCardsUncovered()) { model.move().select($data) } }, css: { 'card-selected': model.move() && _.contains(model.move().cards(), $data) }">
                 <span data-bind="html: text"></span>
 
+                {{> watermarkIcon}}
                 <div class="watermark" data-bind="text: watermark"></div>
             </div>
         </div>
@@ -194,6 +197,7 @@
             <div class="card black-card">
                 <span data-bind="html: blackCard().text"></span>
 
+                {{> watermarkIcon}}
                 <div class="watermark" data-bind="text: blackCard().watermark"></div>
             </div>
         </script>
@@ -202,6 +206,7 @@
             <div class="card white-card">
                 <span data-bind="html: text"></span>
 
+                {{> watermarkIcon}}
                 <div class="watermark" data-bind="text: watermark"></div>
             </div>
         </script>
