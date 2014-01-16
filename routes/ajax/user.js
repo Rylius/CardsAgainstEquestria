@@ -9,7 +9,7 @@ var login = function (req, res) {
         return;
     }
 
-    users.login(req.session, req.body.name, req.body.name, null, function (result) {
+    users.login(req.session, req.body.name, req.body.password, null, function (result) {
         if (result.success) {
             res.locals.user = req.session.user;
         }

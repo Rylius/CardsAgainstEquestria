@@ -95,6 +95,7 @@ var JoinGameViewModel = function (sets) {
     this.password = ko.observable();
 
     this.name = ko.observable();
+    this.userPassword = ko.observable();
     this.loggedIn = ko.observable(false);
 
     this.loading = ko.observable(false);
@@ -111,7 +112,7 @@ var JoinGameViewModel = function (sets) {
             self.message('Logging...');
 
             $.ajax('/ajax/user/login', {
-                method: 'post', data: {name: self.name()},
+                method: 'post', data: {name: self.name(), password: self.userPassword()},
                 success: function (data) {
                     if (data.error) {
                         self.message(data.error);
@@ -146,6 +147,8 @@ var JoinGameViewModel = function (sets) {
 
                     self.message('Game is full');
                     self.error(true);
+
+                    // TODO request game data
                 } else if (status == Join.NOT_FOUND) {
                     console.log('Game not found');
 
@@ -153,8 +156,14 @@ var JoinGameViewModel = function (sets) {
                 } else if (status == Join.PASSWORD_INCORRECT || status == Join.PASSWORD_REQUIRED) {
                     console.log('Wrong password');
 
-                    self.message('Incorrect password');
+                    self.message('Wrong game password');
                     self.error(true);
+
+                    if (!self.game().passworded()) {
+                        // TODO request game data
+                        console.log('Reloading page (game data changed)');
+                        window.location.reload(true);
+                    }
                 }
             },
             error: function () {

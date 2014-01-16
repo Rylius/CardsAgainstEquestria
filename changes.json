@@ -1,5 +1,17 @@
 [
     {
+        "date": "Jan 16, 2014",
+        "changes": [
+            "Added user password field to invite page"
+        ]
+    },
+    {
+        "date": "Jan 15, 2014",
+        "changes": [
+            "Fixed user registration"
+        ]
+    },
+    {
         "date": "Jan 14, 2014",
         "changes": [
             "Chat links now open in a new tab"
