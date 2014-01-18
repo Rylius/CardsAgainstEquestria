@@ -15,9 +15,9 @@
         "underscore.string": "*",
         "extend": "1.2.x",
         "logule": "2.x.x",
-        "any-db": "~2.1.0",
-        "any-db-postgres": "~2.1.1",
-        "sql": "~0.34.0"
+        "sql": "~0.34.0",
+        "orm": "~2.1.3",
+        "pg": "~2.11.0"
     },
     "devDependencies": {
         "grunt": "~0.4.2",

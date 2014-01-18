@@ -6,9 +6,6 @@ var crypto = require('crypto');
 var users = require('../lib/users');
 var extend = require('extend');
 
-var Model = require('../lib/db/model');
-var database = require('../lib/db/database');
-
 // TODO replace with ajax calls
 
 var login = function (req, res) {
