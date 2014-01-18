@@ -8,6 +8,12 @@ var database = require('../lib/db/database');
 
 var suggest = function (req, res) {
     var user = users.get(req.session.user.id);
+    if (!user.registered) {
+        req.flash('error', 'You have to be registered to suggest cards.');
+        res.redirect('/user/register');
+        return;
+    }
+
     res.render('deck/suggest', {title: 'Suggestions'});
 };
 
