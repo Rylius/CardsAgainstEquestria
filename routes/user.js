@@ -6,6 +6,8 @@ var crypto = require('crypto');
 var users = require('../lib/users');
 var extend = require('extend');
 
+var model = require('./../lib/model');
+
 // TODO replace with ajax calls
 
 var login = function (req, res) {
@@ -67,11 +69,7 @@ var doRegister = function (req, res) {
 
     var user = users.get(req.session.user.id);
 
-    var query = Model.User.select(Model.User.id).from(Model.User)
-        .where(Model.User.email.equals(req.body.email))
-        .toQuery();
-
-    database.pool.query(query.text, query.values, function (err, result) {
+    model.User.find({email: req.body.email}, 1, function (err, result) {
         if (err) {
             log.warn('Register: Failed to find users: ' + err);
             req.flash('error', 'Internal error, try again or complain');
@@ -79,7 +77,7 @@ var doRegister = function (req, res) {
             return;
         }
 
-        if (result.rowCount) {
+        if (result.length) {
             log.trace('Register: ' + user.id + '/' + user.name + ': Email already exists: ' + req.body.email);
             req.flash('error', 'Email already in use');
             res.redirect('/user/register');
@@ -89,29 +87,32 @@ var doRegister = function (req, res) {
         var salt = crypto.randomBytes(128).toString('base64');
         var hash = crypto.pbkdf2Sync(req.body.password, salt, 10000, 256).toString('base64');
 
-        query = Model.User.insert({
-            id: user.id,
-            name: user.name,
-            email: req.body.email,
-            password: hash,
-            password_salt: salt,
-            allow_emails: !!req.body.allowEmails
-        }).toQuery();
-
-        database.pool.query(query.text, query.values, function (err, result) {
-            if (err) {
-                log.warn('Register: Failed to insert user: ' + err);
-                req.flash('error', 'Internal error, try again or complain');
-                res.redirect('/user/register');
-                return;
+        model.User.create([
+            {
+                id: user.id,
+                name: user.name,
+                email: req.body.email,
+                password: hash,
+                password_salt: salt,
+                allow_emails: !!req.body.allowEmails,
+                date_registered: new Date(),
+                last_login: new Date()
             }
+        ],
+            function (err) {
+                if (err) {
+                    log.warn('Register: Failed to insert user: ' + err);
+                    req.flash('error', 'Internal error, try again or complain');
+                    res.redirect('/user/register');
+                    return;
+                }
 
-            req.session.user.registered = true;
+                req.session.user.registered = true;
 
-            req.flash('success', 'Successfully registered!');
-            req.flash('info', 'Please keep in mind you have to use your password when logging in from now on.');
-            res.redirect('/');
-        });
+                req.flash('success', 'Successfully registered!');
+                req.flash('info', 'Please keep in mind you have to use your password when logging in from now on.');
+                res.redirect('/');
+            });
     });
 };
 
