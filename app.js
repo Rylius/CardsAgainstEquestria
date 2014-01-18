@@ -198,6 +198,7 @@ log.info('Loaded game data (' + game.cards.sets.length + ' sets, ' + game.cards.
 
 require('./routes/index')(app);
 require('./routes/info')(app);
+require('./routes/deck')(app);
 require('./routes/user')(app);
 require('./routes/game')(app, game);
 require('./routes/admin')(app);
