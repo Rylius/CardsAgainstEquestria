@@ -186,16 +186,6 @@ game.load(__dirname, config);
 log.info('Loaded game data (' + game.cards.sets.length + ' sets, ' + game.cards.expansions.length + ' expansions, ' +
     game.cards.blackCards.length + ' black cards, ' + game.cards.whiteCards.length + ' white cards' + ')');
 
-// database
-
-log.debug('Connecting to database...');
-app.use(orm.express(config.database.url), {
-    define: function (db, models, next) {
-        require('./lib/model')(db, models);
-        next();
-    }
-});
-
 // pages
 
 log.debug('Loading application...');
@@ -219,6 +209,20 @@ require('./routes/ajax/user')(app);
 require('./routes/ajax/chat')(app);
 require('./routes/ajax/game')(app, game);
 
-http.createServer(app).listen(config.port, function () {
-    log.info('Server listening on port ' + config.port + '.');
+// database
+
+log.debug('Connecting to database...');
+orm.connect(config.database.url, function (err, db) {
+    if (err) {
+        log.error(err);
+        return;
+    }
+
+    require('./lib/model').load(db);
+
+    log.info('Database connection established.');
+
+    http.createServer(app).listen(config.port, function () {
+        log.info('Server listening on port ' + config.port + '.');
+    });
 });
