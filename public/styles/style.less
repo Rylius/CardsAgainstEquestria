@@ -20,22 +20,35 @@ html, body {
 }
 
 #footer {
-  .text-center;
+  .links {
+    .text-center;
 
-  height: @footer-height;
+    height: @footer-height;
 
-  padding-top: 10px;
+    padding-top: 10px;
 
-  color: @navbar-default-brand-color;
-  background-color: @navbar-default-bg;
+    color: @navbar-default-brand-color;
+    background-color: @navbar-default-bg;
 
-  a {
-    color: @navbar-default-link-color;
+    a {
+      color: @navbar-default-link-color;
 
-    &:hover,
-    &:focus {
-      color: @navbar-default-link-hover-color;
+      &:hover,
+      &:focus {
+        color: @navbar-default-link-hover-color;
+      }
     }
+  }
+}
+
+.global-chat-visible {
+  #content-wrap {
+    margin-bottom: -(@footer-height + 234px) !important;
+    padding-bottom: @footer-height + 234px !important;
+  }
+
+  #footer {
+    height: @footer-height + 234px !important;
   }
 }
 
@@ -137,6 +150,15 @@ input[type=submit] {
 }
 
 // Disable responsiveness
+
+body {
+  min-width: 960px;
+}
+
+.container {
+  max-width: none !important;
+  width: 960px;
+}
 
 .container {
   max-width: none !important;

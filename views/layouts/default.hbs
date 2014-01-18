@@ -134,14 +134,7 @@
         {{/each}}
 
         {{#block 'content'}}
-        {{/block}}
-
-        {{#block 'globalChat'}}
-            {{#if user}}
-                <div id="chat-global">
-                    {{>globalChat}}
-                </div>
-            {{/if}}
+            This page appears to be empty...
         {{/block}}
 
     </div>
@@ -150,6 +143,19 @@
 
 <div id="footer">
     <div class="container">
+        {{#block 'globalChat'}}
+            {{#if user}}
+                <div id="chat-global">
+                    {{>globalChat}}
+                </div>
+                <script>
+                    window.document.getElementsByTagName('body')[0].classList.add('global-chat-visible');
+                </script>
+            {{/if}}
+        {{/block}}
+    </div>
+
+    <div class="container links">
         {{#block 'footer'}}
             <a href="/info/about">About</a>
             |

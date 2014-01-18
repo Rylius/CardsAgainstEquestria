@@ -1,5 +1,11 @@
 [
     {
+        "date": "Jan 18, 2014",
+        "changes": [
+            "Pulled global chat to page bottom"
+        ]
+    },
+    {
         "date": "Jan 16, 2014",
         "changes": [
             "Added user password field to invite page",
