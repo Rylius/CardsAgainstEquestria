@@ -1,3 +1,5 @@
+process.title = 'cae';
+
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -7,7 +9,7 @@ var flash = require('connect-flash');
 
 var log = require('logule').init(module);
 
-process.title = 'cae';
+var orm = require('orm');
 
 var app = express();
 
@@ -172,19 +174,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(app.router);
-
-if (config.env == 'development') {
-    app.use(express.errorHandler());
-}
-
 if (config.trustProxy) {
     app.enable('trust proxy');
 }
-
-// database
-
-require('./lib/db/database')(config.database);
 
 // game
 
@@ -196,8 +188,17 @@ log.info('Loaded game data (' + game.cards.sets.length + ' sets, ' + game.cards.
 
 // pages
 
+log.debug('Loading application...');
+
+app.use(app.router);
+
+if (config.env == 'development') {
+    app.use(express.errorHandler());
+}
+
 require('./routes/index')(app);
 require('./routes/info')(app);
+require('./routes/deck')(app);
 require('./routes/user')(app);
 require('./routes/game')(app, game);
 require('./routes/admin')(app);
@@ -208,6 +209,20 @@ require('./routes/ajax/user')(app);
 require('./routes/ajax/chat')(app);
 require('./routes/ajax/game')(app, game);
 
-http.createServer(app).listen(config.port, function () {
-    log.info('Server listening on port ' + config.port);
+// database
+
+log.debug('Connecting to database...');
+orm.connect(config.database.url, function (err, db) {
+    if (err) {
+        log.error(err);
+        return;
+    }
+
+    require('./lib/model').load(db);
+
+    log.info('Database connection established.');
+
+    http.createServer(app).listen(config.port, function () {
+        log.info('Server listening on port ' + config.port + '.');
+    });
 });
