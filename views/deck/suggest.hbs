@@ -26,12 +26,105 @@
         <h2>
             Active decks
         </h2>
-        list goes here
+        <div class="row">
+            <div class="col-xs-6">
+                <h3>Sets</h3>
+                {{#each decks.sets}}
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="/deck/suggest?deck={{id}}&amp;expansion=0&amp;active=1">
+                                <strong>{{name}}</strong>
+                            </a>
+                            -
+                            {{{description}}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+
+            <div class="col-xs-6">
+                <h3>Expansions</h3>
+                {{#each decks.expansions}}
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="/deck/suggest?deck={{id}}&amp;expansion=1&amp;active=1">
+                                <strong>{{name}}</strong>
+                            </a>
+                            -
+                            {{{description}}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
 
         <h2>
             Suggested decks
         </h2>
-        list goes here
+        <div class="row">
+            <div class="col-xs-6">
+                <h3>Sets</h3>
+                {{#each suggestedDecks.sets}}
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="/deck/suggest?deck={{id}}&amp;active=0">
+                                <strong>{{name}}</strong>
+                            </a>
+                            -
+                            {{description}}
+                        </div>
+                    </div>
+                {{/each}}
+                <br/>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button>
+                            Add your own
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+                <h3>Expansions</h3>
+                {{#each suggestedDecks.expansions}}
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="/deck/suggest?deck={{id}}&amp;active=0">
+                                <strong>{{name}}</strong>
+                            </a>
+                            -
+                            {{description}} by {{author.name}}
+                        </div>
+                    </div>
+                {{/each}}
+                <br/>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button>
+                            Add your own
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>
+            Your suggested cards
+        </h2>
+        <span class="help-block">
+            Click a card to edit it
+        </span>
+        <div class="row">
+            <div class="col-xs-12">
+                black cards go here
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                white cards go here
+            </div>
+        </div>
     {{/replace}}
 
 {{/extend}}
