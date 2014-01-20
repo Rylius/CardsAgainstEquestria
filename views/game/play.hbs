@@ -299,15 +299,24 @@
 
                 model.chat().historyElement($('#chat-game').find('> ul'));
 
-                var blockHand = function () {
+                var blockHandCzar = function () {
                     if (model.isCzar()) {
                         $('#hand').block();
                     } else {
                         $('#hand').unblock();
                     }
                 };
-                model.hand.cards.subscribe(blockHand);
-                model.isCzar.subscribe(blockHand);
+                model.hand.cards.subscribe(blockHandCzar);
+                model.isCzar.subscribe(blockHandCzar);
+
+                var blackHandIgnored = function () {
+                    if (model.ignored()) {
+                        $('#hand').block({message: 'Waiting...'})
+                    } else if (!model.isCzar()) {
+                        $('#hand').unblock();
+                    }
+                };
+                model.ignored.subscribe(blackHandIgnored);
 
                 listen();
 
