@@ -166,8 +166,26 @@ var PlayViewModel = function (game, player) {
 
     this.kick = function (player) {
         if (confirm('Are you sure?')) {
-            $.ajax('/ajax/game/' + self.game().id + '/kick/' + player.id, {method: 'post'});
+            $.ajax('/ajax/game/' + self.game().id + '/kick/' + player.id, {
+                method: 'post',
+                error: function () {
+                    self.gameChat().showError('Failed to kick player - try again!');
+                }
+            });
         }
+    };
+
+    this.resetGame = function () {
+        if (!this.isHost()) {
+            return;
+        }
+
+        $.ajax('/ajax/game/' + self.game().id + '/reset', {
+            method: 'post',
+            error: function () {
+                self.gameChat().showError('Failed to restart game - try again!');
+            }
+        });
     };
 
     this.handleUpdate = function (update) {
@@ -388,6 +406,8 @@ var PlayViewModel = function (game, player) {
                     });
 
                     this.ended(true);
+                } else if (data.state == Game.State.LOBBY) {
+                    window.location.href = '/game/lobby/' + self.game().id;
                 }
 
                 break;

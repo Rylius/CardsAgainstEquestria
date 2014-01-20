@@ -92,7 +92,7 @@ app.use(express.cookieParser());
 app.use(express.session({secret: config.sessionSecret}));
 app.use(flash());
 
-//app.use(express.favicon());
+app.use(express.favicon(path.join(__dirname, 'public/favicon.ico')));
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
