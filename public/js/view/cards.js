@@ -94,6 +94,8 @@ var PlayViewModel = function (game, player) {
 
     this.game = ko.observable(game);
 
+    this.ignored = ko.observable(false);
+
     this.chat = ko.observable(new ChatViewModel());
     this.chat().user(player);
     this.chat().gameId(game.id);
@@ -243,6 +245,7 @@ var PlayViewModel = function (game, player) {
                 console.log('Black card: ' + data.id + '/' + data.text);
                 this.blackCard(new CardViewModel(data));
                 this.playedCardsUncovered(false);
+                this.ignored(false);
 
                 this.updateTimeLimit();
 
@@ -292,7 +295,6 @@ var PlayViewModel = function (game, player) {
                     this.playedCards.push(move);
                 }
 
-
                 break;
 
             case Game.Server.Update.UNCOVER:
@@ -316,6 +318,10 @@ var PlayViewModel = function (game, player) {
                 });
                 if (this.czar()) {
                     this.czar().state('Selecting');
+                }
+
+                if (!this.isCzar() && (!this.move() || !this.move().cards().length)) {
+                    this.ignored(true);
                 }
 
                 this.timeLeft(data.timeLeft > 0 ? data.timeLeft : game.roundTimeLimit);
