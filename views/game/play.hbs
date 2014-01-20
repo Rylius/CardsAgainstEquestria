@@ -106,6 +106,14 @@
                 <strong>Winner:</strong> <span data-bind="text: winner().name"></span>
             </p>
 
+            <!--ko if: $root.isHost() -->
+            <p>
+                <button data-bind="click: resetGame">
+                    Start a new game
+                </button>
+            </p>
+            <!-- /ko -->
+
             <br/>
         </div>
         <!-- /ko -->

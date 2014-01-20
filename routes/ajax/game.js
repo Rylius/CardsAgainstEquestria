@@ -237,6 +237,25 @@ var leave = function (req, res) {
     res.send(200);
 };
 
+var reset = function (req, res) {
+    var gameInstance = findGame(req.params.game);
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    }
+
+    var user = users.get(req.session.user.id);
+    if (gameInstance.host != user) {
+        res.send(403);
+        return;
+    }
+
+
+    gameInstance.reset();
+
+    res.send(200);
+};
+
 /**
  * GET
  * Returns a list of all currently opened games.
@@ -394,6 +413,8 @@ module.exports = function (app, gameModule) {
     app.post('/ajax/game/:game/update', update);
 
     app.post('/ajax/game/:game/leave', leave);
+
+    app.post('/ajax/game/:game/reset', reset);
 
     app.post('/ajax/game/:game/kick/:player', kick);
 };
