@@ -214,7 +214,7 @@ var PlayViewModel = function (game, player) {
 
                 if (player == self.player) {
                     interruptListen();
-                    // TODO make this prettier
+                    // TODO replace with fancy modal
                     alert('Kicked by host');
                     window.location.href = '/games';
                     return;
@@ -234,8 +234,8 @@ var PlayViewModel = function (game, player) {
                 this.players.remove(player);
 
                 if (this.players().length < 3 && player.id != this.player.id) {
-                    // TODO definitely improve this
-                    alert('Game closing because there are less than 3 players. Sorry :(');
+                    // TODO replace with fancy modal
+                    alert('Game returning to lobby because there are less than 3 players. :(');
                 }
                 break;
 
