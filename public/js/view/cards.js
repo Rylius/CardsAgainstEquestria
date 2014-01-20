@@ -94,6 +94,8 @@ var PlayViewModel = function (game, player) {
 
     this.game = ko.observable(game);
 
+    this.ignored = ko.observable(false);
+
     this.chat = ko.observable(new ChatViewModel());
     this.chat().user(player);
     this.chat().gameId(game.id);
@@ -166,8 +168,26 @@ var PlayViewModel = function (game, player) {
 
     this.kick = function (player) {
         if (confirm('Are you sure?')) {
-            $.ajax('/ajax/game/' + self.game().id + '/kick/' + player.id, {method: 'post'});
+            $.ajax('/ajax/game/' + self.game().id + '/kick/' + player.id, {
+                method: 'post',
+                error: function () {
+                    self.gameChat().showError('Failed to kick player - try again!');
+                }
+            });
         }
+    };
+
+    this.resetGame = function () {
+        if (!this.isHost()) {
+            return;
+        }
+
+        $.ajax('/ajax/game/' + self.game().id + '/reset', {
+            method: 'post',
+            error: function () {
+                self.gameChat().showError('Failed to restart game - try again!');
+            }
+        });
     };
 
     this.handleUpdate = function (update) {
@@ -196,7 +216,7 @@ var PlayViewModel = function (game, player) {
 
                 if (player == self.player) {
                     interruptListen();
-                    // TODO make this prettier
+                    // TODO replace with fancy modal
                     alert('Kicked by host');
                     window.location.href = '/games';
                     return;
@@ -216,8 +236,8 @@ var PlayViewModel = function (game, player) {
                 this.players.remove(player);
 
                 if (this.players().length < 3 && player.id != this.player.id) {
-                    // TODO definitely improve this
-                    alert('Game closing because there are less than 3 players. Sorry :(');
+                    // TODO replace with fancy modal
+                    alert('Game returning to lobby because there are less than 3 players. :(');
                 }
                 break;
 
@@ -225,6 +245,7 @@ var PlayViewModel = function (game, player) {
                 console.log('Black card: ' + data.id + '/' + data.text);
                 this.blackCard(new CardViewModel(data));
                 this.playedCardsUncovered(false);
+                this.ignored(false);
 
                 this.updateTimeLimit();
 
@@ -274,7 +295,6 @@ var PlayViewModel = function (game, player) {
                     this.playedCards.push(move);
                 }
 
-
                 break;
 
             case Game.Server.Update.UNCOVER:
@@ -298,6 +318,10 @@ var PlayViewModel = function (game, player) {
                 });
                 if (this.czar()) {
                     this.czar().state('Selecting');
+                }
+
+                if (!this.isCzar() && (!this.move() || !this.move().cards().length)) {
+                    this.ignored(true);
                 }
 
                 this.timeLeft(data.timeLeft > 0 ? data.timeLeft : game.roundTimeLimit);
@@ -388,6 +412,8 @@ var PlayViewModel = function (game, player) {
                     });
 
                     this.ended(true);
+                } else if (data.state == Game.State.LOBBY) {
+                    window.location.href = '/game/lobby/' + self.game().id;
                 }
 
                 break;

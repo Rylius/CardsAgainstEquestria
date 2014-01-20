@@ -1,5 +1,12 @@
 [
     {
+        "date": "Jan 20, 2014",
+        "changes": [
+            "Added button to return to lobby after a game ended",
+            "Games with less than 3 players now return to the lobby"
+        ]
+    },
+    {
         "date": "Jan 18, 2014",
         "changes": [
             "Pulled global chat to page bottom"
