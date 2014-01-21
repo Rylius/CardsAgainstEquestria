@@ -214,7 +214,7 @@ var GameViewModel = function () {
     this.rules = ko.observableArray();
 
     this.scoreLimit = ko.observable(8);
-    this.playerLimit = ko.observable(6);
+    this.playerLimit = ko.observable(12);
     this.roundTimeLimit = ko.observable(60);
 
     this.password = ko.observable('');
