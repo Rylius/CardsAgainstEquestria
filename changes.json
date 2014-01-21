@@ -1,6 +1,14 @@
 [
     {
+        "date": "Jan 21, 2014",
+        "changes": [
+            "Fixed restarting ended games",
+            "Various minor UI fixes"
+        ]
+    },
+    {
         "date": "Jan 20, 2014",
+        "version": "0.5.4",
         "changes": [
             "Added button to return to lobby after a game ended",
             "Games with less than 3 players now return to the lobby"

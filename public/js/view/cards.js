@@ -199,7 +199,11 @@ var PlayViewModel = function (game, player) {
         switch (type) {
             case Game.Server.Update.PLAYER_JOIN:
                 console.log('Player joined: ' + data.name + '/' + data.id);
-                this.players.push(new PlayerViewModel(data));
+
+                player = new PlayerViewModel(data);
+                this.players.push(player);
+
+                player.state('Playing');
 
                 this.chat().receive({
                     time: Date.now(),
