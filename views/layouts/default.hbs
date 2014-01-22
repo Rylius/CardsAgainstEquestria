@@ -46,8 +46,14 @@
 
             <ul class="nav navbar-nav navbar-right">
                 {{#block 'navRight'}}
-                    <li class="dropdown">
-                        {{#if user}}
+                    {{#if user}}
+                        {{#if user.admin}}
+                            <li>
+                                <a href="/admin">Administration</a>
+                            </li>
+                        {{/if}}
+
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 {{user.name}}
                                 <b class="caret"></b>
@@ -89,12 +95,14 @@
                                     </a>
                                 </li>
                             </ul>
-                        {{else}}
+                        </li>
+                    {{else}}
+                        <li>
                             <a href="/">
                                 Log in
                             </a>
-                        {{/if}}
-                    </li>
+                        </li>
+                    {{/if}}
                 {{/block}}
             </ul>
         </div>
@@ -111,25 +119,25 @@
 
         {{#each success}}
             <div class="alert alert-success">
-                {{this}}
+                {{{this}}}
             </div>
         {{/each}}
 
         {{#each info}}
             <div class="alert alert-info">
-                {{this}}
+                {{{this}}}
             </div>
         {{/each}}
 
         {{#each warning}}
             <div class="alert alert-warning">
-                {{this}}
+                {{{this}}}
             </div>
         {{/each}}
 
         {{#each error}}
             <div class="alert alert-danger">
-                {{this}}
+                {{{this}}}
             </div>
         {{/each}}
 

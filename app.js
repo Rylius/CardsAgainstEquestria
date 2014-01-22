@@ -19,6 +19,7 @@ var extend = require('extend');
 var config = require('./config');
 
 var users = require('./lib/users');
+var Permissions = require('./lib/permissions');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
@@ -165,8 +166,21 @@ var auth = function (req, res, next) {
     next();
 };
 
+var permissions = function (req, res, next) {
+    if (req.session.user && req.path.indexOf('/admin') == 0) {
+        if (!_.contains(req.session.user.permissions, Permissions.Admin.id)) {
+            req.flash('error', 'Restricted area.<br/><br/><small>Trespassers will be shot. Survivors will be shot again.</small>');
+            res.redirect('/');
+            return;
+        }
+    }
+
+    next();
+};
+
 app.use(ajaxAuth);
 app.use(auth);
+app.use(permissions);
 
 app.use(function (req, res, next) {
     res.locals(req.flash());
@@ -218,11 +232,15 @@ orm.connect(config.database.url, function (err, db) {
         return;
     }
 
+    var startServer = function () {
+        http.createServer(app).listen(config.port, function () {
+            log.info('Server listening on port ' + config.port + '.');
+        });
+    };
+
     require('./lib/model').load(db);
 
     log.info('Database connection established.');
 
-    http.createServer(app).listen(config.port, function () {
-        log.info('Server listening on port ' + config.port + '.');
-    });
+    Permissions.load(startServer);
 });
