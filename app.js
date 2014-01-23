@@ -141,6 +141,10 @@ var auth = function (req, res, next) {
 
         if (user) {
             user.resetTimeout();
+
+            var data = user.clientData;
+            data.ip = req.ip;
+            data.userAgent = req.header('User-Agent');
         } else {
             var id = req.session.user.id;
             var name = req.session.user.name;

@@ -1,6 +1,7 @@
+var log = require('logule').init(module);
 var _ = require('underscore');
 
-var constants = require('../lib/constants').Game;
+var Model = require('../lib/model');
 var Game = require('../lib/game');
 var users = require('../lib/users');
 var os = require('os');
@@ -27,17 +28,24 @@ var index = function (req, res) {
 };
 
 var user = function (req, res) {
-    var prey = users.get(req.params.user);
-    if (!prey) {
-        // TODO look up in database
-        req.flash('error', 'User not found');
-        res.redirect('/admin');
-        return;
-    }
+    var id = parseInt(req.params.user);
+    var prey = users.get(id);
 
-    res.render('admin/user', {
-        title: 'Stalking ' + prey.name,
-        prey: prey
+    Model.User.get(id, function (err, preyDB) {
+        if (err) {
+            log.debug('No database user found for ID ' + id);
+        }
+
+        if (!prey && !preyDB) {
+            req.flash('error', 'User not found');
+            res.redirect('/admin');
+            return;
+        }
+
+        res.render('admin/user', {
+            title: 'Stalking ' + prey ? prey.name : preyDB.name,
+            prey: prey, preyDB: preyDB
+        });
     });
 };
 
