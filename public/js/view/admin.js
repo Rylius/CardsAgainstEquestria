@@ -21,13 +21,47 @@ function AdminViewModel(process, memory, users, games) {
         self.games.push(game);
     });
 
-    // helpers
+    this.allowGames = ko.observable(true); // TODO
+    this.restartWait = ko.observable(true);
+    this.restartRecompile = ko.observable(true);
+    this.broadcastMessage = ko.observable();
+
+    // ajax
+
+    this.doBroadcast = function () {
+        $.ajax('/ajax/admin/broadcast', {
+            method: 'post',
+            data: {message: self.broadcastMessage()},
+            success: function () {
+                self.broadcastMessage('');
+            },
+            error: function (xhr, error, status) {
+                alert('Failed to send broadcast\n' + error + ': ' + status);
+            }
+        });
+    };
+
+    this.doRestart = function () {
+        $.ajax('/ajax/admin/restart', {
+            method: 'post',
+            data: {
+                wait: self.restartWait(),
+                recompile: self.restartRecompile()
+            },
+            success: function () {
+                window.location.reload(true);
+            },
+            error: function (xhr, error, status) {
+                alert('Failed to request application restart\n' + error + ': ' + status);
+            }
+        });
+    };
+
+    // value formatters
 
     this.formatMegaBytes = function (bytes) {
         return (bytes / 1048576).toFixed(2) + ' MB';
     };
-
-    // value formatters
 
     this.formatUptime = ko.computed(function () {
         var uptime = self.uptime();
@@ -69,5 +103,16 @@ function AdminViewModel(process, memory, users, games) {
     this.formatHeapUsed = ko.computed(function () {
         return self.formatMegaBytes(self.heapUsed()) + ' (' + Math.round((self.heapUsed() / self.heapTotal()) * 100) + '%)';
     });
+
+    this.formatGameState = function (state) {
+        if (state == Game.State.LOBBY) {
+            return 'Lobby';
+        } else if (state == Game.State.PLAYING) {
+            return 'Playing';
+        } else if (state == Game.State.ENDED) {
+            return 'Ended';
+        }
+        return 'Broken';
+    }
 
 }

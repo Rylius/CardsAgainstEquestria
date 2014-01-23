@@ -167,10 +167,13 @@ var auth = function (req, res, next) {
 };
 
 var permissions = function (req, res, next) {
-    if (req.session.user && req.path.indexOf('/admin') == 0) {
-        if (!_.contains(req.session.user.permissions, Permissions.Admin.id)) {
+    if (req.session.user && !_.contains(req.session.user.permissions, Permissions.Admin.id)) {
+        if (req.path.indexOf('/admin') == 0) {
             req.flash('error', 'Restricted area.<br/><br/><small>Trespassers will be shot. Survivors will be shot again.</small>');
             res.redirect('/');
+            return;
+        } else if (req.path.indexOf('/ajax/admin') == 0) {
+            res.send(403);
             return;
         }
     }
@@ -222,6 +225,7 @@ require('./routes/admin')(app);
 require('./routes/ajax/user')(app);
 require('./routes/ajax/chat')(app);
 require('./routes/ajax/game')(app, game);
+require('./routes/ajax/admin')(app);
 
 // database
 

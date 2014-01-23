@@ -1,0 +1,47 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+        <h1>Stalking {{game.name}}</h1>
+
+        <h2>Overview</h2>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        Node <span data-bind="text: nodeVersion"></span>
+                    </div>
+                    <div class="list-group-item">
+                        PID: <span data-bind="text: pid"></span> (<a href="#">KILL</a>, <a href="#">exit</a>)
+                    </div>
+                    <div class="list-group-item">
+                        Uptime: <span data-bind="text: formatUptime"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Players</h2>
+        + kick
+
+        <h2>State</h2>
+
+        <h2>hax</h2>
+        <ul>
+            <li>change settings</li>
+            <li>reset</li>
+            <li>change host</li>
+        </ul>
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script>
+            $(function () {
+            });
+        </script>
+    {{/append}}
+
+    {{#replace 'globalChat'}}{{/replace}}
+    {{#replace 'initGlobalChat'}}{{/replace}}
+
+{{/extend}}
