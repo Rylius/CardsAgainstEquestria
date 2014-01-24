@@ -3,14 +3,14 @@ var _ = require('underscore');
 
 var Model = require('../lib/model');
 var Game = require('../lib/game');
-var users = require('../lib/users');
+var Users = require('../lib/users');
 var os = require('os');
 
 var index = function (req, res) {
     var gamesJson = _.map(Game.listGames(), function (game) {
         return game.toJsonFormat();
     });
-    var usersJson = _.map(users.users, function (user) {
+    var usersJson = _.map(Users.users, function (user) {
         return user.toJson();
     });
 
@@ -29,13 +29,9 @@ var index = function (req, res) {
 
 var user = function (req, res) {
     var id = parseInt(req.params.user);
-    var prey = users.get(id);
+    var prey = Users.get(id);
 
     Model.User.get(id, function (err, preyDB) {
-        if (err) {
-            log.debug('No database user found for ID ' + id);
-        }
-
         if (!prey && !preyDB) {
             req.flash('error', 'User not found');
             res.redirect('/admin');
@@ -63,8 +59,25 @@ var game = function (req, res) {
     });
 };
 
+var users = function (req, res) {
+    Model.User.find({}, function (err, result) {
+        if (err) {
+            log.warn('/admin/users: ' + err);
+            req.flash('Failed to list users');
+            res.redirect('/admin');
+            return;
+        }
+
+        res.render('admin/users', {
+            title: 'Registered users',
+            users: result
+        });
+    });
+};
+
 module.exports = function (app) {
     app.get('/admin', index);
     app.get('/admin/user/:user', user);
     app.get('/admin/game/:game', game);
+    app.get('/admin/users', users);
 };

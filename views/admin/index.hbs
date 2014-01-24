@@ -72,8 +72,8 @@
 
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" data-bind="checked: restartRecompile">
-                        Recompile
+                        <input type="checkbox" data-bind="checked: restartUpdate">
+                        Update
                     </label>
                 </div>
             </div>
@@ -98,7 +98,11 @@
 
         <h2>
             Users
-            <small><span data-bind="text: users().length"></span> active</small>
+            <small>
+                <span data-bind="text: users().length"></span> active
+                -
+                <a href="/admin/users">view registered users</a>
+            </small>
         </h2>
 
         <div>

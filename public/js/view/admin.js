@@ -23,7 +23,7 @@ function AdminViewModel(process, memory, users, games) {
 
     this.allowGames = ko.observable(true); // TODO
     this.restartWait = ko.observable(true);
-    this.restartRecompile = ko.observable(true);
+    this.restartUpdate = ko.observable(true);
     this.broadcastMessage = ko.observable();
 
     // ajax
@@ -46,7 +46,7 @@ function AdminViewModel(process, memory, users, games) {
             method: 'post',
             data: {
                 wait: self.restartWait(),
-                recompile: self.restartRecompile()
+                update: self.restartUpdate()
             },
             success: function () {
                 window.location.reload(true);
