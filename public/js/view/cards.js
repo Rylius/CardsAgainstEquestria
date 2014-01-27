@@ -423,7 +423,11 @@ var PlayViewModel = function (game, player) {
                 break;
 
             case Game.Server.Update.CHAT:
-                console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);
+                if (data.user) {
+                    console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);
+                } else {
+                    console.log('System message: ' + data.type + ': ' + data.message);
+                }
                 this.chat().receive(data);
 
                 break;

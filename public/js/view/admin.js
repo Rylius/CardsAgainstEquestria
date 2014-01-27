@@ -2,6 +2,8 @@ function AdminViewModel(process, memory, users, games, settings) {
 
     var self = this;
 
+    this.busy = ko.observable(false);
+
     this.nodeVersion = process.version;
     this.pid = process.pid;
 
@@ -24,7 +26,7 @@ function AdminViewModel(process, memory, users, games, settings) {
     this.allowGames = ko.observable(settings.allowNewGames);
     this.restartWait = ko.observable(true);
     this.restartUpdate = ko.observable(true);
-    this.broadcastMessage = ko.observable();
+    this.broadcastMessage = ko.observable('');
 
     this.allowGames.subscribeChanged(function (newValue) {
         self.updateSettings({allowNewGames: newValue});
@@ -33,6 +35,11 @@ function AdminViewModel(process, memory, users, games, settings) {
     // ajax
 
     this.doBroadcast = function () {
+        if (!self.broadcastMessage()) {
+            return;
+        }
+
+        self.busy(true);
         $.ajax('/ajax/admin/broadcast', {
             method: 'post',
             data: {message: self.broadcastMessage()},
@@ -41,11 +48,15 @@ function AdminViewModel(process, memory, users, games, settings) {
             },
             error: function (xhr, error, status) {
                 alert('Failed to send broadcast\n' + error + ': ' + status);
+            },
+            complete: function () {
+                self.busy(false);
             }
         });
     };
 
     this.doRestart = function () {
+        self.busy(true);
         if (confirm('Are you sure?')) {
             $.ajax('/ajax/admin/restart', {
                 method: 'post',
@@ -58,17 +69,26 @@ function AdminViewModel(process, memory, users, games, settings) {
                 },
                 error: function (xhr, error, status) {
                     alert('Failed to request application restart\n' + error + ': ' + status);
+                },
+                complete: function () {
+                    self.busy(false);
                 }
             });
+        } else {
+            self.busy(false);
         }
     };
 
     this.updateSettings = function (settings) {
+        self.busy(true);
         $.ajax('/ajax/admin/settings', {
             method: 'post',
             data: settings,
             error: function (xhr, error, status) {
                 alert('Failed to update application settings\n' + error + ': ' + status);
+            },
+            complete: function () {
+                self.busy(false);
             }
         });
     };
