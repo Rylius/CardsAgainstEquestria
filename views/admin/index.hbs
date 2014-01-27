@@ -163,7 +163,7 @@
     {{#append 'defer'}}
         <script>
             $(function () {
-                model = new AdminViewModel({{{process}}}, {{{memory}}}, {{{users}}}, {{{games}}});
+                model = new AdminViewModel({{{process}}}, {{{memory}}}, {{{users}}}, {{{games}}}, {{{appSettings}}});
                 ko.applyBindings(model);
 
                 setInterval(function () {

@@ -1,4 +1,4 @@
-function AdminViewModel(process, memory, users, games) {
+function AdminViewModel(process, memory, users, games, settings) {
 
     var self = this;
 
@@ -21,10 +21,14 @@ function AdminViewModel(process, memory, users, games) {
         self.games.push(game);
     });
 
-    this.allowGames = ko.observable(true); // TODO
+    this.allowGames = ko.observable(settings.allowNewGames);
     this.restartWait = ko.observable(true);
     this.restartUpdate = ko.observable(true);
     this.broadcastMessage = ko.observable();
+
+    this.allowGames.subscribeChanged(function (newValue) {
+        self.updateSettings({allowNewGames: newValue});
+    });
 
     // ajax
 
@@ -42,17 +46,29 @@ function AdminViewModel(process, memory, users, games) {
     };
 
     this.doRestart = function () {
-        $.ajax('/ajax/admin/restart', {
+        if (confirm('Are you sure?')) {
+            $.ajax('/ajax/admin/restart', {
+                method: 'post',
+                data: {
+                    wait: self.restartWait(),
+                    update: self.restartUpdate()
+                },
+                success: function () {
+                    window.location.reload(true);
+                },
+                error: function (xhr, error, status) {
+                    alert('Failed to request application restart\n' + error + ': ' + status);
+                }
+            });
+        }
+    };
+
+    this.updateSettings = function (settings) {
+        $.ajax('/ajax/admin/settings', {
             method: 'post',
-            data: {
-                wait: self.restartWait(),
-                update: self.restartUpdate()
-            },
-            success: function () {
-                window.location.reload(true);
-            },
+            data: settings,
             error: function (xhr, error, status) {
-                alert('Failed to request application restart\n' + error + ': ' + status);
+                alert('Failed to update application settings\n' + error + ': ' + status);
             }
         });
     };

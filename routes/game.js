@@ -35,7 +35,7 @@ var create = function (req, res) {
     if (game.listGames().length >= Settings.maxGames) {
         errors.push('Maximum number of games reached.');
     }
-    if (Settings.allowNewGames) {
+    if (!Settings.allowNewGames) {
         errors.push('Currently no new games are allowed.')
     }
 

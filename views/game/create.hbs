@@ -35,6 +35,9 @@
                         method: 'post',
                         success: function (data) {
                             window.location.href = '/game/lobby/' + data.id;
+                        },
+                        error: function () {
+                            window.location.reload(true);
                         }
                     });
 

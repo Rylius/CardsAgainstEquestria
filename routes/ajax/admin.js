@@ -1,6 +1,7 @@
 var log = require('logule').init(module);
-
 var _ = require('underscore');
+
+var Settings = require('../../lib/settings');
 
 var broadcast = function (req, res) {
     // TODO
@@ -13,7 +14,10 @@ var restart = function (req, res) {
 };
 
 var settings = function (req, res) {
-    // TODO
+    log.debug(req.session.user.name + '/' + req.session.user.id+' updated settings: ' + JSON.stringify(req.body));
+
+    Settings.load(req.body);
+
     res.send(200);
 };
 

@@ -4,6 +4,7 @@ var _ = require('underscore');
 var Model = require('../lib/model');
 var Game = require('../lib/game');
 var Users = require('../lib/users');
+var Settings = require('../lib/settings');
 var os = require('os');
 
 var index = function (req, res) {
@@ -23,7 +24,8 @@ var index = function (req, res) {
             uptime: process.uptime()
         }),
         memory: JSON.stringify(process.memoryUsage()),
-        os: os
+        os: os,
+        appSettings: JSON.stringify(Settings)
     });
 };
 
