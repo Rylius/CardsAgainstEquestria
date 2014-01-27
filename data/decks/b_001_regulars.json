@@ -695,6 +695,14 @@
         {
             "text": "Why is Princess Twilight drunk again?",
             "pick": 1
+        },
+        {
+            "text": "Flashy licks ________.",
+            "pick": 1
+        },
+        {
+            "text": "When JetGrey unveiled his newest invention, no one thought it would be ________.",
+            "pick": 1
         }
     ],
     "whiteCards": [
@@ -826,9 +834,7 @@
         "Pollow wrestling",
         "Princess Twilight",
         "Racist barn",
-        "Rarity's massive cock",
         "Raridick",
-        "Raridick-Licking",
         "Realizing you were banging a changeling mid-orgasm",
         "Regular Ordinary Swedish Meal Time",
         "Right into the Crystal Empire",
@@ -900,11 +906,9 @@
         "Becca",
         "ISky's raging blue penis",
         "BrotherPunk",
-        "Rarity's giant strap-on",
         "Ikea Pony.",
         "Making random voice impersonations in a Skype call.",
         "A coupon for a free blowjob.",
-        "Another Raridick card to piss off Hennet.",
         "The New Lunar Republic.",
         "Doge.",
         "Fun?!",
@@ -917,7 +921,6 @@
         "Card Czar is worst pony.",
         "Card Czar is best pony.",
         "Pon Pon Pony.",
-        "Rarity's Dick.",
         "Rarity's Vagina.",
         "Daring Do's Vagina.",
         "Pinkie Pie's Cotton Candy Vagina.",
@@ -937,7 +940,6 @@
         "Card Czar.",
         "Puking rainbows.",
         "YES!",
-        "Raridick Raridick Raridick Raridick Raridick Raridick.",
         "Another Poni.",
         "XBOX OFF!",
         "My Little Pony RPG: The Elements of Harmony.",
@@ -965,7 +967,6 @@
         "This Black Card needs to be a White Card.",
         "Pinkie Pie's Cutie Mark.",
         "Twilight Sparkle's Cutie Mark.",
-        "Rarity's giant strap-on.",
         "Wayne Brady.",
         "FlutterDashie.",
         "Hennet303.",
@@ -1000,6 +1001,7 @@
         "Seto[NLR].",
         "Talia.",
         "ISky.",
+        "Flashy.",
         "PvtChaos[NLR].",
         "Gims.",
         "One-Trick.",
@@ -1045,7 +1047,6 @@
         "Diapers.",
         "FlufflePuff.",
         "Snap_Shot.",
-        "Using this card instead of Raridick.",
         "Waffle Maker.",
         "Twinkie Maker.",
         "wow much play.",
@@ -1095,10 +1096,8 @@
         "A bigger blacker Cards Against Equestria.",
         "Vig Rickman.",
         "Reload the page.",
-        "Rarity's hidden underwear.",
         "My salsa.",
         "Soundspeed's 'bugging' fly.",
-        "Marshmallow fluffed Raridick.",
         "wow much play.",
         "Using !eightball for important life decisions.",
         "Irregular Boner.",
@@ -1178,6 +1177,7 @@
         "James Corck's cork collection.",
         "Seto's Livestream.",
         "Sketchy's enormous instrument.",
-        "Wolfjob"
+        "Wolfjob",
+        "Dark Aura"
     ]
 }

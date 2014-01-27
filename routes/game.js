@@ -1,4 +1,6 @@
 var _ = require('underscore');
+
+var Settings = require('../lib/settings');
 var constants = require('../lib/constants').Game;
 
 var log = require('logule').init(module);
@@ -28,7 +30,19 @@ var list = function (req, res) {
  * Renders the game setup view.
  */
 var create = function (req, res) {
-    res.render('game/create');
+    var errors = [];
+
+    if (game.listGames().length >= Settings.maxGames) {
+        errors.push('Maximum number of games reached.');
+    }
+    if (Settings.allowNewGames) {
+        errors.push('Currently no new games are allowed.')
+    }
+
+    res.render('game/create', {
+        title: 'Host a new game',
+        errors: errors
+    });
 };
 
 var lobby = function (req, res) {

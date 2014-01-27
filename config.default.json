@@ -7,11 +7,12 @@
     "trustProxy": true,
 
     "database": {
-        "url": "driver://user:pass@hostname/database",
-        "pool": {
-            "min": 1,
-            "max": 10
-        }
+        "url": "driver://user:pass@hostname/database"
+    },
+
+    "settings": {
+        "maxGames": 200,
+        "allowNewGames": true
     },
 
     "files": {

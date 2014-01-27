@@ -17,6 +17,7 @@ var _ = require('underscore');
 var extend = require('extend');
 
 var config = require('./config');
+require('./lib/settings').load(config.settings);
 
 var users = require('./lib/users');
 var Permissions = require('./lib/permissions');
