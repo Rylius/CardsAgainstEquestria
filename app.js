@@ -230,7 +230,7 @@ require('./routes/admin')(app);
 require('./routes/ajax/user')(app);
 require('./routes/ajax/chat')(app);
 require('./routes/ajax/game')(app, game);
-require('./routes/ajax/admin')(app);
+require('./routes/ajax/admin')(app, config);
 
 // database
 

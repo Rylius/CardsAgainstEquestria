@@ -4,6 +4,8 @@ function AdminViewModel(process, memory, users, games, settings) {
 
     this.busy = ko.observable(false);
 
+    this.restarting = ko.observable(settings.restarting);
+
     this.nodeVersion = process.version;
     this.pid = process.pid;
 
@@ -64,14 +66,8 @@ function AdminViewModel(process, memory, users, games, settings) {
                     wait: self.restartWait(),
                     update: self.restartUpdate()
                 },
-                success: function () {
-                    window.location.reload(true);
-                },
-                error: function (xhr, error, status) {
-                    alert('Failed to request application restart\n' + error + ': ' + status);
-                },
                 complete: function () {
-                    self.busy(false);
+                    window.location.reload(true);
                 }
             });
         } else {

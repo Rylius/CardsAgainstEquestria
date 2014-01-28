@@ -1,6 +1,10 @@
 var log = require('logule').init(module);
 var _ = require('underscore');
 
+var config = null;
+
+var exec = require('child_process').exec;
+
 var Settings = require('../../lib/settings');
 var Games = require('../../lib/game');
 
@@ -14,6 +18,8 @@ var broadcast = function (req, res) {
         return;
     }
 
+    log.debug(req.session.user.name + '' + req.session.user.id + ' sent broadcast: ' + text);
+
     Chat.global.sendSystemMessage(text);
 
     _.each(Games.listGames(), function (game) {
@@ -24,8 +30,35 @@ var broadcast = function (req, res) {
 };
 
 var restart = function (req, res) {
-    // TODO
+    log.info(req.session.user.name + '' + req.session.user.id + ' triggered application restart');
+
     res.send(200);
+
+    var doRestart = function () {
+        var doExit = function () {
+            log.info('Shutting down');
+            process.exit();
+        };
+
+        if (req.body.update == 'true' && config.updateCommand) {
+            exec(config.updateCommand, function (error, stdout, stderr) {
+                if (error) {
+                    log.warn(error);
+                }
+
+                doExit();
+            });
+        } else {
+            doExit();
+        }
+    };
+
+    if (req.body.wait == 'true' && Games.listGames().length > 0) {
+        Settings.restart = doRestart;
+        Settings.restarting = true;
+    } else {
+        doRestart();
+    }
 };
 
 var settings = function (req, res) {
@@ -36,7 +69,9 @@ var settings = function (req, res) {
     res.send(200);
 };
 
-module.exports = function (app) {
+module.exports = function (app, appConfig) {
+    config = appConfig;
+
     app.post('/ajax/admin/broadcast', broadcast);
     app.post('/ajax/admin/restart', restart);
     app.post('/ajax/admin/settings', settings);
