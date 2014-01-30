@@ -1,5 +1,15 @@
 [
     {
+        "date": "Jan 30, 2014",
+        "version": "0.5.5 / 0.5.6",
+        "changes": [
+            "Added numbers to show selection order of cards",
+            "Fixed game host migration",
+            "Broke user logins",
+            "Fixed user logins"
+        ]
+    },
+    {
         "date": "Jan 21, 2014",
         "changes": [
             "Fixed restarting ended games",
