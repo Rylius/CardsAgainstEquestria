@@ -229,6 +229,11 @@ var PlayViewModel = function (game, player) {
                     return p.id == data.id;
                 });
 
+                if (!player) {
+                    console.warn(data.id + ' is not a valid player');
+                    break;
+                }
+
                 if (player == self.player) {
                     interruptListen();
                     // TODO replace with fancy modal
@@ -296,6 +301,12 @@ var PlayViewModel = function (game, player) {
                 player = _.find(this.players(), function (p) {
                     return p.id == data.player;
                 });
+
+                if (!player) {
+                    console.warn(data.id + ' is not a valid player');
+                    break;
+                }
+
                 console.log('Move made: ' + player.name);
                 player.state('');
 
@@ -360,6 +371,12 @@ var PlayViewModel = function (game, player) {
                 if (player) {
                     player.state('Round winner!');
                     player.points(player.points() + 1);
+
+                    this.chat().receive({
+                        time: Date.now(),
+                        type: Chat.GAME_MESSAGE,
+                        message: player.name + ' won the round'
+                    });
                 }
 
                 if (this.timeLeftIntervalId) {
@@ -383,9 +400,7 @@ var PlayViewModel = function (game, player) {
                     player.state('Playing');
                     player.points(data.points[player.id]);
                 });
-                if (this.czar()) {
-                    this.czar().state('Card Czar');
-                }
+                this.czar().state('Card Czar');
 
                 this.move(new MoveViewModel(-1));
 
