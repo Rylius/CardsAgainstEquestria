@@ -17,8 +17,10 @@ var _ = require('underscore');
 var extend = require('extend');
 
 var config = require('./config');
+require('./lib/settings').load(config.settings);
 
 var users = require('./lib/users');
+var Permissions = require('./lib/permissions');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
@@ -140,6 +142,10 @@ var auth = function (req, res, next) {
 
         if (user) {
             user.resetTimeout();
+
+            var data = user.clientData;
+            data.ip = req.ip;
+            data.userAgent = req.header('User-Agent');
         } else {
             var id = req.session.user.id;
             var name = req.session.user.name;
@@ -165,8 +171,24 @@ var auth = function (req, res, next) {
     next();
 };
 
+var permissions = function (req, res, next) {
+    if (req.session.user && !_.contains(req.session.user.permissions, Permissions.Admin.id)) {
+        if (req.path.indexOf('/admin') == 0) {
+            req.flash('error', 'Restricted area.<br/><br/><small>Trespassers will be shot. Survivors will be shot again.</small>');
+            res.redirect('/');
+            return;
+        } else if (req.path.indexOf('/ajax/admin') == 0) {
+            res.send(403);
+            return;
+        }
+    }
+
+    next();
+};
+
 app.use(ajaxAuth);
 app.use(auth);
+app.use(permissions);
 
 app.use(function (req, res, next) {
     res.locals(req.flash());
@@ -208,6 +230,7 @@ require('./routes/admin')(app);
 require('./routes/ajax/user')(app);
 require('./routes/ajax/chat')(app);
 require('./routes/ajax/game')(app, game);
+require('./routes/ajax/admin')(app, config);
 
 // database
 
@@ -218,11 +241,15 @@ orm.connect(config.database.url, function (err, db) {
         return;
     }
 
+    var startServer = function () {
+        http.createServer(app).listen(config.port, function () {
+            log.info('Server listening on port ' + config.port + '.');
+        });
+    };
+
     require('./lib/model').load(db);
 
     log.info('Database connection established.');
 
-    http.createServer(app).listen(config.port, function () {
-        log.info('Server listening on port ' + config.port + '.');
-    });
+    Permissions.load(startServer);
 });

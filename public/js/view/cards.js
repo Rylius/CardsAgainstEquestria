@@ -20,6 +20,17 @@ var MoveViewModel = function (id) {
 
     this.confirmed = ko.observable(false);
 
+    this.selectionIndex = function (card) {
+        var index = this.cards().indexOf(card);
+        if (index < 0 || model.blackCard().pick == 1) {
+            return '';
+        } else {
+            index++;
+        }
+
+        return index;
+    };
+
     this.select = function (card) {
         if (this.confirmed()) {
             return;
@@ -199,7 +210,11 @@ var PlayViewModel = function (game, player) {
         switch (type) {
             case Game.Server.Update.PLAYER_JOIN:
                 console.log('Player joined: ' + data.name + '/' + data.id);
-                this.players.push(new PlayerViewModel(data));
+
+                player = new PlayerViewModel(data);
+                this.players.push(player);
+
+                player.state('Playing');
 
                 this.chat().receive({
                     time: Date.now(),
@@ -419,7 +434,11 @@ var PlayViewModel = function (game, player) {
                 break;
 
             case Game.Server.Update.CHAT:
-                console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);
+                if (data.user) {
+                    console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);
+                } else {
+                    console.log('System message: ' + data.type + ': ' + data.message);
+                }
                 this.chat().receive(data);
 
                 break;

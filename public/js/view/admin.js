@@ -1,6 +1,10 @@
-function AdminViewModel(process, memory, users, games) {
+function AdminViewModel(process, memory, users, games, settings) {
 
     var self = this;
+
+    this.busy = ko.observable(false);
+
+    this.restarting = ko.observable(settings.restarting);
 
     this.nodeVersion = process.version;
     this.pid = process.pid;
@@ -21,13 +25,75 @@ function AdminViewModel(process, memory, users, games) {
         self.games.push(game);
     });
 
-    // helpers
+    this.allowGames = ko.observable(settings.allowNewGames);
+    this.restartWait = ko.observable(true);
+    this.restartUpdate = ko.observable(true);
+    this.broadcastMessage = ko.observable('');
+
+    this.allowGames.subscribeChanged(function (newValue) {
+        self.updateSettings({allowNewGames: newValue});
+    });
+
+    // ajax
+
+    this.doBroadcast = function () {
+        if (!self.broadcastMessage()) {
+            return;
+        }
+
+        self.busy(true);
+        $.ajax('/ajax/admin/broadcast', {
+            method: 'post',
+            data: {message: self.broadcastMessage()},
+            success: function () {
+                self.broadcastMessage('');
+            },
+            error: function (xhr, error, status) {
+                alert('Failed to send broadcast\n' + error + ': ' + status);
+            },
+            complete: function () {
+                self.busy(false);
+            }
+        });
+    };
+
+    this.doRestart = function () {
+        self.busy(true);
+        if (confirm('Are you sure?')) {
+            $.ajax('/ajax/admin/restart', {
+                method: 'post',
+                data: {
+                    wait: self.restartWait(),
+                    update: self.restartUpdate()
+                },
+                complete: function () {
+                    window.location.reload(true);
+                }
+            });
+        } else {
+            self.busy(false);
+        }
+    };
+
+    this.updateSettings = function (settings) {
+        self.busy(true);
+        $.ajax('/ajax/admin/settings', {
+            method: 'post',
+            data: settings,
+            error: function (xhr, error, status) {
+                alert('Failed to update application settings\n' + error + ': ' + status);
+            },
+            complete: function () {
+                self.busy(false);
+            }
+        });
+    };
+
+    // value formatters
 
     this.formatMegaBytes = function (bytes) {
         return (bytes / 1048576).toFixed(2) + ' MB';
     };
-
-    // value formatters
 
     this.formatUptime = ko.computed(function () {
         var uptime = self.uptime();
@@ -69,5 +135,16 @@ function AdminViewModel(process, memory, users, games) {
     this.formatHeapUsed = ko.computed(function () {
         return self.formatMegaBytes(self.heapUsed()) + ' (' + Math.round((self.heapUsed() / self.heapTotal()) * 100) + '%)';
     });
+
+    this.formatGameState = function (state) {
+        if (state == Game.State.LOBBY) {
+            return 'Lobby';
+        } else if (state == Game.State.PLAYING) {
+            return 'Playing';
+        } else if (state == Game.State.ENDED) {
+            return 'Ended';
+        }
+        return 'Broken';
+    }
 
 }

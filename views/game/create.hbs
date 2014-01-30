@@ -4,11 +4,24 @@
         <form id="create" method="post" class="form-horizontal">
             <h1>Host a new game</h1>
 
-            <p>
-                Create your own game and invite people to join you! Yay!
-            </p>
+            {{#if errors}}
+                {{#each errors}}
+                    <p class="has-error">
+                        {{{this}}}
+                    </p>
+                {{/each}}
+                <p class="has-error">
+                    Please join an existing game or wait until others finish playing.
+                </p>
+            {{else}}
+                <p>
+                    Create your own game and invite people to join you! Yay!
+                </p>
+            {{/if}}
 
-            <input type="submit" id="submit" value="Create game">
+            {{#unless errors}}
+                <input type="submit" id="submit" value="Create game">
+            {{/unless}}
         </form>
         <br/>
     {{/replace}}
@@ -22,6 +35,9 @@
                         method: 'post',
                         success: function (data) {
                             window.location.href = '/game/lobby/' + data.id;
+                        },
+                        error: function () {
+                            window.location.reload(true);
                         }
                     });
 

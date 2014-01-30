@@ -1,4 +1,6 @@
 var _ = require('underscore');
+
+var Settings = require('../lib/settings');
 var constants = require('../lib/constants').Game;
 
 var log = require('logule').init(module);
@@ -28,7 +30,19 @@ var list = function (req, res) {
  * Renders the game setup view.
  */
 var create = function (req, res) {
-    res.render('game/create');
+    var errors = [];
+
+    if (game.listGames().length >= Settings.maxGames) {
+        errors.push('Maximum number of games reached.');
+    }
+    if (!Settings.allowNewGames) {
+        errors.push('Currently no new games are allowed.')
+    }
+
+    res.render('game/create', {
+        title: 'Host a new game',
+        errors: errors
+    });
 };
 
 var lobby = function (req, res) {
@@ -54,8 +68,8 @@ var lobby = function (req, res) {
     } else if (g.state == constants.State.LOBBY) {
         res.render('game/lobby', {
             scoreLimits: _.range(3, 21), defaultScore: 8,
-            playerLimits: _.range(3, 17), defaultPlayers: 6,
-            roundTimeLimits: [0, 60, 120, 180], defaultRoundTimeLimit: 60,
+            playerLimits: _.range(3, 17), defaultPlayers: 12,
+            roundTimeLimits: [0, 60, 90, 120, 150, 180], defaultRoundTimeLimit: 60,
             userJson: JSON.stringify({id: user.id, name: user.name}), game: g
         });
     } else {

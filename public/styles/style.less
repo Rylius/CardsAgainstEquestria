@@ -59,6 +59,12 @@ html, body {
   color: @alert-danger-text;
 }
 
+table {
+  td {
+    .transition(~"background 0.2s");
+  }
+}
+
 .button-play {
   .btn;
   .btn-success;
@@ -97,21 +103,26 @@ h2 {
   border: 1px solid @btn-success-border;
 }
 
-button,
-input[type=submit] {
-  .btn;
+.button-variant(@color; @background; @border) {
+  color: @color;
 
-  #gradient.vertical(@btn-default-bg, darken(@btn-default-bg, 20%), 20%);
+  #gradient.vertical(@background, darken(@background, 20%), 20%);
 
-  border: 1px solid @btn-default-border;
+  border: 1px solid @border;
 
   &:active,
   &.active {
     outline: 0;
     background-image: none;
-    background-color: darken(@btn-default-bg, 5%);
+    background-color: darken(@background, 5%);
     .box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
   }
+}
+
+button,
+input[type=submit] {
+  .btn;
+  .btn-default;
 }
 
 .navbar-title {
@@ -120,6 +131,21 @@ input[type=submit] {
   font-size: @font-size-large;
   line-height: @line-height-computed;
   color: @navbar-default-color;
+}
+
+.admin-inline-form {
+  .row;
+  .form-inline;
+
+  margin-bottom: 10px;
+
+  > div {
+    .make-xs-column(12);
+
+    > * {
+      margin-right: 10px;
+    }
+  }
 }
 
 // card blocking

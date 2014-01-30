@@ -32,7 +32,13 @@ var isPlayer = function (user, game) {
  */
 var create = function (req, res) {
     res.type('application/json');
-    res.send(JSON.stringify(game.createGame(users.get(req.session.user.id)).toJsonFormat()));
+
+    var gameInstance = game.createGame(users.get(req.session.user.id));
+    if (gameInstance) {
+        res.send(JSON.stringify(gameInstance.toJsonFormat()));
+    } else {
+        res.send(400);
+    }
 };
 
 /**

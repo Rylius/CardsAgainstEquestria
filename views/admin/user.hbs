@@ -1,0 +1,64 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+        <h1>Stalking {{prey.name}}</h1>
+
+        <h2>Overview</h2>
+
+        <div class="row">
+            {{#if prey}}
+                <div class="col-xs-6">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            IP: {{prey.clientData.ip}}
+                        </div>
+                        <div class="list-group-item">
+                            User-Agent: {{prey.clientData.userAgent}}
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if preyDB}}
+                <div class="col-xs-6">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            {{#unless preyDB.allow_emails}}
+                            <s>
+                            {{/unless}}
+                            Email: {{preyDB.email}}
+                            {{#unless preyDB.allow_emails}}
+                            </s>
+                            {{/unless}}
+                        </div>
+                        <div class="list-group-item">
+                            Registered: {{preyDB.date_registered}}
+                        </div>
+                        <div class="list-group-item">
+                            Last login: {{preyDB.last_login}}
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+
+        <h2>Games</h2>
+        {{#each games}}
+        {{else}}
+            <div class="alert alert-info">
+                User is not playing
+            </div>
+        {{/each}}
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script>
+            $(function () {
+            });
+        </script>
+    {{/append}}
+
+    {{#replace 'globalChat'}}{{/replace}}
+    {{#replace 'initGlobalChat'}}{{/replace}}
+
+{{/extend}}

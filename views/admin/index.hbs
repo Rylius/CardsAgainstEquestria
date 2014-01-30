@@ -19,7 +19,7 @@
                         Node <span data-bind="text: nodeVersion"></span>
                     </div>
                     <div class="list-group-item">
-                        PID: <span data-bind="text: pid"></span> (<a href="#">KILL</a>, <a href="#">exit</a>)
+                        PID: <span data-bind="text: pid"></span>
                     </div>
                     <div class="list-group-item">
                         Uptime: <span data-bind="text: formatUptime"></span>
@@ -44,31 +44,65 @@
 
         <h2>Maintenance</h2>
 
-        <div class="todo">
-            <div class="row">
-                <div class="col-xs-12">
-                    <input type="checkbox" id="allowGames" checked>
-                    <label for="allowGames">Allow new games</label>
+        <div class="admin-inline-form">
+            <div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="allowGames" data-bind="checked: allowGames, disable: busy">
+                        Allow new games
+                    </label>
                 </div>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <button>Schedule restart</button>
+        <div class="admin-inline-form">
+            <div>
+                <div class="form-group">
+                    <button class="btn-danger" data-bind="click: doRestart, disable: busy() || restarting()">
+                        Restart
+                    </button>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" data-bind="checked: restartWait, disable: restarting">
+                        Wait for games
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" data-bind="checked: restartUpdate, disable: restarting">
+                        Update
+                    </label>
                 </div>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <input type="text" class="form-control">
-                    <button>Broadcast</button>
+        <div class="admin-inline-form">
+            <div>
+                <div class="row">
+                    <div class="form-group col-xs-7">
+                        <input type="text" class="form-control"
+                               data-bind="value: broadcastMessage, returnAction: doBroadcast, valueUpdate: 'afterkeydown', disable: busy">
+                    </div>
+
+                    <div class="form-group col-xs-5">
+                        <button data-bind="click: doBroadcast">
+                            Broadcast
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <h2>
             Users
-            <small><span data-bind="text: users().length"></span> active</small>
+            <small>
+                <span data-bind="text: users().length"></span> active
+                -
+                <a href="/admin/users">view registered users</a>
+            </small>
         </h2>
 
         <div>
@@ -84,7 +118,7 @@
                 <tr>
                     <td data-bind="text: id"></td>
                     <td>
-                        <a href="#">
+                        <a href="#" data-bind="attr: { href: '/admin/user/' + id }">
                             <span data-bind="text: name"></span>
                         </a>
                     </td>
@@ -116,10 +150,10 @@
 
                     <td>
                         <span data-bind="text: players.length"></span>
-                        (<a href="#">Show</a>)
+                        (<a href="#" data-bind="attr: { href: '/admin/game/' + id + '#players' }">Show</a>)
                     </td>
 
-                    <td data-bind="text: state"></td>
+                    <td data-bind="text: $root.formatGameState(state)"></td>
                 </tr>
                 </tbody>
             </table>
@@ -129,7 +163,7 @@
     {{#append 'defer'}}
         <script>
             $(function () {
-                model = new AdminViewModel({{{process}}}, {{{memory}}}, {{{users}}}, {{{games}}});
+                model = new AdminViewModel({{{process}}}, {{{memory}}}, {{{users}}}, {{{games}}}, {{{appSettings}}});
                 ko.applyBindings(model);
 
                 setInterval(function () {
