@@ -1,6 +1,6 @@
 {
     "name": "cards-against-equestria",
-    "version": "0.5.5",
+    "version": "0.5.6",
     "homepage": "https://github.com/Rylius/CardsAgainstEquestria",
     "private": true,
     "scripts": {
