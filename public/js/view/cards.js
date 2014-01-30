@@ -20,6 +20,17 @@ var MoveViewModel = function (id) {
 
     this.confirmed = ko.observable(false);
 
+    this.selectionIndex = function (card) {
+        var index = this.cards().indexOf(card);
+        if (index < 0 || model.blackCard().pick == 1) {
+            return '';
+        } else {
+            index++;
+        }
+
+        return index;
+    };
+
     this.select = function (card) {
         if (this.confirmed()) {
             return;

@@ -157,6 +157,27 @@ form {
     font-size: 6px;
   }
 
+  > .selected-index {
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 8px;
+
+    color: @card-black-color;
+    background-color: @card-black-bg;
+
+    > span {
+      position: absolute;
+
+      left: 5px;
+      top: 2px;
+    }
+  }
+
   .transition(all 0.2s ease);
 }
 

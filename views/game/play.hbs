@@ -94,6 +94,11 @@
 
                 {{> watermarkIcon}}
                 <div class="watermark" data-bind="text: watermark"></div>
+                <!-- ko if: model.move().selectionIndex($data) && $parent.blackCard().pick > 1 -->
+                <span class="selected-index">
+                    <span data-bind="text: model.move().selectionIndex($data)"></span>
+                </span>
+                <!-- /ko -->
             </div>
         </div>
         <!-- /ko -->
