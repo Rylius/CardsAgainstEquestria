@@ -1,7 +1,7 @@
 {
     "name": "SocialGamer",
     "description": "Custom cards from the <a href=\"http://socialgamer.net/\">SocialGamer.net</a> community.",
-    "watermark": "SG",
+    "watermark": "SocialGamer",
     "expansion": true,
     "blackCards": [
         {

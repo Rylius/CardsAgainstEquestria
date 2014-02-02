@@ -1,7 +1,7 @@
 {
     "name": "Misprint Replacement Bonus Pack",
     "description": "Bonus cards included with replacements for misprinted cards.",
-    "watermark": "",
+    "watermark": "Misprint Replacements",
     "expansion": true,
     "blackCards": [
         {

@@ -1,7 +1,7 @@
 {
     "name": "Box Expansion",
     "description": "The Expansion Box Box Expansion.",
-    "watermark": "BOX",
+    "watermark": "Box",
     "expansion": true,
     "blackCards": [
         {
