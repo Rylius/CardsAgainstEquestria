@@ -9,22 +9,101 @@
             <div class="col-xs-4">
                 <div class="list-group">
                     <div class="list-group-item">
-                        Node <span data-bind="text: nodeVersion"></span>
+                        Score limit: {{game.scoreLimit}}
                     </div>
                     <div class="list-group-item">
-                        PID: <span data-bind="text: pid"></span> (<a href="#">KILL</a>, <a href="#">exit</a>)
+                        Player limit: {{game.playerLimit}}
                     </div>
                     <div class="list-group-item">
-                        Uptime: <span data-bind="text: formatUptime"></span>
+                        Round time: {{game.roundTimeLimit}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        Password:
+                        {{#if game.password}}
+                            {{game.password}}
+                        {{else}}
+                            <small>(not set)</small>
+                        {{/if}}
+                    </div>
+                    <div class="list-group-item">
+                        Hidden:
+                        {{#if game.hidden}}
+                            yes
+                        {{else}}
+                            no
+                        {{/if}}
                     </div>
                 </div>
             </div>
         </div>
 
-        <h2>Players</h2>
-        + kick
+        <h2>Decks</h2>
+        <div class="row">
+            <div class="col-xs-4">
+                <h3>Base sets</h3>
+                <ul>
+                    {{#each game.sets}}
+                        <li>
+                            <a href="/info/cards?set={{id}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
 
-        <h2>State</h2>
+            <div class="col-xs-4">
+                <h3>Expansions</h3>
+                <ul>
+                    {{#each game.expansions}}
+                        <li>
+                            <a href="/info/cards?expansion={{id}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="players">Players</h2>
+        <ul>
+            {{#each game.players}}
+                <li>
+                    <a href="/admin/user/{{user.id}}">
+                        {{user.name}}
+                    </a>
+                    {{#ifCond game.state '==' GameState.PLAYING}}
+                        - {{score}} points
+                        {{#ifCond ../../game.czar '==' this}}
+                            - czar
+                        {{/ifCond}}
+                    {{/ifCond}}
+                    {{#ifCond ../game.host '==' user}}
+                        - host
+                    {{/ifCond}}
+                </li>
+            {{/each}}
+        </ul>
+
+        <h2 id="state">State (round {{game.round}})</h2>
+        {{#ifCond game.state '==' GameState.LOBBY}}
+            (in lobby)
+        {{/ifCond}}
+        {{#ifCond game.state '==' GameState.ENDED}}
+            (ended)
+        {{/ifCond}}
+        {{#ifCond game.state '==' GameState.PLAYING}}
+            {{#if game.blackCard}}
+                <div class="card black-card">
+                    <span>{{{game.blackCard.text}}}</span>
+
+                    {{>watermarkIcon}}
+                    <div class="watermark">{{game.blackCard.watermark}}</div>
+                </div>
+            {{/if}}
+        {{/ifCond}}
 
         <h2>hax</h2>
         <ul>

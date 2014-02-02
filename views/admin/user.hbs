@@ -1,7 +1,11 @@
 {{#extend 'layouts/default'}}
 
     {{#replace 'content'}}
-        <h1>Stalking {{prey.name}}</h1>
+        {{#if prey}}
+            <h1>Stalking {{prey.name}}</h1>
+        {{else}}
+            <h1>Stalking {{preyDB.name}}</h1>
+        {{/if}}
 
         <h2>Overview</h2>
 
@@ -43,12 +47,21 @@
         </div>
 
         <h2>Games</h2>
-        {{#each games}}
+        {{#if games}}
+            <ul>
+                {{#each games}}
+                    <li>
+                        <a href="/admin/game/{{id}}">
+                            {{name}}
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
         {{else}}
             <div class="alert alert-info">
                 User is not playing
             </div>
-        {{/each}}
+        {{/if}}
     {{/replace}}
 
     {{#append 'defer'}}
