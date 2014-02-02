@@ -5,6 +5,7 @@ var Model = require('../lib/model');
 var Game = require('../lib/game');
 var Users = require('../lib/users');
 var Settings = require('../lib/settings');
+var Constants = require('../lib/constants');
 var os = require('os');
 
 var index = function (req, res) {
@@ -33,6 +34,16 @@ var user = function (req, res) {
     var id = parseInt(req.params.user);
     var prey = Users.get(id);
 
+    var games = [];
+
+    if (prey) {
+        games = _.filter(Game.listGames(), function (game) {
+            return _.any(game.players, function (player) {
+                return player.user.id == id;
+            });
+        });
+    }
+
     Model.User.get(id, function (err, preyDB) {
         if (!prey && !preyDB) {
             req.flash('error', 'User not found');
@@ -41,8 +52,8 @@ var user = function (req, res) {
         }
 
         res.render('admin/user', {
-            title: 'Stalking ' + prey ? prey.name : preyDB.name,
-            prey: prey, preyDB: preyDB
+            title: 'Stalking ' + (prey ? prey.name : preyDB.name),
+            prey: prey, preyDB: preyDB, games: games
         });
     });
 };
@@ -57,7 +68,8 @@ var game = function (req, res) {
 
     res.render('admin/game', {
         title: 'Stalking ' + game.name,
-        game: game
+        game: game,
+        GameState: Constants.Game.State
     });
 };
 

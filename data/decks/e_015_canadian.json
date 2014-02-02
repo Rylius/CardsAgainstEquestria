@@ -1,7 +1,7 @@
 {
     "name": "Canadian",
     "description": "Cards included in Canadian orders.",
-    "watermark": "CAN",
+    "watermark": "Canadian",
     "expansion": true,
     "blackCards": [
         {

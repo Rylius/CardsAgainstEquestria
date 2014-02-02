@@ -146,7 +146,10 @@
                 <tbody data-bind="foreach: games">
                 <tr>
                     <td data-bind="text: id"></td>
-                    <td data-bind="text: name"></td>
+
+                    <td>
+                        <a href="#" data-bind="attr: { href: '/admin/game/' + id }, text: name">&nbsp;</a>
+                    </td>
 
                     <td>
                         <span data-bind="text: players.length"></span>
