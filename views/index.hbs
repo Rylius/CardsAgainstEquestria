@@ -89,14 +89,14 @@
         <script>
             $.ajaxSetup({cache: false});
 
-            {{#if user}}
+                {{#if user}}
                 $(window).bind('beforeunload', function () {
                     interruptChatListen();
                 });
 
                 var chat = initChat({id: {{user.id}}, name: '{{user.name}}'}, $('#chat-global').find('> ul'));
                 ko.applyBindings(chat);
-            {{/if}}
+                {{/if}}
 
             var $name = $('#name');
             $name.val($.cookie('name'));
