@@ -59,7 +59,7 @@ var user = function (req, res) {
 };
 
 var game = function (req, res) {
-    var game = Game.listGames()[req.params.game];
+    var game = Game.get(req.params.game);
     if (!game) {
         req.flash('error', 'Game not found');
         res.redirect('/admin');

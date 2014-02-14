@@ -1,5 +1,12 @@
 [
     {
+        "date": "Feb 14, 2014",
+        "version": "1.0.0",
+        "changes": [
+            "We're live!"
+        ]
+    },
+    {
         "date": "Jan 30, 2014",
         "version": "0.5.5 / 0.5.6",
         "changes": [
