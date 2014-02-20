@@ -169,7 +169,7 @@
             "pick": 1
         },
         {
-            "text": "Beep Beep. I'm a _____",
+            "text": "Beep Beep. I'm _____",
             "pick": 1
         },
         {
@@ -637,7 +637,7 @@
             "pick": 1
         },
         {
-            "text": "Tonight on Sketchy's Live Songcast - Sketchy has trouble with giant ____________.",
+            "text": "Tonight on Sketchy's Live Songcast - Sketchy has trouble with ____________.",
             "pick": 1
         },
         {
@@ -860,7 +860,7 @@
         "Stickpony",
         "Suck my horn!",
         "Suck my primaries!",
-        "Suprise buttsex!",
+        "Surprise buttsex!",
         "Sweetiebelle's Viagra stash",
         "Talia",
         "Tara Strong, in another VA role",
@@ -1178,6 +1178,7 @@
         "Sketchy's enormous instrument.",
         "Wolfjob",
         "Dark Aura",
-        "Hennet's Butt Pimple"
+        "Hennet's Butt Pimple",
+        "Heat_Wave's masturbating birds."
     ]
 }
