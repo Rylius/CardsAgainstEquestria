@@ -1,5 +1,12 @@
 [
     {
+        "date": "Feb 24, 2014",
+        "version": "1.0.2",
+        "changes": [
+            "Hopefully fixed another crash bug"
+        ]
+    },
+    {
         "date": "Feb 20, 2014",
         "version": "1.0.1",
         "changes": [

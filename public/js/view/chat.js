@@ -96,14 +96,14 @@ function ChatViewModel() {
             $.ajax('/ajax/game/' + this.gameId() + '/chat', {
                 method: 'post', data: message.toJSON(),
                 error: function () {
-                    self.showError('Your message somehow got lost! 6_9 send it again maybe?');
+                    self.showError('Your message got lost somehow! 6_9 send it again maybe?');
                 }
             });
         } else {
             $.ajax('/ajax/chat/post', {
                 method: 'post', data: message.toJSON(),
                 error: function () {
-                    self.showError('Your message somehow got lost! 6_9 send it again maybe?');
+                    self.showError('Your message got lost somehow! 6_9 send it again maybe?');
                 }
             });
         }
@@ -123,6 +123,15 @@ function ChatViewModel() {
         error.message(message);
 
         this.history.push(error);
+    };
+
+    this.showSystemMessage = function (message) {
+        var msg = new ChatMessageViewModel();
+        msg.type(Date.now());
+        msg.type(Chat.GAME_MESSAGE);
+        msg.message(message);
+
+        this.history.push(msg);
     };
 
     var scrollHistory = function () {
