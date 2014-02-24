@@ -461,6 +461,10 @@ var PlayViewModel = function (game, player) {
             case Game.Server.Update.GAME_DATA:
                 console.log('Game data updated: ' + JSON.stringify(data));
 
+                if (this.game() && this.game().host.id != data.host.id) {
+                    this.chat().showSystemMessage(data.host.name + ' is the new game host');
+                }
+
                 this.game(data);
 
                 break;

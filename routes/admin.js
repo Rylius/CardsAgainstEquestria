@@ -74,7 +74,7 @@ var game = function (req, res) {
 };
 
 var users = function (req, res) {
-    Model.User.find({}, function (err, result) {
+    Model.User.find({}, 'id', function (err, result) {
         if (err) {
             log.warn('/admin/users: ' + err);
             req.flash('Failed to list users');
