@@ -26,7 +26,8 @@ var index = function (req, res) {
         }),
         memory: JSON.stringify(process.memoryUsage()),
         os: os,
-        appSettings: JSON.stringify(Settings)
+        appSettings: JSON.stringify(Settings),
+        gameId: Game.getGameId()
     });
 };
 

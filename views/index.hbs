@@ -11,6 +11,20 @@
             </p>
         </noscript>
 
+        {{#if user}}
+            <a href="/game/create">
+                <h2 class="button-play">
+                    <span class="glyphicon glyphicon-plus"></span>&nbsp;Host
+                </h2>
+            </a>
+        {{/if}}
+
+        <a href="/games">
+            <h2 class="button-play">
+                <span class="glyphicon glyphicon-ok"></span>&nbsp;Play
+            </h2>
+        </a>
+
         {{#unless user}}
             <h2>Login</h2>
 
@@ -35,20 +49,6 @@
                 <input type="submit" value="Login">
             </form>
         {{/unless}}
-
-        {{#if user}}
-            <a href="/game/create">
-                <h2 class="button-play">
-                    <i class="glyphicon glyphicon-plus"></i>&nbsp;Host
-                </h2>
-            </a>
-
-            <a href="/games">
-                <h2 class="button-play">
-                    <i class="glyphicon glyphicon-ok"></i>&nbsp;Play
-                </h2>
-            </a>
-        {{/if}}
 
         <h2>Changes</h2>
         {{#each changes}}
