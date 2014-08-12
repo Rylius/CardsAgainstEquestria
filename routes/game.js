@@ -30,18 +30,23 @@ var list = function (req, res) {
  * Renders the game setup view.
  */
 var create = function (req, res) {
+    var user = req.session.user ? users.get(req.session.user.id) : null;
     var errors = [];
 
+    var userGames = game.listGamesForUser(user);
+    if (userGames.length >= Settings.maxGamesPerUser) {
+        errors.push('You\'re already hosting a lot of games, finish or leave those first!');
+    }
     if (game.listGames().length >= Settings.maxGames) {
-        errors.push('Maximum number of games reached.');
+        errors.push('Woops, looks like there are too many games currently running! Maybe join one of them instead?');
     }
     if (!Settings.allowNewGames) {
-        errors.push('Currently no new games are allowed.')
+        errors.push('Silly admin has disabled this right now. The site will probably go into maintenance soon, try again later.');
     }
 
     res.render('game/create', {
         title: 'Host a new game',
-        errors: errors
+        errors: errors, userGames: userGames
     });
 };
 

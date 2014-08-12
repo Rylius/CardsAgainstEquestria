@@ -12,6 +12,7 @@
 
     "settings": {
         "maxGames": 200,
+        "maxGamesPerUser": 2,
         "allowNewGames": true
     },
 

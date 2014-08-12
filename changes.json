@@ -4,7 +4,8 @@
         "version": "1.0.3",
         "changes": [
             "Replaced chat input method, should fix issues on mobile devices",
-            "Added Fluffle Puff theme!"
+            "Added Fluffle Puff theme!",
+            "Added maximum number of hosted games per player (2 for now). You can still join as many games as you like"
         ]
     },
     {
