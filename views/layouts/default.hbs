@@ -30,23 +30,32 @@
         </div>
 
         <div>
-            {{#if user}}
-                <ul class="nav navbar-nav">
-                    {{#block 'navLeft'}}
-                        <li>
-                            <a href="/games">Join</a>
-                        </li>
+            <ul class="nav navbar-nav">
+                {{#block 'navLeft'}}
+                    <li>
+                        <a href="/games">Join</a>
+                    </li>
 
+                    {{#if user}}
                         <li>
                             <a href="/game/create">Create</a>
                         </li>
-                    {{/block}}
-                </ul>
-            {{/if}}
+                    {{/if}}
+                {{/block}}
+            </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 {{#block 'navRight'}}
                     {{#if user}}
+                        {{#unless user.registered}}
+                            <li>
+                                <p class="navbar-text">
+                                    Register your name or change the theme
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                </p>
+                            </li>
+                        {{/unless}}
+
                         {{#if user.admin}}
                             <li>
                                 <a href="/admin">Administration</a>
@@ -109,6 +118,8 @@
     </div>
 
     <div class="container">
+
+        {{> cookieNotice}}
 
         <!--[if lt IE 8]>
         <div class="alert alert-danger">
@@ -202,6 +213,12 @@
         </script>
     {{/if}}
 {{/block}}
+
+<script>
+    if (!$.cookie('cookieNoticeRead')) {
+        $('#cookie-notice').show();
+    }
+</script>
 
 </body>
 </html>

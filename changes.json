@@ -5,7 +5,10 @@
         "changes": [
             "Replaced chat input method, should fix issues on mobile devices",
             "Added Fluffle Puff theme!",
-            "Added maximum number of hosted games per player (2 for now). You can still join as many games as you like"
+            "Added maximum number of hosted games per player (2 for now). You can still join as many games as you like",
+            "Added pointless European cookie notice",
+            "Game list no longer requires a login",
+            "Hid password field on login"
         ]
     },
     {

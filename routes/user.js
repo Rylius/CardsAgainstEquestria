@@ -21,6 +21,7 @@ var login = function (req, res) {
         if (result.success) {
             res.locals.user = req.session.user;
             req.flash('success', result.success);
+            req.flash('loginFailed', false);
             if (req.body.redirect) {
                 res.redirect(req.body.redirect);
             } else {
@@ -29,6 +30,7 @@ var login = function (req, res) {
         } else {
             req.flash('loginRedirect', req.body.redirect);
             req.flash('error', result.error);
+            req.flash('loginFailed', true);
             res.redirect('/');
         }
     });

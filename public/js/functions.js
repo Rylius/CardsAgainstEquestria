@@ -10,6 +10,11 @@ function saveName(name) {
     $.cookie('name', name, {expires: 3650, path: '/'});
 }
 
+function hideCookieNotice() {
+    $.cookie('cookieNoticeRead', true, {expires: 3650, path: '/'});
+    $('#cookie-notice').remove();
+}
+
 window.currentChatListenRequest = null;
 
 function initChat(user, $historyElement, $inputElement) {

@@ -40,6 +40,8 @@ hbs.handlebars.registerPartial('derp2', fs.readFileSync(__dirname + '/views/util
 hbs.handlebars.registerPartial('globalChat', fs.readFileSync(__dirname + '/views/chat/chat.hbs', 'utf8'));
 hbs.handlebars.registerPartial('chatMessage', fs.readFileSync(__dirname + '/views/chat/message.hbs', 'utf8'));
 
+hbs.handlebars.registerPartial('cookieNotice', fs.readFileSync(__dirname + '/views/util/cookie_notice.hbs', 'utf8'));
+
 hbs.handlebars.registerPartial('watermarkIcon', fs.readFileSync(__dirname + '/views/util/watermark_icon.hbs', 'utf8'));
 
 require('./lib/helpers/input')(hbs);
@@ -115,7 +117,9 @@ app.use(function (req, res, next) {
 });
 
 var ajaxAuth = function (req, res, next) {
-    if (req.path != '/ajax/user/login' && req.path.indexOf('/ajax/') == 0 && !req.session.user) {
+    if (req.path != '/ajax/user/login'
+        && req.path != '/ajax/game/list'
+        && req.path.indexOf('/ajax/') == 0 && !req.session.user) {
         res.send(403);
         return;
     }
@@ -125,8 +129,9 @@ var ajaxAuth = function (req, res, next) {
 
 var auth = function (req, res, next) {
     if (!req.session.user
-        && !_.contains(['/', '/user/login', '/ajax/user/login'], req.path)
+        && !_.contains(['/', '/user/login', '/ajax/user/login', '/ajax/game/list'], req.path)
         && !(/^\/info\/.+/.test(req.path) && req.method == 'GET')
+        && !(/^\/games/.test(req.path) && req.method == 'GET')
         && !(/^\/game\/join\/\d+/.test(req.path) && req.method == 'GET')
         && !(/^\/game\/lobby\/\d+/.test(req.path) && req.method == 'GET')
         && !(/^\/game\/play\/\d+/.test(req.path) && req.method == 'GET')) {

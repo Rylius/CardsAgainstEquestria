@@ -65,9 +65,16 @@
                             </div>
 
                             <div class="button">
-                                <button data-bind="enable: !full() && !$root.loading() && (!passworded() || password()), click: function () { $root.join($data); }">
-                                    Join
-                                </button>
+                                {{#if user}}
+                                    <button data-bind="enable: !full() && !$root.loading() && (!passworded() || password()), click: function () { $root.join($data); }">
+                                        Join
+                                    </button>
+                                {{else}}
+                                    <a data-bind="enable: !full() && !$root.loading(), attr: { href: '/game/join/' + id() }"
+                                       href="#" class="btn btn-default">
+                                        Join
+                                    </a>
+                                {{/if}}
                             </div>
                         </div>
 
@@ -78,10 +85,16 @@
                                     <span class="glyphicon glyphicon-lock"></span>
                                 </label>
 
-                                <div>
-                                    <input type="password" id="password"
-                                           data-bind="value: password, valueUpdate: 'afterkeydown', returnAction: function () { $root.join($data); }, disable: $root.loading">
-                                </div>
+                                {{#if user}}
+                                    <div>
+                                        <input type="password" id="password"
+                                               data-bind="value: password, valueUpdate: 'afterkeydown', returnAction: function () { $root.join($data); }, disable: $root.loading">
+                                    </div>
+                                {{else}}
+                                    <div>
+                                        <input type="text" id="password" disabled value="Password required">
+                                    </div>
+                                {{/if}}
                             </div>
                         </div>
                         <!-- /ko -->
@@ -103,12 +116,14 @@
             $(function () {
                 $.ajaxSetup({cache: false});
 
-                $(window).bind('beforeunload', function () {
-                    interruptChatListen();
-                });
+                {{#if user}}
+                    $(window).bind('beforeunload', function () {
+                        interruptChatListen();
+                    });
 
-                var $globalChat = $('#chat-global');
-                initChat({id: {{user.id}}, name: '{{user.name}}'}, $globalChat.find('> .history'), $globalChat.find('input[type="text"]'));
+                    var $globalChat = $('#chat-global');
+                    initChat({id: {{user.id}}, name: '{{user.name}}'}, $globalChat.find('> .history'), $globalChat.find('input[type="text"]'));
+                {{/if}}
 
                 model = new GameListViewModel({{{sets}}});
                 ko.applyBindings(model);

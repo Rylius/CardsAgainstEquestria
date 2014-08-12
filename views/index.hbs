@@ -17,8 +17,6 @@
             <p>
                 You will not be able to play without logging in.<br/>
                 Logging in is free and painless - just select a name!
-                <br/>
-                <strong>A password is only required if you registered your name.</strong>
             </p>
 
             <form autocomplete="on" method="post" id="login" action="/user/login" class="form-inline">
@@ -27,7 +25,7 @@
                     <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" {{#unless loginFailed}}style="display: none;"{{/unless}}>
                     <label class="sr-only" for="password">Password:</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
