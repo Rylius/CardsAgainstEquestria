@@ -297,7 +297,8 @@
                     $(this).tab('show');
                 });
 
-                initChat({{{userJson}}}, $('#chat-global').find('> ul'));
+                var $globalChat = $('#chat-global');
+                initChat({{{userJson}}}, $globalChat.find('> .history'), $globalChat.find('input[type="text"]'));
 
                 model = new PlayViewModel({{{gameJson}}}, {{{userJson}}});
                 ko.applyBindings(model);

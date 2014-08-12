@@ -40,6 +40,20 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-xs-4">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        Game ID: <span data-bind="text: gameId"></span>
+                    </div>
+                    <div class="list-group-item">
+                        Muffins?
+                    </div>
+                    <div class="list-group-item">
+                        Muffins!
+                    </div>
+                </div>
+            </div>
         </div>
 
         <h2>Maintenance</h2>
@@ -166,7 +180,7 @@
     {{#append 'defer'}}
         <script>
             $(function () {
-                model = new AdminViewModel({{{process}}}, {{{memory}}}, {{{users}}}, {{{games}}}, {{{appSettings}}});
+                model = new AdminViewModel({{{process}}}, {{{memory}}}, {{{users}}}, {{{games}}}, {{{appSettings}}}, {{gameId}});
                 ko.applyBindings(model);
 
                 setInterval(function () {

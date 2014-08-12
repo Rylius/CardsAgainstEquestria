@@ -10,9 +10,10 @@
                         {{{this}}}
                     </p>
                 {{/each}}
-                <p class="has-error">
-                    Please join an existing game or wait until others finish playing.
-                </p>
+
+                <a href="/games">
+                    Join another game
+                </a>
             {{else}}
                 <p>
                     Create your own game and invite people to join you! Yay!
@@ -22,6 +23,22 @@
             {{#unless errors}}
                 <input type="submit" id="submit" value="Create game">
             {{/unless}}
+
+            {{#if userGames}}
+                <br/><br/>
+
+                <h4>
+                    Can't find your own games anymore? Silly. Here, have a list:
+                </h4>
+
+                <ul>
+                    {{#each userGames}}
+                        <li>
+                            <a href="/game/join/{{id}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
         </form>
         <br/>
     {{/replace}}

@@ -1,4 +1,4 @@
-function AdminViewModel(process, memory, users, games, settings) {
+function AdminViewModel(process, memory, users, games, settings, gameId) {
 
     var self = this;
 
@@ -14,6 +14,8 @@ function AdminViewModel(process, memory, users, games, settings) {
     this.rss = ko.observable(memory.rss);
     this.heapTotal = ko.observable(memory.heapTotal);
     this.heapUsed = ko.observable(memory.heapUsed);
+
+    this.gameId = ko.observable(gameId);
 
     this.users = ko.observableArray();
     _.each(users, function (user) {

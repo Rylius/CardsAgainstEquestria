@@ -10,12 +10,18 @@ function saveName(name) {
     $.cookie('name', name, {expires: 3650, path: '/'});
 }
 
+function hideCookieNotice() {
+    $.cookie('cookieNoticeRead', true, {expires: 3650, path: '/'});
+    $('#cookie-notice').remove();
+}
+
 window.currentChatListenRequest = null;
 
-function initChat(user, $historyElement) {
+function initChat(user, $historyElement, $inputElement) {
     var chat = new ChatViewModel();
 
     chat.user(user);
+    chat.inputElement($inputElement);
     chat.historyElement($historyElement);
 
     window.globalChat = chat;

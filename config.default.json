@@ -12,6 +12,7 @@
 
     "settings": {
         "maxGames": 200,
+        "maxGamesPerUser": 2,
         "allowNewGames": true
     },
 
@@ -31,6 +32,11 @@
             "name": "Luna",
             "id": "luna",
             "file": "luna"
+        },
+        {
+            "name": "Fluffle Puff",
+            "id": "flufflepuff",
+            "file": "flufflepuff"
         }
     ],
     "defaultTheme": "derpy",

@@ -426,12 +426,15 @@
                     interruptListen();
                 });
 
-                initChat({{{userJson}}}, $('#chat-global').find('> ul'));
+                var $globalChat = $('#chat-global');
+                initChat({{{userJson}}}, $globalChat.find('> .history'), $globalChat.find('input[type="text"]'));
 
                 model = new GameLobbyViewModel({{{userJson}}});
                 ko.applyBindings(model);
 
-                model.gameChat().historyElement($('#chat-game').find('> ul'));
+                $gameChat = $('#chat-game');
+                model.gameChat().inputElement($gameChat.find('input[type="text"]'));
+                model.gameChat().historyElement($gameChat.find('> .history'));
 
                 $.ajax('/ajax/game/{{{game.id}}}/info', {
                     method: 'get',
