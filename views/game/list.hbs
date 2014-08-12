@@ -107,7 +107,8 @@
                     interruptChatListen();
                 });
 
-                initChat({id: {{user.id}}, name: '{{user.name}}'}, $('#chat-global').find('> ul'));
+                var $globalChat = $('#chat-global');
+                initChat({id: {{user.id}}, name: '{{user.name}}'}, $globalChat.find('> .history'), $globalChat.find('input[type="text"]'));
 
                 model = new GameListViewModel({{{sets}}});
                 ko.applyBindings(model);

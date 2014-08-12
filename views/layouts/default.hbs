@@ -195,7 +195,8 @@
                     interruptChatListen();
                 });
 
-                var chat = initChat({id: {{user.id}}, name: '{{user.name}}'}, $('#chat-global').find('> ul'));
+                var $globalChat = $('#chat-global');
+                var chat = initChat({id: {{user.id}}, name: '{{user.name}}'}, $globalChat.find('> .history'), $globalChat.find('input[type="text"]'));
                 ko.applyBindings(chat);
             });
         </script>

@@ -57,12 +57,11 @@ function ChatViewModel() {
 
     this.gameId = ko.observable(-1);
 
-    this.message = ko.observable('');
-
+    this.inputElement = ko.observable();
     this.historyElement = ko.observable();
 
     this.send = function () {
-        var text = this.message();
+        var text = this.inputElement().val();
         if (!text || text.length == 0) {
             return;
         }
@@ -80,7 +79,7 @@ function ChatViewModel() {
                 console.log('Unknown chat command: ' + text);
                 this.showError('Unknown command: ' + text);
 
-                this.message('');
+                this.inputElement().val('');
 
                 return;
             }
@@ -88,7 +87,7 @@ function ChatViewModel() {
 
         message.message(text);
 
-        this.message(null);
+        this.inputElement().val('');
 
         console.log('Sending chat message: ' + JSON.stringify(message.toJSON()));
 
