@@ -17,6 +17,11 @@ module.exports = function (grunt) {
                 files: {
                     "dist/styles/luna.css": "public/styles/themes/luna/luna.less"
                 }
+            },
+            flufflepuff: {
+                files: {
+                    "dist/styles/flufflepuff.css": "public/styles/themes/flufflepuff/flufflepuff.less"
+                }
             }
         },
         concat: {

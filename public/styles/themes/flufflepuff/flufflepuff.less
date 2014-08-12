@@ -1,0 +1,123 @@
+@import "../../style";
+
+@flufflepuff-body-fill: #ffe5ed;
+@flufflepuff-body-stroke: #ffb2cb;
+@flufflepuff-shadow-fill: #ffb2cb;
+
+@flufflepuff-hair-fill: #ff3a7a;
+@flufflepuff-hair-stroke: #a6254f;
+
+// misc
+
+@body-bg: @flufflepuff-body-fill;
+
+@link-color: @flufflepuff-hair-stroke;
+@link-hover-color: lighten(@flufflepuff-hair-fill, 5%);
+
+@text-color: darken(@navbar-default-bg, 15%);
+
+@headings-small-color: lighten(@text-color, 7.5%);
+
+.help-block {
+  color: @flufflepuff-hair-fill;
+}
+
+@card-white-selected-bg: @flufflepuff-hair-fill;
+
+// navigation
+
+@navbar-border-radius: 0;
+
+@navbar-default-bg: @flufflepuff-body-stroke;
+@navbar-default-link-color: @flufflepuff-hair-fill;
+
+@navbar-default-link-active-color: @flufflepuff-body-fill;
+@navbar-default-link-active-bg: @flufflepuff-hair-fill;
+
+@navbar-default-link-hover-color: @navbar-default-link-active-color;
+@navbar-default-link-hover-bg: @navbar-default-link-active-bg;
+
+@navbar-default-color: darken(greyscale(@flufflepuff-hair-fill), 20%);
+
+@dropdown-bg: @navbar-default-bg;
+@dropdown-divider-bg: @text-color;
+
+@dropdown-link-color: @navbar-default-link-color;
+
+@dropdown-link-hover-color: @navbar-default-link-hover-color;
+@dropdown-link-hover-bg: @navbar-default-link-hover-bg;
+
+@dropdown-link-disabled-color: @navbar-default-color;
+
+// tabs
+
+// active tab
+@nav-tabs-active-link-hover-bg: mix(@flufflepuff-body-fill, @flufflepuff-body-stroke, 80%);
+@nav-tabs-active-link-hover-color: @flufflepuff-hair-fill;
+@nav-tabs-active-link-hover-border-color: @navbar-default-bg;
+
+// other tabs
+@nav-link-hover-bg: @navbar-default-link-hover-bg;
+@nav-tabs-link-hover-border-color: @navbar-default-bg;
+
+@nav-tabs-border-color: @navbar-default-bg;
+
+// buttons
+
+@btn-link-disabled-color: @gray-darker;
+
+@btn-default-color: @flufflepuff-hair-fill;
+@btn-default-bg: @flufflepuff-body-fill;
+@btn-default-border: @flufflepuff-body-stroke;
+
+.btn {
+  color: lighten(@flufflepuff-hair-stroke, 5%);
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    color: desaturate(@flufflepuff-hair-stroke, 10%);
+  }
+}
+
+// misc colors
+
+@brand-danger: #ff0900;
+@brand-success: darken(desaturate(@flufflepuff-body-stroke, 10%), 10%);
+
+@alert-danger-text: @brand-danger;
+@state-danger-text: @brand-danger;
+
+// forms
+
+@input-color: @flufflepuff-hair-fill;
+
+@input-bg: lighten(@flufflepuff-body-fill, 3%);
+@input-bg-disabled: desaturate(@flufflepuff-body-stroke, 20%);
+
+@input-border: lighten(@flufflepuff-body-stroke, 5%);
+@input-border-focus: @flufflepuff-hair-fill;
+
+.form-control {
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    color: @flufflepuff-hair-stroke;
+    cursor: not-allowed;
+    background-color: @input-bg-disabled;
+  }
+}
+
+.input-group-addon {
+  background-color: @input-bg;
+}
+
+// stuff
+
+#chat-global, #chat-game {
+  .history {
+    background-color: @nav-tabs-active-link-hover-bg;
+  }
+}
+
+@card-white-selected-bg: darken(desaturate(@flufflepuff-hair-fill, 5%), 10%);

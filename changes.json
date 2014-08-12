@@ -1,5 +1,13 @@
 [
     {
+        "date": "Aug 12, 2014",
+        "version": "1.0.3",
+        "changes": [
+            "Replaced chat input method, should fix issues on mobile devices",
+            "Added Fluffle Puff theme!"
+        ]
+    },
+    {
         "date": "Feb 24, 2014",
         "version": "1.0.2",
         "changes": [

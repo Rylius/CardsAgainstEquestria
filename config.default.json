@@ -31,6 +31,11 @@
             "name": "Luna",
             "id": "luna",
             "file": "luna"
+        },
+        {
+            "name": "Fluffle Puff",
+            "id": "flufflepuff",
+            "file": "flufflepuff"
         }
     ],
     "defaultTheme": "derpy",
