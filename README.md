@@ -14,6 +14,15 @@ Place in `data/decks`.
 
 See <http://cardsagainstequestria.com/info/license>
 
+## Development
+
+Push to the `development` branch (create if it doesn't exist). Larger features can have their own branch as well and
+should be merged to `development` once they're done. `development` is merged into `master` for releases.
+
+See open issues for stuff to do.
+
+Anyone want to write some tests?
+
 ## Running your own instance
 
 I don't really recommend it.

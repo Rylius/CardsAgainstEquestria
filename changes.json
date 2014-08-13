@@ -3,7 +3,8 @@
         "date": "Aug 13, 2014",
         "version": "1.0.4",
         "changes": [
-            "Fixed game chat"
+            "Fixed game chat",
+            "Prevented crash that sometimes happens in global chat"
         ]
     },
     {
