@@ -4,7 +4,8 @@
         "version": "1.0.4",
         "changes": [
             "Fixed game chat",
-            "Prevented crash that sometimes happens in global chat"
+            "Prevented crash that sometimes happens in global chat",
+            "Added message of the day stuff"
         ]
     },
     {

@@ -56,6 +56,25 @@
             </div>
         </div>
 
+        <h2>Message of the day</h2>
+
+        <div class="admin-inline-form">
+            <div>
+                <div class="row">
+                    <div class="form-group col-xs-7">
+                        <input type="text" class="form-control"
+                               data-bind="value: motd, returnAction: changeMotd, valueUpdate: 'afterkeydown', disable: busy">
+                    </div>
+
+                    <div class="form-group col-xs-5">
+                        <button data-bind="click: changeMotd">
+                            Set
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h2>Maintenance</h2>
 
         <div class="admin-inline-form">
