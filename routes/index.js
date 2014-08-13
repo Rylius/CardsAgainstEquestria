@@ -1,9 +1,10 @@
 var _ = require('underscore');
 var changesData = _.first(require('../changes.json'), 3);
+var Settings = require('../lib/settings');
 
 var index = function (req, res) {
     res.render('index', {
-        changes: changesData
+        changes: changesData, motd: Settings.motd
     });
 };
 

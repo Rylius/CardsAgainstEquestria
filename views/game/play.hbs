@@ -94,6 +94,7 @@
 
                 {{> watermarkIcon}}
                 <div class="watermark" data-bind="text: watermark"></div>
+
                 <!-- ko if: model.move() && model.move().selectionIndex($data) && $parent.blackCard() && $parent.blackCard().pick > 1 -->
                 <span class="selected-index">
                     <span data-bind="text: model.move().selectionIndex($data)"></span>
@@ -303,7 +304,9 @@
                 model = new PlayViewModel({{{gameJson}}}, {{{userJson}}});
                 ko.applyBindings(model);
 
-                model.chat().historyElement($('#chat-game').find('> ul'));
+                $gameChat = $('#chat-game');
+                model.chat().inputElement($gameChat.find('input[type="text"]'));
+                model.chat().historyElement($gameChat.find('> .history'));
 
                 var blockHandCzar = function () {
                     if (model.isCzar()) {

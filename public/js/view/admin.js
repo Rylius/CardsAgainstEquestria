@@ -6,6 +6,8 @@ function AdminViewModel(process, memory, users, games, settings, gameId) {
 
     this.restarting = ko.observable(settings.restarting);
 
+    this.motd = ko.observable(settings.motd);
+
     this.nodeVersion = process.version;
     this.pid = process.pid;
 
@@ -37,6 +39,22 @@ function AdminViewModel(process, memory, users, games, settings, gameId) {
     });
 
     // ajax
+
+    this.changeMotd = function () {
+        self.busy(true);
+        $.ajax('/ajax/admin/motd', {
+            method: 'post',
+            data: {message: self.motd()},
+            success: function () {
+            },
+            error: function (xhr, error, status) {
+                alert('Failed to change MOTD\n' + error + ': ' + status);
+            },
+            complete: function () {
+                self.busy(false);
+            }
+        });
+    };
 
     this.doBroadcast = function () {
         if (!self.broadcastMessage()) {

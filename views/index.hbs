@@ -11,6 +11,12 @@
             </p>
         </noscript>
 
+        {{#if motd}}
+            <div class="alert alert-info">
+                {{{motd}}}
+            </div>
+        {{/if}}
+
         {{#if user}}
             <a href="/game/create">
                 <h2 class="button-play">

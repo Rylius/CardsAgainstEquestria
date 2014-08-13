@@ -11,6 +11,19 @@ var Games = require('../../lib/game');
 var Chat = require('../../lib/chat');
 var MessageType = require('../../lib/constants').Chat;
 
+var motd = function (req, res) {
+    var text = req.body.message;
+    if (text == '') {
+        text = null;
+    }
+
+    log.debug(req.session.user.name + '' + req.session.user.id + ' changed MOTD: ' + text);
+
+    Settings.motd = text;
+
+    res.send(200);
+};
+
 var broadcast = function (req, res) {
     var text = req.body.message;
     if (!text) {
@@ -72,6 +85,7 @@ var settings = function (req, res) {
 module.exports = function (app, appConfig) {
     config = appConfig;
 
+    app.post('/ajax/admin/motd', motd);
     app.post('/ajax/admin/broadcast', broadcast);
     app.post('/ajax/admin/restart', restart);
     app.post('/ajax/admin/settings', settings);
