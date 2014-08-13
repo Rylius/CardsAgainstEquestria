@@ -1,5 +1,12 @@
 [
     {
+        "date": "Aug 13, 2014",
+        "version": "1.0.4",
+        "changes": [
+            "Fixed game chat"
+        ]
+    },
+    {
         "date": "Aug 12, 2014",
         "version": "1.0.3",
         "changes": [
