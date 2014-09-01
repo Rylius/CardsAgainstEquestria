@@ -1,0 +1,547 @@
+{
+    "name": "Regular's Pack",
+    "description": "A perfectly sane expansion by perfectly sane people.",
+    "watermark": "Regulars",
+    "expansion": true,
+    "blackCards": [
+        {
+            "text": "_____ caused Hennet to ragequit. AGAIN.",
+            "pick": 1
+        },
+        {
+            "text": "_____ didn't get the rules. After 4 kicks and a ban.",
+            "pick": 1
+        },
+        {
+            "text": "_____ fangasmed about their fanart of _____.",
+            "pick": 2
+        },
+        {
+            "text": "_____ joined the room to spam _____, then left.",
+            "pick": 2
+        },
+        {
+            "text": "_____ ragequit after _____ posted _____",
+            "pick": 3
+        },
+        {
+            "text": "_____ was never the same after they were mass hugged in chat.",
+            "pick": 1
+        },
+        {
+            "text": "Killa's secret fetish is _______.",
+            "pick": 1
+        },
+        {
+            "text": "Tavy snuggled with _______.",
+            "pick": 1
+        },
+        {
+            "text": "Hourglass was disappointed when he saw _______.",
+            "pick": 1
+        },
+        {
+            "text": "________ Batman is BEST Batman!",
+            "pick": 1
+        },
+        {
+            "text": "________ made a joke about ________ before being banned to the moon.",
+            "pick": 2
+        },
+        {
+            "text": "________ requested Chaotic Harmony to write about ___________.",
+            "pick": 2
+        },
+        {
+            "text": "________ was broken when they saw ________ .",
+            "pick": 2
+        },
+        {
+            "text": "________ broke Nerfley with _________.",
+            "pick": 2
+        },
+        {
+            "text": "_________ sang a song about ________.",
+            "pick": 2
+        },
+        {
+            "text": "_________ was confused with ________ when they wore a dress.",
+            "pick": 2
+        },
+        {
+            "text": "_________ was sleeping on the call while __________ were talking about __________.",
+            "pick": 3
+        },
+
+        {
+            "text": "___________ automatically wins this round.",
+            "pick": 1
+        },
+
+        {
+            "text": "_______. ALL. OVER. EVERYTHING!",
+            "pick": 1
+        },
+        {
+            "text": "______. What did I just walk into?",
+            "pick": 1
+        },
+        {
+            "text": "A Let's react to the new MLP:FiM season left the regulars with a fit of ______",
+            "pick": 1
+        },
+        {
+            "text": "A song about ______ left the chat in tears.",
+            "pick": 1
+        },
+        {
+            "text": "An extreme vector challenge consisted of _____ being drawn in a _______ style.",
+            "pick": 2
+        },
+        {
+            "text": "Archive was banned from EFR for _____________.",
+            "pick": 1
+        },
+        {
+            "text": "Because FUCK _________, that's why.",
+            "pick": 1
+        },
+        {
+            "text": "CH made a blogpost about ____, because it was so amazing.",
+            "pick": 1
+        },
+        {
+            "text": "Cobalt does clop with ______.",
+            "pick": 1
+        },
+        {
+            "text": "Cobalt's next PMV will be _____.",
+            "pick": 1
+        },
+        {
+            "text": "CobaltSky's next blind watch will be of _____.",
+            "pick": 1
+        },
+        {
+            "text": "During the 24-hour Skype call, __________ kept linking __________ .",
+            "pick": 2
+        },
+        {
+            "text": "Ever since ____ and ____ engaged in a steamy RP, the chat has never been the same.",
+            "pick": 2
+        },
+        {
+            "text": "Ever since ____ posted ____ using derpy.me I never trusted their links again.",
+            "pick": 2
+        },
+        {
+            "text": "Hennet paid ________ for a backpack full of ___________.",
+            "pick": 2
+        },
+        {
+            "text": "I really wish I could untype ________.",
+            "pick": 1
+        },
+
+        {
+            "text": "JetGrey found his love when he was shipped with ______.",
+            "pick": 1
+        },
+        {
+            "text": "JetGrey's latest plan to take over Equestria involved using ________",
+            "pick": 1
+        },
+        {
+            "text": "Killagouge made a drawing of ___________.",
+            "pick": 1
+        },
+        {
+            "text": "Needs more _________.",
+            "pick": 1
+        },
+        {
+            "text": "NEVER click links in a conversation about _________",
+            "pick": 1
+        },
+        {
+            "text": "Nobody expected Vegeta to read _____",
+            "pick": 1
+        },
+        {
+            "text": "OneTrick joined onto the #EFR to find Brotherpunk posting links about ________ .",
+            "pick": 1
+        },
+        {
+            "text": "Recently Kim has started following a blog about ______",
+            "pick": 1
+        },
+        {
+            "text": "Seto made a drawing of ___________.",
+            "pick": 1
+        },
+        {
+            "text": "Suddenly, _____ was eaten by Nightmare Moon.",
+            "pick": 1
+        },
+        {
+            "text": "Tavy licks _______.",
+            "pick": 1
+        },
+        {
+            "text": "There are only two reasons to join the IRC: _______ and _______.",
+            "pick": 2
+        },
+        {
+            "text": "When no one was looking, Deft Hoof stole ____________. And that's terrible.",
+            "pick": 1
+        },
+        {
+            "text": "While playing Banned From Equestria (Daily), Parchment Scroll saw __________ doing __________.",
+            "pick": 2
+        },
+        {
+            "text": "Soundspeed is secretly a _____.",
+            "pick": 1
+        },
+        {
+            "text": "Soundspeed secretly loves when his fans _______.",
+            "pick": 1
+        },
+        {
+            "text": "What is Soundspeed's favorite past-time?",
+            "pick": 1
+        },
+        {
+            "text": "Would the real __________ please ________?",
+            "pick": 2
+        },
+        {
+            "text": "Hennet's backpack full of _______.",
+            "pick": 1
+        },
+        {
+            "text": "_______ got banned from the channel for ________.",
+            "pick": 2
+        },
+        {
+            "text": "______ should be the next popular anime.",
+            "pick": 1
+        },
+        {
+            "text": "______ randomly did _______ in last night’s Skype call.",
+            "pick": 2
+        },
+        {
+            "text": "Today Seto will be scribbling _______.",
+            "pick": 1
+        },
+        {
+            "text": "One night Killa was alone and then _____ happened.",
+            "pick": 1
+        },
+        {
+            "text": "This White Card needs to be a Black Card.",
+            "pick": 1
+        },
+        {
+            "text": "______ kept doing _______ in our last Skype call.",
+            "pick": 2
+        },
+        {
+            "text": "Who does this Card Czar resemble?",
+            "pick": 1
+        },
+        {
+            "text": "______ is why I don't have ______.",
+            "pick": 2
+        },
+        {
+            "text": "______ can't sing for shit!",
+            "pick": 1
+        },
+        {
+            "text": "___________.",
+            "pick": 1
+        },
+        {
+            "text": "______ vs ______.",
+            "pick": 2
+        },
+        {
+            "text": "New shipping made: _______ x _______.",
+            "pick": 2
+        },
+        {
+            "text": "Vigilant is going to fly _______ and ________ with him to Bronycon this year.",
+            "pick": 2
+        },
+        {
+            "text": "What is FlutterDashie's favorite ship?",
+            "pick": 2
+        },
+        {
+            "text": "_______ pls.",
+            "pick": 1
+        },
+        {
+            "text": "Put Godcard Here.",
+            "pick": 1
+        },
+        {
+            "text": "_______ has no more potential anymore.",
+            "pick": 1
+        },
+        {
+            "text": "/me glomps ________.",
+            "pick": 1
+        },
+        {
+            "text": "Vigilant is Watching ________.",
+            "pick": 1
+        },
+        {
+            "text": "_______ and _______ got into a slimy Nutella RP.",
+            "pick": 2
+        },
+        {
+            "text": "_______ poni.",
+            "pick": 1
+        },
+        {
+            "text": "NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA.",
+            "pick": 1
+        },
+        {
+            "text": "_____ has no power here.",
+            "pick": 1
+        },
+        {
+            "text": "Brotherpunk shared a link of ________.",
+            "pick": 1
+        },
+        {
+            "text": "You there, boy! What day is this? Why Sir it's ______ Day!",
+            "pick": 1
+        },
+
+        {
+            "text": "Why can't we have nice things?",
+            "pick": 1
+        },
+        {
+            "text": "When I'm sitting on the toilet I like to think about ________",
+            "pick": 1
+        },
+        {
+            "text": "Tonight on Sketchy's Live Songcast - Sketchy has trouble with ____________.",
+            "pick": 1
+        },
+        {
+            "text": "DarkAura was shocked to find Hennet traded his _______ for _______.",
+            "pick": 2
+        },
+        {
+            "text": "When BrotherPunk isn't busy being Polish, he enjoys _______.",
+            "pick": 1
+        },
+        {
+            "text": "What does the regulars' chatroom smell like?",
+            "pick": 1
+        },
+        {
+            "text": "Tonight on Brony Breakdown, Saberspark interviews _____ about ______.",
+            "pick": 2
+        },
+        {
+            "text": "Flashy licks ________.",
+            "pick": 1
+        },
+        {
+            "text": "When JetGrey unveiled his newest invention, no one thought it would be ________.",
+            "pick": 1
+        }
+    ],
+    "whiteCards": [
+        "!hug for everypony.",
+        "'Murica!",
+        "Fuck you guys!!",
+        "A Tavy hug-tackle.",
+        "An inside joke.",
+        "Another 24-hour Skype call.",
+        "Archive's shit vector of the Mane 6",
+        "ARGLEBARGLE!",
+        "Ban hammer.",
+        "Banned by DerpyBot.",
+        "BASS CANNON!",
+        "Batmare.",
+        "Because I'm evil.",
+        "Botabuse.",
+        "BRITISH!!",
+        "BrotherPunk.",
+        "By a remote tarantula.",
+        "Canternet.",
+        "Chaotic Harmony's latest sadfic.",
+        "Chaotic-Harmony.",
+        "Chibi-Ponies.",
+        "Cobalt's bigger, bluer, raging wingboner.",
+        "Cobalt's raging wingboner.",
+        "CobaltSky.",
+        "Coding advice from Rylius.",
+        "Mike Coltfield's goldfish.",
+        "Crouching-Brony hidden clopfics.",
+        "Cursing at Ponyscape.",
+        "Dan vs. FiM.",
+        "DarkAura's 'special' script.",
+        "De-railed conversation.",
+        "Dinky using !lullabye immediately upon being woken for school.",
+        "DUHR DUHR DUHR DUHR.",
+        "ERRDURDURDURDURDURDURDURDURDURDURDURDURDURDUR.",
+        "Elmer Fudd reading a clopfic.",
+        "Falling asleep in a Skype call.",
+        "GET IN THE DAMN CALL!",
+        "Ginger Sparkle.",
+        "GingerBread's mirror friend.",
+        "Hennet's backpack o' porn.",
+        "Hennet's bike.",
+        "Hennet's ME time.",
+        "Hhhhrrrrrrrnnggggg!",
+        "Hisha.",
+        "Hyde.",
+        "JetGrey's hidden clop fic.",
+        "JetGrey.",
+        "JetGrey's latest invention...",
+        "Killa's hairy chest.",
+        "Killa's watching you clop.",
+        "Kittuns in bags.",
+        "Monty Python's Fish-Slapping dance.",
+        "Muppet.",
+        "P0n3-Bot.",
+        "Parchie's closet harem.",
+        "Parchie's collection of AJ porn.",
+        "Parchment.",
+        "PARCHY-FLAIL.",
+        "Parchys clop-fic couriers, you want it, we ship it.",
+        "Princess Twilight.",
+        "Regular Ordinary Swedish Meal Time.",
+        "Right into the Crystal Empire.",
+        "Riiiiiiiiiiice crackers!",
+        "Seto.",
+        "Seto's encrypted clop-pics.",
+        "She move the fader back and forth! She move the fader back and forth!",
+        "Skipsy.",
+        "Stickpony.",
+        "Talia.",
+        "Tavy.",
+        "Tavy's best ending ever!",
+        "The CAC drinking game. VALUE!!!",
+        "THE ROYAL MODERATOR VOICE!!!!",
+        "The Sketchy Sounds live songcast drinking game.",
+        "Tihan.",
+        "Tree fiddy.",
+        "Twilight's trout.",
+        "Vigilant Watch.",
+        "Dark Aura, aka, Spitfire, aka, Thunderlane, aka, Flim, aka, Iron Will, aka, Shining Armor, aka...",
+        "Booty booty booty booty rockin everywhere!",
+        "Soundspeed.",
+        "Soundspeed's mediocre fanfiction readings.",
+        "Soundspeed's not so secret Applejack shrine .",
+        "Soundspeed and Cobalt's not so subtle bromance.",
+        "Twilight_Sparkle[NLR]'s fangasms.",
+        "Rarity Vs. Giant Crab.",
+        "Becca.",
+        "ISky's raging blue penis.",
+        "BrotherPunk.",
+        "Ikea Pony.",
+        "Making random voice impersonations in a Skype call.",
+        "Special time with Sketchy.",
+        "Araxnus.",
+        "Archive.",
+        "Ajax.",
+        "Kutos's Vibrating Chair.",
+        "Heat Wave's Hiiiiii.",
+        "Heat Wave's Birds.",
+        "Kutos.",
+        "Wayne Brady.",
+        "FlutterDashie.",
+        "Hennet303.",
+        "A Skype call so intense it overheats Twilight's computer.",
+        "Hishalicious.",
+        "Shirtless Skype Call.",
+        "Heat Wave's Thunder Typing.",
+        "FlutterDashie and Kutos Tulpae.",
+        "KutosSly.",
+        "Rylius.",
+        "Seto[NLR].",
+        "Talia.",
+        "ISky.",
+        "Flashy.",
+        "PvtChaos[NLR].",
+        "Gims.",
+        "One-Trick.",
+        "Lycan.",
+        "Killa's Girlfriend.",
+        "Finnfinn.",
+        "Tihan.",
+        "Zeta.",
+        "BerryPunch.",
+        "Eywind.",
+        "Niblitz.",
+        "Snowblitz.",
+        "DISRESPECT YOUR SURROUNDINGS!",
+        "Betty Crocker.",
+        "Infinite.",
+        "Snap_Shot.",
+        "Mike_Coltfield's goldfish.",
+        "Plushling[NLR].",
+        "Hisha_The_Unicorn.",
+        "Seto and Talia Ship.",
+        "Tavying.",
+        "Cuddly Rylius Pone.",
+        "Orange Fluffy Seto Pone.",
+        "Mudfish.",
+        "Seto's enchanted clopfics.",
+        "Trout.",
+        "Kibbles.",
+        "Vig Rickman.",
+        "Soundspeed's 'bugging' fly.",
+        "Using !eightball for important life decisions.",
+        "IM NIGHTMAREMOON! NIGHTMAREMOON!",
+        "Sketchy's Drinking Game.",
+        "Sketchy Sounds.",
+        "EightTrack.",
+        "Final Draft.",
+        "Nash.",
+        "One-Trick.",
+        "Sketchy's Cup.",
+        "Heat Wave.",
+        "Putting kittuns in bags.",
+        "Dev_Nights.",
+        "One-Trick's beer fueled truck.",
+        "One-Trick Nation.",
+        "DerpyBot.",
+        "DinkyBot.",
+        "Heat_Wave's meateating birds.",
+        "Singing on Skype.",
+        "Coding while picking your nose with your toe.",
+        "A New Skype Group.",
+        "Twilight[NLR]'s Trout.",
+        "Twilight[NLR]'s \"Trout\".",
+        "Sketchy's mandolin.",
+        "Killagouge's profanity-laden rants.",
+        "Pokeymans.",
+        "Bethiebo's expert flufflegasping.",
+        "EFN Regulars: The Movie.",
+        "Abandoned warehouses.",
+        "James Corck's cork collection.",
+        "Seto's Livestream.",
+        "Sketchy's enormous instrument.",
+        "Dark Aura.",
+        "Hennet's Butt Pimple.",
+        "Heat_Wave's masturbating birds.",
+        "Changeling_Derpy.",
+        "Sharing Pussy™ with all your friends.",
+        "A can of juicy Pussy™.",
+        "Lycan’s Applebloom fetish.",
+        "Lycan’s special Applebloom plushie."
+    ]
+}
