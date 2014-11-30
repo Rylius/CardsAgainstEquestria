@@ -108,8 +108,8 @@ var GameLobbyViewModel = function (user) {
             }
         );
 
-        // This is hacky at best, let's try and do it better later...
-        $('title').text(ko.toJSON(self.game()).name + ' - Cards Against Equestria');
+        // FIXME This is hacky at best, let's try and do it better later...
+        $('title').text(self.game().name() + ' - Cards Against Equestria');
     };
 
     this.kick = function (player) {
@@ -137,6 +137,8 @@ var GameLobbyViewModel = function (user) {
             this.sendUpdates(false);
             this.game().fromJson(data);
             this.sendUpdates(true);
+
+            // FIXME cleanup title change
             $('title').text(data.name + ' - Cards Against Equestria');
         } else if (type == Game.Server.Update.CHAT) {
             if (data.user) {
