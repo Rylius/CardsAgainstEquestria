@@ -107,6 +107,9 @@ var GameLobbyViewModel = function (user) {
                 data: ko.toJSON(self.game())
             }
         );
+
+        // This is hacky at best, let's try and do it better later...
+        $('title').text(ko.toJSON(self.game()).name + ' - Cards Against Equestria');
     };
 
     this.kick = function (player) {
@@ -134,7 +137,7 @@ var GameLobbyViewModel = function (user) {
             this.sendUpdates(false);
             this.game().fromJson(data);
             this.sendUpdates(true);
-
+            $('title').text(data.name + ' - Cards Against Equestria');
         } else if (type == Game.Server.Update.CHAT) {
             if (data.user) {
                 console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);

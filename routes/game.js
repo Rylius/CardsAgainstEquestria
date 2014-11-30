@@ -22,7 +22,10 @@ var reply = function (res, status, data) {
 };
 
 var list = function (req, res) {
-    res.render('game/list', {sets: cards.setsJson});
+    res.render('game/list', {
+        title: 'Game list',
+        sets: cards.setsJson
+    });
 };
 
 /**
@@ -72,6 +75,7 @@ var lobby = function (req, res) {
         res.redirect('/game/play/' + g.id);
     } else if (g.state == constants.State.LOBBY) {
         res.render('game/lobby', {
+            title: g.name,
             scoreLimits: _.range(3, 21), defaultScore: 8,
             playerLimits: _.range(3, 17), defaultPlayers: 12,
             roundTimeLimits: [0, 60, 90, 120, 150, 180], defaultRoundTimeLimit: 60,
