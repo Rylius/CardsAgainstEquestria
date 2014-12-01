@@ -17,7 +17,7 @@ var motd = function (req, res) {
         text = null;
     }
 
-    log.debug(req.session.user.name + '' + req.session.user.id + ' changed MOTD: ' + text);
+    log.debug(req.session.user.name + '/' + req.session.user.id + ' changed MOTD: ' + text);
 
     Settings.motd = text;
 
@@ -31,7 +31,7 @@ var broadcast = function (req, res) {
         return;
     }
 
-    log.debug(req.session.user.name + '' + req.session.user.id + ' sent broadcast: ' + text);
+    log.debug(req.session.user.name + '/' + req.session.user.id + ' sent broadcast: ' + text);
 
     Chat.global.sendSystemMessage(text);
 
@@ -43,7 +43,7 @@ var broadcast = function (req, res) {
 };
 
 var restart = function (req, res) {
-    log.info(req.session.user.name + '' + req.session.user.id + ' triggered application restart');
+    log.info(req.session.user.name + '/' + req.session.user.id + ' triggered application restart');
 
     res.send(200);
 
