@@ -90,9 +90,17 @@ var users = function (req, res) {
     });
 };
 
+var cardcastDecks = function (req, res) {
+    res.render('admin/cardcastDecks', {
+        title: 'Manage CardCast decks'
+    });
+};
+
 module.exports = function (app) {
     app.get('/admin', index);
     app.get('/admin/user/:user', user);
     app.get('/admin/game/:game', game);
     app.get('/admin/users', users);
+
+    app.get('/admin/cardcastDecks', cardcastDecks);
 };

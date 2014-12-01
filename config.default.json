@@ -16,6 +16,13 @@
         "allowNewGames": true
     },
 
+    "cardcast": {
+        "host": "api.cardcastgame.com",
+        "port": 443,
+        "deckInfo": "/v1/decks/{{deck}}",
+        "deckCards": "/v1/decks/{{deck}}/cards"
+    },
+
     "updateCommand": "",
 
     "files": {

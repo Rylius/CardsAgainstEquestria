@@ -1,0 +1,77 @@
+{{#extend 'layouts/default'}}
+
+    {{#replace 'content'}}
+
+        <h1>Manage CardCast decks</h1>
+
+        <h2>Import deck</h2>
+
+        <div class="row">
+            <div class="col-xs-6">
+                Search
+            </div>
+
+            <div class="col-xs-6">
+                <div class="row form-inline">
+
+                    <div class="col-xs-12 row">
+                        <div class="col-xs-4 form-group">
+                            <input type="text" class="form-control"
+                                   data-bind="value: probeCode, returnAction: doProbeCode, valueUpdate: 'afterkeydown', disable: busy"
+                                   placeholder="5 digit code" maxlength="5">
+                        </div>
+
+                        <div class="col-xs-2 form-group">
+                            <button data-bind="click: doProbeCode, disable: busy">
+                                Check
+                            </button>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <span data-bind="text: probeMessage"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        {{!-- Deck probing result --}}
+        <!-- ko if: probeResult -->
+        <div class="row">
+            <div class="col-xs-12" data-bind="with: probeResult()">
+
+                <h3>
+                    <span data-bind="text: name"></span> by <span data-bind="text: author().name"></span> (<span
+                        data-bind="text: code"></span>)
+                </h3>
+
+                <p data-bind="text: description"></p>
+
+                <p>
+                    Last update: <span data-bind="text: updatedAt"></span><br><br>
+                    Black cards: <span data-bind="text: numBlackCards"></span><br>
+                    White cards: <span data-bind="text: numWhiteCards"></span>
+                </p>
+
+            </div>
+        </div>
+        <!-- /ko -->
+
+        <h2>Cached decks</h2>
+
+    {{/replace}}
+
+    {{#append 'defer'}}
+        <script>
+            $(function () {
+                model = new AdminCardCastViewModel({{{cachedCardsJson}}});
+                ko.applyBindings(model);
+            });
+        </script>
+    {{/append}}
+
+    {{#replace 'globalChat'}}{{/replace}}
+    {{#replace 'initGlobalChat'}}{{/replace}}
+
+{{/extend}}

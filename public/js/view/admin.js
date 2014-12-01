@@ -168,3 +168,80 @@ function AdminViewModel(process, memory, users, games, settings, gameId) {
     }
 
 }
+
+function AdminCardCastViewModel(cachedCardsJson) {
+
+    var self = this;
+
+    this.probeCode = ko.observable('');
+    this.probeMessage = ko.observable('');
+    this.probeResult = ko.observable(null);
+
+    this.busy = ko.observable(false);
+
+    this.doProbeCode = function () {
+        self.probeMessage('');
+        self.probeResult(null);
+
+        var code = self.probeCode();
+        if (!code || code.length != 5) {
+            self.probeMessage('Code has to be exactly 5 characters long');
+            return;
+        }
+
+        self.busy(true);
+
+        $.ajax('/ajax/admin/cardcast/probe', {
+            method: 'post',
+            data: {code: code},
+            success: function (data) {
+                if (data.response.id) {
+                    self.probeMessage(data.response.message);
+                    self.probeResult(null);
+                    return;
+                }
+
+                self.probeResult(new AdminCardCastDeckViewModel(data.response));
+            },
+            error: function (xhr, error, status) {
+                self.probeMessage('Failed to import CardCast deck\n' + error + ': ' + status);
+                self.probeResult(null);
+            },
+            complete: function () {
+                self.busy(false);
+            }
+        });
+    };
+
+}
+
+function AdminCardCastDeckViewModel(deck) {
+
+    var self = this;
+
+    this.name = ko.observable(deck.name);
+    this.code = ko.observable(deck.code);
+    this.description = ko.observable(deck.description);
+    this.unlisted = ko.observable(deck.unlisted);
+    this.createdAt = ko.observable(deck.created_at);
+    this.updatedAt = ko.observable(deck.updated_at);
+    this.externalCopyright = ko.observable(deck.external_copyright);
+    this.copyrightHolderUrl = ko.observable(deck.copyright_holder_url);
+    this.category = ko.observable(deck.category);
+    this.rating = ko.observable(deck.rating);
+
+    this.numBlackCards = ko.observable(deck.call_count);
+    this.numWhiteCards = ko.observable(deck.response_count);
+
+    this.author = ko.observable(new AdminCardCastDeckAuthorViewModel(deck.author));
+
+}
+
+function AdminCardCastDeckAuthorViewModel(author) {
+
+    var self = this;
+
+    this.id = ko.observable(author.id);
+    this.name = ko.observable(author.username);
+
+}

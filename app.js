@@ -14,6 +14,10 @@ var orm = require('orm');
 var app = express();
 
 var _ = require('underscore');
+_.templateSettings = {
+    interpolate: /\{\{(.+?)\}\}/g // {{var}}
+};
+
 var extend = require('extend');
 
 var config = require('./config');
@@ -236,6 +240,7 @@ require('./routes/ajax/user')(app);
 require('./routes/ajax/chat')(app);
 require('./routes/ajax/game')(app, game);
 require('./routes/ajax/admin')(app, config);
+require('./routes/ajax/admin_cardcast')(app, config);
 
 // database
 
