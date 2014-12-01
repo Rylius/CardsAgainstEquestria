@@ -17,7 +17,7 @@ var motd = function (req, res) {
         text = null;
     }
 
-    log.debug(req.session.user.name + '' + req.session.user.id + ' changed MOTD: ' + text);
+    log.debug(req.session.user.name + '/' + req.session.user.id + ' changed MOTD: ' + text);
 
     Settings.motd = text;
 
