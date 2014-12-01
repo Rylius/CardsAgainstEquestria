@@ -54,6 +54,8 @@
                     White cards: <span data-bind="text: numWhiteCards"></span>
                 </p>
 
+                <button data-bind="click: $root.doImport, disable: $root.busy">Import</button>
+
             </div>
         </div>
         <!-- /ko -->

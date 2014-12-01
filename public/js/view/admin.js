@@ -204,8 +204,29 @@ function AdminCardCastViewModel(cachedCardsJson) {
                 self.probeResult(new AdminCardCastDeckViewModel(data.response));
             },
             error: function (xhr, error, status) {
-                self.probeMessage('Failed to import CardCast deck\n' + error + ': ' + status);
+                self.probeMessage('Failed to probe CardCast deck\n' + error + ': ' + status);
                 self.probeResult(null);
+            },
+            complete: function () {
+                self.busy(false);
+            }
+        });
+    };
+
+    this.doImport = function () {
+        if (!self.probeResult()) {
+            return;
+        }
+
+        var code = self.probeResult().code();
+
+        self.busy(true);
+
+        $.ajax('/ajax/admin/cardcast/import', {
+            method: 'post',
+            data: {code: code},
+            error: function (xhr, error, status) {
+                alert('Failed to import CardCast deck\n' + error + ': ' + status);
             },
             complete: function () {
                 self.busy(false);
