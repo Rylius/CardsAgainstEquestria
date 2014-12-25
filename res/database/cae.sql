@@ -17,12 +17,11 @@ SET client_min_messages = warning;
 -- Name: cae; Type: DATABASE; Schema: -; Owner: cae
 --
 
-CREATE DATABASE cae WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
+--CREATE DATABASE cae WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
 
 
 ALTER DATABASE cae OWNER TO cae;
 
-\connect cae
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -201,8 +200,7 @@ ALTER TABLE public.white_card OWNER TO cae;
 -- Data for Name: black_card; Type: TABLE DATA; Schema: public; Owner: cae
 --
 
-COPY black_card (id, deck_id, text, pick, draw) FROM stdin;
-\.
+--COPY black_card (id, deck_id, text, pick, draw) FROM stdin;
 
 
 --
@@ -211,8 +209,7 @@ COPY black_card (id, deck_id, text, pick, draw) FROM stdin;
 -- Data for Name: deck; Type: TABLE DATA; Schema: public; Owner: cae
 --
 
-COPY deck (id, name, description, expansion, index, hidden) FROM stdin;
-\.
+--COPY deck (id, name, description, expansion, index, hidden) FROM stdin;
 
 
 --
@@ -221,8 +218,7 @@ COPY deck (id, name, description, expansion, index, hidden) FROM stdin;
 -- Data for Name: deck_permissions; Type: TABLE DATA; Schema: public; Owner: cae
 --
 
-COPY deck_permissions (permission_id, deck_id) FROM stdin;
-\.
+--COPY deck_permissions (permission_id, deck_id) FROM stdin;
 
 
 --
@@ -240,8 +236,7 @@ SELECT pg_catalog.setval('object_id_seq', 1, false);
 -- Data for Name: permission; Type: TABLE DATA; Schema: public; Owner: cae
 --
 
-COPY permission (id, name) FROM stdin;
-\.
+--COPY permission (id, name) FROM stdin;
 
 
 --
@@ -250,8 +245,7 @@ COPY permission (id, name) FROM stdin;
 -- Data for Name: site_permissions; Type: TABLE DATA; Schema: public; Owner: cae
 --
 
-COPY site_permissions (permission_id, site_permission) FROM stdin;
-\.
+--COPY site_permissions (permission_id, site_permission) FROM stdin;
 
 
 --
@@ -260,8 +254,7 @@ COPY site_permissions (permission_id, site_permission) FROM stdin;
 -- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: cae
 --
 
-COPY "user" (id, name, email, password, password_salt, allow_emails, date_registered, last_login) FROM stdin;
-\.
+--COPY "user" (id, name, email, password, password_salt, allow_emails, date_registered, last_login) FROM stdin;
 
 
 --
@@ -270,8 +263,7 @@ COPY "user" (id, name, email, password, password_salt, allow_emails, date_regist
 -- Data for Name: user_permissions; Type: TABLE DATA; Schema: public; Owner: cae
 --
 
-COPY user_permissions (user_id, permission_id) FROM stdin;
-\.
+--COPY user_permissions (user_id, permission_id) FROM stdin;
 
 
 --
@@ -280,8 +272,7 @@ COPY user_permissions (user_id, permission_id) FROM stdin;
 -- Data for Name: white_card; Type: TABLE DATA; Schema: public; Owner: cae
 --
 
-COPY white_card (id, deck_id, text) FROM stdin;
-\.
+--COPY white_card (id, deck_id, text) FROM stdin;
 
 
 --
