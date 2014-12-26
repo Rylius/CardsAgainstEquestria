@@ -352,6 +352,10 @@
         {
             "text": "Why is Princess Twilight drunk again?",
             "pick": 1
+        },
+        {
+            "text": "One good ______ deserves another.",
+            "pick": 1
         }
     ],
     "whiteCards": [
