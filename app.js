@@ -21,6 +21,8 @@ _.templateSettings = {
 var extend = require('extend');
 
 var config = require('./config');
+// TODO validate config
+
 require('./lib/settings').load(config.settings);
 
 var users = require('./lib/users');

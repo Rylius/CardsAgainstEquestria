@@ -173,11 +173,53 @@ function AdminCardCastViewModel(cachedCardsJson) {
 
     var self = this;
 
+    this.allDecks = ko.observableArray();
+
     this.probeCode = ko.observable('');
     this.probeMessage = ko.observable('');
     this.probeResult = ko.observable(null);
 
     this.busy = ko.observable(false);
+
+    this.updateDecks = function () {
+        if (self.busy()) {
+            return;
+        }
+        self.busy(true);
+
+        $.ajax('/ajax/admin/cardcast/decks/cached', {
+            method: 'get',
+            success: function (data) {
+                self.allDecks.removeAll();
+                _.each(data, function (json) {
+                    // Squeeze data into the right format...
+                    json.author = {
+                        id: json.authorId,
+                        username: json.authorUsername
+                    };
+                    json.created_at = json.createdAt;
+                    json.updated_at = json.updatedAt;
+                    json.call_count = json.numBlackCards;
+                    json.response_count = json.numWhiteCards;
+                    self.allDecks.push(new AdminCardCastDeckViewModel(json));
+                });
+            },
+            error: function (xhr, error, status) {
+                alert('Failed to load list of cached decks\n' + error + ': ' + status);
+            },
+            complete: function () {
+                self.busy(false);
+            }
+        });
+    };
+
+    this.update = function (deck) {
+        // TODO
+    };
+
+    this.unload = function (deck) {
+        // TODO
+    };
 
     this.doProbeCode = function () {
         self.probeMessage('');
@@ -225,11 +267,16 @@ function AdminCardCastViewModel(cachedCardsJson) {
         $.ajax('/ajax/admin/cardcast/import', {
             method: 'post',
             data: {code: code},
+            success: function () {
+                self.probeMessage('CardCast deck imported');
+                self.probeResult(null);
+            },
             error: function (xhr, error, status) {
                 alert('Failed to import CardCast deck\n' + error + ': ' + status);
             },
             complete: function () {
                 self.busy(false);
+                self.updateDecks();
             }
         });
     };
@@ -244,8 +291,8 @@ function AdminCardCastDeckViewModel(deck) {
     this.code = ko.observable(deck.code);
     this.description = ko.observable(deck.description);
     this.unlisted = ko.observable(deck.unlisted);
-    this.createdAt = ko.observable(deck.created_at);
-    this.updatedAt = ko.observable(deck.updated_at);
+    this.createdAt = ko.observable(moment(deck.created_at));
+    this.updatedAt = ko.observable(moment(deck.updated_at));
     this.externalCopyright = ko.observable(deck.external_copyright);
     this.copyrightHolderUrl = ko.observable(deck.copyright_holder_url);
     this.category = ko.observable(deck.category);
@@ -255,6 +302,10 @@ function AdminCardCastDeckViewModel(deck) {
     this.numWhiteCards = ko.observable(deck.response_count);
 
     this.author = ko.observable(new AdminCardCastDeckAuthorViewModel(deck.author));
+
+    // only valid for cached decks
+    this.status = ko.observable(deck.status);
+    this.cacheUpdatedAt = ko.observable(deck.cacheUpdatedAt ? moment(deck.cacheUpdatedAt) : null);
 
 }
 

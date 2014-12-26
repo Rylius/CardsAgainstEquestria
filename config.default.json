@@ -26,7 +26,8 @@
     "updateCommand": "",
 
     "files": {
-        "decks": "data/decks"
+        "decks": "data/decks",
+        "cache": "/path/to/deck/cache/folder"
     },
 
     "themes": [

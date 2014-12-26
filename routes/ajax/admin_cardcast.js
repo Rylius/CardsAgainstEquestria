@@ -1,6 +1,8 @@
 var log = require('logule').init(module);
 var _ = require('underscore');
 
+var Decks = require('../../lib/decks');
+
 var https = require('https');
 var fs = require('fs');
 
@@ -97,18 +99,25 @@ var importDeck = function (req, res) {
 
                     meta.black_cards = cards.calls;
                     meta.white_cards = cards.responses;
+                    meta.cache_updated_at = new Date();
 
-                    console.log(meta);
-
-                    fs.writeFile(process.cwd() + '/data/cc_decks/' + code + '.json', JSON.stringify(meta), function (err) {
+                    fs.writeFile(config.files.cache + '/' + code + '.json', JSON.stringify(meta), function (err) {
                         if (err) {
                             log.warn('Failed to save deck ' + code + ': ' + err.message);
                         } else {
                             log.info('Successfully saved deck ' + code);
+
+                            Decks.load(code, function (err, deck) {
+                                if (err) {
+                                    log.warn('Failed to load deck: ' + err.message);
+                                    res.send(500);
+                                    return;
+                                }
+
+                                res.send(200);
+                            });
                         }
                     });
-
-                    res.send(200);
                 });
             });
 
@@ -129,9 +138,57 @@ var importDeck = function (req, res) {
     probeReq.end();
 };
 
+var listCached = function (req, res) {
+    var decks = _.map(Decks.listCached(), function (code) {
+        var deck = Decks.find(code);
+        if (deck) {
+            var json = deck.toJSON();
+            json.status = 'Loaded';
+            return json;
+        } else {
+            return {code: code, status: 'Cached'};
+        }
+    });
+
+    res.type('application/json');
+    res.send(JSON.stringify(decks));
+};
+
+var listFeatured = function (req, res) {
+    var decks = _.map(Decks.listFeatured(), function (deck) {
+        return deck.toJSON();
+    });
+
+    res.type('application/json');
+    res.send(JSON.stringify(decks));
+};
+
+var listLoaded = function (req, res) {
+    var decks = _.map(Decks.listLoaded(), function (code) {
+        return Decks.find(code).toJSON();
+    });
+
+    res.type('application/json');
+    res.send(JSON.stringify(decks));
+};
+
+var listNotLoaded = function (req, res) {
+    var decks = _.map(Decks.listNotLoaded(), function (code) {
+        return Decks.find(code).toJSON();
+    });
+
+    res.type('application/json');
+    res.send(JSON.stringify(decks));
+};
+
 module.exports = function (app, appConfig) {
     config = appConfig;
 
     app.post('/ajax/admin/cardcast/probe', probeDeck);
     app.post('/ajax/admin/cardcast/import', importDeck);
+
+    app.get('/ajax/admin/cardcast/decks/cached', listCached);
+    app.get('/ajax/admin/cardcast/decks/featured', listFeatured);
+    app.get('/ajax/admin/cardcast/decks/loaded', listLoaded);
+    app.get('/ajax/admin/cardcast/decks/unloaded', listNotLoaded);
 };

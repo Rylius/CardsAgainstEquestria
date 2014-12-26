@@ -8,7 +8,7 @@
 
         <div class="row">
             <div class="col-xs-6">
-                Search
+                Search by name goes here
             </div>
 
             <div class="col-xs-6">
@@ -60,7 +60,65 @@
         </div>
         <!-- /ko -->
 
-        <h2>Cached decks</h2>
+        <h2>Known decks</h2>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- ko if: allDecks().length -->
+                <table class="table table-striped table-condensed table-hover">
+                    <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Black cards</th>
+                        <th>White cards</th>
+                        <th>Author</th>
+                        <th>Unlisted</th>
+                        <th>Category</th>
+                        <th>Rating</th>
+                        <th>Deck updated</th>
+                        <th>Cache updated</th>
+                        <th>Cache age</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    </thead>
+
+                    <tbody data-bind="foreach: allDecks">
+                    <tr>
+                        <td data-bind="text: code">&nbsp;</td>
+                        <td data-bind="text: name">&nbsp;</td>
+                        <td data-bind="text: status">&nbsp;</td>
+                        <td data-bind="text: numBlackCards">&nbsp;</td>
+                        <td data-bind="text: numWhiteCards">&nbsp;</td>
+                        <td data-bind="text: author().name">&nbsp;</td>
+                        <td data-bind="text: unlisted">&nbsp;</td>
+                        <td data-bind="text: category">&nbsp;</td>
+                        <td data-bind="text: rating">&nbsp;</td>
+                        <td data-bind="text: updatedAt().format('MMMM Do YYYY, HH:mm')">&nbsp;</td>
+                        <!-- ko if: cacheUpdatedAt() -->
+                        <td data-bind="text: cacheUpdatedAt().format('MMMM Do YYYY, HH:mm')">&nbsp;</td>
+                        <td data-bind="text: moment.duration(moment().diff(cacheUpdatedAt())).humanize()">&nbsp;</td>
+                        <!-- /ko -->
+                        <!-- ko if: !cacheUpdatedAt() -->
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <!-- /ko -->
+                        <td>
+                            <a href="#" data-bind="click: $root.update">Update</a>
+                        </td>
+                        <td>
+                            <a href="#" data-bind="click: $root.unload">Unload</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- /ko -->
+                <!-- ko if: !allDecks().length && !busy() -->
+                No decks cached
+                <!-- /ko -->
+            </div>
+        </div>
 
     {{/replace}}
 
@@ -69,6 +127,7 @@
             $(function () {
                 model = new AdminCardCastViewModel({{{cachedCardsJson}}});
                 ko.applyBindings(model);
+                model.updateDecks();
             });
         </script>
     {{/append}}
