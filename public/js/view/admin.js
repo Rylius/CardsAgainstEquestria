@@ -182,9 +182,6 @@ function AdminCardCastViewModel(cachedCardsJson) {
     this.busy = ko.observable(false);
 
     this.updateDecks = function () {
-        if (self.busy()) {
-            return;
-        }
         self.busy(true);
 
         $.ajax('/ajax/admin/cardcast/decks/cached', {
@@ -214,11 +211,45 @@ function AdminCardCastViewModel(cachedCardsJson) {
     };
 
     this.update = function (deck) {
-        // TODO
+        self.probeResult(deck);
+        self.doImport();
+        self.probeResult(null);
     };
 
     this.unload = function (deck) {
-        // TODO
+        self.busy(true);
+
+        $.ajax('/ajax/admin/cardcast/unload', {
+            method: 'post',
+            data: {code: deck.code()},
+            success: function () {
+                self.updateDecks();
+            },
+            error: function (xhr, error, status) {
+                alert('Failed to unload deck\n' + error + ': ' + status);
+            },
+            complete: function () {
+                self.busy(false);
+            }
+        });
+    };
+
+    this.load = function (deck) {
+        self.busy(true);
+
+        $.ajax('/ajax/admin/cardcast/load', {
+            method: 'post',
+            data: {code: deck.code()},
+            success: function () {
+                self.updateDecks();
+            },
+            error: function (xhr, error, status) {
+                alert('Failed to load deck\n' + error + ': ' + status);
+            },
+            complete: function () {
+                self.busy(false);
+            }
+        });
     };
 
     this.doProbeCode = function () {
@@ -239,7 +270,6 @@ function AdminCardCastViewModel(cachedCardsJson) {
             success: function (data) {
                 if (data.response.id) {
                     self.probeMessage(data.response.message);
-                    self.probeResult(null);
                     return;
                 }
 
@@ -247,10 +277,11 @@ function AdminCardCastViewModel(cachedCardsJson) {
             },
             error: function (xhr, error, status) {
                 self.probeMessage('Failed to probe CardCast deck\n' + error + ': ' + status);
-                self.probeResult(null);
             },
             complete: function () {
                 self.busy(false);
+                self.probeResult(null);
+                self.probeCode(null);
             }
         });
     };
@@ -291,8 +322,8 @@ function AdminCardCastDeckViewModel(deck) {
     this.code = ko.observable(deck.code);
     this.description = ko.observable(deck.description);
     this.unlisted = ko.observable(deck.unlisted);
-    this.createdAt = ko.observable(moment(deck.created_at));
-    this.updatedAt = ko.observable(moment(deck.updated_at));
+    this.createdAt = ko.observable(deck.created_at ? moment(deck.created_at) : null);
+    this.updatedAt = ko.observable(deck.updated_at ? moment(deck.updated_at) : null);
     this.externalCopyright = ko.observable(deck.external_copyright);
     this.copyrightHolderUrl = ko.observable(deck.copyright_holder_url);
     this.category = ko.observable(deck.category);
@@ -304,7 +335,7 @@ function AdminCardCastDeckViewModel(deck) {
     this.author = ko.observable(new AdminCardCastDeckAuthorViewModel(deck.author));
 
     // only valid for cached decks
-    this.status = ko.observable(deck.status);
+    this.loaded = ko.observable(deck.loaded);
     this.cacheUpdatedAt = ko.observable(deck.cacheUpdatedAt ? moment(deck.cacheUpdatedAt) : null);
 
 }

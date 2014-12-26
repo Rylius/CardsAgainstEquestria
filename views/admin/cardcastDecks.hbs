@@ -69,7 +69,7 @@
                     <tr>
                         <th>Code</th>
                         <th>Name</th>
-                        <th>Status</th>
+                        <th>Loaded</th>
                         <th>Black cards</th>
                         <th>White cards</th>
                         <th>Author</th>
@@ -88,15 +88,20 @@
                     <tr>
                         <td data-bind="text: code">&nbsp;</td>
                         <td data-bind="text: name">&nbsp;</td>
-                        <td data-bind="text: status">&nbsp;</td>
+                        <td data-bind="text: loaded">&nbsp;</td>
                         <td data-bind="text: numBlackCards">&nbsp;</td>
                         <td data-bind="text: numWhiteCards">&nbsp;</td>
                         <td data-bind="text: author().name">&nbsp;</td>
                         <td data-bind="text: unlisted">&nbsp;</td>
                         <td data-bind="text: category">&nbsp;</td>
                         <td data-bind="text: rating">&nbsp;</td>
+                        <!-- ko if: loaded() -->
                         <td data-bind="text: updatedAt().format('MMMM Do YYYY, HH:mm')">&nbsp;</td>
-                        <!-- ko if: cacheUpdatedAt() -->
+                        <!-- /ko -->
+                        <!-- ko if: !loaded() -->
+                        <td>&nbsp;</td>
+                        <!-- /ko -->
+                        <!-- ko if: loaded() && cacheUpdatedAt() -->
                         <td data-bind="text: cacheUpdatedAt().format('MMMM Do YYYY, HH:mm')">&nbsp;</td>
                         <td data-bind="text: moment.duration(moment().diff(cacheUpdatedAt())).humanize()">&nbsp;</td>
                         <!-- /ko -->
@@ -108,7 +113,12 @@
                             <a href="#" data-bind="click: $root.update">Update</a>
                         </td>
                         <td>
+                            <!-- ko if: loaded() -->
                             <a href="#" data-bind="click: $root.unload">Unload</a>
+                            <!-- /ko -->
+                            <!-- ko if: !loaded() -->
+                            <a href="#" data-bind="click: $root.load">Load</a>
+                            <!-- /ko -->
                         </td>
                     </tr>
                     </tbody>
