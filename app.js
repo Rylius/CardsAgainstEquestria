@@ -241,6 +241,7 @@ require('./routes/admin')(app);
 require('./routes/ajax/user')(app);
 require('./routes/ajax/chat')(app);
 require('./routes/ajax/game')(app, game);
+require('./routes/ajax/data')(app);
 require('./routes/ajax/admin')(app, config);
 require('./routes/ajax/admin_cardcast')(app, config);
 

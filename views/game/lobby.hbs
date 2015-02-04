@@ -15,94 +15,96 @@
     {{#replace 'content'}}
         <div id="lobby">
 
-        <div data-bind="ifnot: game">
-            <p>
-                {{ajaxLoader}}<br/><br/>
-                Loading game information...
-            </p>
-        </div>
-
-        <div class="head">
-            <div class="info">
-                <!-- ko if: isHost -->
-                <h1>Host a new game</h1>
-
-                <div>
-                    <div>
-                        <input type="submit" value="Start game" class="btn btn-default"
-                               data-bind="enable: game().valid() && game().ready() && !starting(), click: start">
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <ul>
-                            <!-- ko ifnot: game().valid -->
-                            <li>
-                                Set a name and select at least one card set first
-                            </li>
-                            <!-- /ko -->
-
-                            <!-- ko ifnot: game().ready -->
-                            <li>
-                                You need at least <span data-bind="text: neededPlayers"></span>
-                                other player<span data-bind="if: neededPlayers() != 1">s</span>
-                            </li>
-                            <!-- /ko -->
-                        </ul>
-                    </div>
-                </div>
-                <!-- /ko -->
-
-                <!-- ko ifnot: isHost -->
-                <h1>Lobby</h1>
-
+            <div data-bind="ifnot: game">
                 <p>
-                    Waiting for host to start the game...
+                    {{ajaxLoader}}<br/><br/>
+                    Loading game information...
                 </p>
-                <!-- /ko -->
             </div>
 
-            <div class="invite">
-                <div class="link">
-                    <div>
-                        <label for="invite" class="control-label">
-                            Invite link:
-                        </label>
+            <div class="head">
+                <div class="info">
+                    <!-- ko if: isHost -->
+                    <h1>Host a new game</h1>
 
+                    <div>
                         <div>
-                            <input type="text" readonly id="invite" data-bind="value: inviteLink" onclick="select()">
+                            <input type="submit" value="Start game" class="btn btn-default"
+                                   data-bind="enable: game().valid() && game().ready() && !starting(), click: start">
                         </div>
                     </div>
+
+                    <div>
+                        <div>
+                            <ul>
+                                <!-- ko ifnot: game().valid -->
+                                <li>
+                                    Set a name and select at least one card set first
+                                </li>
+                                <!-- /ko -->
+
+                                <!-- ko ifnot: game().ready -->
+                                <li>
+                                    You need at least <span data-bind="text: neededPlayers"></span>
+                                    other player<span data-bind="if: neededPlayers() != 1">s</span>
+                                </li>
+                                <!-- /ko -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+
+                    <!-- ko ifnot: isHost -->
+                    <h1>Lobby</h1>
+
+                    <p>
+                        Waiting for host to start the game...
+                    </p>
+                    <!-- /ko -->
                 </div>
 
-                <div class="twitter">
-                    <a href="https://twitter.com/share" class="twitter-share-button"
-                       data-text="Play Cards Against Equestria with me!"
-                       data-size="large" data-count="none" data-dnt="true"
-                       data-bind="attr: { 'data-url': inviteLink }">
-                        Tweet
-                    </a>
+                <div class="invite">
+                    <div class="link">
+                        <div>
+                            <label for="invite" class="control-label">
+                                Invite link:
+                            </label>
+
+                            <div>
+                                <input type="text" readonly id="invite" data-bind="value: inviteLink"
+                                       onclick="select()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="twitter">
+                        <a href="https://twitter.com/share" class="twitter-share-button"
+                           data-text="Play Cards Against Equestria with me!"
+                           data-size="large" data-count="none" data-dnt="true"
+                           data-bind="attr: { 'data-url': inviteLink }">
+                            Tweet
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- ko if: game -->
+            <!-- ko if: game -->
 
-        <h2 data-bind="click: toggleArea" data-target="#basics">
-            Basics
-            <small><i class="open"></i></small>
-        </h2>
+            <h2 data-bind="click: toggleArea" data-target="#basics">
+                Basics
+                <small><i class="open"></i></small>
+            </h2>
 
-        <div id="basics" class="collapse in">
-            <div>
-                <div class="col-md-offset-1 col-xs-5" data-bind="css: { 'has-error': game().name().length == 0 }">
+            <div id="basics" class="collapse in">
+                <div>
+                    <div class="col-md-offset-1 col-xs-5" data-bind="css: { 'has-error': game().name().length == 0 }">
 
-                    <div class="form-group">
-                        <label for="name" class="col-xs-3 control-label">Name:</label>
+                        <div class="form-group">
+                            <label for="name" class="col-xs-3 control-label">Name:</label>
 
-                        <div class="col-xs-9 input-group">
-                            <input type="text" id="name" class="form-control" data-bind="value: game().name, enable: isHost">
+                            <div class="col-xs-9 input-group">
+                                <input type="text" id="name" class="form-control"
+                                       data-bind="value: game().name, enable: isHost">
 
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default"
@@ -110,23 +112,23 @@
                                     Set
                                 </button>
                             </span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-xs-5">
-                    <div class="form-group">
-                        <label for="name" class="col-xs-3 control-label">Password:</label>
+                    <div class="col-xs-5">
+                        <div class="form-group">
+                            <label for="name" class="col-xs-3 control-label">Password:</label>
 
-                        <div class="col-xs-9 input-group">
-                            <!-- ko ifnot: passwordVisible -->
-                            <input type="password" id="password" class="form-control"
-                                   data-bind="value: game().password, enable: isHost">
-                            <!-- /ko -->
-                            <!-- ko if: passwordVisible -->
-                            <input type="text" id="password-text" class="form-control"
-                                   data-bind="value: game().password, enable: isHost">
-                            <!-- /ko -->
+                            <div class="col-xs-9 input-group">
+                                <!-- ko ifnot: passwordVisible -->
+                                <input type="password" id="password" class="form-control"
+                                       data-bind="value: game().password, enable: isHost">
+                                <!-- /ko -->
+                                <!-- ko if: passwordVisible -->
+                                <input type="text" id="password-text" class="form-control"
+                                       data-bind="value: game().password, enable: isHost">
+                                <!-- /ko -->
 
                             <span class="input-group-addon" title="Hide/show password"
                                   data-bind="visible: isHost() || game().passworded()">
@@ -139,217 +141,316 @@
                                     Set
                                 </button>
                             </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div>
-                <div class="col-md-offset-1 col-xs-5">
-                    {{input:dropdown 'scoreLimit' scoreLimits defaultScore 'Score limit:' null 'data-bind="value: game().scoreLimit, enable: isHost"'}}
+                <div>
+                    <div class="col-md-offset-1 col-xs-5">
+                        {{input:dropdown 'scoreLimit' scoreLimits defaultScore 'Score limit:' null 'data-bind="value: game().scoreLimit, enable: isHost"'}}
+                    </div>
+
+                    <div class="col-xs-5">
+                        {{input:dropdown 'playerLimit' playerLimits defaultPlayers 'Player limit:' null 'data-bind="value: game().playerLimit, enable: isHost"'}}
+                    </div>
                 </div>
 
-                <div class="col-xs-5">
-                    {{input:dropdown 'playerLimit' playerLimits defaultPlayers 'Player limit:' null 'data-bind="value: game().playerLimit, enable: isHost"'}}
-                </div>
-            </div>
+                <div>
+                    <div class="col-md-offset-1 col-xs-5">
+                        <div class="form-group">
+                            <label for="roundTimeLimit" class="col-xs-3 control-label">
+                                Round time:
+                            </label>
 
-            <div>
-                <div class="col-md-offset-1 col-xs-5">
-                    <div class="form-group">
-                        <label for="roundTimeLimit" class="col-xs-3 control-label">
-                            Round time:
-                        </label>
-
-                        <div class="col-xs-9">
-                            <select id="roundTimeLimit" class="form-control"
-                                    data-bind="value: game().roundTimeLimit, enable: isHost">
-                                <option>0</option>
-                                <option>60</option>
-                                <option>90</option>
-                                <option>120</option>
-                                <option>150</option>
-                                <option>180</option>
-                            </select>
+                            <div class="col-xs-9">
+                                <select id="roundTimeLimit" class="form-control"
+                                        data-bind="value: game().roundTimeLimit, enable: isHost">
+                                    <option>0</option>
+                                    <option>60</option>
+                                    <option>90</option>
+                                    <option>120</option>
+                                    <option>150</option>
+                                    <option>180</option>
+                                </select>
 
                             <span class="help-block">
                                 In seconds, 0 = no limit
                             </span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-xs-5">
-                    <div class="form-group">
-                        <div class="col-md-offset-3 col-xs-9">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" data-bind="checked: game().hidden, enable: isHost">
-                                    Hide from list
-                                </label>
+                    <div class="col-xs-5">
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-xs-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" data-bind="checked: game().hidden, enable: isHost">
+                                        Hide from list
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <h2 data-target="#sets" data-bind="click: toggleArea, css: { 'has-error': game().sets().length == 0 }">
-            Card sets
-            <small><i class="open"></i></small>
-        </h2>
+            <h2 data-target="#sets" data-bind="click: toggleArea, css: { 'has-error': game().sets().length == 0 }">
+                Decks
+                <small><i class="open"></i></small>
+            </h2>
 
-        <div id="sets" class="collapse in">
+            <div id="sets" class="collapse in">
 
-            <div class="col-xs-6" data-bind="css: { 'has-error': game().sets().length == 0 }">
-                <h3>Base sets</h3>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <h3>
+                            Selected
+                            <small>
+                                <!-- ko if: isHost -->
+                                click to remove
+                                <!-- /ko -->
+                                <!-- ko if: !isHost() -->
+                                click to suggest removal
+                                <!-- /ko -->
+                            </small>
+                        </h3>
+
+                        <!-- ko foreach: selectedDecks -->
+                        <div class="row deck-selectable" data-bind="click: $root.disableDeck">
+                            <div class="col-xs-12">
+                                <strong data-bind="text: name">&nbsp;</strong>
+                                -
+                                <span data-bind="text: description" style="overflow: hidden"></span>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <div class="pull-left">
+                                    <span data-bind="text: numBlackCards"></span> black cards,
+                                    <span data-bind="text: numWhiteCards"></span> white cards
+                                </div>
+
+                                <div class="pull-right">
+                                    <span data-bind="attr: { 'class': 'icon-category-' + category, 'title': category }"></span>
+                                    -
+                                    <span data-bind="text: rating">&nbsp;</span>
+                                    -
+                                    <a href="#" target="_blank"
+                                       data-bind="attr: { href: 'http://www.cardcastgame.com/browse/deck/' + code }, click: $root.openDeckLink, clickBubble: false">cardcastgame.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+
+                    <div class="col-xs-4">
+                        <h3>
+                            Featured
+                            <small>
+                                <!-- ko if: isHost -->
+                                click to add
+                                <!-- /ko -->
+                                <!-- ko if: !isHost() -->
+                                click to suggest
+                                <!-- /ko -->
+                            </small>
+                        </h3>
+
+                        <!-- ko foreach: featuredDecks -->
+                        <div class="row deck-selectable" data-bind="click: $root.enableDeck">
+                            <div class="col-xs-12">
+                                <strong data-bind="text: name">&nbsp;</strong>
+                                -
+                                <span data-bind="text: description" style="overflow: hidden"></span>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <div class="pull-left">
+                                    <span data-bind="text: numBlackCards"></span> black cards,
+                                    <span data-bind="text: numWhiteCards"></span> white cards
+                                </div>
+
+                                <div class="pull-right">
+                                    <span data-bind="attr: { 'class': 'icon-category-' + category, 'title': category }"></span>
+                                    -
+                                    <span data-bind="text: rating">&nbsp;</span>
+                                    -
+                                    <a href="#" target="_blank"
+                                       data-bind="attr: { href: 'http://www.cardcastgame.com/browse/deck/' + code }, click: $root.openDeckLink, clickBubble: false">cardcastgame.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                        <!-- ko if: !featuredDecks().length -->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                {{ajaxLoader}}
+                                Loading featured decks...
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+
+                    <div class="col-xs-4">
+                        <h3>
+                            Search
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6" data-bind="css: { 'has-error': game().sets().length == 0 }">
+                        <h3>Base sets</h3>
 
                 <span class="help-block">
                     Select one or more
                 </span>
 
-                <div data-bind="foreach: sets">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"
-                                   data-bind="value: id, checked: $root.game().sets, enable: $root.isHost">
-                            <strong><span data-bind="text: name"></span></strong>
-                        </label>
-                        -
-                        <span data-bind="html: description" style="overflow: hidden"></span>
+                        <div data-bind="foreach: sets">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"
+                                           data-bind="value: id, checked: $root.game().sets, enable: $root.isHost">
+                                    <strong><span data-bind="text: name"></span></strong>
+                                </label>
+                                -
+                                <span data-bind="html: description" style="overflow: hidden"></span>
+                            </div>
+                        </div>
+
+                        <!-- ko if: sets().length == 0 -->
+                        <div class="col-xs-12">
+                            {{ajaxLoader}}
+                            Loading sets...
+                        </div>
+                        <!-- /ko -->
                     </div>
-                </div>
 
-                <!-- ko if: sets().length == 0 -->
-                <div class="col-xs-12">
-                    {{ajaxLoader}}
-                    Loading sets...
-                </div>
-                <!-- /ko -->
-            </div>
-
-            <div class="col-xs-6">
-                <h3>Expansions</h3>
+                    <div class="col-xs-6">
+                        <h3>Expansions</h3>
 
                 <span class="help-block">
                     Select any number
                 </span>
 
-                <div data-bind="foreach: expansions">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"
-                                   data-bind="value: id, checked: $root.game().expansions, enable: $root.isHost">
-                            <strong><span data-bind="text: name"></span></strong>
-                        </label>
-                        -
-                        <span data-bind="html: description" style="overflow: hidden"></span>
-                    </div>
-                </div>
-
-                <!-- ko if: expansions().length == 0 -->
-                <div class="col-xs-12">
-                    {{ajaxLoader}}
-                    Loading expansions...
-                </div>
-                <!-- /ko -->
-            </div>
-        </div>
-
-        <h2 data-bind="click: toggleArea" data-target="#rules">
-            House Rules
-            <small><i class="closed"></i></small>
-        </h2>
-
-        <div id="rules" class="collapse">
-            <span class="help-block">
-                Little teaser of what is to come~ (these are <strong>not</strong> implemented yet!)
-            </span>
-
-            <div class="row todo" data-bind="foreach: rulesRows()">
-                <div class="col-xs-12">
-
-                    <div class="row" data-bind="foreach: $data">
-                        <div class="col-xs-3" data-bind="">
-                            <h3 data-bind="text: title"></h3>
-
-                            <p data-bind="html: description"></p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- /ko -->
-
-        <div class="row" style="margin-top: 20px;">
-            <div class="col-xs-3">
-                <h4>
-                    Players
-                </h4>
-
-                <!-- ko if: game() -->
-                <!-- ko foreach: game().players -->
-                <div class="player">
-                    <div>
-                        <div class="name">
-                            <strong data-bind="text: name"></strong>
-                            <span title="Host" class="glyphicon glyphicon-star"
-                                  data-bind="visible: $root.game().host().id == id"></span>
+                        <div data-bind="foreach: expansions">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"
+                                           data-bind="value: id, checked: $root.game().expansions, enable: $root.isHost">
+                                    <strong><span data-bind="text: name"></span></strong>
+                                </label>
+                                -
+                                <span data-bind="html: description" style="overflow: hidden"></span>
+                            </div>
                         </div>
 
-                        <!-- ko if: $root.isHost() && $root.game().host().id != id  -->
-                        <div class="col-xs-5 text-right">
-                            <button class="btn btn-sm"
-                                    data-bind="click: $root.kick, disable: id == $root.game().host().id">
-                                Kick
-                            </button>
+                        <!-- ko if: expansions().length == 0 -->
+                        <div class="col-xs-12">
+                            {{ajaxLoader}}
+                            Loading expansions...
                         </div>
                         <!-- /ko -->
                     </div>
                 </div>
-                <!-- /ko -->
-                <!-- /ko -->
+
             </div>
 
-            <div class="col-xs-9">
-                <ul id="chat">
-                    <li>
-                        <a href="#chat-global" data-toggle="tab">Global Chat</a>
-                    </li>
+            <h2 data-bind="click: toggleArea" data-target="#rules">
+                House Rules
+                <small><i class="closed"></i></small>
+            </h2>
 
-                    <li class="active">
-                        <a href="#chat-game" data-toggle="tab">Game Chat</a>
-                    </li>
-                </ul>
+            <div id="rules" class="collapse">
+            <span class="help-block">
+                Little teaser of what is to come~ (these are <strong>not</strong> implemented yet!)
+            </span>
 
-                <div class="tab-content">
-                    <div class="tab-pane" id="chat-global">
-                        {{>globalChat}}
+                <div class="row todo" data-bind="foreach: rulesRows()">
+                    <div class="col-xs-12">
+
+                        <div class="row" data-bind="foreach: $data">
+                            <div class="col-xs-3" data-bind="">
+                                <h3 data-bind="text: title"></h3>
+
+                                <p data-bind="html: description"></p>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
+            </div>
 
-                    <div class="tab-pane active" id="chat-game">
-                        <ul class="history" data-bind="foreach: gameChat().history">
-                            {{>chatMessage}}
-                        </ul>
+            <!-- /ko -->
 
-                        <div class="input">
-                            <div class="input-group">
-                                <input type="text" autocomplete="false" class="form-control"
-                                       data-bind="value: gameChat().message, valueUpdate: 'afterkeydown', returnAction: gameChat().send">
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-xs-3">
+                    <h4>
+                        Players
+                    </h4>
+
+                    <!-- ko if: game() -->
+                    <!-- ko foreach: game().players -->
+                    <div class="player">
+                        <div>
+                            <div class="name">
+                                <strong data-bind="text: name"></strong>
+                            <span title="Host" class="glyphicon glyphicon-star"
+                                  data-bind="visible: $root.game().host().id == id"></span>
+                            </div>
+
+                            <!-- ko if: $root.isHost() && $root.game().host().id != id  -->
+                            <div class="col-xs-5 text-right">
+                                <button class="btn btn-sm"
+                                        data-bind="click: $root.kick, disable: id == $root.game().host().id">
+                                    Kick
+                                </button>
+                            </div>
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                    <!-- /ko -->
+                </div>
+
+                <div class="col-xs-9">
+                    <ul id="chat">
+                        <li>
+                            <a href="#chat-global" data-toggle="tab">Global Chat</a>
+                        </li>
+
+                        <li class="active">
+                            <a href="#chat-game" data-toggle="tab">Game Chat</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane" id="chat-global">
+                            {{>globalChat}}
+                        </div>
+
+                        <div class="tab-pane active" id="chat-game">
+                            <ul class="history" data-bind="foreach: gameChat().history">
+                                {{>chatMessage}}
+                            </ul>
+
+                            <div class="input">
+                                <div class="input-group">
+                                    <input type="text" autocomplete="false" class="form-control"
+                                           data-bind="value: gameChat().message, valueUpdate: 'afterkeydown', returnAction: gameChat().send">
 
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" data-bind="click: gameChat().send">
                                         Send
                                     </button>
                                 </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         </div>
     {{/replace}}
@@ -465,6 +566,21 @@
                     },
                     error: function (request, error, status) {
                         console.warn('Failed to request card decks: ' + error + ': ' + status);
+                        window.location.reload(true);
+                    }
+                });
+
+                $.ajax('/ajax/data/decks/featured', {
+                    method: 'get',
+                    success: function (data) {
+                        model.featuredDecks.removeAll();
+                        _.each(data, function (deck) {
+                            model.featuredDecks.push(deck);
+                            model.allDecks.push(deck);
+                        });
+                    },
+                    error: function (request, error, status) {
+                        console.warn('Failed to retrieve featured decks: ' + error + ': ' + status);
                         window.location.reload(true);
                     }
                 });

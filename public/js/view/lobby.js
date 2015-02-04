@@ -13,13 +13,58 @@ var GameLobbyViewModel = function (user) {
 
     this.passwordVisible = ko.observable(false);
 
+    this.allDecks = ko.observableArray();
+    this.featuredDecks = ko.observableArray();
+
     this.sets = ko.observableArray();
     this.expansions = ko.observableArray();
+
     this.rules = ko.observableArray();
 
     this.starting = ko.observable(false);
 
     this.sendUpdates = ko.observable(true);
+
+    this.enableDeck = function (deck) {
+        if (_.contains(self.game().decks(), deck.code)) {
+            return;
+        }
+
+        if (!self.isHost()) {
+            // TODO handle suggestions
+            return;
+        }
+
+        self.game().decks.push(deck.code);
+        self.update();
+    };
+
+    this.disableDeck = function (deck) {
+        if (!self.isHost()) {
+            // TODO handle suggestions
+            return;
+        }
+
+        self.game().decks.remove(deck.code);
+        self.update();
+    };
+
+    this.selectedDecks = ko.computed(function () {
+        if (!self.game()) {
+            return [];
+        }
+
+        var gameDecks = self.game().decks();
+        return _.sortBy(_.filter(self.allDecks(), function (deck) {
+            return _.contains(gameDecks, deck.code);
+        }), function (deck) {
+            return gameDecks.indexOf(deck.code);
+        });
+    });
+
+    this.openDeckLink = function (deck) {
+        window.open('http://www.cardcastgame.com/browse/deck/' + deck.code, '_blank');
+    };
 
     this.toggleArea = function (data, e) {
         var $this = $(e.target);

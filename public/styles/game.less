@@ -135,7 +135,6 @@
   }
 
   #sets {
-    .make-row();
     .form-horizontal;
   }
 
@@ -157,4 +156,33 @@
     }
   }
 
+}
+
+.deck-selectable {
+  background-color: transparent;
+  .transition(background-color 0.3s ease);
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.deck-selectable:hover, .deck-selectable:focus {
+  background-color: @input-bg !important;
+  .transition(background-color 0.3s ease);
+
+  cursor: pointer;
+}
+
+.deck-selectable:nth-child(even) {
+  background-color: @input-bg-disabled;
+}
+
+.icon-category-technology {
+  .glyphicon;
+  .glyphicon-floppy-disk;
+}
+
+.icon-category-random {
+  .glyphicon;
+  .glyphicon-question-sign;
 }

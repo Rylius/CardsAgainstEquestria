@@ -350,6 +350,7 @@ var sets = function (req, res) {
     res.send(cards.setsJson);
 };
 
+// TODO move to ajax/data.js
 var rules = function (req, res) {
     res.type('application/json');
     res.send(JSON.stringify({rules: [

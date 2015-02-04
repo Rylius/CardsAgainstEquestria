@@ -208,6 +208,7 @@ var GameViewModel = function () {
 
     this.players = ko.observableArray();
 
+    this.decks = ko.observableArray();
     this.sets = ko.observableArray();
     this.expansions = ko.observableArray();
 
@@ -300,6 +301,11 @@ var GameViewModel = function () {
         self.players.removeAll();
         _.each(json.players, function (player) {
             self.players.push(player);
+        });
+
+        self.decks.removeAll();
+        _.each(json.decks, function (code) {
+            self.decks.push(code);
         });
 
         self.sets.removeAll();

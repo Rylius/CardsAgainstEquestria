@@ -13,7 +13,8 @@
     "settings": {
         "maxGames": 200,
         "maxGamesPerUser": 2,
-        "allowNewGames": true
+        "allowNewGames": true,
+        "featuredDecks": ["VSY53"]
     },
 
     "cardcast": {
