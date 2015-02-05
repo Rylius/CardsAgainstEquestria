@@ -55,6 +55,9 @@ hbs.registerHelper('version', function () {
 hbs.registerHelper('ajaxLoader', function () {
     return new hbs.handlebars.SafeString('<img src="/img/ajax-loader.gif" alt="Loading...">');
 });
+hbs.registerHelper('ajaxLoaderDark', function () {
+    return new hbs.handlebars.SafeString('<img src="/img/ajax-loader-dark.gif" alt="Loading...">');
+});
 
 hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
     switch (operator) {

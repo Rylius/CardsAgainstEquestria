@@ -2,10 +2,24 @@
 
     {{#replace 'navLeft'}}
         <li>
-            <span class="navbar-title" data-bind="text: game().name">
-                derp
-            </span>
+            <span class="navbar-title" data-bind="text: game().name">Loading...</span>
         </li>
+
+        <!-- ko if: isHost() -->
+        <li>
+            <a href="#" data-toggle="modal" data-target="#game-settings-modal">
+                <span class="glyphicon glyphicon-wrench"></span>
+                Settings
+            </a>
+        </li>
+
+        <li>
+            <a href="#" data-toggle="modal" data-target="#game-players-modal">
+                <span class="glyphicon glyphicon-user"></span>
+                Players
+            </a>
+        </li>
+        <!-- /ko -->
     {{/replace}}
 
     {{#prepend 'navRight'}}
@@ -20,6 +34,7 @@
 
         <li>
             <a href="#" onclick="leaveGame()" title="Leave game">
+                <span class="glyphicon glyphicon-remove"></span>
                 Leave game
             </a>
         </li>
@@ -30,16 +45,128 @@
     {{/replace}}
 
     {{#replace 'content'}}
+
+        <div id="game-settings-modal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">
+                            Change game settings
+                        </h4>
+                    </div>
+
+                    <div class="modal-body">
+                        stuff goes here
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-players-modal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">
+                            Manage players and bans
+                        </h4>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h4>Current players</h4>
+                                <ul>
+                                    <!-- ko foreach: players -->
+                                    <li class="player">
+                                        <strong data-bind="text: name"></strong>
+                                        <!-- ko if: $root.game().host.id != id  -->
+                                        &nbsp;
+                                        <button class="btn btn-sm btn-default" data-bind="click: $root.kick">
+                                            Kick
+                                        </button>
+                                        <button class="btn btn-sm btn-danger" data-bind="click: $root.kick">
+                                            Ban
+                                        </button>
+                                        <!-- /ko -->
+                                    </li>
+                                    <!-- /ko -->
+                                </ul>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <h4>Saved bans</h4>
+                                TODO
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h4>Import / export ban list</h4>
+                                <span class="help-block">
+                                    The ban list code is automatically updated when you make changes above.
+                                </span>
+                                <textarea class="ban-export"></textarea>
+
+                                <div class="pull-right">
+                                    <button class="btn btn-default">
+                                        <span class="glyphicon glyphicon-import"></span>
+                                        Import
+                                    </button>
+                                    <button class="btn btn-default">
+                                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                                        Save
+                                    </button>
+                                </div>
+
+                                <span class="help-block">
+                                    Importing a ban list code will replace all settings above.<br>
+                                    Be careful and consider copying the current code into a blank text file.
+                                </span>
+
+                                <span class="help-block">
+                                    Saving will store a cookie containing the code on your current device.<br>
+                                    That saved list is automatically loaded each time you create a new game.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- ko if: !ended() -->
         <div id="cards-table">
-            <!-- ko if: blackCard -->
             <div class="card black-card">
+                <!-- ko if: blackCard -->
                 <span data-bind="html: blackCard().text"></span>
 
                 {{> watermarkIcon}}
                 <div class="watermark" data-bind="text: blackCard().watermark"></div>
+                <!-- /ko -->
+
+                <!-- ko if: !blackCard() -->
+                {{ajaxLoaderDark}}
+                <!-- /ko -->
             </div>
-            <!-- /ko -->
 
             <!-- ko foreach: playedCards -->
             <div class="move"
@@ -60,7 +187,8 @@
 
         <!-- ko if: isCzar() && blackCard() && czarCanSelect() -->
         <div class="confirm" data-bind="">
-            <button class="btn-default" data-bind="enable: selectedMove() && !selectedMoveSubmitted(), click: submitSelectedMove">
+            <button class="btn-default"
+                    data-bind="enable: selectedMove() && !selectedMoveSubmitted(), click: submitSelectedMove">
                 Confirm
             </button>
 
@@ -72,7 +200,8 @@
 
         <!-- ko if: !isCzar() && blackCard() && move() && !playedCardsUncovered() -->
         <div class="confirm" data-bind="">
-            <button class="btn-default" data-bind="enable: move().cards().length == blackCard().pick && !move().confirmed(), click: move().submit">
+            <button class="btn-default"
+                    data-bind="enable: move().cards().length == blackCard().pick && !move().confirmed(), click: move().submit">
                 Confirm
             </button>
 
@@ -149,7 +278,7 @@
                             <span title="Host" class="glyphicon glyphicon-star"
                                   data-bind="visible: $root.game().host.id == id"></span>
                             <!-- ko if: $root.isHost() && $root.game().host.id != id  -->
-                            <button class="btn btn-sm btn-default" data-bind="click: $root.kick">
+                            <button class="btn btn-xs btn-default" data-bind="click: $root.kick">
                                 Kick
                             </button>
                             <!-- /ko -->
