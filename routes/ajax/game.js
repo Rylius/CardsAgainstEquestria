@@ -257,10 +257,10 @@ var ban = function (req, res) {
             return;
         }
 
-        gameInstance.addBan(player.id, player.name);
+        gameInstance.addBan(player.id, player.name, player.clientData ? player.clientData.ip : 'unknown');
         gameInstance.removePlayer(player, 'Banned');
     } else {
-        gameInstance.addBan(+req.body.player.id, req.body.player.name);
+        gameInstance.addBan(+req.body.player.id, req.body.player.name, 'unknown');
     }
 
     res.send(200);

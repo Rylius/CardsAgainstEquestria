@@ -164,6 +164,14 @@
                     <span class="pull-right">
                         Round <span data-bind="text: round"></span>
                     </span>
+
+                    <!-- ko if: isHost() -->
+                    <small>
+                        <a href="#" data-toggle="modal" data-target="#game-players-modal">
+                            Manage bans
+                        </a>
+                    </small>
+                    <!-- /ko -->
                 </h4>
 
                 <!-- ko foreach: players -->
@@ -174,9 +182,14 @@
                             <span title="Host" class="glyphicon glyphicon-star"
                                   data-bind="visible: $root.game().host.id == id"></span>
                             <!-- ko if: $root.isHost() && $root.game().host.id != id  -->
-                            <button class="btn btn-xs btn-default" data-bind="click: $root.kick">
-                                Kick
-                            </button>
+                            <div class="pull-right">
+                                <button class="btn btn-xs btn-default" data-bind="click: $root.kick">
+                                    Kick
+                                </button>
+                                <button class="btn btn-xs btn-danger" data-bind="click: $root.ban">
+                                    Ban
+                                </button>
+                            </div>
                             <!-- /ko -->
                         </div>
                     </div>
@@ -329,7 +342,9 @@
                 model = new PlayViewModel({{{gameJson}}}, {{{userJson}}});
                 ko.applyBindings(model);
 
-                model.loadBans();
+                if (model.isHost()) {
+                    model.loadBans();
+                }
 
                 $gameChat = $('#chat-game');
                 model.chat().inputElement($gameChat.find('input[type="text"]'));

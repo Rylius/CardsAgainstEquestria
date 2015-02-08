@@ -313,6 +313,14 @@
             <div class="col-xs-3">
                 <h4>
                     Players
+
+                    <!-- ko if: isHost() -->
+                    <small>
+                        <a href="#" data-toggle="modal" data-target="#game-players-modal">
+                            Manage bans
+                        </a>
+                    </small>
+                    <!-- /ko -->
                 </h4>
 
                 <!-- ko if: game() -->
@@ -327,9 +335,13 @@
 
                         <!-- ko if: $root.isHost() && $root.game().host().id != id  -->
                         <div class="col-xs-5 text-right">
-                            <button class="btn btn-sm"
+                            <button class="btn btn-xs btn-default"
                                     data-bind="click: $root.kick, disable: id == $root.game().host().id">
                                 Kick
+                            </button>
+                            <button class="btn btn-xs btn-danger"
+                                    data-bind="click: $root.ban, disable: id == $root.game().host().id">
+                                Ban
                             </button>
                         </div>
                         <!-- /ko -->
@@ -468,7 +480,9 @@
                         model.game(new GameViewModel().fromJson(data));
                         model.registerListener();
 
-                        model.loadBans();
+                        if (model.isHost()) {
+                            model.loadBans();
+                        }
 
                         loadTwitter();
                     },

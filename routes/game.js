@@ -126,6 +126,18 @@ var join = function (req, res) {
 
     log.trace(user.name + '/' + user.id + ' is joining game ' + gameInstance.id);
 
+    var banned = false;
+    _.each(gameInstance.bans, function (ban) {
+        if (ban.id == user.id || ban.name == user.name || ban.ip == user.clientData.ip) {
+            banned = true;
+        }
+    });
+    if (banned) {
+        reply(res, constants.Server.Join.BANNED);
+        log.trace(user.id + ' -> ' + gameInstance.id + ': Banned');
+        return;
+    }
+
     if (gameInstance.password !== null && gameInstance.password.length > 0) {
         if (!req.body.password) {
             reply(res, constants.Server.Join.PASSWORD_REQUIRED);

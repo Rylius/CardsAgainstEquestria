@@ -49,6 +49,14 @@ var listen = function (req, res) {
             res.send(JSON.stringify([]));
             clearTimeout(request.timeoutId);
 
+            var requests = Chat.global.requests[user.id];
+            if (requests) {
+                var i = requests.indexOf(request);
+                if (i >= 0) {
+                    requests.splice(i, 1);
+                }
+            }
+
             log.trace('Chat listen request by ' + user.id + '/' + user.name + ' returned empty');
         }, 90000),
         userId: user.id,

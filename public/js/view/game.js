@@ -60,6 +60,10 @@ var GameListViewModel = function (sets) {
                 } else if (status == Join.PASSWORD_REQUIRED) {
                     console.log('No password given');
                     game.message('Password required');
+
+                } else if (status == Join.BANNED) {
+                    console.log('Banned');
+                    game.message('You have been banned');
                 }
             },
             error: function () {
@@ -166,6 +170,11 @@ var JoinGameViewModel = function (sets) {
                         console.log('Reloading page (game data changed)');
                         window.location.reload(true);
                     }
+                } else if (status == Join.BANNED) {
+                    console.log('Banned');
+
+                    self.message('You have been banned');
+                    self.error(true);
                 }
             },
             error: function () {

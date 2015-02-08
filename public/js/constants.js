@@ -18,7 +18,8 @@ var Game = {
             PASSWORD_INCORRECT: 3,
             SUCCESS_LOBBY: 4,
             SUCCESS_GAME: 5,
-            IS_PLAYER: 6
+            IS_PLAYER: 6,
+            BANNED: 7
         },
         Update: {
             GAME_DATA: 0,
