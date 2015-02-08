@@ -1,8 +1,29 @@
 {{#extend 'layouts/default'}}
 
+    {{#replace 'navLeft'}}
+        <li>
+            <!-- ko if: game() -->
+            <span class="navbar-title" data-bind="text: game().name">&nbsp;</span>
+            <!-- /ko -->
+            <!-- ko ifnot: game() -->
+            <span class="navbar-title">Loading...</span>
+            <!-- /ko -->
+        </li>
+
+        <!-- ko if: isHost() -->
+        <li>
+            <a href="#" data-toggle="modal" data-target="#game-players-modal">
+                <span class="glyphicon glyphicon-user"></span>
+                Players
+            </a>
+        </li>
+        <!-- /ko -->
+    {{/replace}}
+
     {{#prepend 'navRight'}}
         <li>
             <a href="#" onclick="leaveGame()" title="Leave game">
+                <span class="glyphicon glyphicon-remove"></span>
                 Leave game
             </a>
         </li>
@@ -13,6 +34,11 @@
     {{/replace}}
 
     {{#replace 'content'}}
+
+        <!-- ko with: game() -->
+        {{> modalGamePlayers}}
+        <!-- /ko -->
+
         <div id="lobby">
 
         <div data-bind="ifnot: game">
@@ -287,6 +313,14 @@
             <div class="col-xs-3">
                 <h4>
                     Players
+
+                    <!-- ko if: isHost() -->
+                    <small>
+                        <a href="#" data-toggle="modal" data-target="#game-players-modal">
+                            Manage bans
+                        </a>
+                    </small>
+                    <!-- /ko -->
                 </h4>
 
                 <!-- ko if: game() -->
@@ -301,9 +335,13 @@
 
                         <!-- ko if: $root.isHost() && $root.game().host().id != id  -->
                         <div class="col-xs-5 text-right">
-                            <button class="btn btn-sm"
+                            <button class="btn btn-xs btn-default"
                                     data-bind="click: $root.kick, disable: id == $root.game().host().id">
                                 Kick
+                            </button>
+                            <button class="btn btn-xs btn-danger"
+                                    data-bind="click: $root.ban, disable: id == $root.game().host().id">
+                                Ban
                             </button>
                         </div>
                         <!-- /ko -->
@@ -441,6 +479,10 @@
                     success: function (data) {
                         model.game(new GameViewModel().fromJson(data));
                         model.registerListener();
+
+                        if (model.isHost()) {
+                            model.loadBans();
+                        }
 
                         loadTwitter();
                     },

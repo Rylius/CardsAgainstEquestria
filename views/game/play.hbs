@@ -2,10 +2,26 @@
 
     {{#replace 'navLeft'}}
         <li>
-            <span class="navbar-title" data-bind="text: game().name">
-                derp
-            </span>
+            <span class="navbar-title" data-bind="text: game().name">Loading...</span>
         </li>
+
+        <!-- ko if: isHost() -->
+        {{!--
+        <li>
+            <a href="#" data-toggle="modal" data-target="#game-settings-modal">
+                <span class="glyphicon glyphicon-wrench"></span>
+                Settings
+            </a>
+        </li>
+        --}}
+
+        <li>
+            <a href="#" data-toggle="modal" data-target="#game-players-modal">
+                <span class="glyphicon glyphicon-user"></span>
+                Players
+            </a>
+        </li>
+        <!-- /ko -->
     {{/replace}}
 
     {{#prepend 'navRight'}}
@@ -20,6 +36,7 @@
 
         <li>
             <a href="#" onclick="leaveGame()" title="Leave game">
+                <span class="glyphicon glyphicon-remove"></span>
                 Leave game
             </a>
         </li>
@@ -30,16 +47,24 @@
     {{/replace}}
 
     {{#replace 'content'}}
+
+        {{> modalGameSettings}}
+        {{> modalGamePlayers}}
+
         <!-- ko if: !ended() -->
         <div id="cards-table">
-            <!-- ko if: blackCard -->
             <div class="card black-card">
+                <!-- ko if: blackCard -->
                 <span data-bind="html: blackCard().text"></span>
 
                 {{> watermarkIcon}}
                 <div class="watermark" data-bind="text: blackCard().watermark"></div>
+                <!-- /ko -->
+
+                <!-- ko if: !blackCard() -->
+                {{ajaxLoaderDark}}
+                <!-- /ko -->
             </div>
-            <!-- /ko -->
 
             <!-- ko foreach: playedCards -->
             <div class="move"
@@ -60,7 +85,8 @@
 
         <!-- ko if: isCzar() && blackCard() && czarCanSelect() -->
         <div class="confirm" data-bind="">
-            <button class="btn-default" data-bind="enable: selectedMove() && !selectedMoveSubmitted(), click: submitSelectedMove">
+            <button class="btn-default"
+                    data-bind="enable: selectedMove() && !selectedMoveSubmitted(), click: submitSelectedMove">
                 Confirm
             </button>
 
@@ -72,7 +98,8 @@
 
         <!-- ko if: !isCzar() && blackCard() && move() && !playedCardsUncovered() -->
         <div class="confirm" data-bind="">
-            <button class="btn-default" data-bind="enable: move().cards().length == blackCard().pick && !move().confirmed(), click: move().submit">
+            <button class="btn-default"
+                    data-bind="enable: move().cards().length == blackCard().pick && !move().confirmed(), click: move().submit">
                 Confirm
             </button>
 
@@ -139,6 +166,14 @@
                     <span class="pull-right">
                         Round <span data-bind="text: round"></span>
                     </span>
+
+                    <!-- ko if: isHost() -->
+                    <small>
+                        <a href="#" data-toggle="modal" data-target="#game-players-modal">
+                            Manage bans
+                        </a>
+                    </small>
+                    <!-- /ko -->
                 </h4>
 
                 <!-- ko foreach: players -->
@@ -149,9 +184,14 @@
                             <span title="Host" class="glyphicon glyphicon-star"
                                   data-bind="visible: $root.game().host.id == id"></span>
                             <!-- ko if: $root.isHost() && $root.game().host.id != id  -->
-                            <button class="btn btn-sm btn-default" data-bind="click: $root.kick">
-                                Kick
-                            </button>
+                            <div class="pull-right">
+                                <button class="btn btn-xs btn-default" data-bind="click: $root.kick">
+                                    Kick
+                                </button>
+                                <button class="btn btn-xs btn-danger" data-bind="click: $root.ban">
+                                    Ban
+                                </button>
+                            </div>
                             <!-- /ko -->
                         </div>
                     </div>
@@ -303,6 +343,10 @@
 
                 model = new PlayViewModel({{{gameJson}}}, {{{userJson}}});
                 ko.applyBindings(model);
+
+                if (model.isHost()) {
+                    model.loadBans();
+                }
 
                 $gameChat = $('#chat-game');
                 model.chat().inputElement($gameChat.find('input[type="text"]'));

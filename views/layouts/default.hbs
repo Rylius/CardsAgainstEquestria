@@ -33,12 +33,18 @@
             <ul class="nav navbar-nav">
                 {{#block 'navLeft'}}
                     <li>
-                        <a href="/games">Join</a>
+                        <a href="/games">
+                            <span class="glyphicon glyphicon-ok"></span>
+                            Play!
+                        </a>
                     </li>
 
                     {{#if user}}
                         <li>
-                            <a href="/game/create">Create</a>
+                            <a href="/game/create">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                Create
+                            </a>
                         </li>
                     {{/if}}
                 {{/block}}
@@ -58,12 +64,16 @@
 
                         {{#if user.admin}}
                             <li>
-                                <a href="/admin">Administration</a>
+                                <a href="/admin">
+                                    <span class="glyphicon glyphicon-cog"></span>
+                                    Administration
+                                </a>
                             </li>
                         {{/if}}
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-th-list"></span>
                                 {{user.name}}
                                 <b class="caret"></b>
                             </a>
@@ -72,6 +82,7 @@
                                 {{#if user.registered}}
                                     <li class="disabled">
                                         <a href="#">
+                                            <span class="glyphicon glyphicon-wrench"></span>
                                             Settings
                                             <small>(Coming soon!)</small>
                                         </a>
@@ -81,6 +92,7 @@
                                 {{#unless user.registered}}
                                     <li>
                                         <a href="/user/register">
+                                            <span class="glyphicon glyphicon-log-in"></span>
                                             Register
                                         </a>
                                     </li>
@@ -100,6 +112,7 @@
 
                                 <li>
                                     <a href="/user/logout" onclick="{{#block 'logoutOnclick'}}{{/block}}">
+                                        <span class="glyphicon glyphicon-log-out"></span>
                                         Log out
                                     </a>
                                 </li>
@@ -108,6 +121,7 @@
                     {{else}}
                         <li>
                             <a href="/">
+                                <span class="glyphicon glyphicon-log-in"></span>
                                 Log in
                             </a>
                         </li>

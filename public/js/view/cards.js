@@ -124,6 +124,8 @@ var PlayViewModel = function (game, player) {
         }
     });
 
+    this.bans = ko.observableArray();
+
     this.ended = ko.observable(false);
     this.winner = ko.observable();
 
@@ -182,10 +184,53 @@ var PlayViewModel = function (game, player) {
             $.ajax('/ajax/game/' + self.game().id + '/kick/' + player.id, {
                 method: 'post',
                 error: function () {
-                    self.gameChat().showError('Failed to kick player - try again!');
+                    self.chat().showError('Failed to kick player - try again!');
                 }
             });
         }
+    };
+
+    this.ban = function (player) {
+        if (confirm('Are you sure?')) {
+            $.ajax('/ajax/game/' + self.game().id + '/ban', {
+                method: 'post',
+                data: {player: player},
+                success: function () {
+                    self.bans.removeAll();
+                    self.loadBans();
+                },
+                error: function () {
+                    self.chat().showError('Failed to ban player - try again!');
+                }
+            });
+        }
+    };
+
+    this.unban = function (player) {
+        $.ajax('/ajax/game/' + self.game().id + '/unban/' + player.id, {
+            method: 'post',
+            success: function () {
+                self.bans.removeAll();
+                self.loadBans();
+            },
+            error: function () {
+                self.chat().showError('Failed to unban player - try again!');
+            }
+        });
+    };
+
+    this.loadBans = function () {
+        $.ajax('/ajax/game/' + self.game().id + '/bans', {
+            method: 'get',
+            success: function (bans) {
+                _.each(bans, function (ban) {
+                    self.bans.push(ban);
+                });
+            },
+            error: function () {
+                self.chat().showError('Failed to load list of bans');
+            }
+        });
     };
 
     this.resetGame = function () {
@@ -196,7 +241,7 @@ var PlayViewModel = function (game, player) {
         $.ajax('/ajax/game/' + self.game().id + '/reset', {
             method: 'post',
             error: function () {
-                self.gameChat().showError('Failed to restart game - try again!');
+                self.chat().showError('Failed to restart game - try again!');
             }
         });
     };

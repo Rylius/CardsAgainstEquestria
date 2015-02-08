@@ -21,6 +21,8 @@ var GameLobbyViewModel = function (user) {
 
     this.sendUpdates = ko.observable(true);
 
+    this.bans = ko.observableArray();
+
     this.toggleArea = function (data, e) {
         var $this = $(e.target);
 
@@ -112,10 +114,59 @@ var GameLobbyViewModel = function (user) {
         $('title').text(self.game().name() + ' - Cards Against Equestria');
     };
 
+    // TODO duplicated in cards.js
     this.kick = function (player) {
         if (confirm('Are you sure?')) {
-            $.ajax('/ajax/game/' + self.game().id() + '/kick/' + player.id, {method: 'post'});
+            $.ajax('/ajax/game/' + self.game().id() + '/kick/' + player.id, {
+                method: 'post',
+                error: function () {
+                    self.gameChat().showError('Failed to kick player - try again!');
+                }
+            });
         }
+    };
+
+    this.ban = function (player) {
+        if (confirm('Are you sure?')) {
+            $.ajax('/ajax/game/' + self.game().id() + '/ban', {
+                method: 'post',
+                data: {player: player},
+                success: function () {
+                    self.bans.removeAll();
+                    self.loadBans();
+                },
+                error: function () {
+                    self.gameChat().showError('Failed to ban player - try again!');
+                }
+            });
+        }
+    };
+
+    this.unban = function (player) {
+        $.ajax('/ajax/game/' + self.game().id() + '/unban/' + player.id, {
+            method: 'post',
+            success: function () {
+                self.bans.removeAll();
+                self.loadBans();
+            },
+            error: function () {
+                self.gameChat().showError('Failed to unban player - try again!');
+            }
+        });
+    };
+
+    this.loadBans = function () {
+        $.ajax('/ajax/game/' + self.game().id() + '/bans', {
+            method: 'get',
+            success: function (bans) {
+                _.each(bans, function (ban) {
+                    self.bans.push(ban);
+                });
+            },
+            error: function () {
+                self.gameChat().showError('Failed to load list of bans');
+            }
+        });
     };
 
     this.start = function () {

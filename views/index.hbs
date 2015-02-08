@@ -20,19 +20,19 @@
         {{#if user}}
             <a href="/game/create">
                 <h2 class="button-play">
-                    <span class="glyphicon glyphicon-plus"></span>&nbsp;Host
+                    <span class="glyphicon glyphicon-plus"></span>&nbsp;Create
                 </h2>
             </a>
         {{/if}}
 
         <a href="/games">
             <h2 class="button-play">
-                <span class="glyphicon glyphicon-ok"></span>&nbsp;Play
+                <span class="glyphicon glyphicon-ok"></span>&nbsp;Play!
             </h2>
         </a>
 
         {{#unless user}}
-            <h2>Login</h2>
+            <h2>Log in</h2>
 
             <p>
                 You will not be able to play without logging in.<br/>
@@ -52,7 +52,7 @@
 
                 <input type="hidden" id="redirect" name="redirect" value="{{{loginRedirect}}}">
 
-                <input type="submit" value="Login">
+                <input type="submit" value="Log in">
             </form>
         {{/unless}}
 
