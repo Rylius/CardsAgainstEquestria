@@ -1,10 +1,19 @@
 [
-    {
-        "date": "Sep 1, 2014",
-        "changes": [
-            "Split Creator's Pack in two decks so you can have more pony cards without the inside jokes (thanks Dev_Nights!)"
-        ]
-    },
+  {
+    "date": "Feb 8, 2015",
+    "version": "1.0.6",
+    "changes": [
+      "Added ability to ban players to games",
+      "Various minor fixes and improvements"
+    ]
+  },
+  {
+    "date": "Sep 1, 2014",
+    "version": "1.0.5",
+    "changes": [
+      "Split Creator's Pack in two decks so you can have more pony cards without the inside jokes (thanks Dev_Nights!)"
+    ]
+  },
     {
         "date": "Aug 13, 2014",
         "version": "1.0.4",
