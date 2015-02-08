@@ -1,5 +1,25 @@
 {{#extend 'layouts/default'}}
 
+    {{#replace 'navLeft'}}
+        <li>
+            <!-- ko if: game() -->
+            <span class="navbar-title" data-bind="text: game().name">&nbsp;</span>
+            <!-- /ko -->
+            <!-- ko ifnot: game() -->
+            <span class="navbar-title">Loading...</span>
+            <!-- /ko -->
+        </li>
+
+        <!-- ko if: isHost() -->
+        <li>
+            <a href="#" data-toggle="modal" data-target="#game-players-modal">
+                <span class="glyphicon glyphicon-user"></span>
+                Players
+            </a>
+        </li>
+        <!-- /ko -->
+    {{/replace}}
+
     {{#prepend 'navRight'}}
         <li>
             <a href="#" onclick="leaveGame()" title="Leave game">
@@ -14,6 +34,11 @@
     {{/replace}}
 
     {{#replace 'content'}}
+
+        <!-- ko with: game() -->
+        {{> modalGamePlayers}}
+        <!-- /ko -->
+
         <div id="lobby">
 
         <div data-bind="ifnot: game">
@@ -442,6 +467,8 @@
                     success: function (data) {
                         model.game(new GameViewModel().fromJson(data));
                         model.registerListener();
+
+                        model.loadBans();
 
                         loadTwitter();
                     },

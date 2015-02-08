@@ -225,6 +225,120 @@ var kick = function (req, res) {
     res.send(200);
 };
 
+/**
+ * POST
+ * data = {id: number, name: string}
+ * @param req
+ * @param res
+ */
+var ban = function (req, res) {
+    var gameInstance = findGame(req.params.game);
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    }
+
+    var user = users.get(req.session.user.id);
+    if (!user || !isPlayer(user, gameInstance) || gameInstance.host != user) {
+        res.send(403);
+        return;
+    }
+
+    if (!req.body.player) {
+        res.send(404);
+        return;
+    }
+
+    var player = users.get(req.body.player.id);
+    if (player) {
+        if (player == user) {
+            // Prevent host from banning themselves
+            res.send(403);
+            return;
+        }
+
+        gameInstance.addBan(player.id, player.name);
+        gameInstance.removePlayer(player, 'Banned');
+    } else {
+        gameInstance.addBan(+req.body.player.id, req.body.player.name);
+    }
+
+    res.send(200);
+};
+
+var banAll = function (req, res) {
+    var gameInstance = findGame(req.params.game);
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    }
+
+    var host = users.get(req.session.user.id);
+    if (!host || !isPlayer(host, gameInstance) || gameInstance.host != host) {
+        res.send(403);
+        return;
+    }
+
+    if (!req.body.players) {
+        res.send(404);
+        return;
+    }
+
+    _.each(req.body.players, function (player) {
+        var user = users.get(player.id);
+        if (user) {
+            if (user == host) {
+                // Prevent host from banning themselves
+                res.send(403);
+                return;
+            }
+
+            gameInstance.addBan(user.id, user.name);
+            gameInstance.removePlayer(user, 'Banned');
+        } else {
+            gameInstance.addBan(player.id, player.name);
+        }
+    });
+
+    res.send(200);
+};
+
+var unban = function (req, res) {
+    var gameInstance = findGame(req.params.game);
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    }
+
+    var user = users.get(req.session.user.id);
+    if (!user || !isPlayer(user, gameInstance) || gameInstance.host != user) {
+        res.send(403);
+        return;
+    }
+
+    gameInstance.removeBan(req.params.id);
+
+    res.send(200);
+};
+
+var listBans = function (req, res) {
+    res.type('application/json');
+
+    var gameInstance = findGame(req.params.game);
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    }
+
+    var user = users.get(req.session.user.id);
+    if (!user || !isPlayer(user, gameInstance) || gameInstance.host != user) {
+        res.send(403);
+        return;
+    }
+
+    res.send(JSON.stringify(gameInstance.bans));
+};
+
 var leave = function (req, res) {
     var gameInstance = findGame(req.params.game);
     if (!gameInstance) {
@@ -352,48 +466,50 @@ var sets = function (req, res) {
 
 var rules = function (req, res) {
     res.type('application/json');
-    res.send(JSON.stringify({rules: [
-        {
-            id: 0,
-            title: 'Gambling',
-            description: 'If a Black Card is played and you have more than one White Card that you think could win, you can bet one of your Awesome Points to play an additional White Card.<br/>If you win, you keep your point. If you lose, whoever won the round gets the point you wagered.'
-        },
-        {
-            id: 1,
-            title: 'Rebooting the Universe',
-            description: 'At any time, players may trade in an Awesome Point to return as many White Cards as they\'d like to the deck and draw back up to ten.'
-        },
-        {
-            id: 2,
-            title: 'Packing Heat',
-            description: 'For Pick 2s, all players draw an extra card before playing the hand to open up more options.'
-        },
-        {
-            id: 3,
-            title: 'Rando Cardrissian',
-            description: 'Every round, pick one random White Card from the pile and place it into play. This card belongs to an imaginary player named Rando Cardrissian, and if he wins the game, all players go home in a state of everlasting shame.'
-        },
-        {
-            id: 4,
-            title: 'God Is Dead',
-            description: 'Play without a Card Czar. Each players picks his or her favorite card each round. The card with the most votes wins the round.'
-        },
-        {
-            id: 5,
-            title: 'Survival of the Fittest',
-            description: 'After everyone has answered the question, players take turns eliminating one card each. The last remaining card is declared the funniest.'
-        },
-        {
-            id: 6,
-            title: 'Serious Business',
-            description: 'Instead of picking a favorite card each round, the Card Czar ranks the top three in order. The best card gets 3 Awesome Points, the second-best gets 2, and the third gets 1. At the end of the game, the winner is declared the funniest, mathematically speaking.'
-        },
-        {
-            id: 7,
-            title: 'Never Have I Ever',
-            description: 'At any time, players may discard cards that they don\'t understand, but they must confess their ignorance to the group and suffer the resulting humiliation.'
-        }
-    ]}));
+    res.send(JSON.stringify({
+        rules: [
+            {
+                id: 0,
+                title: 'Gambling',
+                description: 'If a Black Card is played and you have more than one White Card that you think could win, you can bet one of your Awesome Points to play an additional White Card.<br/>If you win, you keep your point. If you lose, whoever won the round gets the point you wagered.'
+            },
+            {
+                id: 1,
+                title: 'Rebooting the Universe',
+                description: 'At any time, players may trade in an Awesome Point to return as many White Cards as they\'d like to the deck and draw back up to ten.'
+            },
+            {
+                id: 2,
+                title: 'Packing Heat',
+                description: 'For Pick 2s, all players draw an extra card before playing the hand to open up more options.'
+            },
+            {
+                id: 3,
+                title: 'Rando Cardrissian',
+                description: 'Every round, pick one random White Card from the pile and place it into play. This card belongs to an imaginary player named Rando Cardrissian, and if he wins the game, all players go home in a state of everlasting shame.'
+            },
+            {
+                id: 4,
+                title: 'God Is Dead',
+                description: 'Play without a Card Czar. Each players picks his or her favorite card each round. The card with the most votes wins the round.'
+            },
+            {
+                id: 5,
+                title: 'Survival of the Fittest',
+                description: 'After everyone has answered the question, players take turns eliminating one card each. The last remaining card is declared the funniest.'
+            },
+            {
+                id: 6,
+                title: 'Serious Business',
+                description: 'Instead of picking a favorite card each round, the Card Czar ranks the top three in order. The best card gets 3 Awesome Points, the second-best gets 2, and the third gets 1. At the end of the game, the winner is declared the funniest, mathematically speaking.'
+            },
+            {
+                id: 7,
+                title: 'Never Have I Ever',
+                description: 'At any time, players may discard cards that they don\'t understand, but they must confess their ignorance to the group and suffer the resulting humiliation.'
+            }
+        ]
+    }));
 };
 
 module.exports = function (app, gameModule) {
@@ -406,6 +522,8 @@ module.exports = function (app, gameModule) {
     app.get('/ajax/game/rules', rules);
 
     app.get('/ajax/game/:game/info', info);
+
+    app.get('/ajax/game/:game/bans', listBans);
 
     app.post('/ajax/game/:game/chat', chat);
 
@@ -423,4 +541,7 @@ module.exports = function (app, gameModule) {
     app.post('/ajax/game/:game/reset', reset);
 
     app.post('/ajax/game/:game/kick/:player', kick);
+    app.post('/ajax/game/:game/ban', ban);
+    app.post('/ajax/game/:game/banall/:players', banAll);
+    app.post('/ajax/game/:game/unban/:id', unban);
 };

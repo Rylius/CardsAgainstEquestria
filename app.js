@@ -40,6 +40,9 @@ hbs.handlebars.registerPartial('derp2', fs.readFileSync(__dirname + '/views/util
 hbs.handlebars.registerPartial('globalChat', fs.readFileSync(__dirname + '/views/chat/chat.hbs', 'utf8'));
 hbs.handlebars.registerPartial('chatMessage', fs.readFileSync(__dirname + '/views/chat/message.hbs', 'utf8'));
 
+hbs.handlebars.registerPartial('modalGameSettings', fs.readFileSync(__dirname + '/views/game/modal_settings.hbs', 'utf8'));
+hbs.handlebars.registerPartial('modalGamePlayers', fs.readFileSync(__dirname + '/views/game/modal_players.hbs', 'utf8'));
+
 hbs.handlebars.registerPartial('cookieNotice', fs.readFileSync(__dirname + '/views/util/cookie_notice.hbs', 'utf8'));
 
 hbs.handlebars.registerPartial('watermarkIcon', fs.readFileSync(__dirname + '/views/util/watermark_icon.hbs', 'utf8'));
