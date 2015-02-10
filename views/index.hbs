@@ -17,56 +17,81 @@
             </div>
         {{/if}}
 
-        {{#if user}}
-            <a href="/game/create">
-                <h2 class="button-play">
-                    <span class="glyphicon glyphicon-plus"></span>&nbsp;Create
-                </h2>
-            </a>
-        {{/if}}
+        <div class="row">
+            <div class="col-xs-6">
 
-        <a href="/games">
-            <h2 class="button-play">
-                <span class="glyphicon glyphicon-ok"></span>&nbsp;Play!
-            </h2>
-        </a>
+                {{#if user}}
+                    <a href="/game/create">
+                        <h2 class="button-play">
+                            <span class="glyphicon glyphicon-plus"></span>&nbsp;Create
+                        </h2>
+                    </a>
+                {{/if}}
 
-        {{#unless user}}
-            <h2>Log in</h2>
+                <a href="/games">
+                    <h2 class="button-play">
+                        <span class="glyphicon glyphicon-ok"></span>&nbsp;Play!
+                    </h2>
+                </a>
 
-            <p>
-                You will not be able to play without logging in.<br/>
-                Logging in is free and painless - just select a name!
-            </p>
+                {{#unless user}}
+                    <h2>Log in</h2>
 
-            <form autocomplete="on" method="post" id="login" action="/user/login" class="form-inline">
-                <div class="form-group">
-                    <label class="sr-only" for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                </div>
+                    <p>
+                        You will not be able to play without logging in.<br/>
+                        Logging in is free and painless - just select a name!
+                    </p>
 
-                <div class="form-group" {{#unless loginFailed}}style="display: none;"{{/unless}}>
-                    <label class="sr-only" for="password">Password:</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                </div>
+                    <form autocomplete="on" method="post" id="login" action="/user/login" class="form-inline">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                        </div>
 
-                <input type="hidden" id="redirect" name="redirect" value="{{{loginRedirect}}}">
+                        <div class="form-group" {{#unless loginFailed}}style="display: none;"{{/unless}}>
+                            <label class="sr-only" for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="Password">
+                        </div>
 
-                <input type="submit" value="Log in">
-            </form>
-        {{/unless}}
+                        <input type="hidden" id="redirect" name="redirect" value="{{{loginRedirect}}}">
 
-        <h2>Changes</h2>
-        {{#each changes}}
-            <h3>{{{date}}}</h3>
-            <ul>
-                {{#each this.changes}}
-                    <li>{{{this}}}</li>
+                        <input type="submit" value="Log in">
+                    </form>
+                {{/unless}}
+
+                <h2>Changes</h2>
+                {{#each changes}}
+                    <h3>{{{date}}}</h3>
+                    <ul>
+                        {{#each this.changes}}
+                            <li>{{{this}}}</li>
+                        {{/each}}
+                    </ul>
                 {{/each}}
-            </ul>
-        {{/each}}
 
-        <a href="/info/changes">Full change log</a>
+                <a href="/info/changes">Full change log</a>
+
+            </div>
+
+            <div class="col-xs-6">
+
+                {{#each valentine.cards}}
+                    <div class="valentine-card">
+                        {{{this}}}
+
+                        {{> watermarkIcon}}
+
+                        <div class="watermark">
+                            <a href="/info/cards?expansion={{../valentine.deckId}}">Shipping&nbsp;<span
+                                    class="icon-heart"></span></a>
+                        </div>
+                    </div>
+                {{/each}}
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
 
         <h2>About / Licenses</h2>
 
@@ -99,7 +124,10 @@
                 });
 
                 var $globalChat = $('#chat-global');
-                var chat = initChat({id: {{user.id}}, name: '{{user.name}}'}, $globalChat.find('> .history'), $globalChat.find('input[type="text"]'));
+                var chat = initChat({
+                    id: {{user.id}},
+                    name: '{{user.name}}'
+                }, $globalChat.find('> .history'), $globalChat.find('input[type="text"]'));
                 ko.applyBindings(chat);
                 {{/if}}
 
