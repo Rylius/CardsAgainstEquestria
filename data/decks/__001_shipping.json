@@ -1,0 +1,97 @@
+{
+  "name": "Shipping!",
+  "description": "Valentine's Day 2015 special deck",
+  "watermark": "OTP",
+  "expansion": true,
+  "blackCards": [
+    {
+      "text": "______ x ______.",
+      "pick": 2
+    },
+    {
+      "text": "______ x ______ OTP.",
+      "pick": 2
+    },
+    {
+      "text": "______ has a secret crush on ______.",
+      "pick": 2
+    },
+    {
+      "text": "______ is my waifu.",
+      "pick": 1
+    },
+    {
+      "text": "______ stole my waifu.",
+      "pick": 1
+    },
+    {
+      "text": "______ is gay for ______.",
+      "pick": 2
+    }
+  ],
+  "whiteCards": [
+    "Applejack",
+    "Pinkie Pie",
+    "Fluttershy",
+    "Rainbow Dash",
+    "Rarity",
+    "Twilight Sparkle",
+    "Spike",
+    "Aloe",
+    "Lotus",
+    "Cherilee",
+    "Cheese Sandwich",
+    "Coco Pommel",
+    "Mayor Mare",
+    "Nurse Redheart",
+    "Big McIntosh",
+    "Braeburn",
+    "Cloudchaser",
+    "Daring Do",
+    "Derpy",
+    "Muffin",
+    "Flash Sentry",
+    "Flitter",
+    "Thunderlane",
+    "Spitfire",
+    "Fleur Dis Lee",
+    "King Sombra",
+    "Queen Chrysalis",
+    "Nightmare Moon",
+    "Gilda",
+    "Princess Celestia",
+    "Princess Luna",
+    "Princess Cadance",
+    "Shining Armor",
+    "Sunset Shimmer",
+    "Trenderhoof",
+    "Trixie",
+    "Maud",
+    "Berry Punch",
+    "Caramel",
+    "Dr. Hooves",
+    "Hugh Jelly",
+    "Octavia",
+    "DJ Pon-3",
+    "Screwball",
+    "Discord",
+    "Lyra",
+    "Bon Bon",
+    "Surprise",
+    "Raindrops",
+    "Colgate",
+    "Button's Mom",
+    "Star Swirl the Bearded",
+    "Lightning Dust",
+    "Snowflake",
+    "Blossomforth",
+    "Ms. Harshwinny",
+    "Bloomberg",
+    "Tom",
+    "Smarty Pants",
+    "Boulder",
+    "Zecora",
+    "Iron Will",
+    "Roseluck"
+  ]
+}

@@ -1,0 +1,45 @@
+.valentine-card {
+  float: left;
+
+  width: @card-size;
+  min-width: @card-size;
+  max-width: @card-size;
+
+  height: @card-size;
+  min-height: @card-size;
+  max-height: @card-size;
+
+  margin-bottom: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: @card-border-radius;
+
+  position: relative;
+
+  background-color: @card-black-bg;
+  color: @card-black-color;
+
+  font-size: 1.25em;
+
+  .inserted {
+    text-decoration: underline;
+  }
+
+  .watermark-icon {
+    .card.watermark-icon;
+    bottom: 31px;
+  }
+
+  .watermark {
+    position: absolute;
+
+    bottom: 15px;
+    left: 55px;
+
+    font-size: 0.8em;
+
+    a {
+      color: @card-black-color;
+    }
+  }
+}
