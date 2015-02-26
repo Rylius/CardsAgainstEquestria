@@ -262,8 +262,6 @@
                 </span>
 
                 <div data-bind="foreach: expansions">
-                    <!-- TODO ugly valentine's day hack -->
-                    <!-- ko if: id != 0 || (new Date(2015, 1, 14) <= new Date()) -->
                     <div class="checkbox">
                         <label>
                             <input type="checkbox"
@@ -273,7 +271,6 @@
                         -
                         <span data-bind="html: description" style="overflow: hidden"></span>
                     </div>
-                    <!-- /ko -->
                 </div>
 
                 <!-- ko if: expansions().length == 0 -->
