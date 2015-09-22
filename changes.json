@@ -3,7 +3,10 @@
     "date": "Sep 22, 2015",
     "version": "1.0.7",
     "changes": [
-      "Added button to let hosts skip the current round"
+      "Added button to let hosts skip the current round",
+      "Hopefully fixed annoying chat errors on iPad/iPhone",
+      "Added chat history to game chats",
+      "Increased chat history to 20 lines (from 10)"
     ]
   },
   {
