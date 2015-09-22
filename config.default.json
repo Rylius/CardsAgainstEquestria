@@ -18,6 +18,8 @@
 
     "updateCommand": "",
 
+    "requestTimeout": 55000,
+
     "files": {
         "decks": "data/decks"
     },

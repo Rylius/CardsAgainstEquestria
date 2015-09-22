@@ -1,5 +1,8 @@
 <li class="message"
-    data-bind="css: { 'message-game': type() == Chat.GAME_MESSAGE, 'message-error': type() == Chat.ERROR }">
+    data-bind="css: { 'message-game': type() == Chat.GAME_MESSAGE,
+                      'message-error': type() == Chat.ERROR,
+                      'message-highlight': isHighlight()
+                    }">
 
     <span class="timestamp">
         [<span data-bind="text: formatTime"></span>]

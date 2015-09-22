@@ -1,4 +1,4 @@
-function ChatMessageViewModel() {
+function ChatMessageViewModel(chat) {
 
     var self = this;
 
@@ -6,6 +6,8 @@ function ChatMessageViewModel() {
     this.user = ko.observable();
     this.type = ko.observable(Chat.MESSAGE);
     this.message = ko.observable();
+
+    this.chat = chat;
 
     this.formatTime = ko.computed(function () {
         return moment(self.time()).format('HH:mm:ss')
@@ -26,6 +28,25 @@ function ChatMessageViewModel() {
         text = text.replace(/\(?(\bhttps?:\/\/[-A-Za-z0-9+&@#\/%?=~_()|!:,.;]*[-A-Za-z0-9+&@#\/%=~_()|])/ig, '<a href="$1" target="_blank">$1</a>');
 
         return text;
+    });
+
+    this.isHighlight = ko.computed(function () {
+        if (!self.user()) {
+            return false;
+        }
+
+        if (self.user().name == self.chat.user().name) {
+            return false;
+        }
+
+        if (!self.message()) {
+            return false;
+        }
+
+        var text = self.message().toLowerCase();
+        var nick = self.chat.user().name.toLowerCase();
+
+        return text.indexOf(nick) >= 0;
     });
 
     this.fromJSON = function (json) {
@@ -66,7 +87,7 @@ function ChatViewModel() {
             return;
         }
 
-        var message = new ChatMessageViewModel();
+        var message = new ChatMessageViewModel(this);
         message.user(this.user());
 
         if (text.charAt(0) == '/') {
@@ -111,12 +132,12 @@ function ChatViewModel() {
     }.bind(this);
 
     this.receive = function (json) {
-        var message = new ChatMessageViewModel().fromJSON(json);
+        var message = new ChatMessageViewModel(this).fromJSON(json);
         this.history.push(message);
     };
 
     this.showError = function (message) {
-        var error = new ChatMessageViewModel();
+        var error = new ChatMessageViewModel(this);
         error.type(Date.now());
         error.type(Chat.ERROR);
         error.message(message);
@@ -125,7 +146,7 @@ function ChatViewModel() {
     };
 
     this.showSystemMessage = function (message) {
-        var msg = new ChatMessageViewModel();
+        var msg = new ChatMessageViewModel(this);
         msg.type(Date.now());
         msg.type(Chat.GAME_MESSAGE);
         msg.message(message);

@@ -30,6 +30,12 @@
             <p class="navbar-text">
                 Time left:
                 <span data-bind="text: timeLeft"></span>s
+                <!-- ko if: isHost() -->
+                <button class="btn btn-xs btn-default" data-bind="enable: timeLeft() > 0, click: skipRound">
+                    <span class="glyphicon glyphicon-fast-forward"></span>
+                    Skip
+                </button>
+                <!-- /ko -->
             </p>
         </li>
         <!-- /ko -->

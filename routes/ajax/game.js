@@ -10,6 +10,7 @@ var Chat = require('../../lib/chat');
 
 var constants = require('../../lib/constants').Game;
 
+var config = null;
 var game = null;
 
 var setsJson = null;
@@ -133,7 +134,7 @@ var listen = function (req, res) {
 
                 gameInstance.updateRequests[user.id] = null;
                 log.trace('Game ' + gameInstance.id + ': Returning empty update to ' + user.id);
-            }, 60000),
+            }, config.requestTimeout),
             response: res
         };
 
@@ -197,6 +198,24 @@ var state = function (req, res) {
     });
 
     gameInstance.sendState(player);
+
+    res.send(200);
+};
+
+var skip = function (req, res) {
+    var gameInstance = findGame(req.params.game);
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    }
+
+    var user = users.get(req.session.user.id);
+    if (!user || gameInstance.host != user) {
+        res.send(403);
+        return;
+    }
+
+    gameInstance.skipRound();
 
     res.send(200);
 };
@@ -512,8 +531,9 @@ var rules = function (req, res) {
     }));
 };
 
-module.exports = function (app, gameModule) {
+module.exports = function (app, appConfig, gameModule) {
     game = gameModule;
+    config = appConfig;
 
     app.post('/ajax/game/create', create);
 
@@ -532,6 +552,8 @@ module.exports = function (app, gameModule) {
 
     app.post('/ajax/game/:game/move', move);
     app.post('/ajax/game/:game/select', select);
+
+    app.post('/ajax/game/:game/skip', skip);
 
     app.post('/ajax/game/:game/start', start);
     app.post('/ajax/game/:game/update', update);
