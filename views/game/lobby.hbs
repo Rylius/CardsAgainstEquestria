@@ -492,6 +492,19 @@
                     }
                 });
 
+                $.ajax('/ajax/game/{{{game.id}}}/history', {
+                    method: 'get',
+                    success: function (history) {
+                        _.forEach(JSON.parse(history), function (message) {
+                            model.gameChat().receive(message);
+                        });
+                    },
+                    error: function (request, error, status) {
+                        console.warn('Failed to request game chat history: ' + error + ': ' + status);
+                        window.location.reload(true);
+                    }
+                });
+
                 $.ajax('/ajax/game/sets', {
                     method: 'get',
                     success: function (data) {

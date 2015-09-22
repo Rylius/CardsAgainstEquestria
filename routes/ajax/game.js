@@ -432,6 +432,34 @@ var info = function (req, res) {
 };
 
 /**
+ * GET
+ * Returns the chat history for a particular game.
+ */
+var history = function (req, res) {
+    var gameInstance = _.find(game.listGames(), function (g) {
+        return g.id == req.params.game;
+    });
+
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    }
+
+    var user = users.get(req.session.user.id);
+    if (!isPlayer(user, gameInstance)) {
+        res.send(403);
+        return;
+    }
+
+    var history = [];
+    _.forEach(gameInstance.chat.history, function (message) {
+        history.push(message.toJSON());
+    });
+
+    res.send(JSON.stringify(history));
+};
+
+/**
  * POST
  * Send a chat message to a particular game.
  */
@@ -542,6 +570,7 @@ module.exports = function (app, appConfig, gameModule) {
     app.get('/ajax/game/rules', rules);
 
     app.get('/ajax/game/:game/info', info);
+    app.get('/ajax/game/:game/history', history);
 
     app.get('/ajax/game/:game/bans', listBans);
 
