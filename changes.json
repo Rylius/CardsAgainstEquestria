@@ -6,7 +6,8 @@
       "Added button to let hosts skip the current round",
       "Hopefully fixed annoying chat errors on iPad/iPhone",
       "Added chat history to game chats",
-      "Increased chat history to 20 lines (from 10)"
+      "Increased chat history to 20 lines (from 10)",
+      "Chat messages containing your nick are now highlighted"
     ]
   },
   {
