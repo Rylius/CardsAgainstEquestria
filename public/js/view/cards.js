@@ -179,6 +179,17 @@ var PlayViewModel = function (game, player) {
         return self.blackCard() != null && self.playedCardsUncovered();
     });
 
+    this.skipRound = function () {
+        if (confirm('Are you sure you want to skip this round?')) {
+            $.ajax('/ajax/game/' + self.game().id + '/skip', {
+                method: 'post',
+                error: function () {
+                    self.chat().showError('Failed to skip round - try again!');
+                }
+            });
+        }
+    };
+
     this.kick = function (player) {
         if (confirm('Are you sure?')) {
             $.ajax('/ajax/game/' + self.game().id + '/kick/' + player.id, {

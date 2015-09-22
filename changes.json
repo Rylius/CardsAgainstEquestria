@@ -1,9 +1,22 @@
 [
   {
+    "date": "Sep 22, 2015",
+    "version": "1.0.7",
+    "changes": [
+      "Added button to let hosts skip the current round"
+    ]
+  },
+  {
+    "date": "Feb 14, 2015",
+    "changes": [
+      "Added a pony shipping deck..."
+    ]
+  },
+  {
     "date": "Feb 8, 2015",
     "version": "1.0.6",
     "changes": [
-      "Added ability to ban players to games",
+      "Added ability to ban players from games",
       "Various minor fixes and improvements"
     ]
   },

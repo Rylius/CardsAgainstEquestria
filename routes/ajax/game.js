@@ -201,6 +201,24 @@ var state = function (req, res) {
     res.send(200);
 };
 
+var skip = function (req, res) {
+    var gameInstance = findGame(req.params.game);
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    }
+
+    var user = users.get(req.session.user.id);
+    if (!user || gameInstance.host != user) {
+        res.send(403);
+        return;
+    }
+
+    gameInstance.skipRound();
+
+    res.send(200);
+};
+
 var kick = function (req, res) {
     var gameInstance = findGame(req.params.game);
     if (!gameInstance) {
@@ -532,6 +550,8 @@ module.exports = function (app, gameModule) {
 
     app.post('/ajax/game/:game/move', move);
     app.post('/ajax/game/:game/select', select);
+
+    app.post('/ajax/game/:game/skip', skip);
 
     app.post('/ajax/game/:game/start', start);
     app.post('/ajax/game/:game/update', update);
