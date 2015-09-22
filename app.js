@@ -239,8 +239,8 @@ require('./routes/admin')(app);
 // ajax
 
 require('./routes/ajax/user')(app);
-require('./routes/ajax/chat')(app);
-require('./routes/ajax/game')(app, game);
+require('./routes/ajax/chat')(app, config);
+require('./routes/ajax/game')(app, config, game);
 require('./routes/ajax/admin')(app, config);
 
 // database

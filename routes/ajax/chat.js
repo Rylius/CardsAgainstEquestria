@@ -5,6 +5,8 @@ var _ = require('underscore');
 var Chat = require('../../lib/chat');
 var Users = require('../../lib/users');
 
+var config = null;
+
 var post = function (req, res) {
     var user = req.session.user ? Users.get(req.session.user.id) : null;
     if (!user) {
@@ -58,7 +60,7 @@ var listen = function (req, res) {
             }
 
             log.trace('Chat listen request by ' + user.id + '/' + user.name + ' returned empty');
-        }, 90000),
+        }, config.requestTimeout),
         userId: user.id,
         response: res
     };
@@ -89,7 +91,9 @@ var history = function (req, res) {
     res.send(JSON.stringify(messages));
 };
 
-module.exports = function (app) {
+module.exports = function (app, appConfig) {
+    config = appConfig;
+
     app.post('/ajax/chat/post', post);
     app.get('/ajax/chat/listen', listen);
     app.post('/ajax/chat/history', history);

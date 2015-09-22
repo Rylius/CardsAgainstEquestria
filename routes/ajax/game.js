@@ -10,6 +10,7 @@ var Chat = require('../../lib/chat');
 
 var constants = require('../../lib/constants').Game;
 
+var config = null;
 var game = null;
 
 var setsJson = null;
@@ -133,7 +134,7 @@ var listen = function (req, res) {
 
                 gameInstance.updateRequests[user.id] = null;
                 log.trace('Game ' + gameInstance.id + ': Returning empty update to ' + user.id);
-            }, 60000),
+            }, config.requestTimeout),
             response: res
         };
 
@@ -530,8 +531,9 @@ var rules = function (req, res) {
     }));
 };
 
-module.exports = function (app, gameModule) {
+module.exports = function (app, appConfig, gameModule) {
     game = gameModule;
+    config = appConfig;
 
     app.post('/ajax/game/create', create);
 
