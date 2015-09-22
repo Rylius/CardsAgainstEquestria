@@ -13,6 +13,11 @@ module.exports = function (grunt) {
                     "dist/styles/derpy.css": "public/styles/themes/derpy/derpy.less"
                 }
             },
+            discord: {
+                files: {
+                    "dist/styles/discord.css": "public/styles/themes/discord/discord.less"
+                }
+            },
             luna: {
                 files: {
                     "dist/styles/luna.css": "public/styles/themes/luna/luna.less"

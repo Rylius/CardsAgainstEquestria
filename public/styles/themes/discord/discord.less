@@ -1,0 +1,107 @@
+@import "../../style";
+
+@discord-body-fill: #b8b4a1;
+@discord-shadow-fill: #512f2d;
+@discord-body-stroke: #764f4e;
+
+@discord-hair-fill: #f2f14d;
+@discord-hair-stroke: #E7DD6B;
+
+// misc
+
+@body-bg: @discord-body-fill;
+
+@link-color: #b54c5b;
+
+@text-color: #343434;
+
+@headings-small-color: lighten(@text-color, 15%);
+
+.help-block {
+  color: @headings-small-color;
+}
+
+@card-white-selected-bg: @discord-hair-fill;
+
+// navigation
+
+@navbar-border-radius: 0;
+
+@navbar-default-bg: @discord-body-stroke;
+@navbar-default-link-color: @discord-hair-stroke;
+
+@navbar-default-link-active-color: lighten(@discord-hair-stroke, 15%);
+@navbar-default-link-active-bg: @discord-shadow-fill;
+
+@navbar-default-link-hover-color: @navbar-default-link-active-color;
+@navbar-default-link-hover-bg: @navbar-default-link-active-bg;
+
+@navbar-default-color: darken(@text-color, 10%);
+
+@dropdown-bg: @navbar-default-bg;
+@dropdown-divider-bg: @text-color;
+
+@dropdown-link-color: @navbar-default-link-color;
+
+@dropdown-link-hover-color: @navbar-default-link-hover-color;
+@dropdown-link-hover-bg: @navbar-default-link-hover-bg;
+
+@dropdown-link-disabled-color: @navbar-default-color;
+
+// tabs
+
+// active tab
+@nav-tabs-active-link-hover-bg: mix(@discord-shadow-fill, @discord-body-fill, 40%);
+@nav-tabs-active-link-hover-color: #fbfbfb;
+@nav-tabs-active-link-hover-border-color: @navbar-default-bg;
+
+// other tabs
+@nav-link-hover-bg: @discord-body-stroke;
+@nav-tabs-link-hover-border-color: @navbar-default-bg;
+
+@nav-tabs-border-color: @navbar-default-bg;
+
+#chat li a {
+  color: @discord-body-stroke;
+}
+
+#chat li a:hover {
+  color: @nav-tabs-active-link-hover-color;
+}
+
+// buttons
+
+@btn-link-disabled-color: @gray-darker;
+
+@btn-default-bg: @discord-body-fill;
+@btn-default-border: @discord-body-stroke;
+
+// misc colors
+
+//@brand-primary: @derpy-hair-stroke;
+@brand-danger: #c80a0a;
+@brand-success: lighten(desaturate(#60ba4b, 5%), 10%);
+
+@alert-danger-text: @brand-danger;
+@state-danger-text: @brand-danger;
+
+// forms
+
+@input-bg: lighten(@discord-body-fill, 10%);
+@input-group-addon-bg: @input-bg;
+
+@input-bg-disabled: #cca760;
+
+@input-border: lighten(@discord-body-stroke, 5%);
+@input-border-focus: darken(@discord-hair-stroke, 15%);
+
+
+// stuff
+
+#chat-global, #chat-game {
+  .history {
+    background-color: @nav-tabs-active-link-hover-bg;
+  }
+}
+
+@card-white-selected-bg: darken(desaturate(@discord-hair-fill, 5%), 10%);

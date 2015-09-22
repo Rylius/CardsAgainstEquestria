@@ -1,6 +1,13 @@
 [
   {
     "date": "Sep 22, 2015",
+    "version": "1.0.8",
+    "changes": [
+      "Chat history now also works in lobbies..."
+    ]
+  },
+  {
+    "date": "Sep 22, 2015",
     "version": "1.0.7",
     "changes": [
       "Added button to let hosts skip the current round",
