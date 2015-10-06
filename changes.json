@@ -1,9 +1,10 @@
 [
   {
-    "date": "Sep 22, 2015",
+    "date": "Oct 6, 2015",
     "version": "1.0.8",
     "changes": [
-      "Chat history now also works in lobbies..."
+      "Chat history now also works in lobbies...",
+      "Added Discord theme"
     ]
   },
   {

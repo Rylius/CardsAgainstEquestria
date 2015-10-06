@@ -51,7 +51,7 @@ function chatListen() {
                 globalChat.receive(message);
             });
 
-            setTimeout(chatListen, 100);
+            chatListen();
         },
         error: function (xhr, status, error) {
             if (error == 'abort') {
