@@ -96,6 +96,7 @@ var update = function (req, res) {
 /**
  * POST
  * Adds a custom set to the game.
+ * @author tjhorner
  */
 var addSet = function (req, res) {
     var gameInstance = _.find(game.listGames(), function (game) {
@@ -110,27 +111,53 @@ var addSet = function (req, res) {
         return;
     }
 
-    if(req.body.cahCreatorId){
-      creatorApi.getDeck(req.body.cahCreatorId, function(deck){
-        if(deck.error){
-          res.send(404); // the only error the api returns is not found so this is safe... for now...
-          return;
-        }
-        // some checks, custom decks must have at least 3 blacks and 5 whites (that sounds so racist)
-        if(deck.blackCards.length < 3 || deck.whiteCards.length < 5){
-          res.send(400); // TODO add informative error message!
-          return;
-        }else{
-          var announceMessage = new Chat.Message(Chat.systemUser, MessageType.GAME_MESSAGE, gameInstance.host.name + " added a custom set: " + deck.name);
-          gameInstance.chat.sendMessage(announceMessage);
-          gameInstance.setCustomSet(deck);
-        }
-        res.send(deck);
+    var deckId = req.body.cahCreatorId;
+    if (deckId) {
+        creatorApi.getDeck(deckId, function (deck) {
+            if (deck.error) {
+                res.send(404); // the only error the api returns is not found so this is safe... for now...
+                return;
+            }
+
+            deck.id = deckId;
+
+            gameInstance.customSets.push(deck);
+
+            res.send(deck);
+        });
+    } else {
+        res.send(400);
+    }
+};
+
+var removeSet = function (req, res) {
+    var gameInstance = _.find(game.listGames(), function (game) {
+        return game.id == req.params.game;
+    });
+
+    if (!gameInstance) {
+        res.send(404);
         return;
-      });
-    }else{
-      res.send(400);
-      return;
+    } else if (gameInstance.host.id != req.session.user.id) {
+        res.send(403);
+        return;
+    }
+
+    var deckId = req.body.cahCreatorId;
+    if (deckId) {
+        var i = _.findIndex(gameInstance.customSets, function (deck) {
+            return deck.id = deckId;
+        });
+        if (i < 0) {
+            res.send(404);
+            return;
+        }
+
+        gameInstance.customSets.splice(i, 1);
+
+        res.send(200);
+    } else {
+        res.send(400);
     }
 };
 
@@ -632,6 +659,7 @@ module.exports = function (app, appConfig, gameModule) {
     app.post('/ajax/game/:game/start', start);
     app.post('/ajax/game/:game/update', update);
     app.post('/ajax/game/:game/addSet', addSet);
+    app.post('/ajax/game/:game/removeSet', removeSet);
 
     app.post('/ajax/game/:game/leave', leave);
 

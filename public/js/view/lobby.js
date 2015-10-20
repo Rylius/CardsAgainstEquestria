@@ -16,6 +16,10 @@ var GameLobbyViewModel = function (user) {
     this.sets = ko.observableArray();
     this.expansions = ko.observableArray();
 
+    this.addCustomSetId = ko.observable('');
+    this.addCustomSetLoading = ko.observable(false);
+    this.addCustomSetMessage = ko.observable(null);
+
     this.rules = ko.observableArray();
 
     this.starting = ko.observable(false);
@@ -114,28 +118,43 @@ var GameLobbyViewModel = function (user) {
         document.title = self.game().name() + ' - Cards Against Equestria';
     };
 
-    this.addSetFromId = function (form) {
-      var $form = $(form);
-      $form.find(".loader").show();
-      $form.find(".btn, #cah-creator-id").prop("disabled", true);
-      $.ajax('/ajax/game/' + self.game().id() + '/addSet', {
-          method: 'post',
-          data: { cahCreatorId: $form.find("input").val() },
-          success: function(res){
-            $form.find(".loader").hide();
-            if(res.error){
-              $form.find(".btn, #cah-creator-id").prop("disabled", false);
-            }else{
-              $("#custom-set-info").slideDown();
-              $("#custom-set-name").text(res.name);
+    this.addCustomSetFromId = function () {
+        self.addCustomSetLoading(true);
+        self.addCustomSetMessage(null);
+        $.ajax('/ajax/game/' + self.game().id() + '/addSet', {
+                method: 'post',
+                data: {cahCreatorId: self.addCustomSetId()},
+                success: function (data) {
+                    data.id = self.addCustomSetId();
+                    self.addCustomSetId('');
+                    self.game().customSets.push(data);
+                    self.update();
+
+                    self.addCustomSetMessage('Deck added: ' + data.name + ' - ' + data.description);
+                },
+                error: function () {
+                    self.addCustomSetMessage('There doesn\'t seem to be any deck with that ID. :(')
+                },
+                complete: function () {
+                    self.addCustomSetLoading(false);
+                }
             }
-          },
-          error: function(){
-            $form.find(".loader").hide();
-            $form.find(".btn, #cah-creator-id").prop("disabled", false);
-          }
-        }
-      );
+        );
+    };
+
+    this.removeCustomSet = function (deck) {
+        $.ajax('/ajax/game/' + self.game().id() + '/removeSet', {
+                method: 'post',
+                data: {cahCreatorId: deck.id},
+                success: function (data) {
+                    self.game().customSets.remove(deck);
+                    self.update();
+                },
+                error: function () {
+                    self.gameChat().showError('Failed to remove custom set - try again!');
+                }
+            }
+        );
     };
 
     // TODO duplicated in cards.js
