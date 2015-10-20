@@ -15,6 +15,7 @@ var GameLobbyViewModel = function (user) {
 
     this.sets = ko.observableArray();
     this.expansions = ko.observableArray();
+
     this.rules = ko.observableArray();
 
     this.starting = ko.observable(false);
@@ -110,8 +111,31 @@ var GameLobbyViewModel = function (user) {
             }
         );
 
-        // FIXME This is hacky at best, let's try and do it better later...
-        $('title').text(self.game().name() + ' - Cards Against Equestria');
+        document.title = self.game().name() + ' - Cards Against Equestria';
+    };
+
+    this.addSetFromId = function (form) {
+      var $form = $(form);
+      $form.find(".loader").show();
+      $form.find(".btn, #cah-creator-id").prop("disabled", true);
+      $.ajax('/ajax/game/' + self.game().id() + '/addSet', {
+          method: 'post',
+          data: { cahCreatorId: $form.find("input").val() },
+          success: function(res){
+            $form.find(".loader").hide();
+            if(res.error){
+              $form.find(".btn, #cah-creator-id").prop("disabled", false);
+            }else{
+              $("#custom-set-info").slideDown();
+              $("#custom-set-name").text(res.name);
+            }
+          },
+          error: function(){
+            $form.find(".loader").hide();
+            $form.find(".btn, #cah-creator-id").prop("disabled", false);
+          }
+        }
+      );
     };
 
     // TODO duplicated in cards.js
@@ -189,8 +213,8 @@ var GameLobbyViewModel = function (user) {
             this.game().fromJson(data);
             this.sendUpdates(true);
 
-            // FIXME cleanup title change
-            $('title').text(data.name + ' - Cards Against Equestria');
+            document.title = data.name + ' - Cards Against Equestria'; // TODO should the app name (in this case "Cards Against Equestria") be stored in the
+                                                                       // config or something? this would be a pain to change everywhere.
         } else if (type == Game.Server.Update.CHAT) {
             if (data.user) {
                 console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);

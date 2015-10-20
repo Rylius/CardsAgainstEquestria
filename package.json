@@ -1,29 +1,30 @@
 {
-    "name": "cards-against-equestria",
-    "version": "1.0.8",
-    "homepage": "https://github.com/Rylius/CardsAgainstEquestria",
-    "private": true,
-    "scripts": {
-        "start": "node app.js"
-    },
-    "dependencies": {
-        "express": "3.x.x",
-        "connect-flash": "0.1.x",
-        "hbs": "2.4.x",
-        "handlebars-layouts": "0.1.x",
-        "underscore": "*",
-        "underscore.string": "*",
-        "extend": "1.2.x",
-        "logule": "2.x.x",
-        "sql": "~0.34.0",
-        "orm": "~2.1.3",
-        "pg": "~2.11.0"
-    },
-    "devDependencies": {
-        "grunt": "~0.4.2",
-        "grunt-contrib-less": "~0.8.3",
-        "grunt-contrib-concat": "~0.3.0",
-        "grunt-contrib-uglify": "~0.2.7",
-        "grunt-contrib-copy": "~0.5.0"
-    }
+  "name": "cards-against-equestria",
+  "version": "1.0.8",
+  "homepage": "https://github.com/Rylius/CardsAgainstEquestria",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "cah-creator": "^1.0.0",
+    "express": "3.x.x",
+    "connect-flash": "0.1.x",
+    "hbs": "2.4.x",
+    "handlebars-layouts": "0.1.x",
+    "underscore": "*",
+    "underscore.string": "*",
+    "extend": "1.2.x",
+    "logule": "2.x.x",
+    "sql": "~0.34.0",
+    "orm": "~2.1.3",
+    "pg": "~2.11.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-less": "~0.8.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-copy": "~0.5.0"
+  }
 }
