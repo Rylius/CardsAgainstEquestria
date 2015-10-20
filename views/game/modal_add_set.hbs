@@ -1,0 +1,74 @@
+<div id="add-set-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    Add Custom Deck
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                <h4>Step 1:</h4>
+
+                <p>
+                    Go to CAH Creator by
+                    <a href="http://cahcreator.com/partner/cae?game_id={{game.id}}" target="_blank">clicking here</a>.
+                    Create your deck. Once you're done, head over to step 2.
+                </p>
+
+                <h4>Step 2:</h4>
+
+                <p>
+                    Great! (Oh, also note that decks on cahcreator.com aren't stored permanently. Export your deck!)
+                    Let's add your deck to this game. It won't be stored on the server and will only be available
+                    to play this game.
+                </p>
+
+                <p>
+                    Copy and paste the CAH Creator deck ID here (click "Export Deck" -> look at "Deck ID"):
+                </p>
+
+                <div class="row">
+
+                    <div class="col-xs-6">
+                        <form data-bind="submit: $root.addCustomSetFromId">
+                            <div class="form-group">
+                                <label for="customDeckId">Deck ID</label>
+                                <input type="text" class="form-control" placeholder="abc123xyz"
+                                       data-bind="value: $root.addCustomSetId" id="customDeckId">
+                            </div>
+
+                            <button type="submit" class="btn btn-default"
+                                    data-bind="disable: $root.addCustomSetLoading">
+                                Add custom deck
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <span class="loader" data-bind="if: $root.addCustomSetLoading">
+                            {{ajaxLoader}}
+                        </span>
+
+                        <!-- ko if: $root.addCustomSetMessage() -->
+                        <p>
+                            <strong data-bind="text: $root.addCustomSetMessage">&nbsp;</strong>
+                        </p>
+                        <!-- /ko -->
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

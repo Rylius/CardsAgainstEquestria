@@ -110,6 +110,17 @@
 
                                 <li class="divider"></li>
 
+                                {{!--<li>--}}
+                                    {{!--<a href="#" onclick="toggleNotifications(); return false">--}}
+                                        {{!--<label class="checkbox inline">--}}
+                                            {{!--Chat notifications--}}
+                                            {{!--<input type="checkbox" id="notifications-checkbox">--}}
+                                        {{!--</label>--}}
+                                    {{!--</a>--}}
+                                {{!--</li>--}}
+
+                                {{!--<li class="divider"></li>--}}
+
                                 <li>
                                     <a href="/user/logout" onclick="{{#block 'logoutOnclick'}}{{/block}}">
                                         <span class="glyphicon glyphicon-log-out"></span>
@@ -221,7 +232,10 @@
                 });
 
                 var $globalChat = $('#chat-global');
-                var chat = initChat({id: {{user.id}}, name: '{{user.name}}'}, $globalChat.find('> .history'), $globalChat.find('input[type="text"]'));
+                var chat = initChat({
+                    id: {{user.id}},
+                    name: '{{user.name}}'
+                }, $globalChat.find('> .history'), $globalChat.find('input[type="text"]'));
                 ko.applyBindings(chat);
             });
         </script>
@@ -232,6 +246,9 @@
     if (!$.cookie('cookieNoticeRead')) {
         $('#cookie-notice').show();
     }
+//    if ($.cookie('notifications')) {
+//        toggleNotifications();
+//    }
 </script>
 
 </body>

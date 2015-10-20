@@ -220,6 +220,8 @@ var GameViewModel = function () {
     this.sets = ko.observableArray();
     this.expansions = ko.observableArray();
 
+    this.customSets = ko.observableArray();
+
     this.rules = ko.observableArray();
 
     this.scoreLimit = ko.observable(8);
@@ -319,6 +321,11 @@ var GameViewModel = function () {
         self.expansions.removeAll();
         _.each(json.expansions, function (s) {
             self.expansions.push('' + s.id);
+        });
+
+        self.customSets.removeAll();
+        _.forEach(json.customSets, function (s) {
+            self.customSets.push(s);
         });
 
         // TODO rules

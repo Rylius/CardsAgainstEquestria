@@ -51,7 +51,7 @@ function chatListen() {
                 globalChat.receive(message);
             });
 
-            setTimeout(chatListen, 100);
+            chatListen();
         },
         error: function (xhr, status, error) {
             if (error == 'abort') {
@@ -76,4 +76,69 @@ function interruptChatListen() {
         currentChatListenRequest.abort();
         console.log('Interrupted chat message listener');
     }
+}
+
+function toggleNotifications() {
+    var checkbox = document.getElementById('notifications-checkbox');
+
+    function permissionChanged(permission) {
+        if (permission == 'granted') {
+            toggleNotifications();
+        }
+    }
+
+    console.log('toggling notifications from ' + checkbox.checked);
+
+    if (checkbox.checked) {
+        checkbox.checked = false;
+    } else {
+        if (Notification.permission == 'granted') {
+            if (notificationsAvailable()) {
+                checkbox.checked = true;
+            } else {
+                alert('Your browser does not support notifications. :(');
+            }
+        } else {
+            Notification.requestPermission(permissionChanged);
+        }
+    }
+    $.cookie('notifications', checkbox.checked, {expires: 3650, path: '/'});
+
+    return false;
+}
+
+function notificationsAvailable() {
+    if (!window.Notification || !Notification.requestPermission) {
+        return false;
+    }
+    if (Notification.permission == 'granted') {
+        return true;
+    }
+
+    try {
+        new Notification('');
+    } catch (e) {
+        if (e.name == 'TypeError') {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function showNotification(title, body) {
+    if (!notificationsAvailable()) {
+        return;
+    }
+
+    console.log('showNotification ' + title + ': ' + body);
+
+    var notification = new Notification(title, {
+        body: body,
+        icon: '/img/notification.png',
+        tag: 'CAE_NOTIFICATION'
+    });
+    setTimeout(function () {
+        notification.close();
+    }, 10000);
 }

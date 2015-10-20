@@ -31,6 +31,11 @@
             "file": "derpy"
         },
         {
+            "name": "Discord",
+            "id": "discord",
+            "file": "discord"
+        },
+        {
             "name": "Luna",
             "id": "luna",
             "file": "luna"
