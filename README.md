@@ -31,7 +31,7 @@ I don't really recommend it.
 
 * node.js
 * Postgres (9?) database
-* npm install grunt-cli
+* `sudo npm install -g grunt-cli`
 
 ### Installation
 

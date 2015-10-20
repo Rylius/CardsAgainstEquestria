@@ -9,6 +9,10 @@ var cards = require('../../lib/cards');
 var Chat = require('../../lib/chat');
 
 var constants = require('../../lib/constants').Game;
+var MessageType = require('../../lib/constants').Chat;
+
+var CahCreator = require('cah-creator'),
+    creatorApi = new CahCreator();
 
 var config = null;
 var game = null;
@@ -87,6 +91,47 @@ var update = function (req, res) {
     gameInstance.update(req.body);
 
     res.send(200);
+};
+
+/**
+ * POST
+ * Adds a custom set to the game.
+ */
+var addSet = function (req, res) {
+    var gameInstance = _.find(game.listGames(), function (game) {
+        return game.id == req.params.game;
+    });
+
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    } else if (gameInstance.host.id != req.session.user.id) {
+        res.send(403);
+        return;
+    }
+
+    if(req.body.cahCreatorId){
+      creatorApi.getDeck(req.body.cahCreatorId, function(deck){
+        if(deck.error){
+          res.send(404); // the only error the api returns is not found so this is safe... for now...
+          return;
+        }
+        // some checks, custom decks must have at least 3 blacks and 5 whites (that sounds so racist)
+        if(deck.blackCards.length < 3 || deck.whiteCards.length < 5){
+          res.send(400); // TODO add informative error message!
+          return;
+        }else{
+          var announceMessage = new Chat.Message(Chat.systemUser, MessageType.GAME_MESSAGE, gameInstance.host.name + " added a custom set: " + deck.name);
+          gameInstance.chat.sendMessage(announceMessage);
+          gameInstance.setCustomSet(deck);
+        }
+        res.send(deck);
+        return;
+      });
+    }else{
+      res.send(400);
+      return;
+    }
 };
 
 /**
@@ -557,6 +602,7 @@ module.exports = function (app, appConfig, gameModule) {
 
     app.post('/ajax/game/:game/start', start);
     app.post('/ajax/game/:game/update', update);
+    app.post('/ajax/game/:game/addSet', addSet);
 
     app.post('/ajax/game/:game/leave', leave);
 
