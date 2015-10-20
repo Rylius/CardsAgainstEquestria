@@ -266,14 +266,16 @@
                     <!-- /ko -->
                 </h3>
 
-                <div data-bind="foreach: game().customSets">
-                    <strong><span data-bind="text: name"></span></strong>
-                    -
-                    <span data-bind="text: description" style="overflow: hidden"></span>
-                    <!-- ko if: $root.isHost() -->
-                    (<a href="#" data-bind="click: $root.removeCustomSet">Remove</a>)
-                    <!-- /ko -->
-                </div>
+                <ul data-bind="foreach: game().customSets">
+                    <li>
+                        <strong><span data-bind="text: name"></span></strong>
+                        -
+                        <span data-bind="text: description" style="overflow: hidden"></span>
+                        <!-- ko if: $root.isHost() -->
+                        (<a href="#" data-bind="click: $root.removeCustomSet">Remove</a>)
+                        <!-- /ko -->
+                    </li>
+                </ul>
 
                 <!-- ko if: isHost() && !game().customSets().length -->
                 <button data-toggle="modal" data-target="#add-set-modal" href="#" class="btn btn-success">
