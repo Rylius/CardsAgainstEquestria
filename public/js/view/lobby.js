@@ -126,11 +126,15 @@ var GameLobbyViewModel = function (user) {
                 data: {cahCreatorId: self.addCustomSetId()},
                 success: function (data) {
                     data.id = self.addCustomSetId();
-                    self.addCustomSetId('');
-                    self.game().customSets.push(data);
-                    self.update();
+                    if (data !== 'OK') {
+                        self.game().customSets.push(data);
+                        self.update();
 
-                    self.addCustomSetMessage('Deck added: ' + data.name + ' - ' + data.description);
+                        self.addCustomSetMessage('Deck added: ' + data.name + ' - ' + data.description);
+                    } else {
+                        self.addCustomSetMessage('Deck has already been added');
+                    }
+                    self.addCustomSetId('');
                 },
                 error: function () {
                     self.addCustomSetMessage('There doesn\'t seem to be any deck with that ID. :(')
