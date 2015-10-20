@@ -37,6 +37,7 @@
 
         <!-- ko with: game() -->
         {{> modalGamePlayers}}
+        {{> modalAddSet}}
         <!-- /ko -->
 
         <div id="lobby">
@@ -259,6 +260,11 @@
 
                 <span class="help-block">
                     Select any number
+                    <!-- ko if: isHost() -->
+                    <br>
+                    {{! TODO way of letting users know that the host added a custom set besides chat }}
+                    <a data-toggle="modal" data-target="#add-set-modal" href="#">Add custom set</a>
+                    <!-- /ko -->
                 </span>
 
                 <div data-bind="foreach: expansions">
