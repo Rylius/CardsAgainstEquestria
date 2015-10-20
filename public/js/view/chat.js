@@ -134,6 +134,10 @@ function ChatViewModel() {
     this.receive = function (json) {
         var message = new ChatMessageViewModel(this).fromJSON(json);
         this.history.push(message);
+
+        if ($.cookie('notifications') && !message.isHighlight()) {
+            showNotification('Chat mention by ' + (message.user() ? message.user().name : 'System'), message.message());
+        }
     };
 
     this.showError = function (message) {

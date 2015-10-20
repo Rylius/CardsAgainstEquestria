@@ -51,7 +51,7 @@ var listen = function (req, res) {
             res.send(JSON.stringify([]));
             clearTimeout(request.timeoutId);
 
-            Chat.global.removeRequest(request);
+            Chat.global.removeRequest(user, request);
 
             log.trace('Chat listen request by ' + user.id + '/' + user.name + ' returned empty');
         }, config.requestTimeout),
