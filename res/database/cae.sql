@@ -32,7 +32,7 @@ SET client_min_messages = warning;
 
 --
 -- TOC entry 170 (class 3079 OID 11681)
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
@@ -41,7 +41,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 --
 -- TOC entry 1969 (class 0 OID 0)
 -- Dependencies: 170
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -72,7 +72,7 @@ SET default_with_oids = false;
 --
 -- TOC entry 168 (class 1259 OID 19435)
 -- Dependencies: 1827 5
--- Name: black_card; Type: TABLE; Schema: public; Owner: cae; Tablespace: 
+-- Name: black_card; Type: TABLE; Schema: public; Owner: cae; Tablespace:
 --
 
 CREATE TABLE black_card (
@@ -89,7 +89,7 @@ ALTER TABLE public.black_card OWNER TO cae;
 --
 -- TOC entry 163 (class 1259 OID 19335)
 -- Dependencies: 1822 1823 1824 1825 5
--- Name: deck; Type: TABLE; Schema: public; Owner: cae; Tablespace: 
+-- Name: deck; Type: TABLE; Schema: public; Owner: cae; Tablespace:
 --
 
 CREATE TABLE deck (
@@ -107,7 +107,7 @@ ALTER TABLE public.deck OWNER TO cae;
 --
 -- TOC entry 166 (class 1259 OID 19410)
 -- Dependencies: 5
--- Name: deck_permissions; Type: TABLE; Schema: public; Owner: cae; Tablespace: 
+-- Name: deck_permissions; Type: TABLE; Schema: public; Owner: cae; Tablespace:
 --
 
 CREATE TABLE deck_permissions (
@@ -121,7 +121,7 @@ ALTER TABLE public.deck_permissions OWNER TO cae;
 --
 -- TOC entry 164 (class 1259 OID 19389)
 -- Dependencies: 1826 5
--- Name: permission; Type: TABLE; Schema: public; Owner: cae; Tablespace: 
+-- Name: permission; Type: TABLE; Schema: public; Owner: cae; Tablespace:
 --
 
 CREATE TABLE permission (
@@ -135,7 +135,7 @@ ALTER TABLE public.permission OWNER TO cae;
 --
 -- TOC entry 167 (class 1259 OID 19425)
 -- Dependencies: 5
--- Name: site_permissions; Type: TABLE; Schema: public; Owner: cae; Tablespace: 
+-- Name: site_permissions; Type: TABLE; Schema: public; Owner: cae; Tablespace:
 --
 
 CREATE TABLE site_permissions (
@@ -149,7 +149,7 @@ ALTER TABLE public.site_permissions OWNER TO cae;
 --
 -- TOC entry 161 (class 1259 OID 19316)
 -- Dependencies: 1819 1820 1821 5
--- Name: user; Type: TABLE; Schema: public; Owner: cae; Tablespace: 
+-- Name: user; Type: TABLE; Schema: public; Owner: cae; Tablespace:
 --
 
 CREATE TABLE "user" (
@@ -169,7 +169,7 @@ ALTER TABLE public."user" OWNER TO cae;
 --
 -- TOC entry 165 (class 1259 OID 19395)
 -- Dependencies: 5
--- Name: user_permissions; Type: TABLE; Schema: public; Owner: cae; Tablespace: 
+-- Name: user_permissions; Type: TABLE; Schema: public; Owner: cae; Tablespace:
 --
 
 CREATE TABLE user_permissions (
@@ -183,7 +183,7 @@ ALTER TABLE public.user_permissions OWNER TO cae;
 --
 -- TOC entry 169 (class 1259 OID 19449)
 -- Dependencies: 1828 5
--- Name: white_card; Type: TABLE; Schema: public; Owner: cae; Tablespace: 
+-- Name: white_card; Type: TABLE; Schema: public; Owner: cae; Tablespace:
 --
 
 CREATE TABLE white_card (
@@ -287,7 +287,7 @@ COPY white_card (id, deck_id, text) FROM stdin;
 --
 -- TOC entry 1842 (class 2606 OID 19443)
 -- Dependencies: 168 168 1963
--- Name: black_card_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace: 
+-- Name: black_card_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace:
 --
 
 ALTER TABLE ONLY black_card
@@ -297,7 +297,7 @@ ALTER TABLE ONLY black_card
 --
 -- TOC entry 1838 (class 2606 OID 19414)
 -- Dependencies: 166 166 166 1963
--- Name: deck_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace: 
+-- Name: deck_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace:
 --
 
 ALTER TABLE ONLY deck_permissions
@@ -307,7 +307,7 @@ ALTER TABLE ONLY deck_permissions
 --
 -- TOC entry 1832 (class 2606 OID 19346)
 -- Dependencies: 163 163 1963
--- Name: deck_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace: 
+-- Name: deck_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace:
 --
 
 ALTER TABLE ONLY deck
@@ -317,7 +317,7 @@ ALTER TABLE ONLY deck
 --
 -- TOC entry 1834 (class 2606 OID 19394)
 -- Dependencies: 164 164 1963
--- Name: permission_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace: 
+-- Name: permission_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace:
 --
 
 ALTER TABLE ONLY permission
@@ -327,7 +327,7 @@ ALTER TABLE ONLY permission
 --
 -- TOC entry 1840 (class 2606 OID 19429)
 -- Dependencies: 167 167 167 1963
--- Name: site_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace: 
+-- Name: site_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace:
 --
 
 ALTER TABLE ONLY site_permissions
@@ -337,7 +337,7 @@ ALTER TABLE ONLY site_permissions
 --
 -- TOC entry 1836 (class 2606 OID 19399)
 -- Dependencies: 165 165 165 1963
--- Name: user_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace: 
+-- Name: user_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace:
 --
 
 ALTER TABLE ONLY user_permissions
@@ -347,7 +347,7 @@ ALTER TABLE ONLY user_permissions
 --
 -- TOC entry 1830 (class 2606 OID 19325)
 -- Dependencies: 161 161 1963
--- Name: user_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace: 
+-- Name: user_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace:
 --
 
 ALTER TABLE ONLY "user"
@@ -357,7 +357,7 @@ ALTER TABLE ONLY "user"
 --
 -- TOC entry 1844 (class 2606 OID 19457)
 -- Dependencies: 169 169 1963
--- Name: white_card_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace: 
+-- Name: white_card_pkey; Type: CONSTRAINT; Schema: public; Owner: cae; Tablespace:
 --
 
 ALTER TABLE ONLY white_card
@@ -451,4 +451,3 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 --
 -- PostgreSQL database dump complete
 --
-

@@ -42,6 +42,7 @@ hbs.handlebars.registerPartial('chatMessage', fs.readFileSync(__dirname + '/view
 
 hbs.handlebars.registerPartial('modalGameSettings', fs.readFileSync(__dirname + '/views/game/modal_settings.hbs', 'utf8'));
 hbs.handlebars.registerPartial('modalGamePlayers', fs.readFileSync(__dirname + '/views/game/modal_players.hbs', 'utf8'));
+hbs.handlebars.registerPartial('modalAddSet', fs.readFileSync(__dirname + '/views/game/modal_add_set.hbs', 'utf8'));
 
 hbs.handlebars.registerPartial('cookieNotice', fs.readFileSync(__dirname + '/views/util/cookie_notice.hbs', 'utf8'));
 

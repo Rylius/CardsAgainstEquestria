@@ -2,6 +2,8 @@ var _ = require('underscore');
 
 var log = require('logule').init(module);
 
+var xssFilters = require('xss-filters');
+
 var users = require('../../lib/users');
 
 var cards = require('../../lib/cards');
@@ -9,6 +11,10 @@ var cards = require('../../lib/cards');
 var Chat = require('../../lib/chat');
 
 var constants = require('../../lib/constants').Game;
+var MessageType = require('../../lib/constants').Chat;
+
+var CahCreator = require('cah-creator'),
+    creatorApi = new CahCreator();
 
 var config = null;
 var game = null;
@@ -87,6 +93,93 @@ var update = function (req, res) {
     gameInstance.update(req.body);
 
     res.send(200);
+};
+
+/**
+ * POST
+ * Adds a custom set to the game.
+ * @author tjhorner
+ */
+var addSet = function (req, res) {
+    var gameInstance = _.find(game.listGames(), function (game) {
+        return game.id == req.params.game;
+    });
+
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    } else if (gameInstance.host.id != req.session.user.id) {
+        res.send(403);
+        return;
+    }
+
+    var deckId = req.body.cahCreatorId;
+    if (_.find(gameInstance.customSets, function (deck) {
+            return deck.id == deckId;
+        })) {
+        // Custom set has already been added, ignore
+        res.send(200);
+    } else if (deckId) {
+        creatorApi.getDeck(deckId, function (deck) {
+            if (deck.error) {
+                res.send(404); // the only error the api returns is not found so this is safe... for now...
+                return;
+            }
+
+            deck.id = deckId;
+
+            // This does NOT make these strings 'safe'!
+            // Just avoiding a parser issue when embedding JSON in HTML.
+            // This is shit; all embedded JSON needs to be replaced with API calls.
+            deck.name = deck.name.replace(/[<>]/g, ' ');
+            deck.description = deck.description.replace(/[<>]/g, ' ');
+
+            // Cards allow HTML so we need to make them safe here
+            _.forEach(deck.blackCards, function (card) {
+                card.text = xssFilters.inHTMLData(card.text);
+            });
+            deck.whiteCards = _.map(deck.whiteCards, function (text) {
+                return xssFilters.inHTMLData(text);
+            });
+
+            gameInstance.customSets.push(deck);
+
+            res.send(deck);
+        });
+    } else {
+        res.send(400);
+    }
+};
+
+var removeSet = function (req, res) {
+    var gameInstance = _.find(game.listGames(), function (game) {
+        return game.id == req.params.game;
+    });
+
+    if (!gameInstance) {
+        res.send(404);
+        return;
+    } else if (gameInstance.host.id != req.session.user.id) {
+        res.send(403);
+        return;
+    }
+
+    var deckId = req.body.cahCreatorId;
+    if (deckId) {
+        var i = _.findIndex(gameInstance.customSets, function (deck) {
+            return deck.id = deckId;
+        });
+        if (i < 0) {
+            res.send(404);
+            return;
+        }
+
+        gameInstance.customSets.splice(i, 1);
+
+        res.send(200);
+    } else {
+        res.send(400);
+    }
 };
 
 /**
@@ -586,6 +679,8 @@ module.exports = function (app, appConfig, gameModule) {
 
     app.post('/ajax/game/:game/start', start);
     app.post('/ajax/game/:game/update', update);
+    app.post('/ajax/game/:game/addSet', addSet);
+    app.post('/ajax/game/:game/removeSet', removeSet);
 
     app.post('/ajax/game/:game/leave', leave);
 
