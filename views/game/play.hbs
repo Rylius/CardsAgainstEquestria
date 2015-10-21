@@ -31,7 +31,7 @@
                 Time left:
                 <span data-bind="text: timeLeft"></span>s
                 <!-- ko if: isHost() -->
-                <button class="btn btn-xs btn-default" data-bind="enable: timeLeft() > 0, click: skipRound">
+                <button class="btn btn-xs btn-success skip-button" data-bind="enable: timeLeft() > 0, click: skipRound">
                     <span class="glyphicon glyphicon-fast-forward"></span>
                     Skip
                 </button>
@@ -91,7 +91,7 @@
 
         <!-- ko if: isCzar() && blackCard() && czarCanSelect() -->
         <div class="confirm" data-bind="">
-            <button class="btn-default"
+            <button class="btn btn-primary"
                     data-bind="enable: selectedMove() && !selectedMoveSubmitted(), click: submitSelectedMove">
                 Confirm
             </button>
@@ -104,7 +104,7 @@
 
         <!-- ko if: !isCzar() && blackCard() && move() && !playedCardsUncovered() -->
         <div class="confirm" data-bind="">
-            <button class="btn-default"
+            <button class="btn btn-primary"
                     data-bind="enable: move().cards().length == blackCard().pick && !move().confirmed(), click: move().submit">
                 Confirm
             </button>
@@ -215,7 +215,7 @@
                 <!-- /ko -->
             </div>
 
-            <div id="chats">
+            <div id="chats" class="chat-wrapper">
                 <ul id="chat">
                     <li>
                         <a href="#chat-global" data-toggle="tab">Global Chat</a>
@@ -282,6 +282,7 @@
                                 _.each(data, function (update) {
                                     model.handleUpdate(update);
                                 });
+                                $.material.ripples();
                                 setTimeout(listen, 500);
                             },
                             error: function (xhr, status, error) {
