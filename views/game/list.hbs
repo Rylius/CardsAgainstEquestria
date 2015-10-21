@@ -3,7 +3,7 @@
     {{#replace 'content'}}
         <div class="row">
             <div class="col-xs-1">
-                <button data-bind="click: loadGames, disable: loading">
+                <button data-bind="click: loadGames, disable: loading" class="btn btn-primary">
                     Refresh
                 </button>
             </div>
@@ -66,12 +66,13 @@
 
                             <div class="button">
                                 {{#if user}}
-                                    <button data-bind="enable: !full() && !$root.loading() && (!passworded() || password()), click: function () { $root.join($data); }">
+                                    <button data-bind="enable: !full() && !$root.loading() && (!passworded() || password()), click: function () { $root.join($data); }"
+                                            class="btn btn-primary">
                                         Join
                                     </button>
                                 {{else}}
                                     <a data-bind="enable: !full() && !$root.loading(), attr: { href: '/game/join/' + id() }"
-                                       href="#" class="btn btn-default">
+                                       href="#" class="btn btn-primary">
                                         Join
                                     </a>
                                 {{/if}}

@@ -1,3 +1,9 @@
+$(document).ready(function(){
+    if($.cookie('theme') === "material"){
+        $.material.init();
+    }
+});
+
 function switchTheme(themeId) {
     $.cookie('theme', themeId, {expires: 3650, path: '/'});
 

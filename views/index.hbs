@@ -21,17 +21,13 @@
             <div class="col-xs-6">
 
                 {{#if user}}
-                    <a href="/game/create">
-                        <h2 class="button-play">
-                            <span class="glyphicon glyphicon-plus"></span>&nbsp;Create
-                        </h2>
+                    <a href="/game/create" class="btn btn-lg btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Create
                     </a>
                 {{/if}}
 
-                <a href="/games">
-                    <h2 class="button-play">
-                        <span class="glyphicon glyphicon-ok"></span>&nbsp;Play!
-                    </h2>
+                <a href="/games" class="btn btn-lg btn-success">
+                    <span class="glyphicon glyphicon-ok"></span>&nbsp;Play!
                 </a>
 
                 {{#unless user}}
@@ -56,7 +52,7 @@
 
                         <input type="hidden" id="redirect" name="redirect" value="{{{loginRedirect}}}">
 
-                        <input type="submit" value="Log in">
+                        <input type="submit" value="Log in" class="btn btn-success">
                     </form>
                 {{/unless}}
 

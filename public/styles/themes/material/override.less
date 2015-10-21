@@ -1,0 +1,35 @@
+// Overrides that fix some stuff when dealing with the material them
+@import "material.less";
+
+// chat
+#chat{
+  background: transparent;
+}
+
+.chat-wrapper{
+  .well;
+  .shadow-z-1;
+  background: #f5f5f5;
+}
+
+.history{
+  background: #f5f5f5 !important;
+}
+
+.button-play {
+  .btn !important;
+  .btn-success !important;
+  .btn-lg !important;
+
+  min-width: 200px;
+
+  margin-top: 0;
+  margin-right: 20px;
+}
+
+.navbar-title {
+  float: left;
+  padding: @navbar-padding-vertical @navbar-padding-horizontal;
+  font-size: @font-size-large;
+  line-height: 29px;
+}

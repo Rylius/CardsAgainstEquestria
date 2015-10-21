@@ -279,6 +279,7 @@ var GameLobbyViewModel = function (user) {
             console.log('Game state changed to ' + data.state);
             window.location.reload(true);
         }
+        $.material.ripples(); // if new elements are added, ripples don't register :(
     };
 
 };
