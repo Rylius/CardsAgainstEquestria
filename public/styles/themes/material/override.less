@@ -1,0 +1,112 @@
+// Overrides that fix some stuff when dealing with the material theme
+@import "material.less";
+
+@footer-height: 40px;
+
+#content-wrap {
+  min-height: 100%;
+  height: auto;
+  margin-bottom: -@footer-height;
+  padding-bottom: @footer-height;
+}
+
+#footer {
+  .links {
+    .text-center;
+
+    height: @footer-height;
+
+    padding-top: 10px;
+
+    color: @navbar-default-brand-color;
+    background-color: @navbar-default-bg;
+
+    a {
+      color: @navbar-default-link-color;
+
+      &:hover,
+      &:focus {
+        color: @navbar-default-link-hover-color;
+      }
+    }
+  }
+}
+
+// chat
+#chat{
+  background: transparent !important;
+}
+
+.chat-wrapper{
+  .well;
+  .shadow-z-1;
+  background: #f5f5f5;
+}
+
+.history{
+  background: #f5f5f5 !important;
+}
+
+.button-play {
+  .btn !important;
+  .btn-success !important;
+  .btn-lg !important;
+
+  min-width: 200px;
+
+  margin-top: 0;
+  margin-right: 20px;
+}
+
+.navbar-title {
+  float: left;
+  padding: @navbar-padding-vertical @navbar-padding-horizontal;
+  font-size: @font-size-large;
+  line-height: 29px;
+}
+
+.skip-button{
+  margin: 0 !important;
+}
+
+.black-card{
+  background: #212121 !important;
+  color: #f5f5f5 !important;
+}
+
+.card-small{
+  .shadow-z-1;
+  border-radius: 2px;
+}
+
+.card-small:hover{
+  .shadow-z-3;
+}
+
+// footer
+#footer {
+  .links {
+    .text-center;
+
+    height: @footer-height;
+
+    padding-top: 10px;
+
+    color: @navbar-default-brand-color;
+    background-color: @navbar-default-bg;
+
+    a {
+      color: @navbar-default-link-color;
+
+      &:hover,
+      &:focus {
+        color: @navbar-default-link-hover-color;
+      }
+    }
+  }
+}
+
+// todo
+.todo{
+  display: none; // TODO (todo-ception!) TODOs look really bad with the material theme. fix later?
+}

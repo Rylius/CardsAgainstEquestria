@@ -56,7 +56,7 @@
 
                 <div>
                     <div>
-                        <input type="submit" value="Start game" class="btn btn-default"
+                        <input type="submit" value="Start game" class="btn btn-primary"
                                data-bind="enable: game().valid() && game().ready() && !starting(), click: start">
                     </div>
                 </div>
@@ -382,7 +382,7 @@
                 <!-- /ko -->
             </div>
 
-            <div class="col-xs-9">
+            <div class="col-xs-9 chat-wrapper">
                 <ul id="chat">
                     <li>
                         <a href="#chat-global" data-toggle="tab">Global Chat</a>
@@ -516,6 +516,7 @@
                         }
 
                         loadTwitter();
+                        $.material.ripples();
                     },
                     error: function (request, error, status) {
                         console.warn('Failed to request game info: ' + error + ': ' + status);

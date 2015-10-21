@@ -27,6 +27,11 @@ module.exports = function (grunt) {
                 files: {
                     "dist/styles/flufflepuff.css": "public/styles/themes/flufflepuff/flufflepuff.less"
                 }
+            },
+            material: {
+                files: {
+                    "dist/styles/material.css": "public/styles/themes/material/material.less"
+                }
             }
         },
         concat: {

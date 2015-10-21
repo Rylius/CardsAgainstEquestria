@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v8/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: inherit;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+
+  /* User-added styles; prevents icon selection */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+// Rules for sizing the icon.
+.glyphicon.md-18 { font-size: 18px; }
+.glyphicon.md-24 { font-size: 24px; }
+.glyphicon.md-36 { font-size: 36px; }
+.glyphicon.md-48 { font-size: 48px; }
+
+// Rules for using icons as black on a light background.
+.glyphicon.md-dark { color: rgba(0, 0, 0, 0.54); }
+.glyphicon.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+// Rules for using icons as white on a dark background.
+.glyphicon.md-light { color: rgba(255, 255, 255, 1); }
+.glyphicon.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+// Glyphicons -> Material Icons
+// ---
+// Since material icons use ligature shit,
+// we need to hide the glyphicon (shown in ::before)
+// and set the text in ::after, where the material
+// icon is shown. Wow!
+
+.glyphicon{
+  .material-icons;
+  font-size: inherit;
+
+  &::before{
+    display: none;
+  }
+
+  &.glyphicon-ok::after{
+    content: "check";
+  }
+
+  &.glyphicon-log-in::after{
+    content: "lock_open";
+  }
+
+  &.glyphicon-log-out::after{
+    content: "lock";
+  }
+
+  &.glyphicon-plus::after{
+    content: "add";
+  }
+
+  &.glyphicon-th-list::after{
+    content: "view_list";
+  }
+
+  &.glyphicon-user::after{
+    content: "person";
+  }
+
+  &.glyphicon-arrow-right::after{
+    content: "arrow_forward";
+  }
+
+  &.glyphicon-remove::after{
+    content: "remove_circle";
+  }
+
+  &.glyphicon-star::after{
+    content: "star";
+  }
+
+  &.glyphicon-import::after{
+    content: "import_export";
+  }
+
+  &.glyphicon-floppy-disk::after{
+    content: "save";
+  }
+
+  &.glyphicon-wrench::after, &.glyphicon-cog::after{
+    content: "settings";
+  }
+
+  &.glyphicon-fast-forward::after{
+    content: "fast_forward";
+  }
+
+  &.glyphicon-paperclip::after{
+    content: "link";
+  }
+}
+
+i.closed{
+  .material-icons;
+
+  &::after{
+    content: "keyboard_arrow_right";
+  }
+}
+
+i.open{
+  .material-icons;
+
+  &::after{
+    content: "keyboard_arrow_down";
+  }
+}
+
+b.caret{
+  .material-icons;
+
+  border: none;
+
+  &::after{
+    content: "keyboard_arrow_down";
+  }
+}

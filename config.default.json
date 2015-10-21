@@ -44,6 +44,11 @@
             "name": "Fluffle Puff",
             "id": "flufflepuff",
             "file": "flufflepuff"
+        },
+        {
+            "name": "Material [beta!]",
+            "id": "material",
+            "file": "material"
         }
     ],
     "defaultTheme": "derpy",
