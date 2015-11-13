@@ -631,7 +631,7 @@ var rules = function (req, res) {
             {
                 id: 4,
                 title: 'God Is Dead',
-                description: 'Play without a Card Czar. Each players picks his or her favorite card each round. The card with the most votes wins the round.'
+                description: 'Play without a Card Pony. Each players picks his or her favorite card each round. The card with the most votes wins the round.'
             },
             {
                 id: 5,
@@ -641,7 +641,7 @@ var rules = function (req, res) {
             {
                 id: 6,
                 title: 'Serious Business',
-                description: 'Instead of picking a favorite card each round, the Card Czar ranks the top three in order. The best card gets 3 Awesome Points, the second-best gets 2, and the third gets 1. At the end of the game, the winner is declared the funniest, mathematically speaking.'
+                description: 'Instead of picking a favorite card each round, the Card Pony ranks the top three in order. The best card gets 3 Awesome Points, the second-best gets 2, and the third gets 1. At the end of the game, the winner is declared the funniest, mathematically speaking.'
             },
             {
                 id: 7,

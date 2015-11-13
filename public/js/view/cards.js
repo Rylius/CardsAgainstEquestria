@@ -418,7 +418,7 @@ var PlayViewModel = function (game, player) {
                     return move.id == data.move;
                 }));
                 if (this.czar()) {
-                    this.czar().state('Card Czar');
+                    this.czar().state('Card Pony');
                 }
 
                 player = _.find(this.players(), function (p) {
@@ -456,7 +456,7 @@ var PlayViewModel = function (game, player) {
                     player.state('Playing');
                     player.points(data.points[player.id]);
                 });
-                this.czar().state('Card Czar');
+                this.czar().state('Card Pony');
 
                 this.move(new MoveViewModel(-1));
 

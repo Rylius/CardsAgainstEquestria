@@ -1,5 +1,11 @@
 [
   {
+    "date": "Nov 12, 2015",
+    "changes": [
+      "Renamed the Card Czar to the Card Pony"
+    ]
+  },
+  {
     "date": "Oct 20, 2015",
     "version": "1.0.8",
     "changes": [
