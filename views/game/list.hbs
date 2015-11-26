@@ -14,18 +14,22 @@
             </div>
 
             <div class="col-xs-11" data-bind="if: !loading()">
-                <span class="todo">filters/sorting</span>
+                <label>
+                    <input type="checkbox" data-bind="checked: hidePassworded">
+                    Hide passworded
+                </label>
+                {{!-- TODO Filters/sort --}}
             </div>
         </div>
 
-        <div data-bind="if: games().length == 0 && !loading()">
+        <div data-bind="if: filteredGames().length == 0 && !loading()">
             <p>
                 No games found! <a href="/game/create">Start one?</a>
             </p>
         </div>
 
         <div class="row">
-            <div class="col-xs-6 game-list" data-bind="foreach: games">
+            <div class="col-xs-6 game-list" data-bind="foreach: filteredGames">
                 <div class="game">
                     <div class="left">
 
