@@ -116,12 +116,33 @@ app.use(function (req, res, next) {
         themeId = config.defaultTheme;
     }
 
-    res.locals.theme = _.find(config.themes,function (theme) {
+    res.locals.theme = _.find(config.themes, function (theme) {
         return theme.id == themeId;
     }).file;
 
     next();
 });
+
+var checkForBan = function (req, res, next) {
+    var ban = users.findBan(req.ip);
+    if (ban) {
+        res.locals.user = null;
+        if (req.session.user) {
+            req.session.user = null;
+        }
+
+        if (req.path.indexOf('ajax') >= 0) {
+            res.end();
+            return;
+        } else if (req.path != '/') {
+            req.flash('error', 'You\'re banned. Go away. (No, we won\'t unban you.)<br>Reason: ' + ban.reason);
+            res.redirect('/');
+            return;
+        }
+    }
+
+    next();
+};
 
 var ajaxAuth = function (req, res, next) {
     if (req.path != '/ajax/user/login'
@@ -198,6 +219,7 @@ var permissions = function (req, res, next) {
     next();
 };
 
+app.use(checkForBan);
 app.use(ajaxAuth);
 app.use(auth);
 app.use(permissions);

@@ -7,6 +7,7 @@ var exec = require('child_process').exec;
 
 var Settings = require('../../lib/settings');
 var Games = require('../../lib/game');
+var Users = require('../../lib/users');
 
 var Chat = require('../../lib/chat');
 var MessageType = require('../../lib/constants').Chat;
@@ -82,6 +83,37 @@ var settings = function (req, res) {
     res.send(200);
 };
 
+var banUser = function (req, res) {
+    var target = Users.get(req.body.userId);
+    var reason = req.body.reason || 'Banned';
+    if (target.clientData) {
+        Users.addBan(target.clientData.ip, target.name, reason);
+        Users.logout(target.id, null, reason);
+        res.send(200);
+        return;
+    }
+
+    res.send(400);
+};
+
+var removeBan = function (req, res) {
+    var ban = Users.findBan(req.body.ip);
+    if (ban) {
+        Users.removeBan(ban);
+        res.send(200);
+        return;
+    }
+
+    res.send(404);
+};
+
+var changeUserName = function (req, res) {
+    var target = Users.get(req.body.userId);
+    target.name = req.body.name;
+
+    res.send(200);
+};
+
 module.exports = function (app, appConfig) {
     config = appConfig;
 
@@ -89,4 +121,8 @@ module.exports = function (app, appConfig) {
     app.post('/ajax/admin/broadcast', broadcast);
     app.post('/ajax/admin/restart', restart);
     app.post('/ajax/admin/settings', settings);
+
+    app.post('/ajax/admin/banUser', banUser);
+    app.post('/ajax/admin/removeBan', removeBan);
+    app.post('/ajax/admin/changeUserName', changeUserName);
 };

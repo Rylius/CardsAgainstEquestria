@@ -23,7 +23,7 @@ var post = function (req, res) {
     }
 
     var text = req.body.message;
-    if (!text || text.length == 0 || text.length > 8192) {
+    if (!text || text.length == 0 || text.length > 2048) {
         res.send(400);
         return;
     }

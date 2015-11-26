@@ -1,4 +1,4 @@
-function AdminViewModel(process, memory, users, games, settings, gameId) {
+function AdminViewModel(process, memory, users, games, bans, settings, gameId) {
 
     var self = this;
 
@@ -27,6 +27,11 @@ function AdminViewModel(process, memory, users, games, settings, gameId) {
     this.games = ko.observableArray();
     _.each(games, function (game) {
         self.games.push(game);
+    });
+
+    this.bans = ko.observableArray();
+    _.each(bans, function (ban) {
+        self.bans.push(ban);
     });
 
     this.allowGames = ko.observable(settings.allowNewGames);
@@ -109,6 +114,21 @@ function AdminViewModel(process, memory, users, games, settings, gameId) {
         });
     };
 
+    this.removeBan = function (ban) {
+        self.busy(true);
+        $.ajax('/ajax/admin/removeBan', {
+            method: 'post',
+            data: ban,
+            error: function (xhr, error, status) {
+                alert('Failed to remove ban\n' + error + ': ' + status);
+            },
+            complete: function () {
+                self.busy(false);
+                self.bans.remove(ban);
+            }
+        });
+    };
+
     // value formatters
 
     this.formatMegaBytes = function (bytes) {
@@ -166,5 +186,46 @@ function AdminViewModel(process, memory, users, games, settings, gameId) {
         }
         return 'Broken';
     }
+
+}
+
+function AdminUserViewModel(userId) {
+
+    var self = this;
+
+    this.userId = userId;
+
+    this.busy = ko.observable(false);
+
+    this.banReason = ko.observable('');
+    this.changedName = ko.observable('');
+
+    this.banUser = function () {
+        self.busy(true);
+        $.ajax('/ajax/admin/banUser', {
+            method: 'post',
+            data: {userId: userId, reason: this.banReason()},
+            error: function (xhr, error, status) {
+                alert('Failed to kick user\n' + error + ': ' + status);
+            },
+            complete: function () {
+                window.location.reload(true);
+            }
+        });
+    };
+
+    this.changeUserName = function () {
+        self.busy(true);
+        $.ajax('/ajax/admin/changeUserName', {
+            method: 'post',
+            data: {userId: userId, name: this.changedName()},
+            error: function (xhr, error, status) {
+                alert('Failed to change user name\n' + error + ': ' + status);
+            },
+            complete: function () {
+                window.location.reload(true);
+            }
+        });
+    };
 
 }
