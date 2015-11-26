@@ -1,5 +1,14 @@
 [
   {
+    "date": "Nov 26, 2015",
+    "version": "1.0.9",
+    "changes": [
+      "Improved administrative capabilities... *polishes ban hammer*",
+      "Game list is now sorted by player count and password",
+      "Passworded games can be hidden from the game list"
+    ]
+  },
+  {
     "date": "Oct 20, 2015",
     "version": "1.0.8",
     "changes": [

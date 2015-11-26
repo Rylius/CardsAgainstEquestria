@@ -62,11 +62,45 @@
                 User is not playing
             </div>
         {{/if}}
+
+        <h2>Actions</h2>
+        <div class="row">
+            <div class="col-xs-2">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <div class="input-group">
+                            <input type="text" data-bind="value: banReason, disable: busy" class="form-control"
+                                   placeholder="Ban reason">
+                            <span class="input-group-btn">
+                                <button data-bind="click: banUser, disable: busy" class="btn btn-danger">Ban</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-2">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <div class="input-group">
+                            <input type="text" data-bind="value: changedName, disable: busy" class="form-control"
+                                   placeholder="New name">
+                            <span class="input-group-btn">
+                                <button data-bind="click: changeUserName, disable: busy" class="btn btn-default">Change</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     {{/replace}}
 
     {{#append 'defer'}}
         <script>
             $(function () {
+                viewModel = new AdminUserViewModel({{prey.id}});
+
+                ko.applyBindings(viewModel);
             });
         </script>
     {{/append}}

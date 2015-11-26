@@ -18,7 +18,9 @@ var index = function (req, res) {
 
     res.render('admin/index', {
         title: 'Fancy admin overview',
-        users: JSON.stringify(usersJson), games: JSON.stringify(gamesJson),
+        users: JSON.stringify(usersJson),
+        games: JSON.stringify(gamesJson),
+        bans: JSON.stringify(Users.getBans()),
         process: JSON.stringify({
             version: process.version,
             pid: process.pid,

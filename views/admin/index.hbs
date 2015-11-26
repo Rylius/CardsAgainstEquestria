@@ -194,12 +194,41 @@
                 </tbody>
             </table>
         </div>
+
+        <h2>
+            Bans
+        </h2>
+
+        <div>
+            <table class="table table-striped table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th>IP</th>
+                    <th>Name</th>
+                    <th>Reason</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+
+                <tbody data-bind="foreach: bans">
+                <tr>
+                    <td data-bind="text: ip"></td>
+                    <td data-bind="text: name"></td>
+                    <td data-bind="text: reason"></td>
+
+                    <td>
+                        <button class="btn btn-default" data-bind="click: $root.removeBan">Remove</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     {{/replace}}
 
     {{#append 'defer'}}
         <script>
             $(function () {
-                model = new AdminViewModel({{{process}}}, {{{memory}}}, {{{users}}}, {{{games}}}, {{{appSettings}}}, {{gameId}});
+                model = new AdminViewModel({{{process}}}, {{{memory}}}, {{{users}}}, {{{games}}}, {{{bans}}}, {{{appSettings}}}, {{gameId}});
                 ko.applyBindings(model);
 
                 setInterval(function () {

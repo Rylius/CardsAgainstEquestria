@@ -9,7 +9,21 @@ var GameListViewModel = function (sets) {
 
     this.games = ko.observableArray();
 
+    this.hidePassworded = ko.observable(false);
+
     this.loading = ko.observable(true);
+
+    this.filteredGames = ko.computed(function () {
+        var games = [];
+
+        _.each(self.games(), function (game) {
+            if (!self.hidePassworded() || !game.passworded()) {
+                games.push(game);
+            }
+        });
+
+        return games;
+    });
 
     this.loadGames = function () {
         self.loading(true);
@@ -79,6 +93,11 @@ var GameListViewModel = function (sets) {
         self.games.removeAll();
         _.each(json, function (game) {
             self.games.push(new GameViewModel().fromJson(game));
+        });
+
+        // Sort by player count, moving passworded games towards the bottom
+        self.games.sort(function (a, b) {
+            return (a.passworded() && !b.passworded()) ? 1 : ((a.players().length < b.players().length) ? 1 : -1);
         });
 
         self.loading(false);
