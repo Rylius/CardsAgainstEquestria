@@ -152,7 +152,7 @@ var GameLobbyViewModel = function (user) {
     };
 
     this.addCustomSetFromId = function () {
-      self.cahCreatorWindow = window.open("http://localhost:3000/decks/select", "_blank", "height=620,width=1150");
+      self.cahCreatorWindow = window.open("https://cahcreator.com/decks/select", "_blank", "height=620,width=1150");
     };
 
     this.removeCustomSet = function (deck) {
