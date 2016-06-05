@@ -121,7 +121,6 @@ var addSet = function (req, res) {
         res.send(200);
     } else if (deckId) {
         creatorApi.getDeck(deckId, function (deck) {
-            console.log(deck);
             if (deck.error) {
                 res.send(404); // the only error the api returns is not found so this is safe... for now...
                 return;
