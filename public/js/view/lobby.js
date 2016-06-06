@@ -19,7 +19,7 @@ var GameLobbyViewModel = function (user) {
     this.addCustomSetId = ko.observable('');
     this.addCustomSetLoading = ko.observable(false);
     this.addCustomSetMessage = ko.observable(null);
-    this.cahCreatorWindow = undefined; // for now...
+    this.cahCreatorWindow = null;
 
     window.addEventListener("message", function (event) {
         if (event.data.deck) {
@@ -43,7 +43,7 @@ var GameLobbyViewModel = function (user) {
                         self.addCustomSetId('');
                     },
                     error: function () {
-                        self.addCustomSetMessage('There doesn\'t seem to be any deck with that ID. :(')
+                        self.addCustomSetMessage('Something went wrong. :(')
                     },
                     complete: function () {
                         self.addCustomSetLoading(false);
