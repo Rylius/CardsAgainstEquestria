@@ -19,6 +19,39 @@ var GameLobbyViewModel = function (user) {
     this.addCustomSetId = ko.observable('');
     this.addCustomSetLoading = ko.observable(false);
     this.addCustomSetMessage = ko.observable(null);
+    this.cahCreatorWindow = null;
+
+    window.addEventListener("message", function (event) {
+        if (event.data.deck) {
+            self.cahCreatorWindow.close();
+
+            self.addCustomSetLoading(true);
+            self.addCustomSetMessage(null);
+            $.ajax('/ajax/game/' + self.game().id() + '/addSet', {
+                    method: 'post',
+                    data: {cahCreatorId: event.data.deck},
+                    success: function (data) {
+                        data.id = event.data.deck;
+                        if (data !== 'OK') {
+                            self.game().customSets.push(data);
+                            self.update();
+
+                            self.addCustomSetMessage('Deck added: ' + data.name + ' - ' + data.description);
+                        } else {
+                            self.addCustomSetMessage('Deck has already been added.');
+                        }
+                        self.addCustomSetId('');
+                    },
+                    error: function () {
+                        self.addCustomSetMessage('Something went wrong. :(')
+                    },
+                    complete: function () {
+                        self.addCustomSetLoading(false);
+                    }
+                }
+            );
+        }
+    }, false);
 
     this.rules = ko.observableArray();
 
@@ -119,31 +152,11 @@ var GameLobbyViewModel = function (user) {
     };
 
     this.addCustomSetFromId = function () {
-        self.addCustomSetLoading(true);
-        self.addCustomSetMessage(null);
-        $.ajax('/ajax/game/' + self.game().id() + '/addSet', {
-                method: 'post',
-                data: {cahCreatorId: self.addCustomSetId()},
-                success: function (data) {
-                    data.id = self.addCustomSetId();
-                    if (data !== 'OK') {
-                        self.game().customSets.push(data);
-                        self.update();
-
-                        self.addCustomSetMessage('Deck added: ' + data.name + ' - ' + data.description);
-                    } else {
-                        self.addCustomSetMessage('Deck has already been added');
-                    }
-                    self.addCustomSetId('');
-                },
-                error: function () {
-                    self.addCustomSetMessage('There doesn\'t seem to be any deck with that ID. :(')
-                },
-                complete: function () {
-                    self.addCustomSetLoading(false);
-                }
-            }
-        );
+        if (!self.cahCreatorWindow || self.cahCreatorWindow.closed) {
+            self.cahCreatorWindow = window.open("https://cahcreator.com/decks/select", "_blank", "width=940,height=600");
+        } else {
+            self.cahCreatorWindow.focus();
+        }
     };
 
     this.removeCustomSet = function (deck) {
@@ -236,8 +249,8 @@ var GameLobbyViewModel = function (user) {
             this.game().fromJson(data);
             this.sendUpdates(true);
 
-            document.title = data.name + ' - Cards Against Equestria'; // TODO should the app name (in this case "Cards Against Equestria") be stored in the
-                                                                       // config or something? this would be a pain to change everywhere.
+            // TODO Grab app name from oonfig (or ideally, i18n)
+            document.title = data.name + ' - Cards Against Equestria';
         } else if (type == Game.Server.Update.CHAT) {
             if (data.user) {
                 console.log('Chat message by ' + data.user.id + '/' + data.user.name + ': ' + data.type + ': ' + data.message);

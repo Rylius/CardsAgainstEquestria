@@ -1,5 +1,12 @@
 [
   {
+    "date": "Jun 6, 2016",
+    "version": "1.0.10",
+    "changes": [
+      "Improved <a href=\"http://cahcreator.com\">CAH Creator</a> integration (thanks <a href=\"https://github.com/tjhorner\">tjhorner</a>!)"
+    ]
+  },
+  {
     "date": "Nov 26, 2015",
     "version": "1.0.9",
     "changes": [

@@ -1,13 +1,13 @@
 {
   "name": "cards-against-equestria",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "homepage": "https://github.com/Rylius/CardsAgainstEquestria",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "cah-creator": "^1.0.0",
+    "cah-creator": "^1.0.3",
     "connect-flash": "0.1.x",
     "express": "3.x.x",
     "extend": "1.2.x",
