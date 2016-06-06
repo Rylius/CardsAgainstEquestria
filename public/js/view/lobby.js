@@ -19,6 +19,39 @@ var GameLobbyViewModel = function (user) {
     this.addCustomSetId = ko.observable('');
     this.addCustomSetLoading = ko.observable(false);
     this.addCustomSetMessage = ko.observable(null);
+    this.cahCreatorWindow = undefined; // for now...
+
+    window.addEventListener("message", function(event){
+      if(event.data.deck){
+        self.cahCreatorWindow.close();
+
+        self.addCustomSetLoading(true);
+        self.addCustomSetMessage(null);
+        $.ajax('/ajax/game/' + self.game().id() + '/addSet', {
+                method: 'post',
+                data: {cahCreatorId: event.data.deck},
+                success: function (data) {
+                    data.id = event.data.deck;
+                    if (data !== 'OK') {
+                        self.game().customSets.push(data);
+                        self.update();
+
+                        self.addCustomSetMessage('Deck added: ' + data.name + ' - ' + data.description);
+                    } else {
+                        self.addCustomSetMessage('Deck has already been added');
+                    }
+                    self.addCustomSetId('');
+                },
+                error: function () {
+                    self.addCustomSetMessage('There doesn\'t seem to be any deck with that ID. :(')
+                },
+                complete: function () {
+                    self.addCustomSetLoading(false);
+                }
+            }
+        );
+      }
+    }, false);
 
     this.rules = ko.observableArray();
 
@@ -119,31 +152,7 @@ var GameLobbyViewModel = function (user) {
     };
 
     this.addCustomSetFromId = function () {
-        self.addCustomSetLoading(true);
-        self.addCustomSetMessage(null);
-        $.ajax('/ajax/game/' + self.game().id() + '/addSet', {
-                method: 'post',
-                data: {cahCreatorId: self.addCustomSetId()},
-                success: function (data) {
-                    data.id = self.addCustomSetId();
-                    if (data !== 'OK') {
-                        self.game().customSets.push(data);
-                        self.update();
-
-                        self.addCustomSetMessage('Deck added: ' + data.name + ' - ' + data.description);
-                    } else {
-                        self.addCustomSetMessage('Deck has already been added');
-                    }
-                    self.addCustomSetId('');
-                },
-                error: function () {
-                    self.addCustomSetMessage('There doesn\'t seem to be any deck with that ID. :(')
-                },
-                complete: function () {
-                    self.addCustomSetLoading(false);
-                }
-            }
-        );
+      self.cahCreatorWindow = window.open("https://cahcreator.com/decks/select", "_blank", "height=620,width=1150");
     };
 
     this.removeCustomSet = function (deck) {
