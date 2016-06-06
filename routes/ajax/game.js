@@ -121,28 +121,34 @@ var addSet = function (req, res) {
         res.send(200);
     } else if (deckId) {
         creatorApi.getDeck(deckId, function (deck) {
-            if (deck.error) {
-                res.send(404); // the only error the api returns is not found so this is safe... for now...
+            if (!deck || deck.error) {
+                res.send(404);
                 return;
             }
 
             deck.id = deckId;
 
-            // This does NOT make these strings 'safe'!
-            // Just avoiding a parser issue when embedding JSON in HTML.
-            // This is shit; all embedded JSON needs to be replaced with API calls.
-            deck.name = deck.name.replace(/[<>]/g, ' ');
-            deck.description = deck.description.replace(/[<>]/g, ' ');
+            try {
+                // This does NOT make these strings 'safe'!
+                // Just avoiding a parser issue when embedding JSON in HTML.
+                // This is shit; all embedded JSON needs to be replaced with API calls.
+                deck.name = deck.name.replace(/[<>]/g, ' ');
+                deck.description = deck.description.replace(/[<>]/g, ' ');
 
-            // Cards allow HTML so we need to make them safe here
-            _.forEach(deck.blackCards, function (card) {
-                card.text = xssFilters.inHTMLData(card.text);
-            });
-            deck.whiteCards = _.map(deck.whiteCards, function (text) {
-                return xssFilters.inHTMLData(text);
-            });
+                // Cards allow HTML so we need to make them safe here
+                _.forEach(deck.blackCards, function (card) {
+                    card.text = xssFilters.inHTMLData(card.text);
+                });
+                deck.whiteCards = _.map(deck.whiteCards, function (text) {
+                    return xssFilters.inHTMLData(text);
+                });
 
-            gameInstance.customSets.push(deck);
+                gameInstance.customSets.push(deck);
+            } catch (error) {
+                log.warn('Failed to create custom deck from input data \'' + JSON.stringify(deck) + '\': ' + error);
+                res.send(404);
+                return;
+            }
 
             res.send(deck);
         });
