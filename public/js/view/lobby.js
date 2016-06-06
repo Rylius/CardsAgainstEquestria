@@ -152,7 +152,11 @@ var GameLobbyViewModel = function (user) {
     };
 
     this.addCustomSetFromId = function () {
-        self.cahCreatorWindow = window.open("https://cahcreator.com/decks/select", "_blank", "width=940,height=600");
+        if (!self.cahCreatorWindow || self.cahCreatorWindow.closed) {
+            self.cahCreatorWindow = window.open("https://cahcreator.com/decks/select", "_blank", "width=940,height=600");
+        } else {
+            self.cahCreatorWindow.focus();
+        }
     };
 
     this.removeCustomSet = function (deck) {
