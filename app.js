@@ -242,9 +242,12 @@ game.load(__dirname, config);
 log.info('Loaded game data (' + game.cards.sets.length + ' sets, ' + game.cards.expansions.length + ' expansions, ' +
     game.cards.blackCards.length + ' black cards, ' + game.cards.whiteCards.length + ' white cards' + ')');
 
+// bans
+users.loadBans();
+
 // pages
 
-log.debug('Loading application...');
+log.debug('Loading application... (environment: ' + config.env + ')');
 
 app.use(app.router);
 
