@@ -120,27 +120,52 @@ var addSet = function (req, res) {
         // Custom set has already been added, ignore
         res.send(200);
     } else if (deckId) {
-        creatorApi.getDeck(deckId, function (deck) {
-            if (!deck || deck.error) {
+        creatorApi.getDeck(deckId, function (deckData) {
+            if (!deckData || deckData.error) {
                 res.send(404);
                 return;
             }
 
-            deck.id = deckId;
+            var deck = {};
+
+            deck.id = 'custom-' + deckId + '-';
+            deck.expansion = true;
 
             try {
                 // This does NOT make these strings 'safe'!
                 // Just avoiding a parser issue when embedding JSON in HTML.
                 // This is shit; all embedded JSON needs to be replaced with API calls.
-                deck.name = deck.name.replace(/[<>]/g, ' ');
-                deck.description = deck.description.replace(/[<>]/g, ' ');
+                deck.name = deckData.name.replace(/[<>]/g, ' ');
+                deck.description = deckData.description.replace(/[<>]/g, ' ');
+                if(deckData.watermark) {
+                    deck.watermark = deckData.watermark.replace(/[<>]/g, '').substring(0, 12);
+                } else {
+                    deck.watermark = 'Custom';
+                }
 
-                // Cards allow HTML so we need to make them safe here
-                _.forEach(deck.blackCards, function (card) {
-                    card.text = xssFilters.inHTMLData(card.text);
+                var cardId = 0;
+
+                deck.blackCards = _.map(deckData.blackCards, function (card) {
+                    var text = xssFilters.inHTMLData(card.text);
+                    var draw = card.draw ? +card.draw : 1;
+                    var pick = card.pick ? +card.pick : 1;
+                    var toJSON = function () {
+                        return {id: card.id, text: card.text, watermark: card.watermark, draw: card.draw, pick: card.pick};
+                    };
+
+                    var obj = {id: deck.id + (cardId++), draw: draw, pick: pick, text: text, watermark: deck.watermark};
+                    obj.toJSON = function () {
+                        return obj;
+                    };
+                    return obj;
                 });
-                deck.whiteCards = _.map(deck.whiteCards, function (text) {
-                    return xssFilters.inHTMLData(text);
+                deck.whiteCards = _.map(deckData.whiteCards, function (text) {
+                    text = xssFilters.inHTMLData(text);
+                    var card = {id: deck.id + (cardId++), text: text, watermark: deck.watermark};
+                    card.toJSON = function () {
+                        return card;
+                    };
+                    return card;
                 });
 
                 gameInstance.customSets.push(deck);
