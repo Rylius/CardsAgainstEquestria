@@ -1,5 +1,13 @@
 [
   {
+    "date": "Jun 25, 2016",
+    "version": "1.0.11",
+    "changes": [
+      "Improved ban list",
+      "Added CAH Creator watermarks"
+    ]
+  },
+  {
     "date": "Jun 6, 2016",
     "version": "1.0.10",
     "changes": [
