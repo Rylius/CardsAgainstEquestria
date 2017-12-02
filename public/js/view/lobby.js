@@ -153,7 +153,7 @@ var GameLobbyViewModel = function (user) {
 
     this.addCustomSetFromId = function () {
         if (!self.cahCreatorWindow || self.cahCreatorWindow.closed) {
-            self.cahCreatorWindow = window.open("https://cahcreator.com/decks/select", "_blank", "width=940,height=600");
+            self.cahCreatorWindow = window.open("https://neodeck.io/decks/select", "_blank", "width=940,height=600");
         } else {
             self.cahCreatorWindow.focus();
         }
