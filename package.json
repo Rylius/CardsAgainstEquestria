@@ -7,7 +7,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "cah-creator": "^1.0.3",
+    "cah-creator": "^1.0.4",
     "connect-flash": "0.1.x",
     "express": "3.x.x",
     "extend": "1.2.x",
